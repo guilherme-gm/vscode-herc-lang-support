@@ -1,0 +1,25 @@
+{
+    "name": "hercules-script-support",
+    "displayName": "Hercules Script Support",
+    "description": "Adds support for Hercules (http://herc.ws) scripting language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.33.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "hercscript",
+            "aliases": ["Hercules Script", "hercscript"],
+            "extensions": [".txt"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "hercscript",
+            "scopeName": "source.herc",
+            "path": "./syntaxes/hercscript.tmLanguage.json"
+        }]
+    }
+}
