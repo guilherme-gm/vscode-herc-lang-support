@@ -86,3 +86,9 @@ $RECYCLE.BIN/
 ## Build Files
 out/*
 node_modules/*
+
+## Java parser (used for development testing only)
+parser-java/*
+
+## ANTLR extension cache
+parser-gen/.antlr/*
