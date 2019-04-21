@@ -1,0 +1,21 @@
+//================= Hercules Script =======================================
+//= Simple NPC with error (header uses 1 space instead of tabs)
+//=========================================================================
+
+/* Block Comment */
+/*
+ Block
+ Comment
+*/
+
+prontera,132,125,4 script SimpleNpc 1_M_01,{
+	mes("Hey, hello!");
+    switch(select("Hey", "Hi")) {
+        case 1:
+            mes("Bye");
+            close();
+        case 2:
+            mes("Good Bye");
+            close();
+    }
+}

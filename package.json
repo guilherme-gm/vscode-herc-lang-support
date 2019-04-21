@@ -35,7 +35,18 @@
                 "language": "hercscript",
                 "path": "./snippets.json"
             }
-        ]
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Hercules Script",
+            "properties": {
+                "hercscript.mapserverFolderPath": {
+                    "type": "string",
+                    "default": "",
+                    "markdownDescription": "Specifies the folder path containing a **compiled Hercules** map-server. This map-server will be used to validate your scripts and find errors. Leaving this empty disables script validator. Must end with a `/`"
+                }
+            }
+        }
     },
     "activationEvents": [
         "*"
