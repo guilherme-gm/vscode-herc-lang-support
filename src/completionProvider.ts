@@ -14,7 +14,7 @@ export function registerCompletionProviders(context: vscode.ExtensionContext) {
                 cmdList.commands.forEach((cmd) => {
                     // https://code.visualstudio.com/api/references/vscode-api#CompletionItem
                     const completion = new vscode.CompletionItem(cmd.name);
-                    completion.insertText = new vscode.SnippetString(cmd.name+"(${1})");
+                    //completion.insertText = new vscode.SnippetString(cmd.name+"(${1})");
                     let returnType = "(void)";
                     let params = "";
 
