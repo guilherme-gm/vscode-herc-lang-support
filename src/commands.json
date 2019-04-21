@@ -1,0 +1,24 @@
+{
+    "commands": [
+        {
+            "name": "mes",
+            "params": [{
+                "name": "message",
+                "type": "string"
+            }]
+        },
+        {
+            "name": "next"
+        },
+        {
+            "name": "close"
+        },
+        {
+            "name": "select",
+            "params": [{
+                "options": "..."
+            }],
+            "return": "int"
+        }
+    ]
+}

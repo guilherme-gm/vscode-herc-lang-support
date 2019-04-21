@@ -82,3 +82,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/linux,macos,windows,visualstudiocode
+
+## Build Files
+out/*
+node_modules/*
