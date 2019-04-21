@@ -20,6 +20,10 @@
             "language": "hercscript",
             "scopeName": "source.herc",
             "path": "./syntaxes/hercscript.tmLanguage.json"
+        }],
+        "snippets": [{
+            "language": "hercscript",
+            "path": "./snippets.json"
         }]
     }
 }
