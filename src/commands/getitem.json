@@ -1,0 +1,34 @@
+{
+    "getitem": {
+        "params": [
+            {
+                "itemID": "int",
+                "amount": "int",
+                "accountID": {
+                    "type": "int",
+                    "default": "RID"
+                }
+            },
+            {
+                "itemName": "string",
+                "amount": "int",
+                "accountID": {
+                    "type": "int",
+                    "default": "RID"
+                }
+            }
+        ],
+        "doc": [
+            "give a specific amount of specified items to the target",
+            "character. If the character is not online, nothing will happen.",
+            "If <account ID> is not specified, items will be created in the invoking",
+            "character inventory instead."
+        ],
+        "paramDoc": {
+            "itemID": "Item ID to be given (can be AegisName constant)",
+            "itemName": "Name of the item to be given (as in english name field).\n**Not Recommended** - use Aegis Name (ID) instead.",
+            "amount": "Amount of this item to be given",
+            "accountID": "Account that will receive the item (if it is online)"
+        }
+    }
+}

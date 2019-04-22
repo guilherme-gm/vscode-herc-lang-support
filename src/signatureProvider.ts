@@ -1,59 +1,59 @@
 'use strict';
 
 import * as vscode from 'vscode';
-import cmdList = require("./commands.json");
+import * as parser from "./parser";
+import * as cmdHelp from "./commandHelper";
 import { format } from 'util';
 
-export function registerSignatureProviders(context: vscode.ExtensionContext) {
+export function register(context: vscode.ExtensionContext) {
 
     context.subscriptions.concat(
         vscode.languages.registerSignatureHelpProvider('hercscript', {
             provideSignatureHelp(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): vscode.ProviderResult<vscode.SignatureHelp> {
-                // https://code.visualstudio.com/api/references/vscode-api#SignatureHelp
-                const info = new vscode.SignatureInformation("mes", "Mes doc");
-                info.parameters = [
-                    new vscode.ParameterInformation("message", "the message")
-                ];
+                const cursorContext: parser.ContextInfo = parser.getContext(document, position);
 
+                if (cursorContext === null || cmdHelp.cmd[cursorContext.funcName] === null) {
+                    return null; // Not a command
+                }
+
+                const cmdInfo = cmdHelp.cmd[cursorContext.funcName];
+
+                // https://code.visualstudio.com/api/references/vscode-api#SignatureHelp
                 let signature: vscode.SignatureHelp = new vscode.SignatureHelp();
-                signature.activeParameter = 0;
-                signature.activeSignature = 0;
-                signature.signatures = [ info ];
+                signature.activeParameter = cursorContext.paramNum - 1;
+                signature.activeSignature = 0; // TODO : Multiple signatures support
+                signature.signatures = generateSignatureInfos(cursorContext.funcName, cmdInfo);
 
                 return signature;
             }
         }, "(", ",")
     );
-        // {
-        //     provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
-        //         let completeList: Array<vscode.CompletionItem> = [];
+}
 
-        //         cmdList.commands.forEach((cmd) => {
-        //             // https://code.visualstudio.com/api/references/vscode-api#CompletionItem
-        //             const completion = new vscode.CompletionItem(cmd.name);
-        //             completion.insertText = new vscode.SnippetString(cmd.name+"(${1})");
-        //             let returnType = "(void)";
-        //             let params = "";
+function generateSignatureInfos(cmdName: string, cmdInfo): vscode.SignatureInformation[] {
+    let signatures: vscode.SignatureInformation[] = [];
 
-        //             if (cmd.params != null) {
-        //                 let paramList = [];
-        //                 cmd.params.forEach(param => {
-        //                     paramList.push(param.name + ": " + param.type);
-        //                 })
-        //                 params = paramList.join(",");
-        //             }
-        //             if (cmd.return != null) {
-        //                 returnType = format("(%s)", cmd.return);
-        //             }
+    cmdInfo.params.forEach(signGroup => {
+        const signatureInfo = new vscode.SignatureInformation(
+            cmdHelp.getCommandSignature(cmdName, cmdInfo, signGroup),
+            cmdHelp.getCommandDocumentation(cmdInfo)
+        );
 
-        //             completion.detail = format("%s %s(%s)", returnType, cmd.name, params);
-        //             completion.documentation = "Documentation";
-        //             completion.kind = vscode.CompletionItemKind.Function;
-        //             completeList.push(completion);
-        //         });
-                
-        //         return completeList;
-        //     }
-        // })
+        signatureInfo.parameters = [];
 
+        // FIXME : Can we move that to commandHelper somehow?
+        Object.keys(signGroup).forEach(parName => {
+            console.log(format("%s: %s", parName, signGroup[parName]));
+            signatureInfo.parameters.push(
+                new vscode.ParameterInformation(
+                    cmdHelp.formatParam(parName, signGroup[parName]),
+                    new vscode.MarkdownString(cmdHelp.getParameterDocumentation(cmdInfo, parName))
+                )
+            )
+        });
+
+        signatures.push(signatureInfo);
+    });
+
+    return signatures;
 }

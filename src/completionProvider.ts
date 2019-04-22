@@ -1,8 +1,7 @@
 'use strict';
 
 import * as vscode from 'vscode';
-import cmdList = require("./commands.json");
-import { format } from 'util';
+import * as cmdHelper from "./commandHelper";
 
 export function registerCompletionProviders(context: vscode.ExtensionContext) {
 
@@ -10,29 +9,14 @@ export function registerCompletionProviders(context: vscode.ExtensionContext) {
         vscode.languages.registerCompletionItemProvider('hercscript', {
             provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext) {
                 let completeList: Array<vscode.CompletionItem> = [];
-
-                cmdList.commands.forEach((cmd) => {
+                
+                Object.keys(cmdHelper.cmd).forEach((cmdName) => {
                     // https://code.visualstudio.com/api/references/vscode-api#CompletionItem
-                    const completion = new vscode.CompletionItem(cmd.name);
-                    //completion.insertText = new vscode.SnippetString(cmd.name+"(${1})");
-                    let returnType = "(void)";
-                    let params = "";
-
-                    if (cmd.params != null) {
-                        let paramList = [];
-                        cmd.params.forEach(param => {
-                            paramList.push(param.name + ": " + param.type);
-                        })
-                        params = paramList.join(",");
-                    }
-                    if (cmd.return != null) {
-                        returnType = format("(%s)", cmd.return);
-                    }
-
-                    completion.detail = format("%s %s(%s)", returnType, cmd.name, params);
-                    completion.documentation = "Documentation";
-                    completion.kind = vscode.CompletionItemKind.Function;
+                    const completion = new vscode.CompletionItem(cmdName, vscode.CompletionItemKind.Function);
+                    completion.detail = cmdHelper.getCommandSignature(cmdName, cmdHelper.cmd[cmdName]); // FIXME : I think we can simply get rid of the second param
+                    completion.documentation = new vscode.MarkdownString(cmdHelper.getCommandDocumentation(cmdHelper.cmd[cmdName])); // FixME : I think we can use cmd name instead
                     completeList.push(completion);
+                    // TODO : Could give higher priority to commands that has the return type of the context
                 });
                 
                 return completeList;
