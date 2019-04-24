@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - Split into Client and Language Server.
 
+### Added
+- License (MIT)
+
 ### Changed
 - Big structural change to run in client/server mode
 - Fixed `package.json` information
