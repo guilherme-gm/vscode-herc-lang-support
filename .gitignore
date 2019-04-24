@@ -85,7 +85,12 @@ $RECYCLE.BIN/
 
 ## Build Files
 out/*
+client/out/*
+server/out/*
 node_modules/*
+client/node_modules/*
+server/node_modules/*
+tsconfig.tsbuildinfo
 
 ## Java parser (used for development testing only)
 parser-java/*

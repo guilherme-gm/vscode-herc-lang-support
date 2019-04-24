@@ -1,19 +1,20 @@
-import * as vscode from 'vscode';
-import { HercScriptParserVisitor } from "../parser/HercScriptParserVisitor";
+import { HercScriptParserVisitor } from "../../antlr-parser/HercScriptParserVisitor";
+import { TextDocumentPositionParams } from "vscode-languageserver";
+import * as documentsManager from "../helpers/documentsManager";
 
 export type ContextInfo = {
     readonly funcName: string;
     readonly paramNum: number;
 }
 
-export function getContext(document: vscode.TextDocument, position: vscode.Position): ContextInfo {
+export function getContext(params: TextDocumentPositionParams): ContextInfo {
 
     var antlr4 = require('antlr4');
-    var HercScriptLexer = require('../parser/HercScriptLexer').HercScriptLexer;
-    var HercScriptParser = require('../parser/HercScriptParser').HercScriptParser;
-    var HercScriptListener = require('../parser/HercScriptListener').HercScriptListener;
+    var HercScriptLexer = require('../../antlr-parser/HercScriptLexer').HercScriptLexer;
+    var HercScriptParser = require('../../antlr-parser/HercScriptParser').HercScriptParser;
+    var HercScriptListener = require('../../antlr-parser/HercScriptListener').HercScriptListener;
 
-    var input = document.getText();
+    var input = documentsManager.getText(params.textDocument);
     var chars = new antlr4.InputStream(input);
     var lexer = new HercScriptLexer(chars);
     var tokens = new antlr4.CommonTokenStream(lexer);
@@ -35,10 +36,10 @@ export function getContext(document: vscode.TextDocument, position: vscode.Posit
     //     console.log("Oh, a key!");
     // };
 
-    let visitor = new Visitor(position.line, position.character);
+    let visitor = new Visitor(params.position.line, params.position.character);
     tree.accept(visitor);
 
-    if (visitor.contextInfo.funcName != null) {
+    if (!!visitor.contextInfo && !!visitor.contextInfo.funcName) {
         return visitor.contextInfo;
     } else {
         return null;

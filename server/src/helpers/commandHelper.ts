@@ -4,7 +4,7 @@
 
 import { format, isString } from "util";
 
-export const cmd = require("./commands.json");
+export const cmd = require("../commands.json");
 
 export function getCommandSignature(cmdName: string, cmdInfo, signGroup = null) {
     let returnType = "(void)";
@@ -39,7 +39,7 @@ export function getCommandDocumentation(cmdInfo) : string {
         return "Documentation unavailable.";
     }
 
-    cmdInfo.doc.join('');
+    return cmdInfo.doc.join('');
 }
 
 export function getParameterDocumentation(cmdInfo, paramName:string): string {

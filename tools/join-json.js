@@ -1,10 +1,10 @@
 const util = require('util');
 const fs = require('fs');
-const path = "./src/commands/";
-const out = "./out/commands.json";
+const path = "./server/src/commands/";
+const out = "./server/out/commands.json";
 
 let cmdList = {};
-fs.readdirSync("./src/commands/").forEach(fn => {
+fs.readdirSync(path).forEach(fn => {
     const cmdInfo = JSON.parse(fs.readFileSync(util.format("%s%s", path, fn)));
     Object.assign(cmdList, cmdInfo);
 });
