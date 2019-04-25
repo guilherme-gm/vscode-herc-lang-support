@@ -4,7 +4,8 @@
   "description": "Tree Sitter grammar for Hercules' Scripting Language",
   "main": "index.js",
   "scripts": {
-    "electron-build": "electron-rebuild -v 3.1.6"
+    "electron-build": "electron-rebuild -v 3.1.6",
+    "rebuild-test": "tree-sitter generate && tree-sitter test"
   },
   "author": "Guilherme Menaldo",
   "license": "MIT",

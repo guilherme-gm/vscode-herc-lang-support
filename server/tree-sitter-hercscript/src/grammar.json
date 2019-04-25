@@ -79,21 +79,12 @@
         }
       ]
     },
-    "npc_name": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        }
-      ]
-    },
     "npc_sprite": {
       "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "_identifier"
         }
       ]
     },
@@ -253,6 +244,10 @@
       "value": "\".*?\""
     },
     "identifier": {
+      "type": "SYMBOL",
+      "name": "_identifier"
+    },
+    "_identifier": {
       "type": "PATTERN",
       "value": "[a-zA-Z_0-9]+"
     }
@@ -264,6 +259,11 @@
     }
   ],
   "conflicts": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "npc_name"
+    }
+  ],
   "inline": []
 }

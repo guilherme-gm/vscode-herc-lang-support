@@ -1,8 +1,8 @@
 ===================================================
-Visible, and in a map Script-type NPC header
+Visible, in map Script-type NPC named with spaces and hidden/unique parts
 ===================================================
 
-prontera,150,150,4	script	Test	1_M_01,{
+prontera, 150, 150, 4	script	My NPC#isHidden::andunique	1_M_01,{
 
 }
 
@@ -16,12 +16,8 @@ prontera,150,150,4	script	Test	1_M_01,{
 			(number)
 			(number)
 		)
-    	(npc_name
-			(identifier)
-		)
-    	(npc_sprite
-			(identifier)
-		)
+    	(npc_name)
+    	(npc_sprite)
     	(block)
 	)
 )

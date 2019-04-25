@@ -1,5 +1,9 @@
 module.exports = grammar({
     name: 'hercscript',
+    
+    externals: $ => [
+        $.npc_name
+    ],
 
     rules: {
         source_file: $ => repeat($._header),
@@ -33,13 +37,8 @@ module.exports = grammar({
             // TODO : Floating npc / Optional lookin (for portals)
         ),
 
-        npc_name: $ => seq(
-            $.identifier
-            // TODO : Hidden name, unique name, spaces
-        ),
-
         npc_sprite: $ => seq(
-            $.identifier
+            $._identifier
         ),
 
         block: $ => seq(
@@ -85,6 +84,7 @@ module.exports = grammar({
 
         number: $ => /\d+/,
         string: $ => /".*?"/, // TODO : Escaped strings
-        identifier: $ => /[a-zA-Z_0-9]+/
+        identifier: $ => $._identifier,
+        _identifier: $ => /[a-zA-Z_0-9]+/
     }
 });

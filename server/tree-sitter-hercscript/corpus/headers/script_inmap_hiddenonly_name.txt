@@ -1,9 +1,9 @@
 ===================================================
-Script NPC - command with 1 str parameter
+Visible, in map Script-type NPC named only with hidden part
 ===================================================
 
-prontera,150,150,4	script	Test	1_M_01,{
-	mes("Hello");
+prontera, 150, 150, 4	script	#My NPC hide	1_M_01,{
+
 }
 
 ---
@@ -18,13 +18,6 @@ prontera,150,150,4	script	Test	1_M_01,{
 		)
     	(npc_name)
     	(npc_sprite)
-    	(block
-			(function_stmt
-				(identifier)
-				(parameter_list
-					(string)
-				)
-			)
-		)
+    	(block)
 	)
 )

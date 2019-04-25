@@ -1,3 +1,3 @@
-prontera,150,150,4	script	Test	FAKE_NPC,{
-	getitem(501,)
+prontera,150,150,4	script	Test Space	FAKE_NPC,{
+	getitem(501);
 }

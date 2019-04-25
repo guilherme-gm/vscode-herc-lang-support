@@ -16,12 +16,8 @@ prontera,150,150,4	script	Test	1_M_01,{
 			(number)
 			(number)
 		)
-    	(npc_name
-			(identifier)
-		)
-    	(npc_sprite
-			(identifier)
-		)
+    	(npc_name)
+    	(npc_sprite)
     	(block
 			(function_stmt
 				(identifier)

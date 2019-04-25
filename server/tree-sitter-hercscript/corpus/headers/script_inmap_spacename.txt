@@ -1,9 +1,9 @@
 ===================================================
-Script NPC - command with 1 str parameter
+Visible, and in a map Script-type NPC header with spaces in name
 ===================================================
 
-prontera,150,150,4	script	Test	1_M_01,{
-	mes("Hello");
+prontera, 150, 150, 4	script	Spaced Name Test	1_M_01,{
+
 }
 
 ---
@@ -18,13 +18,6 @@ prontera,150,150,4	script	Test	1_M_01,{
 		)
     	(npc_name)
     	(npc_sprite)
-    	(block
-			(function_stmt
-				(identifier)
-				(parameter_list
-					(string)
-				)
-			)
-		)
+    	(block)
 	)
 )
