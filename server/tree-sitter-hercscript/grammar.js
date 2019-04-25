@@ -1,6 +1,6 @@
 module.exports = grammar({
     name: 'hercscript',
-    
+
     externals: $ => [
         $.npc_name
     ],
@@ -21,6 +21,7 @@ module.exports = grammar({
             $.npc_name,
             //'\t',
             $.npc_sprite,
+            optional(seq(',', $.npc_area)),
             ',',
             $.block
         ),
@@ -32,6 +33,10 @@ module.exports = grammar({
 
         npc_sprite: $ => seq(
             $._identifier
+        ),
+
+        npc_area: $ => seq(
+            $.number, ',', $.number
         ),
 
         block: $ => seq(

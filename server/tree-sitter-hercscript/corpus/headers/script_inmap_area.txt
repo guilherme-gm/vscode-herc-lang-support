@@ -1,0 +1,27 @@
+===================================================
+Visible, and in a map Script-type NPC header
+===================================================
+
+prontera, 150, 130, 4	script	Area Trigger	1_M_01,3,2,{
+
+}
+
+---
+
+(source_file
+	(script_def
+    	(position
+			(identifier)
+			(number)
+			(number)
+			(number)
+		)
+    	(npc_name)
+    	(npc_sprite)
+        (npc_area
+            (number)
+            (number)
+        )
+    	(block)
+	)
+)
