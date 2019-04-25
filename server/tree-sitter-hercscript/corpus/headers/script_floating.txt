@@ -1,0 +1,18 @@
+===================================================
+Visible, and in a map Script-type NPC header
+===================================================
+
+-	script	Test NPC#hid::unq	1_M_01,{
+
+}
+
+---
+
+(source_file
+	(script_def
+    	(position)
+    	(npc_name)
+    	(npc_sprite)
+    	(block)
+	)
+)

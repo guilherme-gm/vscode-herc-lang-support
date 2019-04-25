@@ -25,17 +25,10 @@ module.exports = grammar({
             $.block
         ),
 
-        position: $ => seq(
-            $.identifier,
-            ',',
-            $.number,
-            ',',
-            $.number,
-            ',',
-            $.number
-
-            // TODO : Floating npc / Optional lookin (for portals)
-        ),
+        position: $ => choice(
+            seq($.identifier, ',', $.number, ',', $.number, ',', $.number),
+            '-'
+        ), // TODO : direction is optional for portals
 
         npc_sprite: $ => seq(
             $._identifier
