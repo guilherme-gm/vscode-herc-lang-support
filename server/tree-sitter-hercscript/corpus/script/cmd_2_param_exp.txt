@@ -1,0 +1,37 @@
+===================================================
+Script NPC with a 2 param command with expression as value
+===================================================
+
+prontera,150,150,4	script	Test	1_M_01,{
+	mycmd((1000 + 1), 200*3);
+}
+
+---
+
+(source_file
+	(script_def
+    	(position
+			(identifier)
+			(number)
+			(number)
+			(number)
+		)
+    	(npc_name)
+    	(npc_sprite)
+    	(block
+			(function_stmt
+				(identifier)
+				(parameter_list
+					(plusop
+						(number)
+						(number)
+					)
+					(mulop
+						(number)
+						(number)
+					)
+				)
+			)
+		)
+	)
+)

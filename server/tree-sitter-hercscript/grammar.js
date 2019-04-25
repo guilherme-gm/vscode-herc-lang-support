@@ -74,11 +74,17 @@ module.exports = grammar({
         ),
 
         _expression: $ => choice(
+            $.mulop,
+            $.plusop,
             $.number,
             $.identifier,
-            $.string
+            $.string,
+            seq('(', $._expression, ')')
             // TODO: other kinds of expressions
         ),
+
+        mulop: $ => prec.left(1, seq($._expression, choice('*', '/'), $._expression)),
+        plusop: $ => prec.left(2, seq($._expression, choice('+', '-'), $._expression)),
 
         number: $ => /\d+/,
         string: $ => /".*?"/, // TODO : Escaped strings
