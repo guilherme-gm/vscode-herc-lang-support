@@ -1,0 +1,27 @@
+===================================================
+Visible, and in a map Script-type NPC header
+===================================================
+
+prontera,150,150,4	script	Test	1_M_01,{
+
+}
+
+---
+
+(source_file
+	(script_def
+    	(position
+			(identifier)
+			(number)
+			(number)
+			(number)
+		)
+    	(npc_name
+			(identifier)
+		)
+    	(npc_sprite
+			(identifier)
+		)
+    	(block)
+	)
+)

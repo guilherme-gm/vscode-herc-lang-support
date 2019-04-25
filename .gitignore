@@ -90,6 +90,9 @@ server/out/*
 node_modules/*
 client/node_modules/*
 server/node_modules/*
+server/tree-sitter-hercscript/node_modules/*
+server/tree-sitter-hercscript/bin/*
+server/tree-sitter-hercscript/build/*
 tsconfig.tsbuildinfo
 
 ## Java parser (used for development testing only)

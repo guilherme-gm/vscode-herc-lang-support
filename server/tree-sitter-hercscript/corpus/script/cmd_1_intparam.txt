@@ -1,0 +1,34 @@
+===================================================
+Script NPC with a setquest command, a command that has 1 parameter.
+===================================================
+
+prontera,150,150,4	script	Test	1_M_01,{
+	setquest(1001);
+}
+
+---
+
+(source_file
+	(script_def
+    	(position
+			(identifier)
+			(number)
+			(number)
+			(number)
+		)
+    	(npc_name
+			(identifier)
+		)
+    	(npc_sprite
+			(identifier)
+		)
+    	(block
+			(function_stmt
+				(identifier)
+				(parameter_list
+					(number)
+				)
+			)
+		)
+	)
+)

@@ -1,0 +1,36 @@
+===================================================
+Script NPC - command with 3 int parameters
+===================================================
+
+prontera,150,150,4	script	Test	1_M_01,{
+	getitem(501, 10, 1000002);
+}
+
+---
+
+(source_file
+	(script_def
+    	(position
+			(identifier)
+			(number)
+			(number)
+			(number)
+		)
+    	(npc_name
+			(identifier)
+		)
+    	(npc_sprite
+			(identifier)
+		)
+    	(block
+			(function_stmt
+				(identifier)
+				(parameter_list
+					(number)
+					(number)
+					(number)
+				)
+			)
+		)
+	)
+)

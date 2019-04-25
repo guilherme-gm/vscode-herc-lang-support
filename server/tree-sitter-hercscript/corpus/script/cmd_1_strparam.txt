@@ -1,0 +1,34 @@
+===================================================
+Script NPC - command with 1 str parameter
+===================================================
+
+prontera,150,150,4	script	Test	1_M_01,{
+	mes("Hello");
+}
+
+---
+
+(source_file
+	(script_def
+    	(position
+			(identifier)
+			(number)
+			(number)
+			(number)
+		)
+    	(npc_name
+			(identifier)
+		)
+    	(npc_sprite
+			(identifier)
+		)
+    	(block
+			(function_stmt
+				(identifier)
+				(parameter_list
+					(string)
+				)
+			)
+		)
+	)
+)

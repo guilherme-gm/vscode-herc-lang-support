@@ -62,7 +62,7 @@
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -b",
         "watch": "tsc -b -w",
-        "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+        "postinstall": "cd client && npm install && cd ../server && npm install && npm run rebuild-treesitter && cd tree-sitter-hercscript && npm install && npm run electron-build && cd ../..",
         "generate-commands": "node ./tools/join-json.js"
     },
     "devDependencies": {

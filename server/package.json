@@ -13,10 +13,13 @@
         "node": "*"
     },
     "dependencies": {
+        "tree-sitter": "^0.14.0",
         "vscode-languageserver": "^4.1.3",
         "vscode-uri": "^1.0.6"
     },
-    "scripts": {},
+    "scripts": {
+        "rebuild-treesitter": "cd ./node_modules/tree-sitter && npm install --save-dev electron-rebuild && ./node_modules/.bin/electron-rebuild -v 3.1.6 && npm install && cd ../../"
+    },
     "devDependencies": {
         "@types/node": "^11.13.7"
     }

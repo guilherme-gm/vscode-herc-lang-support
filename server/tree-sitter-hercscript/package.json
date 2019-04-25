@@ -1,0 +1,19 @@
+{
+  "name": "tree-sitter-hercscript",
+  "version": "0.1.0",
+  "description": "Tree Sitter grammar for Hercules' Scripting Language",
+  "main": "index.js",
+  "scripts": {
+    "electron-build": "electron-rebuild -v 3.1.6"
+  },
+  "author": "Guilherme Menaldo",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.13.2",
+    "tree-sitter": "^0.14.0"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.8.4",
+    "tree-sitter-cli": "^0.14.6"
+  }
+}
