@@ -64,7 +64,7 @@ module.exports = grammar({
         ),
 
         _param: $ => seq(
-            choice($.function_stmt, $._expression),
+            $._expression,
             optional(seq(',', optional($._param)))
         ),
 
@@ -75,6 +75,7 @@ module.exports = grammar({
         ),
 
         _expression: $ => choice(
+            $.function_stmt,
             $.mulop,
             $.plusop,
             $.number,
@@ -88,7 +89,11 @@ module.exports = grammar({
         plusop: $ => prec.left(2, seq($._expression, choice('+', '-'), $._expression)),
 
         number: $ => /\d+/,
-        string: $ => /".*?"/, // TODO : Escaped strings
+        string: $ => seq(
+            '"',
+            repeat(token.immediate(prec(1, /[^\\"\n]+/))),
+            '"'
+        ), // TODO : Escaped strings
         identifier: $ => $._identifier,
         _identifier: $ => /[a-zA-Z_0-9]+/
     }

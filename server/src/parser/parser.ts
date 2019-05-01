@@ -52,6 +52,13 @@ function getMyContext(node, searchRow, searchCol) {
     return childNode;
 }
 
+function isCompositeExpression(node) {
+    return ([
+        "plusop",
+        "mulop"
+    ].indexOf(node.type) >= 0)
+}
+
 function getCommandCursor(cmdNode, searchRow, searchCol) {
     // cmdNode:
     // 0 - identifier (name)
@@ -99,7 +106,13 @@ function getCommandCursor(cmdNode, searchRow, searchCol) {
                 searchRow,
                 searchCol
             )) {
-                if (childNode.type === 'function_stmt') {
+                console.log(childNode.type);
+                if (isCompositeExpression(childNode)) {
+                    const solvedExp = recursiveSearchCommand(childNode, searchRow, searchCol);
+                    if (solvedExp != null) {
+                        return solvedExp;
+                    }
+                } else if (childNode.type === 'function_stmt') {
                     // cursor is in a parameter that is also a function,
                     // recursively expand this parameter to find out what
                     // is the actual function/parameter
@@ -120,6 +133,38 @@ function getCommandCursor(cmdNode, searchRow, searchCol) {
         funcName: funcName,
         paramNum: paramNum
     };
+}
+
+function recursiveSearchCommand(node, searchRow, searchCol) {
+    switch (node.type) {
+        case "mulop":
+        case "plusop":
+            let i = 0;
+            while (i < node.childCount) {
+                const childNode = node.child(i);
+                i++;
+
+                if (inRange(
+                    childNode.startPosition.row,
+                    childNode.startPosition.column,
+                    childNode.endPosition.row,
+                    childNode.endPosition.column,
+                    searchRow,
+                    searchCol)
+                ) {
+                    if (isCompositeExpression(childNode)) {
+                        return recursiveSearchCommand(childNode, searchRow, searchCol);
+                    } else if (childNode.type === 'function_stmt') {
+                        return getCommandCursor(childNode, searchRow, searchCol);
+                    } else {
+                        return null;
+                    }
+                }
+            }
+            break;
+    }
+
+    return null;
 }
 
 function inRange(startRow, startCol, endRow, endCol, checkRow, checkCol) {

@@ -23,6 +23,24 @@ const testCases : TestCase[] = [
         position: { line: 1, character: 9 },
         return: { funcName: "cmd2", paramNum: 1 }
     },
+    {
+        it: "Should find cmd2, param1 -- Appended command",
+        content: [ "cmd(\"str\" + cmd2());" ],
+        position: { line: 1, character: 17 },
+        return: { funcName: "cmd2", paramNum: 1 }
+    },
+    {
+        it: "Should find cmd2, param1 -- Appended command",
+        content: [ "cmd(\"str1\" + \"str2\" + cmd2());" ],
+        position: { line: 1, character: 27 },
+        return: { funcName: "cmd2", paramNum: 1 }
+    },
+    {
+        it: "Should find cmd2, param1 -- Appended command",
+        content: [ "cmd(\"str1\" + \"str2\" + cmd2(\"\"));" ],
+        position: { line: 1, character: 27 },
+        return: { funcName: "cmd2", paramNum: 1 }
+    }
 ];
 
 describe('Signature Helper', function () {
