@@ -1,6 +1,5 @@
 import { TextDocumentPositionParams, Position } from "vscode-languageserver";
 import * as docMngr from "../helpers/documentsManager";
-import { connection } from "../server";
 
 export type ContextInfo = {
     readonly funcName: string;
@@ -22,7 +21,7 @@ export function getContextOfText(sourceCode: string, position: Position): Contex
     const tree = parser.parse(sourceCode);
 
     let res = getMyContext(tree.rootNode.child(0), position.line, position.character);
-    connection.console.log(res);
+    //connection.console.log(res);
     let cmdInfo = getCommandCursor(res, position.line, position.character);
 
     return { funcName: cmdInfo.funcName, paramNum: cmdInfo.paramNum };
