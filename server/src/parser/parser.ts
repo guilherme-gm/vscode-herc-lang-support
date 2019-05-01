@@ -100,11 +100,18 @@ function getCommandCursor(cmdNode, searchRow, searchCol) {
                 searchRow,
                 searchCol
             )) {
-                console.log(childNode);
-                return {
-                    funcName: funcName,
-                    paramNum: paramNum
-                };
+                if (childNode.type === 'function_stmt') {
+                    // cursor is in a parameter that is also a function,
+                    // recursively expand this parameter to find out what
+                    // is the actual function/parameter
+                    return getCommandCursor(childNode, searchRow, searchCol);
+                } else {
+                    console.log(childNode);
+                    return {
+                        funcName: funcName,
+                        paramNum: paramNum
+                    };
+                }
             }
             i++;
         }
@@ -118,7 +125,7 @@ function getCommandCursor(cmdNode, searchRow, searchCol) {
 
 function inRange(startRow, startCol, endRow, endCol, checkRow, checkCol) {
     //console.log(startRow + " ; " + startCol + " ; " + endRow + " ; " + endCol + " ; " + checkRow + " ; " + checkCol);
-//
+    //
     //console.log("(startRow < checkRow) => " + (startRow < checkRow));
     //console.log("(startRow == checkRow && startCol < checkCol) => " + (startRow == checkRow && startCol < checkCol));
     //console.log("(endRow > checkRow) => " + (endRow > checkRow));

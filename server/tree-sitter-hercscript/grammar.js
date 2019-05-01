@@ -45,16 +45,16 @@ module.exports = grammar({
             '}'
         ),
 
-        _statement: $ => choice(
-            $.return_statement,
-            $.function_stmt
-            // TODO: other kinds of statements
-        ),
+        _statement: $ => seq(
+            choice(
+                $.return_statement,
+                $.function_stmt
+                // TODO: other kinds of statements
+            ), ';'),
 
         function_stmt: $ => seq(
             $.identifier,
             $.parameter_list,
-            ';'
         ),
 
         parameter_list: $ => seq(
@@ -64,7 +64,8 @@ module.exports = grammar({
         ),
 
         _param: $ => seq(
-            $._expression, optional(seq(',', optional($._param)))
+            choice($.function_stmt, $._expression),
+            optional(seq(',', optional($._param)))
         ),
 
         return_statement: $ => seq(
