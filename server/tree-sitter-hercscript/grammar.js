@@ -5,6 +5,11 @@ module.exports = grammar({
         $.npc_name
     ],
 
+    extras: $ => [
+        /\s/,
+        $._comment,
+    ],
+
     rules: {
         source_file: $ => repeat($._header),
 
@@ -95,6 +100,16 @@ module.exports = grammar({
             '"'
         ), // TODO : Escaped strings
         identifier: $ => $._identifier,
-        _identifier: $ => /[a-zA-Z_0-9]+/
+        _identifier: $ => /[a-zA-Z_0-9]+/,
+
+        // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
+        _comment: $ => token(choice(
+            seq('//', /(\\[.\n]|[^\\\n])*/),
+            seq(
+                '/*',
+                /[^*]*\*+([^/*][^*]*\*+)*/,
+                '/'
+            )
+        )),
     }
 });

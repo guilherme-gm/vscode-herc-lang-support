@@ -52,6 +52,12 @@ const testCases : TestCase[] = [
         content: [ "cmd(\"str1\" + \"str2\" + cmd2(\"\"));" ],
         position: { line: 1, character: 27 },
         return: { funcName: "cmd2", paramNum: 1 }
+    },
+    {
+        it: "Should find cmd2, param1 -- Comments in param",
+        content: [ "cmd(\"str1\" /*+ \"str2\"*/ + cmd2(\"\"));" ],
+        position: { line: 1, character: 31 },
+        return: { funcName: "cmd2", paramNum: 1 }
     }
 ];
 

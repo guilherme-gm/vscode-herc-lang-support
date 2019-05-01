@@ -1,0 +1,23 @@
+===================================================
+Line comment inside script block
+===================================================
+
+prontera,150,150,4	script	Test	1_M_01,{
+    // Line comment
+}
+
+---
+
+(source_file
+	(script_def
+    	(position
+			(identifier)
+			(number)
+			(number)
+			(number)
+		)
+    	(npc_name)
+    	(npc_sprite)
+    	(block)
+	)
+)
