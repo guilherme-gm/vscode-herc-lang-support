@@ -24,6 +24,18 @@ const testCases : TestCase[] = [
         return: { funcName: "cmd2", paramNum: 1 }
     },
     {
+        it: "Should find cmd, param3",
+        content: ["cmd(\"str\", 10,)"],
+        position: { line: 1, character: 14 },
+        return: { funcName: "cmd", paramNum: 3 }
+    },
+    {
+        it: "Should find cmd2, param2",
+        content: ["cmd(\"str\", 10, cmd2(10,))"],
+        position: { line: 1, character: 23 },
+        return: { funcName: "cmd2", paramNum: 2 }
+    },
+    {
         it: "Should find cmd2, param1 -- Appended command",
         content: [ "cmd(\"str\" + cmd2());" ],
         position: { line: 1, character: 17 },
