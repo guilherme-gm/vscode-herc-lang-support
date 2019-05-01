@@ -1,7 +1,15 @@
 {
     "mes": {
-        "params": {
-            "message": "string"
+        "params": [
+            {
+                "message": "string"
+            }
+        ],
+        "doc": [
+            "Shows a message"
+        ],
+        "paramDoc": {
+            "message": "Message to show"
         }
     }
 }
