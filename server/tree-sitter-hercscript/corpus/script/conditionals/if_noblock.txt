@@ -1,0 +1,38 @@
+===================================================
+Simple if condition without a block
+===================================================
+
+prontera,150,150,4	script	Test	1_M_01,{
+    if (Id > 10)
+        cmd(10, 20);
+}
+
+---
+
+(source_file
+	(script_def
+    	(position
+			(identifier)
+			(number)
+			(number)
+			(number)
+		)
+    	(npc_name)
+    	(npc_sprite)
+    	(block
+			(if_stmt
+                (compareop
+					(identifier)
+					(number)
+				)
+                (function_stmt
+                    (identifier)
+                    (parameter_list
+                        (number)
+                        (number)
+                    )
+                )
+			)
+		)
+	)
+)

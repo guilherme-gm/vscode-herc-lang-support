@@ -1,0 +1,37 @@
+===================================================
+Switch block
+===================================================
+
+-	script	Test	1_M_01,{
+    switch (Id) {
+    case 1:
+        break;
+    case 2:
+    default:
+        break;
+    }
+}
+
+---
+
+(source_file
+	(script_def
+    	(position)
+    	(npc_name)
+    	(npc_sprite)
+    	(block
+			(switch_stmt
+                (identifier)
+                (block
+                    (case_stmt (number)
+                        (break_stmt)
+                    )
+                    (case_stmt (number))
+                    (case_stmt
+                        (break_stmt)
+                    )
+                )
+			)
+		)
+	)
+)

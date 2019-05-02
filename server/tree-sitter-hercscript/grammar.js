@@ -50,12 +50,15 @@ module.exports = grammar({
             '}'
         ),
 
-        _statement: $ => seq(
-            choice(
-                $.return_statement,
-                $.function_stmt
-                // TODO: other kinds of statements
-            ), ';'),
+        _statement: $ => choice(
+            $.return_statement,
+            $.break_stmt,
+            $.if_stmt,
+            $.switch_stmt,
+            seq($.function_stmt, ';'),
+            $.block,
+            // TODO: other kinds of statements
+        ),
 
         function_stmt: $ => seq(
             $.identifier,
@@ -73,6 +76,40 @@ module.exports = grammar({
             optional(seq(',', optional($._param)))
         ),
 
+        if_stmt: $ => prec.right(seq(
+            'if',
+            '(',
+            $._expression,
+            ')',
+            $._statement,
+            optional(seq('else', $._statement))
+        )),
+
+        switch_stmt: $ => seq(
+            'switch',
+            '(', $._expression, ')',
+            alias($.switch_body, $.block)
+        ),
+
+        switch_body: $ => seq(
+            '{',
+            repeat(choice($.case_stmt, $._statement)),
+            '}'
+        ),
+
+        case_stmt: $ => prec.right(seq(
+            choice(
+                seq('case', $.number),
+                'default'
+            ),
+            ':',
+            repeat($._statement)
+        )),
+
+        break_stmt: $ => seq(
+            'break;'
+        ),
+
         return_statement: $ => seq(
             'return',
             $._expression,
@@ -83,6 +120,9 @@ module.exports = grammar({
             $.function_stmt,
             $.mulop,
             $.plusop,
+            $.compareop,
+            $.bitwiseop,
+            $.logicalop,
             $.number,
             $.identifier,
             $.string,
@@ -92,6 +132,10 @@ module.exports = grammar({
 
         mulop: $ => prec.left(1, seq($._expression, choice('*', '/'), $._expression)),
         plusop: $ => prec.left(2, seq($._expression, choice('+', '-'), $._expression)),
+        compareop: $ => prec.left(3, seq($._expression, choice('<', '<=', '>', '>=', '==', '!=', '~=', '~!'), $._expression)),
+        bitwiseop: $ => prec.left(4, seq($._expression, choice('&', '^', '|'), $._expression)),
+        logicalop: $ => prec.left(5, seq($._expression, choice('&&', '||'), $._expression)),
+
 
         number: $ => /\d+/,
         string: $ => seq(

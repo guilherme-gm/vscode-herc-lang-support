@@ -1,0 +1,33 @@
+===================================================
+Simple if condition
+===================================================
+
+prontera,150,150,4	script	Test	1_M_01,{
+    if (Id > 10) {
+
+    }
+}
+
+---
+
+(source_file
+	(script_def
+    	(position
+			(identifier)
+			(number)
+			(number)
+			(number)
+		)
+    	(npc_name)
+    	(npc_sprite)
+    	(block
+			(if_stmt
+                (compareop
+					(identifier)
+					(number)
+				)
+                (block)
+			)
+		)
+	)
+)
