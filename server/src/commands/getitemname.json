@@ -1,0 +1,1 @@
+{"getitemname":{"params":[{"item id":"int"}],"paramDoc":{"item id":"Missing Documentation"},"doc":["Given the database ID number of an item, this function will return the","text stored in the 'japanese name' field (which, in Hercules, stores an","English name the players would normally see on screen).","Return \"null\" if no such item exist."]}}

@@ -1,0 +1,1 @@
+{"unbindatcmd":{"params":[{"command":"string"}],"paramDoc":{"command":"Missing Documentation"},"doc":["This command will unbind a NPC event label from an atcommand."]}}

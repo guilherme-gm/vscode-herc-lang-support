@@ -1,0 +1,1 @@
+{"qiget":{"params":[{"queue_iterator_id":"int"}],"paramDoc":{"queue_iterator_id":"Missing Documentation"},"doc":["obtains the next member in the iterator's queue, returns the next member's","id or 0 when it doesnt exist.","Example:","for (.@elem = qiget(.@queue_iterator_id); qicheck(.@queue_iterator_id); .@elem = qiget(.@queue_iterator_id)) {","//Do something","}"]}}

@@ -1,0 +1,1 @@
+{"queueremove":{"params":[{"queue_id":"int","var_id":"int"}],"paramDoc":{"queue_id":"Missing Documentation","var_id":"Missing Documentation"},"doc":["Removes <var_id> from queue of <queue_id>.","Returns false if <var_id> couldn't be removed (wasn't present in the queue),","true otherwise."]}}

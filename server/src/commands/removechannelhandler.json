@@ -1,0 +1,1 @@
+{"removechannelhandler":{"params":[{"#channel":"string","NPC::OnEvent":"string"}],"paramDoc":{"#channel":"Missing Documentation","NPC::OnEvent":"Missing Documentation"},"doc":["Removes a channel handler added by addchannelhandler()"]}}

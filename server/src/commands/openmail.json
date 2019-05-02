@@ -1,0 +1,1 @@
+{"openmail":{"params":[{}],"paramDoc":{},"doc":["This will open a character's Mail window on the client connected to the","invoking character.","mes(\"Close this window to open your mail inbox.\");","close2();","openmail();","end;"]}}

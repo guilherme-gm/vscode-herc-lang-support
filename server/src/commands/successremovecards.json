@@ -1,0 +1,1 @@
+{"successremovecards":{"params":[{"equipment slot":"int"}],"paramDoc":{"equipment slot":"Missing Documentation"},"doc":["This command will remove all cards from the item found in the specified","equipment slot of the invoking character, create new card items and give","them to the character. If any cards were removed in this manner, it will","also show a success effect."]}}

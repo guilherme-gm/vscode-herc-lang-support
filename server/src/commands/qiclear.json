@@ -1,0 +1,1 @@
+{"qiclear":{"params":[{"queue_iterator_id":"int"}],"paramDoc":{"queue_iterator_id":"Missing Documentation"},"doc":["Deletes a queue iterator from memory.","Returns false when it fails, otherwise true is returned."]}}

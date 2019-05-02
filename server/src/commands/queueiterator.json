@@ -1,0 +1,1 @@
+{"queueiterator":{"params":[{"queue_id":"int"}],"paramDoc":{"queue_id":"Missing Documentation"},"doc":["Creates a new queue iterator instance.","A queue iterator is not a reference to a queue's actual members, it copies","the queues members when initialized, this way you can loop through them","even if you remove them from the queue."]}}

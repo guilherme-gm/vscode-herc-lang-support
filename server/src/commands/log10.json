@@ -1,0 +1,1 @@
+{"log10":{"params":[{"number":"int"}],"paramDoc":{"number":"Missing Documentation"},"doc":["Returns log base 10 of the number.","Note: The value is truncated to integer.","Example:",".@i = log10(100); // .@i will be 2"]}}

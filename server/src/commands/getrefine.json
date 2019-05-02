@@ -1,0 +1,1 @@
+{"getrefine":{"params":[{}],"paramDoc":{},"doc":["This function will return the refine count of the equipment from which","the function is called. This function is intended for use in item scripts.","if (getrefine() == 10)","mes(\"Wow. That's a murder weapon.\");"]}}

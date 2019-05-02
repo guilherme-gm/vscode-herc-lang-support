@@ -1,0 +1,1 @@
+{"chr":{"params":[{"int":"int"}],"paramDoc":{"int":"Missing Documentation"},"doc":["Returns a char from its ASCII value.","Example:","chr(99); //returns \"c\""]}}

@@ -1,0 +1,1 @@
+{"setunitname":{"params":[{"GID":"int","Name":"int"}],"paramDoc":{"GID":"Missing Documentation","Name":"Missing Documentation"},"doc":["Changes the name of a unit.","Supported Types - [ MOB | HOM | PET ].","returns 1 on success, 0 on failure."]}}

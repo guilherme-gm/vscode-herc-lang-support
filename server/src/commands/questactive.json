@@ -1,0 +1,1 @@
+{"questactive":{"params":[{"ID":"int"}],"paramDoc":{"ID":"Missing Documentation"},"doc":["Check whether the given quest is in its active state.","Returns true if the quest is active, false otherwise (quest not started,","inactive or completed)"]}}

@@ -1,0 +1,1 @@
+{"instance_destroy":{"params":[{"instance id":{"type":"int","default":"??"}}],"paramDoc":{"instance id":"Missing Documentation"},"doc":["Destroys instance with the ID <instance id>. If no ID is specified, the","instance the script is attached to is used. If in the end no instance_id,","is found the command halts the script execution."]}}

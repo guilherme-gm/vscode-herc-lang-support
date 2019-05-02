@@ -1,0 +1,1 @@
+{"guildchangegm":{"params":[{"guild id":"int","new master's name":"int"}],"paramDoc":{"guild id":"Missing Documentation","new master's name":"Missing Documentation"},"doc":["This function will change the Guild Master of a guild. The ID is the","guild's id, and the new guild master's name must be passed.","Returns true on success, false otherwise."]}}

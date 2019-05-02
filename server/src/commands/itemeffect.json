@@ -1,0 +1,1 @@
+{"itemeffect":{"params":[{"item name":"string"}],"paramDoc":{"item name":"Missing Documentation"},"doc":["This command will run the item script of the specified item on the","invoking character. The character does not need to posess the item, and","the item will not be deleted. While this command is intended for usable","items, it will run for any item type."]}}

@@ -1,0 +1,1 @@
+{"escape_sql":{"params":[{"value":"int"}],"paramDoc":{"value":"Missing Documentation"},"doc":["Converts the value to a string and escapes special characters so that it's","safe to use in query_sql(). Returns the escaped form of the given value.","Example:",".@str$ = \"John's Laptop\";",".@esc_str$ = escape_sql(.@name$); // Escaped string: John\\'s Laptop"]}}

@@ -1,0 +1,1 @@
+{"itempreview":{"params":[{"index":"int"}],"paramDoc":{"index":"Missing Documentation"},"doc":["Update already opened preview window with item from","inventory with given index.","Works for 20181017 RE and main clients or newer."]}}

@@ -1,0 +1,1 @@
+{"getmapguildusers":{"params":[{"mapname":"int","guild id":"int"}],"paramDoc":{"mapname":"Missing Documentation","guild id":"Missing Documentation"},"doc":["Returns the amount of characters from the specified guild on the given map.","Example:","mes(\"You have \"+getmapguildusers(\"prontera\", getcharid(CHAR_ID_GUILD))+\" guild members in Prontera.\");"]}}

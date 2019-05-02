@@ -1,0 +1,1 @@
+{"openshop":{"params":[{"NPC_Name":{"type":"int","default":"??"}}],"paramDoc":{"NPC_Name":"Missing Documentation"},"doc":["opens the trader shop from the currently-attached npc unless,","when the optional NPC_Name param is used."]}}

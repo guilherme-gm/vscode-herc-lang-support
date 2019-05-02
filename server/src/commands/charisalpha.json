@@ -1,0 +1,1 @@
+{"charisalpha":{"params":[{"string":"string","position":"int"}],"paramDoc":{"string":"Missing Documentation","position":"Missing Documentation"},"doc":["This function will return true if the character number Position in the given","string is a letter, false if it isn't a letter but a digit or a space.","The first letter is position 0."]}}

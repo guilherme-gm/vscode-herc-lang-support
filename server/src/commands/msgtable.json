@@ -1,0 +1,1 @@
+{"msgtable":{"params":[{"message_id{":"int","color":"int"}],"paramDoc":{"message_id{":"Missing Documentation","color":"Missing Documentation"},"doc":["Show in client message by <message_id> from msg string table","with optional <color>."]}}

@@ -1,0 +1,1 @@
+{"kickwaitingroomall":{"params":[{"NPC object name":{"type":"string","default":"??"}}],"paramDoc":{"NPC object name":"Missing Documentation"},"doc":["This command kicks everybody out of a specified waiting room chat."]}}

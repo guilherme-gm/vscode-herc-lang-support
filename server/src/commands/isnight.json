@@ -1,0 +1,1 @@
+{"isnight":{"params":[{}],"paramDoc":{},"doc":["This functions will return true or false depending on whether the server is in","night mode or day mode:","if (!isnight())","mes(\"I only prowl in the night.\");"]}}

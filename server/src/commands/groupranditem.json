@@ -1,0 +1,1 @@
+{"groupranditem":{"params":[{"item id":"int"}],"paramDoc":{"item id":"Missing Documentation"},"doc":["Returns the item_id of a random item picked from the item container specified. There","are different item containers and they are specified in 'db/(pre-)re/item_group.conf'.","Example:","getitem(groupranditem(Old_Blue_Box), 1);"]}}

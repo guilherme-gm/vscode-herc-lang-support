@@ -1,0 +1,1 @@
+{"dispbottom":{"params":[{"message\"{":"string","color":"int"}],"paramDoc":{"message\"{":"Missing Documentation","color":"Missing Documentation"},"doc":["This command will send the given message into the invoking character's","chat window. The color format is in RGB (0xRRGGBB), and default to green","if <color> field is left out."]}}

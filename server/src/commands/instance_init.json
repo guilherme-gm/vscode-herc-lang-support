@@ -1,0 +1,1 @@
+{"instance_init":{"params":[{"instance id":"int"}],"paramDoc":{"instance id":"Missing Documentation"},"doc":["Initializes the instance given by <instance id>. This copies all NPCs from","the source maps to the instanced maps."]}}

@@ -1,0 +1,1 @@
+{"getmapflag":{"params":[{"map name":"string","flag":"int"}],"paramDoc":{"map name":"Missing Documentation","flag":"Missing Documentation"},"doc":["This command checks the status of a given mapflag and returns the","mapflag's state.","false means OFF, and true means ON. See setmapflag() for examples of mapflags."]}}

@@ -1,0 +1,1 @@
+{"mergeitem":{"params":[{}],"paramDoc":{},"doc":["mergeitem() opens the item merge window,","The Item merge window shows all stackable item(same ItemID) with different","serial, that can be merged into one stack.","Check sample: npc/other/item_merge.txt"]}}

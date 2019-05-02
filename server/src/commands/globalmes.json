@@ -1,0 +1,1 @@
+{"globalmes":{"params":[{"message\"{":"string","NPC name":"string"}],"paramDoc":{"message\"{":"Missing Documentation","NPC name":"Missing Documentation"},"doc":["This command will send a message to the chat window of all currently","connected characters.","If NPC name is specified, the message will be sent as if the sender would","be the NPC with the said name."]}}

@@ -1,0 +1,1 @@
+{"ispartneron":{"params":[{}],"paramDoc":{},"doc":["This function returns true if the invoking character's marriage partner","is currently online and false if they are not or if the character has no","partner."]}}

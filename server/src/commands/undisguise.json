@@ -1,0 +1,1 @@
+{"undisguise":{"params":[{}],"paramDoc":{},"doc":["This command disguises the current player with a monster sprite.","The disguise lasts until undisguise() is issued or the player logs out.","Example:","disguise(PORING); // Disguise character as a Poring.","next();","undisguise(); // Return to normal character sprite."]}}

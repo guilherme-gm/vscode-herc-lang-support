@@ -1,0 +1,1 @@
+{"join_clan":{"params":[{"ClanID{":"int","account id":"int"}],"paramDoc":{"ClanID{":"Missing Documentation","account id":"Missing Documentation"},"doc":["Joins a player into the given clan.","If no RID is given, will run with the current attached player.","returns true on success, false on failure."]}}

@@ -1,0 +1,1 @@
+{"changecharsex":{"params":[{}],"paramDoc":{},"doc":["This command is exactly same as changesex(), with an exception that,","character sex will be changed instead of account sex.","Requires client 2014-10-22 or greater."]}}

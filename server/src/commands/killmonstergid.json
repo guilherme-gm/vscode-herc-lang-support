@@ -1,0 +1,1 @@
+{"killmonstergid":{"params":[{"GID":"int",";":"int"}],"paramDoc":{"GID":"Missing Documentation",";":"Missing Documentation"},"doc":["This command will kill the specific monster GID. The difference between","this command and 'unitkill', is this command does not trigger monster's","event label."]}}

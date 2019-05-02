@@ -1,0 +1,1 @@
+{"getequippedoptioninfo":{"params":[{"info_type":"int",";":"int"}],"paramDoc":{"info_type":"Missing Documentation",";":"Missing Documentation"},"doc":["This function is to be used with the scripts of contents listed in","db/item_options.conf only.","Returns the value of the current equipment being parsed.","If the equip was not found or the type is invalid, -1 is returned."]}}
