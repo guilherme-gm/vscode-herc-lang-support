@@ -1,0 +1,108 @@
+===================================================
+All variable types assignment test
+===================================================
+
+-	script	Test	1_M_01,{
+    id = 2;
+    id$ = "str";
+    @id = 2;
+    @id$ = "str";
+    $id = 2;
+    $id$ = "str";
+    $@id = 2;
+    $@id$ = "str";
+    .id = 2;
+    .id$ = "str";
+    .@id = 2;
+    .@id$ = "str";
+    'id = 2;
+    'id$ = "str";
+    #id = 2;
+    #id$ = "str";
+    ##id = 2;
+    ##id$ = "str";
+}
+
+---
+
+(source_file
+	(script_def
+    	(position)
+    	(npc_name)
+    	(npc_sprite)
+    	(block
+            (assignment_stmt
+                (identifier)
+                (number)
+            )
+            (assignment_stmt
+                (identifier)
+                (string)
+            )
+            (assignment_stmt
+                (identifier)
+                (number)
+            )
+            (assignment_stmt
+                (identifier)
+                (string)
+            )
+            (assignment_stmt
+                (identifier)
+                (number)
+            )
+            (assignment_stmt
+                (identifier)
+                (string)
+            )
+            (assignment_stmt
+                (identifier)
+                (number)
+            )
+            (assignment_stmt
+                (identifier)
+                (string)
+            )
+            (assignment_stmt
+                (identifier)
+                (number)
+            )
+            (assignment_stmt
+                (identifier)
+                (string)
+            )
+            (assignment_stmt
+                (identifier)
+                (number)
+            )
+            (assignment_stmt
+                (identifier)
+                (string)
+            )
+            (assignment_stmt
+                (identifier)
+                (number)
+            )
+            (assignment_stmt
+                (identifier)
+                (string)
+            )
+            (assignment_stmt
+                (identifier)
+                (number)
+            )
+            (assignment_stmt
+                (identifier)
+                (string)
+            )
+            (assignment_stmt
+                (identifier)
+                (number)
+            )
+            (assignment_stmt
+                (identifier)
+                (string)
+            )
+		)
+	)
+)

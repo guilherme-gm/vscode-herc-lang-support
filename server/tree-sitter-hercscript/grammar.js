@@ -149,7 +149,14 @@ module.exports = grammar({
             '"'
         ), // TODO : Escaped strings
         identifier: $ => $._identifier,
-        _identifier: $ => /[a-zA-Z_0-9]+/,
+        _identifier: $ => seq(
+            optional(choice(
+                "$@", ".@", "##",
+                "$", "@", ".", "'", "#"
+            )),
+            /[a-zA-Z_0-9]+/,
+            optional('$')
+        ),
 
         // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
         _comment: $ => token(choice(
