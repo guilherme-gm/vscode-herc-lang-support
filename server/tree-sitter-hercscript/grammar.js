@@ -57,6 +57,7 @@ module.exports = grammar({
             $.switch_stmt,
             seq($.function_stmt, ';'),
             $.block,
+            seq($.assignment_stmt, ';'),
             // TODO: other kinds of statements
         ),
 
@@ -116,6 +117,8 @@ module.exports = grammar({
             ';'
         ),
 
+        assignment_stmt: $ => prec.right(7, seq($.identifier, choice('=', '+=', '-=', '*=', '**=', '/=', '%=', '<<=', '>>=', '&=', '^=', "|="), $._expression)),
+
         _expression: $ => choice(
             $.function_stmt,
             $.mulop,
@@ -123,6 +126,7 @@ module.exports = grammar({
             $.compareop,
             $.bitwiseop,
             $.logicalop,
+            $.ternary,
             $.number,
             $.identifier,
             $.string,
@@ -135,6 +139,7 @@ module.exports = grammar({
         compareop: $ => prec.left(3, seq($._expression, choice('<', '<=', '>', '>=', '==', '!=', '~=', '~!'), $._expression)),
         bitwiseop: $ => prec.left(4, seq($._expression, choice('&', '^', '|'), $._expression)),
         logicalop: $ => prec.left(5, seq($._expression, choice('&&', '||'), $._expression)),
+        ternary: $ => prec.right(6, seq($._expression, '?', $._expression, ':', $._expression)),
 
 
         number: $ => /\d+/,

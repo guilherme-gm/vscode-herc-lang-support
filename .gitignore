@@ -102,3 +102,6 @@ parser-java/*
 
 ## ANTLR extension cache
 parser-gen/.antlr/*
+
+## Files used when testing things
+server/tree-sitter-hercscript/test.txt
