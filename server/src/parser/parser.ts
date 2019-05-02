@@ -6,19 +6,105 @@ export type ContextInfo = {
     readonly paramNum: number;
 }
 
+export type VariableInfo = {
+    readonly varName: string;
+    definedAt: Position[];
+}
+
+export type VarList = {
+    list: VariableInfo[];
+}
+
 export function getContext(params: TextDocumentPositionParams): ContextInfo {
     return getContextOfText(docMngr.getText(params.textDocument), params.position)
 }
 
-export function getContextOfText(sourceCode: string, position: Position): ContextInfo {
+export function getVariablesAt(params: TextDocumentPositionParams): VariableInfo[] {
+    return getVariablesAtText(docMngr.getText(params.textDocument), params.position);
+}
 
+function getParseTree(sourceCode: string) {
     const TreeSitterParser = require('tree-sitter');
     const HercScriptLang = require('../../tree-sitter-hercscript');
 
     const parser = new TreeSitterParser();
     parser.setLanguage(HercScriptLang);
 
-    const tree = parser.parse(sourceCode);
+    return parser.parse(sourceCode);
+}
+
+export function getVariablesAtText(sourceCode: string, position: Position): VariableInfo[] {
+    const tree = getParseTree(sourceCode);
+
+    const npcNode = getCurrentNpc(tree.rootNode.child(0), position.line, position.character);
+
+    // TODO : Probably it is a good idea to cache them and use the incremental parser to refresh it
+    let varList: VarList = { list: [] };
+    getNpcVariables(npcNode, position.line, position.character, varList);
+
+    return varList.list;
+}
+
+function getCurrentNpc(scriptNode, cursorRow, cursorCol) {
+    let i = 0;
+
+    // Skip all headers that ends before desired row
+    while (i < scriptNode.childCount && scriptNode.child(i).endPosition.row < cursorRow)
+        i++;
+
+    // Now all childs include our current row,
+    // Skip all childs that ends before desired col
+    while (i < scriptNode.childCount
+        && scriptNode.child(i).startPosition.row <= cursorRow // Must not start after our row
+        && (scriptNode.child(i).endPosition.row == cursorRow && scriptNode.child(i).endPosition.column <= cursorCol) // ends in the same row, but before cursor
+    )
+        i++;
+
+    if (i > scriptNode.childCount)
+        return null; // No context found (should never happen?)
+
+    const childNode = scriptNode.child(i);
+    return childNode;
+}
+
+function isNestable(node) {
+    return ([
+        "block",
+        "if_stmt"
+    ]).indexOf(node.type) >= 0;
+}
+
+function getNpcVariables(node, line: number, col: number, varList: VarList) {
+    let i = 0;
+    while (i < node.childCount && node.child(i).startPosition.row < line) {
+        const childNode = node.child(i);
+        
+        if (childNode.type === 'assignment_stmt') {
+            const varname = childNode.child(0).text; // assignment_stmt.identifier
+            let found = false;
+
+            varList.list.forEach((varInfo: VariableInfo) => {
+                if (varInfo.varName === varname) {
+                    varInfo.definedAt.push({ line: childNode.startPosition.row + 1, character: childNode.startPosition.column });
+                    found = true;
+                }
+            });
+
+            if (!found) {
+                varList.list.push({
+                    varName: varname,
+                    definedAt: [{ line: childNode.startPosition.row + 1, character: childNode.startPosition.column }]
+                });
+            }
+        } else if (isNestable(childNode)) {
+            getNpcVariables(childNode, line, col, varList);
+        }
+        i++;
+    }
+}
+
+export function getContextOfText(sourceCode: string, position: Position): ContextInfo {
+    const tree = getParseTree(sourceCode);
 
     let res = getMyContext(tree.rootNode.child(0), position.line, position.character);
     //connection.console.log(res);

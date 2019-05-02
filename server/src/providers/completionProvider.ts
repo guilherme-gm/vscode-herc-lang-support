@@ -8,6 +8,8 @@ import {
     MarkupKind
 } from "vscode-languageserver";
 import * as cmdHelper from "../helpers/commandHelper";
+import * as parser from "../parser/parser";
+import { connection } from "../server";
 
 /**
  * Retrieves and returns an array of possible inputs to complete the code
@@ -29,6 +31,17 @@ export function getCompletions(_textDocumentPosition: TextDocumentPositionParams
         completeList.push(completion);
     });
 
+    const vars = parser.getVariablesAt(_textDocumentPosition);
+    connection.console.log(JSON.stringify(vars));
+    vars.forEach(v => {
+        const completion: CompletionItem = {
+            label: v.varName,
+            kind: CompletionItemKind.Variable,
+            data: v.varName
+        };
+        completeList.push(completion);
+    });
+
     // TODO : I think it is possible : Could give higher priority to commands that has the return type of the context
 
     return completeList;
@@ -40,7 +53,13 @@ export function getCompletions(_textDocumentPosition: TextDocumentPositionParams
  * @param item Completion Item to retrieve data of.
  */
 export function getCompletionInfo(item: CompletionItem): CompletionItem {
-    if (!!cmdHelper.cmd[item.data]) {
+    if (item.kind == CompletionItemKind.Variable) {
+        item.detail = item.label;
+        item.documentation = {
+            kind: MarkupKind.Markdown,
+            value: "var"
+        }
+    } else if (!!cmdHelper.cmd[item.data]) {
         item.detail = cmdHelper.getCommandSignature(item.data, cmdHelper.cmd[item.data]); // !FIXME : I think we can simply get rid of the second param
         item.documentation = {
             kind: MarkupKind.Markdown,
