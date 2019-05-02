@@ -71,7 +71,5 @@
         "typescript": "^3.2.4",
         "vsce": "^1.59.0"
     },
-    "dependencies": {
-        "antlr4": "^4.7.2"
-    }
+    "dependencies": {}
 }
