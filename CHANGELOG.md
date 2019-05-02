@@ -27,5 +27,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     * Syntax Highlighting
     * A small set of commands included in autocomplete and signature helper
 
-[0.2.0]: https://github.com/guilherme-gm/vscode-herc-lang-support/releases/tag/v0.2.0..v0.1.0
+[0.2.0]: https://github.com/guilherme-gm/vscode-herc-lang-support/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/guilherme-gm/vscode-herc-lang-support/releases/tag/v0.1.0
