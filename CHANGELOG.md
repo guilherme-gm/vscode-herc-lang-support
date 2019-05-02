@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Auto-generated docs of all script commands in Herc's script_commands.txt
+
+### Changed
+- Recoded the script parser in Tree-Sitter instead of ANTLR, this improved code analysis a lot.
+
 ## [0.2.0] - 2019-04-24
 - Split into Client and Language Server.
 
