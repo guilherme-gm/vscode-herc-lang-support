@@ -3,7 +3,7 @@
     "description": "Hercules Scripting Lang Language Server",
     "author": "Guilherme Menaldo",
     "publisher": "ggmenaldo",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "license": "mit",
     "repository": {
         "type": "git",

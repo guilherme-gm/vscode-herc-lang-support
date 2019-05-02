@@ -4,7 +4,7 @@
     "description": "Adds support for Hercules (http://herc.ws) scripting language",
     "author": "Guilherme Menaldo",
     "publisher": "ggmenaldo",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/guilherme-gm/vscode-herc-lang-support"
