@@ -1,6 +1,12 @@
+# Node (client and wherever else it gets used)
 node_modules/
+
+# Client
 client/out/
 
+# Server
+server/target
+server/**/*.rs.bk
 
 # Reference server (for dev.. Remove later)
 _tsserver/
