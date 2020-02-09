@@ -1,1 +1,0 @@
-{"completequest":{"params":[{"ID{":"int","ID2":"int"}],"paramDoc":{"ID{":"Missing Documentation","ID2":"Missing Documentation"},"doc":["Change the state for the given quest <ID> to \"complete\" and remove from","the users quest log.","If a second quest id of greater value is specified, all quests between the two","will be completed."]}}

@@ -1,1 +1,0 @@
-{"ord":{"params":[{"chr":"int"}],"paramDoc":{"chr":"Missing Documentation"},"doc":["Returns the ASCII value of char <chr>.","Example:","ord(\"c\"); //returns 99"]}}

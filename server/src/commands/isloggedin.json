@@ -1,1 +1,0 @@
-{"isloggedin":{"params":[{"account id{":"int","char id":"int"}],"paramDoc":{"account id{":"Missing Documentation","char id":"Missing Documentation"},"doc":["This function returns true if the specified account is logged in and","false if they aren't. You can also pass the char_id to check for both","account and char id."]}}

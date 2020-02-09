@@ -1,1 +1,0 @@
-{"agitcheck":{"params":[{}],"paramDoc":{},"doc":["These function will let you check whether the server is currently in WoE","mode (or WoE SE mode if the second function is called) and will return true","if War of Emperium is on and false if it isn't."]}}

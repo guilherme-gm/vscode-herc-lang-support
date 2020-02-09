@@ -1,1 +1,0 @@
-{"deltimer":{"params":[{"NPC::OnLabel\"{":"string","account id":"int"}],"paramDoc":{"NPC::OnLabel\"{":"Missing Documentation","account id":"Missing Documentation"},"doc":["Deletes timers created by addtimer() that matches the given event","label. Refer to addtimer() for additional information."]}}

@@ -1,1 +1,0 @@
-{"jobname":{"params":[{"job number":"int"}],"paramDoc":{"job number":"Missing Documentation"},"doc":["This command retrieves the name of the given job using the names defined","in messages.conf.","mes(\"[Kid]\");","mes(\"I never thought I'd met a \"+jobname(Class)+\" here of all places.\");","close();"]}}

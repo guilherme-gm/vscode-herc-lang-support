@@ -1,1 +1,0 @@
-{"getnpcid":{"params":[{"npc name":{"type":"string","default":"??"}}],"paramDoc":{"npc name":"Missing Documentation"},"doc":["Retrieves IDs of the currently invoked NPC. If a unique npc name is given,","IDs of that NPC are retrieved instead.","If the NPC does not exist, 0 is returned."]}}

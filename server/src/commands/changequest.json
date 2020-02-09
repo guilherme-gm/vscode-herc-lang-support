@@ -1,1 +1,0 @@
-{"changequest":{"params":[{"ID":"int","ID2":"int"}],"paramDoc":{"ID":"Missing Documentation","ID2":"Missing Documentation"},"doc":["Remove quest of the given <ID> from the user's quest log.","Add quest of the <ID2> to the the quest log, and the state is \"active\"."]}}

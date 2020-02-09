@@ -1,1 +1,0 @@
-{"delchar":{"params":[{"string":"int","index":"int"}],"paramDoc":{"string":"Missing Documentation","index":"Missing Documentation"},"doc":["Returns the original string with the char at the specified index removed.","If index is out of range, original string will be returned.","Example:","delchar(\"Diet\", 3); //returns \"Die\""]}}

@@ -1,1 +1,0 @@
-{"gettimetick":{"params":[{"type":"int"}],"paramDoc":{"type":"Missing Documentation"},"doc":["Valid types are :","0 - server's tick (milleseconds), unsigned int, loops every ~50 days","1 - time since the start of the current day in seconds","2 - UNIX epoch time (number of seconds elapsed since 1st of January 1970)"]}}

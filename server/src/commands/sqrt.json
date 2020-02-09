@@ -1,1 +1,0 @@
-{"sqrt":{"params":[{"number":"int"}],"paramDoc":{"number":"Missing Documentation"},"doc":["Returns square-root of number.","Note: The value is truncated to integer.","Example:",".@i = sqrt(25); // .@i will be 5"]}}

@@ -1,1 +1,0 @@
-{"stand":{"params":[{"character name":{"type":"string","default":"??"}}],"paramDoc":{"character name":"Missing Documentation"},"doc":["This function will force a character to sit/stand if it is standing/sitting.","If no player is specified, the attached player will be used."]}}

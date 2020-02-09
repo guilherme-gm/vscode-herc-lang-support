@@ -1,1 +1,0 @@
-{"setgroupid":{"params":[{"new group id{":"int","account id":"int"}],"paramDoc":{"new group id{":"Missing Documentation","account id":"Missing Documentation"},"doc":["This function will temporary adjust the id of player group the account to which the","player specified if the new group id is available.","Return true if successful, otherwise it will return false."]}}

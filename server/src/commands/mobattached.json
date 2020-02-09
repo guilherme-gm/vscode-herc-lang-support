@@ -1,1 +1,0 @@
-{"mobattached":{"params":[{}],"paramDoc":{},"doc":["This command will return RID of the monster running from 'OnTouchNPC:' label.","//\tKill any monster entering npc's trigger area","OnTouchNPC:","killmonstergid mobattached();"]}}

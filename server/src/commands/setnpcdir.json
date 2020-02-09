@@ -1,1 +1,0 @@
-{"setnpcdir":{"params":[{"name":{"type":"int","default":"??"},"direction":"int"}],"paramDoc":{"name":"Missing Documentation","direction":"Missing Documentation"},"doc":["Set npc direction. If npc name missing, will be used attached npc.","Example:","setnpcdir(DIR_WEST);"]}}

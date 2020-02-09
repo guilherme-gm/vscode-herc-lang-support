@@ -1,1 +1,0 @@
-{"purchaseok":{"params":[{}],"paramDoc":{},"doc":["Signs that the transaction (on a NST_CUSTOM trader) has been successful,","to be used within a \"OnPayFunds\" event of a NST_CUSTOM trader."]}}

@@ -1,1 +1,0 @@
-{"shopcount":{"params":[{"Item_ID":"int"}],"paramDoc":{"Item_ID":"Missing Documentation"},"doc":["Returns the amount of still-available <Item_ID> in the shop (on a NST_MARKET trader)."]}}

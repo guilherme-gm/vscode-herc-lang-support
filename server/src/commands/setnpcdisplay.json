@@ -1,1 +1,0 @@
-{"setnpcdisplay":{"params":[{"npc name":"string","class id":"int"}],"paramDoc":{"npc name":"Missing Documentation","class id":"Missing Documentation"},"doc":["Changes the display name and/or display class of the target NPC.","Returns 0 is successful, 1 if the NPC does not exist.","Size is 0 = normal 1 = small 2 = big."]}}

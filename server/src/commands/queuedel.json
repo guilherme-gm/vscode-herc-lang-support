@@ -1,1 +1,0 @@
-{"queuedel":{"params":[{"queue_id":"int"}],"paramDoc":{"queue_id":"Missing Documentation"},"doc":["Deletes the queue <queue_id>.","Returns false if the queue wasn't found, true otherwise."]}}

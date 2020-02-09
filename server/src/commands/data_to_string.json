@@ -1,1 +1,0 @@
-{"data_to_string":{"params":[{"data":"int"}],"paramDoc":{"data":"Missing Documentation"},"doc":["Returns a string representation of the given data, similar to the .toString()","method in JavaScript.","Example:","data_to_string(DATATYPE_VAR) // \"DATATYPE_VAR\"","data_to_string(.@foo) // \".@foo\""]}}

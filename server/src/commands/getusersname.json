@@ -1,1 +1,0 @@
-{"getusersname":{"params":[{}],"paramDoc":{},"doc":["This command will give the invoking character a list of names of the","connected characters (including themselves) into an NPC script message","window (see 'mes') paging it by 10 names as if with the next() command.","You need to put a 'close' after that yourself."]}}

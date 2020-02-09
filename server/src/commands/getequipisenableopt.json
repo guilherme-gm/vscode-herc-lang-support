@@ -1,1 +1,0 @@
-{"getequipisenableopt":{"params":[{"equipment slot":"int"}],"paramDoc":{"equipment slot":"Missing Documentation"},"doc":["This function checks if the equipped item allows the use of bonus options.","Returns 1 if allowed, 0 if not."]}}

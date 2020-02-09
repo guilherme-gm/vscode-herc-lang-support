@@ -1,1 +1,0 @@
-{"removemapflag":{"params":[{"map name":"string","flag":"int"}],"paramDoc":{"map name":"Missing Documentation","flag":"Missing Documentation"},"doc":["This command removes a mapflag from a specified map.","See setmapflag() for examples of mapflags."]}}

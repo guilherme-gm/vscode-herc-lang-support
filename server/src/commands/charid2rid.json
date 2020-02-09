@@ -1,1 +1,0 @@
-{"charid2rid":{"params":[{"char id":"int"}],"paramDoc":{"char id":"Missing Documentation"},"doc":["This function returns the RID of the character with the given character ID.","If the character is offline or doesn't exist, 0 is returned."]}}

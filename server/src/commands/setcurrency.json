@@ -1,1 +1,0 @@
-{"setcurrency":{"params":[{"Val1{":"int","Val2":"int"}],"paramDoc":{"Val1{":"Missing Documentation","Val2":"Missing Documentation"},"doc":["updates the currently attached player shop funds,","to be used within a \"OnCountFunds\" event of a NST_CUSTOM trader type.","<Val1> is the value used in the *Cash* Points field","<Val2> is the value used in the Kafra Points field"]}}

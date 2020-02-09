@@ -1,1 +1,0 @@
-{"checkequipedcard":{"params":[{"card id":"int"}],"paramDoc":{"card id":"Missing Documentation"},"doc":["This function will return true if the card specified by it's item ID number","is inserted into any equipment they have in their inventory, currently","equipped or not."]}}

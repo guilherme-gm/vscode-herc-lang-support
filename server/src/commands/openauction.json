@@ -1,1 +1,0 @@
-{"openauction":{"params":[{}],"paramDoc":{},"doc":["This will open the Auction window on the client connected to the invoking","character.","mes(\"Close this window to open the Auction window.\");","close2();","openauction();","end;"]}}

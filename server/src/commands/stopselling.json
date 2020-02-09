@@ -1,1 +1,0 @@
-{"stopselling":{"params":[{"Item_ID{":"int","currency_id":"int","currency_amount":"int"}],"paramDoc":{"Item_ID{":"Missing Documentation","currency_id":"Missing Documentation","currency_amount":"Missing Documentation"},"doc":["attempts to remove <Item_ID> from the current shop list.","currency_id and currency_amount can be used only with shop type NST_BARTER"]}}

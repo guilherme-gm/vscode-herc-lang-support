@@ -1,1 +1,0 @@
-{"getgroupid":{"params":[{"account id":{"type":"int","default":"??"}}],"paramDoc":{"account id":"Missing Documentation"},"doc":["This command returns the id of the group of the attached or specified player.","If the player is not found, returns -1."]}}

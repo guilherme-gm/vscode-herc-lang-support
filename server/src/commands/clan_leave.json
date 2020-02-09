@@ -1,1 +1,0 @@
-{"clan_leave":{"params":[{"account id":{"type":"int","default":"??"}}],"paramDoc":{"account id":"Missing Documentation"},"doc":["Removes a player from its clan.","If no RID is given, will run with the current attached player.","returns true on success, false on failure."]}}

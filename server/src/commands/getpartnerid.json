@@ -1,1 +1,0 @@
-{"getpartnerid":{"params":[{}],"paramDoc":{},"doc":["This function returns the character ID of the invoking character's","marriage partner, if any. If the invoking character is not married, it","will return 0, which is a quick way to see if they are married:","if (getpartnerid() == 0)","mes(\"I'm not going to be your girlfriend!\");","else","mes(\"You're married already!\");"]}}

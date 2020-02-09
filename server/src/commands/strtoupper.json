@@ -1,1 +1,0 @@
-{"strtoupper":{"params":[{"string":"int"}],"paramDoc":{"string":"Missing Documentation"},"doc":["Returns the specified string in it's uppercase/lowercase form.","All non-alpha characters will be preserved.","Example:","strtoupper(\"The duck is blue!!\"); //returns \"THE DUCK IS BLUE!!\""]}}

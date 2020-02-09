@@ -1,1 +1,0 @@
-{"checkidle":{"params":[{"Player Name":{"type":"string","default":"??"}}],"paramDoc":{"Player Name":"Missing Documentation"},"doc":["Returns the time, in seconds, that the specified player has been idle.","Name is optional, and defaults to the attached player if omitted."]}}

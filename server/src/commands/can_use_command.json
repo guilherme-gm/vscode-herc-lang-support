@@ -1,1 +1,0 @@
-{"can_use_command":{"params":[{"command\"{":"string","account id":"int"}],"paramDoc":{"command\"{":"Missing Documentation","account id":"Missing Documentation"},"doc":["Checks if the attached or specified player can use the specified","atcommand and returns true or false accordingly. Works for both","built-in atcommands and custom atcommands."]}}

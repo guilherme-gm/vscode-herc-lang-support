@@ -1,3 +1,0 @@
-prontera,150,150,4	script	Test	FAKE_NPC,{
-	getitem();
-}

@@ -1,1 +1,0 @@
-{"setnpcdistance":{"params":[{"distance":"int"}],"paramDoc":{"distance":"Missing Documentation"},"doc":["This command can reduce distance from where npc can be clicked.","Usefull to use from OnInit event.","// Set distance to one tile on server load","OnInit:","setnpcdistance(1);"]}}

@@ -1,1 +1,0 @@
-{"qicheck":{"params":[{"queue_iterator_id":"int"}],"paramDoc":{"queue_iterator_id":"Missing Documentation"},"doc":["Checks whether the current member in the iterator's queue exists.","Returns true when it does, false otherwise."]}}

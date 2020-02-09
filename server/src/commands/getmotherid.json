@@ -1,1 +1,0 @@
-{"getmotherid":{"params":[{}],"paramDoc":{},"doc":["These functions return the character ID of the attached player's child,","mother, mother, or father, respectively. It returns 0 if no ID is found.","if (getmotherid() != 0)","mes(\"Your mother's ID is: \"+getmotherid());"]}}
