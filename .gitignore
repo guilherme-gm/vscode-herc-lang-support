@@ -1,0 +1,7 @@
+node_modules/
+client/out/
+
+
+# Reference server (for dev.. Remove later)
+_tsserver/
+
