@@ -1,0 +1,26 @@
+{
+	"name": "tree-sitter-hercscript",
+	"description": "Tree-Sitter grammar for Hercules Script",
+	"author": "KirieZ",
+	"license": "MIT",
+	"version": "0.0.1",
+	"publisher": "kiriez",
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"engines": {
+		"vscode": "^1.42.0"
+	},
+	"dependencies": {
+		"nan": "^2.14.0"
+	},
+	"devDependencies": {
+		"tree-sitter-cli": "^0.16.4"
+	},
+	"scripts": {
+		"generate": "tree-sitter generate",
+		"parse": "tree-sitter parse ",
+		"test": "tree-sitter test"
+	}
+}

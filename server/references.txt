@@ -1,0 +1,5 @@
+https://github.com/ebkalderon/nix-language-server/blob/master/src/backend.rs
+https://docs.rs/codespan/0.7.0/codespan/index.html
+https://github.com/guilherme-gm/vscode-herc-lang-support/blob/master/client/src/extension.ts
+https://github.com/tree-sitter/tree-sitter/tree/master/lib/binding_rust
+https://tree-sitter.github.io/tree-sitter/using-parsers#getting-started

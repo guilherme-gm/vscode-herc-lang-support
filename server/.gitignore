@@ -1,2 +1,5 @@
 /target
 **/*.rs.bk
+/tree-sitter-hercscript/binding.gyp
+/tree-sitter-hercscript/index.js
+/tree-sitter-hercscript/src/

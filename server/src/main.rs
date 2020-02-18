@@ -1,14 +1,41 @@
+mod diag;
+mod file;
+mod state;
+
+use std::collections::HashMap;
+use std::sync::{Arc, Mutex};
 use futures::future;
 use jsonrpc_core::{BoxFuture, Result};
 use serde_json::Value;
 use tower_lsp::lsp_types::request::GotoDefinitionResponse;
 use tower_lsp::lsp_types::*;
 use tower_lsp::{LanguageServer, LspService, Printer, Server};
+use tree_sitter::{Parser, Tree, Language};
+use state::State;
 
-#[derive(Debug, Default)]
-struct Backend;
+extern "C" { fn tree_sitter_hercscript() -> Language; }
 
-impl LanguageServer for Backend {
+
+pub struct HerculesScript {
+    state: Mutex<State>,
+}
+
+impl HerculesScript {
+    pub fn new() -> Self {
+        let mut parser = Parser::new();
+        let language = unsafe { tree_sitter_hercscript() };
+        parser.set_language(language).unwrap();
+
+        HerculesScript {
+            state: Mutex::new(State {
+                sources: HashMap::new(),
+                parser,
+            }),
+        }
+    }
+}
+
+impl LanguageServer for HerculesScript {
     type ShutdownFuture = BoxFuture<()>;
     type SymbolFuture = BoxFuture<Option<Vec<SymbolInformation>>>;
     type ExecuteFuture = BoxFuture<Option<Value>>;
@@ -86,12 +113,30 @@ impl LanguageServer for Backend {
         Box::new(future::ok(None))
     }
 
-    fn did_open(&self, printer: &Printer, _: DidOpenTextDocumentParams) {
-        printer.log_message(MessageType::Info, "file opened!");
+    fn did_open(&self, printer: &Printer, params: DidOpenTextDocumentParams) {
+        printer.log_message(MessageType::Info, format!("file '{}' opened!", params.text_document.uri));
+        // We are only locking it here, so it is safe to unwrap_or_else (I think)
+        let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
+        let uri = params.text_document.uri.clone();
+        let tree = file::open(&mut state, params.text_document);
+        let diags = diag::get_diagnostics(tree);
+        
+        printer.publish_diagnostics(uri, diags, None);
     }
 
-    fn did_change(&self, printer: &Printer, _: DidChangeTextDocumentParams) {
+    fn did_change(&self, printer: &Printer, params: DidChangeTextDocumentParams) {
         printer.log_message(MessageType::Info, "file changed!");
+        
+        // We are only locking it here, so it is safe to unwrap_or_else (I think)
+        let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
+        if let Some(tree) = file::get(&mut state, &params.text_document.uri) {
+            file::update(&printer, tree.clone(), params.content_changes);
+            let diags = diag::get_diagnostics(tree);
+
+            printer.publish_diagnostics(params.text_document.uri, diags, None);
+        } else {
+            printer.log_message(MessageType::Error, format!("File {} was not open. Failed to update and diagnose it.", params.text_document.uri));
+        }
     }
 
     fn did_save(&self, printer: &Printer, _: DidSaveTextDocumentParams) {
@@ -127,17 +172,35 @@ impl LanguageServer for Backend {
     }
 }
 
-fn main() {
+fn start_language_server() {
     env_logger::init();
 
     let stdin = tokio::io::stdin();
     let stdout = tokio::io::stdout();
 
-    let (service, messages) = LspService::new(Backend::default());
+    let (service, messages) = LspService::new(HerculesScript::new());
     let handle = service.close_handle();
     let server = Server::new(stdin, stdout)
         .interleave(messages)
         .serve(service);
 
     tokio::run(handle.run_until_exit(server));
+}
+
+// fn start_tree() {
+//     let mut parser = Parser::new();
+//     let language = unsafe { tree_sitter_hercscript() };
+//     parser.set_language(language).unwrap();
+
+//     let source_code = "-\tscript\tTest\t\n\n-\tscript\tTest\tFAKE_NPC,{}";
+//     let tree = parser.parse(source_code, None).unwrap();
+//     let root_node = tree.root_node();
+
+//     println!("{:?}", root_node.child(1));//, "source_file");
+//     println!("{}", root_node.start_position().column);//, 0);
+//     println!("{}", root_node.end_position().column); // 12);
+// }
+
+fn main() {
+    start_language_server();
 }

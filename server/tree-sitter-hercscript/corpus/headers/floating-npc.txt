@@ -1,0 +1,18 @@
+===================================================
+Visible, and in a map Script-type NPC header
+===================================================
+
+-	script	Test	FAKE_NPC,{
+
+}
+
+---
+
+(source_file
+	(script_def
+		(position)
+		(npc_name)
+		(npc_sprite)
+		(block)
+	)
+)
