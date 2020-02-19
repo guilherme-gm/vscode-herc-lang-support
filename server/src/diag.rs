@@ -5,10 +5,14 @@ use std::convert::TryInto;
 use std::borrow::Borrow;
 use std::sync::{Arc, Mutex};
 
-pub fn get_diagnostics(tree: Arc<Mutex<Tree>>) -> Vec<Diagnostic> {
+use crate::sourceFile::SourceFile;
+
+pub fn get_diagnostics(source: Arc<Mutex<SourceFile>>) -> Vec<Diagnostic> {
     let mut ret: Vec<Diagnostic> = Vec::new();
 
-    let tree = tree.lock().unwrap();
+    let source = source.lock().unwrap();
+    let tree = &source.tree;
+    
     for child_id in 0..tree.root_node().child_count() {
         let child = tree.root_node().child(child_id).unwrap();
         if child.kind().eq_ignore_ascii_case("error") {

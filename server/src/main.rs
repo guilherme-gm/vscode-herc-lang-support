@@ -1,5 +1,6 @@
 mod diag;
 mod file;
+mod sourceFile;
 mod state;
 
 use std::collections::HashMap;
@@ -118,8 +119,10 @@ impl LanguageServer for HerculesScript {
         // We are only locking it here, so it is safe to unwrap_or_else (I think)
         let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
         let uri = params.text_document.uri.clone();
-        let tree = file::open(&mut state, params.text_document);
-        let diags = diag::get_diagnostics(tree);
+        let src = file::open(&mut state, params.text_document);
+        let cp = src.clone(); //@removeme
+        let diags = diag::get_diagnostics(src);
+        printer.log_message(MessageType::Info, format!("{:?}", cp.lock().unwrap().line_bytes)); //@removeme
         
         printer.publish_diagnostics(uri, diags, None);
     }
@@ -129,9 +132,9 @@ impl LanguageServer for HerculesScript {
         
         // We are only locking it here, so it is safe to unwrap_or_else (I think)
         let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
-        if let Some(tree) = file::get(&mut state, &params.text_document.uri) {
-            file::update(&printer, tree.clone(), params.content_changes);
-            let diags = diag::get_diagnostics(tree);
+        if let Some(src) = file::get(&mut state, &params.text_document.uri) {
+            file::update(&mut state, src.clone(), params.content_changes);
+            let diags = diag::get_diagnostics(src);
 
             printer.publish_diagnostics(params.text_document.uri, diags, None);
         } else {

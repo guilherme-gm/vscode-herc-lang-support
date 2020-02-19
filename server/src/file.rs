@@ -3,22 +3,22 @@ use std::sync::{Arc, Mutex};
 use tree_sitter::{Tree, InputEdit};
 use tower_lsp::Printer;
 
+use crate::sourceFile::SourceFile;
 use crate::State;
 
-pub fn open(state: &mut State, document: TextDocumentItem) -> Arc<Mutex<Tree>> {
+pub fn open(state: &mut State, document: TextDocumentItem) -> Arc<Mutex<SourceFile>> {
     let uri = document.uri;
 
     if state.sources.contains_key(&uri) {
         state.sources.remove(&uri);
     }
 
-    let tree = Arc::new(Mutex::new(state.parser.parse(document.text, None).unwrap()));
-    
-    state.sources.insert(uri.clone(), tree.clone());
-    tree.clone()
+    let src = Arc::new(Mutex::new(SourceFile::new(document.text, &mut state.parser)));
+    state.sources.insert(uri.clone(), src.clone());
+    src.clone()
 }
 
-pub fn get(state: &mut State, url: &Url) -> Option<Arc<Mutex<Tree>>> {
+pub fn get(state: &mut State, url: &Url) -> Option<Arc<Mutex<SourceFile>>> {
     if !state.sources.contains_key(url) {
         return None;
     }
@@ -26,24 +26,7 @@ pub fn get(state: &mut State, url: &Url) -> Option<Arc<Mutex<Tree>>> {
     Some(state.sources.get(url).expect("Failed to get file").clone())
 }
 
-pub fn update( printer: &Printer, tree: Arc<Mutex<Tree>>, changes: Vec<TextDocumentContentChangeEvent>) {
-    let tree = tree.lock().unwrap();
-
-    for change in changes {
-        printer.log_message(MessageType::Error, format!("Change: \n{:?}\n", change));
-        // println!("{:?}", change);
-        // if let Some(range) = change.range {
-            // let edit = InputEdit {
-            //     start_byte: range.start,
-            //     old_end_byte: 8,
-            //     new_end_byte: 14,
-            //     start_position: Point::new(0, 8),
-            //     old_end_position: Point::new(0, 8),
-            //     new_end_position: Point::new(0, 14),
-            // };
-
-            // tree.edit()
-        // }
-    }
-
+pub fn update(state: &mut State, source: Arc<Mutex<SourceFile>>, changes: Vec<TextDocumentContentChangeEvent>) {
+    let mut source = source.lock().unwrap();
+    source.update(&mut state.parser, changes);
 }
