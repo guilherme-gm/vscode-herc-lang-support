@@ -30,3 +30,7 @@ pub fn update(state: &mut State, source: Arc<Mutex<SourceFile>>, changes: Vec<Te
     let mut source = source.lock().unwrap();
     source.update(&mut state.parser, changes);
 }
+
+pub fn close(state: &mut State, url: &Url) {
+    state.sources.remove(&url);
+}

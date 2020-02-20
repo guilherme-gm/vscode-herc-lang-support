@@ -142,12 +142,18 @@ impl LanguageServer for HerculesScript {
         }
     }
 
-    fn did_save(&self, printer: &Printer, _: DidSaveTextDocumentParams) {
-        printer.log_message(MessageType::Info, "file saved!");
+    fn did_save(&self, _printer: &Printer, _: DidSaveTextDocumentParams) {
+        // Should we do something here?
     }
 
-    fn did_close(&self, printer: &Printer, _: DidCloseTextDocumentParams) {
-        printer.log_message(MessageType::Info, "file closed!");
+    fn did_close(&self, _printer: &Printer, params: DidCloseTextDocumentParams) {
+        let uri = params.text_document.uri;
+        
+        // We are only locking it here, so it is safe to unwrap_or_else (I think)
+        let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
+        if let Some(_src) = file::get(&mut state, &uri) {
+            file::close(&mut state, &uri);
+        }
     }
 
     fn completion(&self, _: CompletionParams) -> Self::CompletionFuture {
