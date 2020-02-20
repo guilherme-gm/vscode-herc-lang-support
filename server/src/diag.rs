@@ -1,11 +1,9 @@
-use tree_sitter::Tree;
 use lsp_types::{Diagnostic, Range, Position, DiagnosticSeverity, NumberOrString};
 use std::vec::Vec;
 use std::convert::TryInto;
-use std::borrow::Borrow;
 use std::sync::{Arc, Mutex};
 
-use crate::sourceFile::SourceFile;
+use crate::source_file::SourceFile;
 
 pub fn get_diagnostics(source: Arc<Mutex<SourceFile>>) -> Vec<Diagnostic> {
     let mut ret: Vec<Diagnostic> = Vec::new();

@@ -1,17 +1,17 @@
 mod diag;
 mod file;
-mod sourceFile;
+mod source_file;
 mod state;
 
 use std::collections::HashMap;
-use std::sync::{Arc, Mutex};
+use std::sync::{Mutex};
 use futures::future;
 use jsonrpc_core::{BoxFuture, Result};
 use serde_json::Value;
 use tower_lsp::lsp_types::request::GotoDefinitionResponse;
 use tower_lsp::lsp_types::*;
 use tower_lsp::{LanguageServer, LspService, Printer, Server};
-use tree_sitter::{Parser, Tree, Language};
+use tree_sitter::{Parser, Language};
 use state::State;
 
 extern "C" { fn tree_sitter_hercscript() -> Language; }

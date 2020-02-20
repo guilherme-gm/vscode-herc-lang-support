@@ -1,9 +1,7 @@
 use lsp_types::*;
 use std::sync::{Arc, Mutex};
-use tree_sitter::{Tree, InputEdit};
-use tower_lsp::Printer;
 
-use crate::sourceFile::SourceFile;
+use crate::source_file::SourceFile;
 use crate::State;
 
 pub fn open(state: &mut State, document: TextDocumentItem) -> Arc<Mutex<SourceFile>> {

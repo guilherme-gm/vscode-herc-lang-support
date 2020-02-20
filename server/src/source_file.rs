@@ -120,7 +120,7 @@ impl SourceFile {
 mod tests {
     use lsp_types::*;
     use tree_sitter::Point;
-    use crate::sourceFile::SourceFile;
+    use crate::source_file::SourceFile;
 
     #[test]
     fn it_adds_text_correctly() {
