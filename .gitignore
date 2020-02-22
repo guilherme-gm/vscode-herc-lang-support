@@ -8,6 +8,9 @@ client/out/
 server/target
 server/**/*.rs.bk
 
+# Server Debugger
+server-debugger/target/**
+
 # Reference server (for dev.. Remove later)
 _tsserver/
 
