@@ -1,8 +1,8 @@
 ===================================================
-Floating Script-type NPC header
+Visible, in-map, Script-type NPC header
 ===================================================
 
--	script	Test	FAKE_NPC,{
+map,10,100,1	script	Test	1_NPC,{
 
 }
 
@@ -10,7 +10,7 @@ Floating Script-type NPC header
 
 (source_file
 	(script_def
-		(position)
+		(position map: (identifier) x: (number_literal) y: (number_literal) dir: (number_literal))
 		(npc_name)
 		sprite: (identifier)
 		body: (block)

@@ -1,0 +1,19 @@
+===================================================
+Visible, in-map, touch-area Script-type NPC header
+===================================================
+
+map,10,100,1	script	Test	1_NPC,1,1,{
+
+}
+
+---
+
+(source_file
+	(script_def
+		(position map: (identifier) x: (number_literal) y: (number_literal) dir: (number_literal))
+		(npc_name)
+		sprite: (identifier)
+		(trigger_area spanX: (number_literal) spanY: (number_literal))
+		body: (block)
+	)
+)

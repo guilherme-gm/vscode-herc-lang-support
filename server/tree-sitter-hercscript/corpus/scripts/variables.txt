@@ -1,0 +1,108 @@
+===================================================
+All variable types assignment test
+===================================================
+
+-	script	Test	FAKE_NPC,{
+	id = 2;
+	id$ = "str";
+	@id = 2;
+	@id$ = "str";
+	$id = 2;
+	$id$ = "str";
+	$@id = 2;
+	$@id$ = "str";
+	.id = 2;
+	.id$ = "str";
+	.@id = 2;
+	.@id$ = "str";
+	'id = 2;
+	'id$ = "str";
+	#id = 2;
+	#id$ = "str";
+	##id = 2;
+	##id$ = "str";
+}
+
+---
+
+(source_file
+	(script_def
+		(position)
+		(npc_name)
+		sprite: (identifier)
+		body: (block
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (number_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (string_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (number_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (string_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (number_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (string_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (number_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (string_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (number_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (string_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (number_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (string_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (number_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (string_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (number_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (string_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (number_literal)))
+			(expression_statement
+				(assignment_expression
+					left: (identifier)
+					right: (string_literal)))
+		)
+	)
+)
