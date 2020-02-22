@@ -2,4 +2,5 @@
 **/*.rs.bk
 /tree-sitter-hercscript/binding.gyp
 /tree-sitter-hercscript/index.js
-/tree-sitter-hercscript/src/
+/tree-sitter-hercscript/src/**
+!/tree-sitter-hercscript/src/scanner.c

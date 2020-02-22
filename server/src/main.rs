@@ -1,3 +1,11 @@
+#[macro_use]
+macro_rules! debug_ {
+    ($con: expr, $msg: expr) => {
+        $con.write(format!("{}\n", $msg).as_bytes()).unwrap();
+    };
+}
+
+mod completion;
 mod diag;
 mod file;
 mod source_file;
@@ -14,11 +22,16 @@ use tower_lsp::{LanguageServer, LspService, Printer, Server};
 use tree_sitter::{Parser, Language};
 use state::State;
 
+// Debugger
+use std::io::prelude::*;
+use std::net::TcpStream;
+
 extern "C" { fn tree_sitter_hercscript() -> Language; }
 
 
 pub struct HerculesScript {
     state: Mutex<State>,
+    con: Mutex<TcpStream>, // Debugger
 }
 
 impl HerculesScript {
@@ -26,12 +39,17 @@ impl HerculesScript {
         let mut parser = Parser::new();
         let language = unsafe { tree_sitter_hercscript() };
         parser.set_language(language).unwrap();
+        let mut stream = TcpStream::connect("127.0.0.1:10000").unwrap();
+        let _ = stream.set_nodelay(true);
+        // let _ = stream.write("Client Connected\n".as_bytes());
+        debug_!(stream, "Client Connected");
 
         HerculesScript {
             state: Mutex::new(State {
                 sources: HashMap::new(),
                 parser,
             }),
+            con: Mutex::new(stream),
         }
     }
 }
@@ -48,6 +66,7 @@ impl LanguageServer for HerculesScript {
     type HighlightFuture = BoxFuture<Option<Vec<DocumentHighlight>>>;
 
     fn initialize(&self, _: &Printer, _: InitializeParams) -> Result<InitializeResult> {
+        // printer.log_message(MessageType::Info, format!("{:?}", p.initialization_options.unwrap()));
         Ok(InitializeResult {
             server_info: None,
             capabilities: ServerCapabilities {
@@ -156,8 +175,17 @@ impl LanguageServer for HerculesScript {
         }
     }
 
-    fn completion(&self, _: CompletionParams) -> Self::CompletionFuture {
-        Box::new(future::ok(None))
+    fn completion(&self, params: CompletionParams) -> Self::CompletionFuture {
+        // params.text_document_position.
+        let uri = &params.text_document_position.text_document.uri;
+        let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
+
+        if let Some(src) = file::get(&mut state, uri) {
+            let position = params.text_document_position.position;
+            Box::new(future::ok(Some(CompletionResponse::Array(completion::get_completion(&self.con, src, position)))))
+        } else {
+            Box::new(future::ok(None))
+        }
     }
 
     fn hover(&self, _: TextDocumentPositionParams) -> Self::HoverFuture {
