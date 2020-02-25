@@ -3,6 +3,8 @@ use std::sync::{Arc, Mutex};
 use std::vec::Vec;
 use tower_lsp::lsp_types::*;
 use tree_sitter::{Node, Point};
+use crate::state::{State};
+use crate::script_commands::ScriptCommand;
 
 // Debugger
 use std::io::prelude::*;
@@ -70,12 +72,15 @@ fn get_context(node: &Node, position: &Position, dbg: &mut TcpStream) -> CodeCon
     CodeContext::Invalid
 }
 
-fn make_completion_item(label: String) -> CompletionItem {
+fn make_script_cmd_completion(name: String, cmd: &ScriptCommand) -> CompletionItem {
     CompletionItem {
-        label: label,
+        label: name,
         kind: Some(CompletionItemKind::Function),
-        detail: None,
-        documentation: None,
+        detail: cmd.prototype.clone(),
+        documentation: Some(Documentation::MarkupContent(MarkupContent {
+            kind: MarkupKind::Markdown,
+            value: cmd.doc.clone(),
+        })),
         deprecated: None,
         preselect: None,
         sort_text: None,
@@ -92,6 +97,7 @@ fn make_completion_item(label: String) -> CompletionItem {
 
 pub fn get_completion(
     dbg: &Mutex<TcpStream>,
+    state: &State,
     source: Arc<Mutex<SourceFile>>,
     position: Position,
 ) -> Vec<CompletionItem> {
@@ -107,9 +113,11 @@ pub fn get_completion(
     let context = get_context(&tree.root_node(), &position, &mut dbg);
 
     if context == CodeContext::Expression {
-        items.push(make_completion_item(String::from("mes")));
-        items.push(make_completion_item(String::from("close")));
-        items.push(make_completion_item(String::from("menu")));
+        if let Some(commands) = &state.commands {
+            for cmd_name in commands.keys() {
+                items.push(make_script_cmd_completion(cmd_name.clone(), &commands.get(cmd_name).unwrap()));
+            }
+        }
     }
 
     debug_!(dbg, "--------");

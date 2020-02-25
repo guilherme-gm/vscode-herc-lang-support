@@ -10,9 +10,11 @@ mod diag;
 mod file;
 mod source_file;
 mod state;
+mod script_commands;
 
 use std::collections::HashMap;
 use std::sync::{Mutex};
+use std::fs::File;
 use futures::future;
 use jsonrpc_core::{BoxFuture, Result};
 use serde_json::Value;
@@ -21,6 +23,7 @@ use tower_lsp::lsp_types::*;
 use tower_lsp::{LanguageServer, LspService, Printer, Server};
 use tree_sitter::{Parser, Language};
 use state::State;
+use script_commands::ScriptCommand;
 
 // Debugger
 use std::io::prelude::*;
@@ -48,6 +51,7 @@ impl HerculesScript {
             state: Mutex::new(State {
                 sources: HashMap::new(),
                 parser,
+                commands: None,
             }),
             con: Mutex::new(stream),
         }
@@ -65,8 +69,15 @@ impl LanguageServer for HerculesScript {
     type TypeDefinitionFuture = BoxFuture<Option<GotoDefinitionResponse>>;
     type HighlightFuture = BoxFuture<Option<Vec<DocumentHighlight>>>;
 
-    fn initialize(&self, _: &Printer, _: InitializeParams) -> Result<InitializeResult> {
-        // printer.log_message(MessageType::Info, format!("{:?}", p.initialization_options.unwrap()));
+    fn initialize(&self, _: &Printer, params: InitializeParams) -> Result<InitializeResult> {
+        let init = params.initialization_options.unwrap();
+        if let Value::String(cmd_path) = init.get("script_cmd").unwrap() {
+            let commands_json = File::open(cmd_path).unwrap();
+            let mut commands: HashMap<String, ScriptCommand> = serde_json::from_reader(commands_json).unwrap();
+            script_commands::load_prototypes(&mut commands);
+            self.state.lock().unwrap().commands = Some(commands);
+        }
+        
         Ok(InitializeResult {
             server_info: None,
             capabilities: ServerCapabilities {
@@ -182,7 +193,7 @@ impl LanguageServer for HerculesScript {
 
         if let Some(src) = file::get(&mut state, uri) {
             let position = params.text_document_position.position;
-            Box::new(future::ok(Some(CompletionResponse::Array(completion::get_completion(&self.con, src, position)))))
+            Box::new(future::ok(Some(CompletionResponse::Array(completion::get_completion(&self.con, &state, src, position)))))
         } else {
             Box::new(future::ok(None))
         }

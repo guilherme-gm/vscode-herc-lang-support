@@ -32,8 +32,19 @@ export function activate(context: ExtensionContext) {
 	let clientOptions: LanguageClientOptions = {
 		// Register the server for plain text documents
 		documentSelector: [{ scheme: 'file', language: 'hercscript' }],
+		initializationOptions: { script_cmd: path.resolve("client", "out", "commands.json") }, // FIXME: Is this path correct for production?
 	};
-
+	
+/*  ---- Find out Tab-Size -----
+	console.log(JSON.stringify(workspace.getConfiguration("editor").get("tabSize")));
+	console.log(window.activeTextEditor.options.tabSize);
+	window.onDidChangeTextEditorOptions((e) => {
+		console.log(e);
+		console.log(JSON.stringify(workspace.getConfiguration("editor").get("tabSize")));
+	})
+	----- ----------------------
+*/	
+	console.log(path.resolve());
 	// Create the language client and start the client.
 	client = new LanguageClient(
 		'languageServerExample',

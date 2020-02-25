@@ -64,6 +64,7 @@
         "compile": "tsc -b",
         "watch": "cd client && tsc -b -w",
         "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
-        "test": "sh ./scripts/e2e.sh"
+        "test": "sh ./scripts/e2e.sh",
+        "join_commands": "node tools/join_commands.js"
     }
 }
