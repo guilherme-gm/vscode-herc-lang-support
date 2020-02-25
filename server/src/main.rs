@@ -15,10 +15,8 @@ mod script_commands;
 use std::collections::HashMap;
 use std::sync::{Mutex};
 use std::fs::File;
-use futures::future;
-use jsonrpc_core::{BoxFuture, Result};
+use jsonrpc_core::{Result};
 use serde_json::Value;
-use tower_lsp::lsp_types::request::GotoDefinitionResponse;
 use tower_lsp::lsp_types::*;
 use tower_lsp::{LanguageServer, LspService, Printer, Server};
 use tree_sitter::{Parser, Language};
@@ -58,17 +56,8 @@ impl HerculesScript {
     }
 }
 
+#[tower_lsp::async_trait]
 impl LanguageServer for HerculesScript {
-    type ShutdownFuture = BoxFuture<()>;
-    type SymbolFuture = BoxFuture<Option<Vec<SymbolInformation>>>;
-    type ExecuteFuture = BoxFuture<Option<Value>>;
-    type CompletionFuture = BoxFuture<Option<CompletionResponse>>;
-    type HoverFuture = BoxFuture<Option<Hover>>;
-    type DeclarationFuture = BoxFuture<Option<GotoDefinitionResponse>>;
-    type DefinitionFuture = BoxFuture<Option<GotoDefinitionResponse>>;
-    type TypeDefinitionFuture = BoxFuture<Option<GotoDefinitionResponse>>;
-    type HighlightFuture = BoxFuture<Option<Vec<DocumentHighlight>>>;
-
     fn initialize(&self, _: &Printer, params: InitializeParams) -> Result<InitializeResult> {
         let init = params.initialization_options.unwrap();
         if let Value::String(cmd_path) = init.get("script_cmd").unwrap() {
@@ -84,7 +73,7 @@ impl LanguageServer for HerculesScript {
                 text_document_sync: Some(TextDocumentSyncCapability::Kind(
                     TextDocumentSyncKind::Incremental,
                 )),
-                hover_provider: Some(true),
+                hover_provider: Some(false),
                 completion_provider: Some(CompletionOptions {
                     resolve_provider: Some(false),
                     trigger_characters: Some(vec![".".to_string()]),
@@ -118,12 +107,8 @@ impl LanguageServer for HerculesScript {
         printer.log_message(MessageType::Info, "server initialized!");
     }
 
-    fn shutdown(&self) -> Self::ShutdownFuture {
-        Box::new(future::ok(()))
-    }
-
-    fn symbol(&self, _: WorkspaceSymbolParams) -> Self::SymbolFuture {
-        Box::new(future::ok(None))
+    async fn shutdown(&self) -> Result<()> {
+        Ok(())
     }
 
     fn did_change_workspace_folders(&self, printer: &Printer, _: DidChangeWorkspaceFoldersParams) {
@@ -138,10 +123,14 @@ impl LanguageServer for HerculesScript {
         printer.log_message(MessageType::Info, "watched files have changed!");
     }
 
-    fn execute_command(&self, printer: &Printer, _: ExecuteCommandParams) -> Self::ExecuteFuture {
+    async fn execute_command(
+        &self,
+        printer: &Printer,
+        _: ExecuteCommandParams,
+    ) -> Result<Option<Value>> {
         printer.log_message(MessageType::Info, "command executed!");
         printer.apply_edit(WorkspaceEdit::default());
-        Box::new(future::ok(None))
+        Ok(None)
     }
 
     fn did_open(&self, printer: &Printer, params: DidOpenTextDocumentParams) {
@@ -186,41 +175,22 @@ impl LanguageServer for HerculesScript {
         }
     }
 
-    fn completion(&self, params: CompletionParams) -> Self::CompletionFuture {
+    async fn completion(&self, params: CompletionParams) -> Result<Option<CompletionResponse>> {
         // params.text_document_position.
         let uri = &params.text_document_position.text_document.uri;
         let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
 
         if let Some(src) = file::get(&mut state, uri) {
             let position = params.text_document_position.position;
-            Box::new(future::ok(Some(CompletionResponse::Array(completion::get_completion(&self.con, &state, src, position)))))
+            Ok(Some(CompletionResponse::Array(completion::get_completion(&self.con, &state, src, position))))
         } else {
-            Box::new(future::ok(None))
+            Ok(None)
         }
-    }
-
-    fn hover(&self, _: TextDocumentPositionParams) -> Self::HoverFuture {
-        Box::new(future::ok(None))
-    }
-
-    fn goto_declaration(&self, _: TextDocumentPositionParams) -> Self::DeclarationFuture {
-        Box::new(future::ok(None))
-    }
-
-    fn goto_definition(&self, _: TextDocumentPositionParams) -> Self::DefinitionFuture {
-        Box::new(future::ok(None))
-    }
-
-    fn goto_type_definition(&self, _: TextDocumentPositionParams) -> Self::TypeDefinitionFuture {
-        Box::new(future::ok(None))
-    }
-
-    fn document_highlight(&self, _: TextDocumentPositionParams) -> Self::HighlightFuture {
-        Box::new(future::ok(None))
     }
 }
 
-fn start_language_server() {
+#[tokio::main]
+async fn main() -> Result<()> {
     env_logger::init();
 
     let stdin = tokio::io::stdin();
@@ -232,23 +202,7 @@ fn start_language_server() {
         .interleave(messages)
         .serve(service);
 
-    tokio::run(handle.run_until_exit(server));
-}
-
-// fn start_tree() {
-//     let mut parser = Parser::new();
-//     let language = unsafe { tree_sitter_hercscript() };
-//     parser.set_language(language).unwrap();
-
-//     let source_code = "-\tscript\tTest\t\n\n-\tscript\tTest\tFAKE_NPC,{}";
-//     let tree = parser.parse(source_code, None).unwrap();
-//     let root_node = tree.root_node();
-
-//     println!("{:?}", root_node.child(1));//, "source_file");
-//     println!("{}", root_node.start_position().column);//, 0);
-//     println!("{}", root_node.end_position().column); // 12);
-// }
-
-fn main() {
-    start_language_server();
+    handle.run_until_exit(server).await;
+    
+    Ok(())
 }
