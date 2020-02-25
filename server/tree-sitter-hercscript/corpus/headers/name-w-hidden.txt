@@ -11,7 +11,7 @@ prontera, 150, 150, 4	script	My NPC#isHidden	1_M_01,{
 (source_file
 	(script_def
 		(position map: (identifier) x: (number_literal) y: (number_literal) dir: (number_literal))
-		(npc_name)
+		(npc_name (visible_name) (hidden_name))
 		sprite: (identifier)
 		body: (block)
 	)

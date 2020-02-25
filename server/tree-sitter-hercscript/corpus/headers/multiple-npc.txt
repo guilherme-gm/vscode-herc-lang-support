@@ -19,19 +19,19 @@ Multiple floating npcs
 (source_file
 	(script_def
 		(position)
-		(npc_name)
+		(npc_name (visible_name) (hidden_name))
 		sprite: (identifier)
 		body: (block)
 	)
 	(script_def
 		(position)
-		(npc_name)
+		(npc_name (visible_name) (hidden_name))
 		sprite: (identifier)
 		body: (block)
 	)
 	(script_def
 		(position)
-		(npc_name)
+		(npc_name (visible_name) (hidden_name))
 		sprite: (identifier)
 		body: (block)
 	)

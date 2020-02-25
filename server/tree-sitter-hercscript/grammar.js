@@ -24,10 +24,6 @@ module.exports = grammar({
 
 	// word: $ => $.identifier,
 
-	// externals: $ => [
-	// 	$.npc_name
-	// ],
-
 	extras: $ => [
 		/\s/,
 		$._comment,
@@ -46,13 +42,24 @@ module.exports = grammar({
 			/\t/,
 			'script',
 			/\t/,
-			$.identifier, //$.npc_name
+			$.npc_name,
 			/\t/,
 			field('sprite', $.identifier),
 			optional($.trigger_area),
 			',',
 			field('body', $.block),
 		),
+
+		npc_name: $ => choice(
+			seq($.visible_name, optional($.hidden_name), optional($.unique_name)),
+			seq($.hidden_name, optional($.unique_name)),
+			$.unique_name
+		),
+
+		visible_name: $ => $._name_part,
+		hidden_name: $ => seq('#', $._name_part),
+		unique_name: $ => seq('::', $._name_part),
+		_name_part: $ => /[^\t(::)#]+/,
 
 		position: $ => choice(
 			seq(

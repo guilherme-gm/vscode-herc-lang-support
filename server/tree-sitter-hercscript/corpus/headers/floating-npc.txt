@@ -11,7 +11,7 @@ Floating Script-type NPC header
 (source_file
 	(script_def
 		(position)
-		(npc_name)
+		(npc_name (visible_name))
 		sprite: (identifier)
 		body: (block)
 	)

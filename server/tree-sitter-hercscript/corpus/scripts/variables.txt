@@ -28,7 +28,7 @@ All variable types assignment test
 (source_file
 	(script_def
 		(position)
-		(npc_name)
+		(npc_name (visible_name))
 		sprite: (identifier)
 		body: (block
 			(expression_statement
