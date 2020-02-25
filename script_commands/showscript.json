@@ -1,0 +1,45 @@
+{
+	"showscript": {
+		"params": {
+			"message": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"send_target": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"message"
+			],
+			[
+				"message",
+				"GID"
+			],
+			[
+				"message",
+				"GID",
+				"send_target"
+			]
+		],
+		"doc": [
+			"Makes the attached player or GID, display a message similiar to a chat,\n",
+			"this will be seen by everyone near the invoking character but will not\n",
+			"be displayed in the chat window.\n",
+			"send_target: (optional)\n",
+			"\tAREA: show the message to everyone within the view range (default)\n",
+			"\tSELF: show the message to the given unit GID only\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

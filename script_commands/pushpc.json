@@ -1,0 +1,38 @@
+{
+	"pushpc": {
+		"params": {
+			"direction": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"cells": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"direction",
+				"cells"
+			]
+		],
+		"doc": [
+			"This command will push the currently attached player to given direction by\n",
+			"given amount of square cells. Direction is the same as used when declaring\n",
+			"NPCs, and can be specified by using one of the DIR_* constants\n",
+			"(doc/constants.md).\n",
+			"\n",
+			"The knock-back is not restricted by items or map flags, only obstacles are\n",
+			"taken into account. If there is not enough space to perform the push (e.g.\n",
+			"due to a wall), the character is pushed only up to the obstacle.\n",
+			"\n",
+			"\t// pushes the character 5 cells in 3 o'clock direction from it's\n",
+			"\t// current position.\n",
+			"\tpushpc(DIR_EAST, 5);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,23 @@
+{
+	"queuedel": {
+		"params": {
+			"queue_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"queue_id"
+			]
+		],
+		"doc": [
+			"Deletes the queue <queue_id>.\n",
+			"\n",
+			"Returns false if the queue wasn't found, true otherwise.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

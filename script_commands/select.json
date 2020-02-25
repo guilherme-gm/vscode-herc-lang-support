@@ -1,0 +1,33 @@
+{
+	"select": {
+		"params": {
+			"option": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"option"
+			],
+			[
+				"option",
+				"option"
+			]
+		],
+		"doc": [
+			"This function is a handy replacement for 'menu' that doesn't use a complex\n",
+			"label structure. It will return the number of the menu option picked,\n",
+			"starting with 1. If the player presses cancel, the script is terminated.\n",
+			"\n",
+			"    if (select(\"Yes\", \"No\") == 1)\n",
+			"        mes(\"You said yes, I know.\");\n",
+			"\n",
+			"And like 'menu', the selected option is consistent with grouped options\n",
+			"and empty options.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

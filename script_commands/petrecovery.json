@@ -1,0 +1,88 @@
+{
+	"petrecovery": {
+		"params": {
+			"status type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"delay": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"status type",
+				"delay"
+			]
+		],
+		"doc": [
+			"* The Pet AI commands\n",
+			"\n",
+			"These commands will only work if the invoking character has a pet, and are\n",
+			"meant to be executed from pet scripts. They will modify the pet AI\n",
+			"decision-making for the current pet of the invoking character, and will\n",
+			"NOT have any independent effect by themselves, which is why only one of\n",
+			"them each may be in effect at any time for a specific pet. A pet may\n",
+			"have petloot(), petskillbonus(), petskillattack() and petskillsupport() at the\n",
+			"same time.\n",
+			"\n",
+			"\n",
+			"This command will make the pet give a bonus to the owner's stat (bonus\n",
+			"type - bInt, bVit, bDex, bAgi, bLuk, bStr, bSpeedRate - for a full list, see the\n",
+			"'doc/constants.md' under 'Bonuses / Parameter IDs').\n",
+			"\n",
+			"\n",
+			"This command will make the pet cure a specified status condition. The\n",
+			"curing actions will occur once every <delay> seconds. For a full list of\n",
+			"status conditions that can be cured, see the list of 'Status Changes' status\n",
+			"condition constants in 'doc/constants.md'\n",
+			"\n",
+			"\n",
+			"This command will turn on pet looting, with a maximum number of items to\n",
+			"loot specified. Pet will store items and return them when the maximum is\n",
+			"reached or when pet performance is activated.\n",
+			"\n",
+			"\n",
+			"This will make the pet use a specified support skill on the owner whenever\n",
+			"the HP and SP are below the given percent values, with a specified delay\n",
+			"time between activations. The skill numbers are as per\n",
+			"'db/(pre-)re/skill_db.txt'.\n",
+			"It's not quite certain who's stats will be used for the skills cast, the\n",
+			"character's or the pets. Probably, Skotlex can answer that question.\n",
+			"\n",
+			"\n",
+			"This command will make the pet cast an attack skill on the enemy the pet's\n",
+			"owner is currently fighting. Skill IDs and levels are as per petskillsupport().\n",
+			"If <number of attacks> is specified different than 0, it will make the pet cast\n",
+			"the skill with a fixed amount of damage inflicted and the specified number of\n",
+			"attacks. A value of zero uses the skill's defaults.\n",
+			"\n",
+			"All commands with delays and durations will only make the behavior active\n",
+			"for the specified duration of seconds, with a delay of the specified\n",
+			"number of seconds between activations. Rates are a chance of the effect\n",
+			"occurring and are given in percent. 'bonusrate' is added to the normal\n",
+			"rate if the pet intimacy is at the maximum possible.\n",
+			"\n",
+			"The behavior modified with the above mentioned commands will only be\n",
+			"exhibited if the pet is loyal and appropriate configuration options are\n",
+			"set in 'conf/map/battle.conf'.\n",
+			"\n",
+			"Pet scripts in the database normally run whenever a pet of that type\n",
+			"hatches from the egg. Other commands usable in item scripts (see bonus())\n",
+			"will also happily run from pet scripts. Apparently, the pet-specific\n",
+			"commands will also work in NPC scripts and modify the behavior of the\n",
+			"current pet up until the pet is hatched again. (Which will also occur when\n",
+			"the character is logged in again with the pet still out of the egg.) It is\n",
+			"not certain for how long the effect of such command running from an NPC\n",
+			"script will eventually persist, but apparently, it is possible to usefully\n",
+			"employ them in usable item scripts to create pet buffing items.\n",
+			"\n",
+			"Nobody tried this before, so you're essentially on your own here.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

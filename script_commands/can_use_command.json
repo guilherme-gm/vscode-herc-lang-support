@@ -1,0 +1,32 @@
+{
+	"can_use_command": {
+		"params": {
+			"command": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"command"
+			],
+			[
+				"command",
+				"account id"
+			]
+		],
+		"doc": [
+			"Checks if the attached or specified player can use the specified\n",
+			"atcommand and returns true or false accordingly. Works for both\n",
+			"built-in atcommands and custom atcommands.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

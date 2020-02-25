@@ -1,0 +1,32 @@
+{
+	"expandinventoryresult": {
+		"params": {
+			"result": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"result"
+			]
+		],
+		"doc": [
+			"Send final inventory expansion result.\n",
+			"Normally this function should be called from script label\n",
+			"inventory_expansion::OnInventoryExpandConfirmed.\n",
+			"\n",
+			"Valid result values:\n",
+			" EXPAND_INVENTORY_RESULT_SUCCESS - success message\n",
+			" EXPAND_INVENTORY_RESULT_FAILED - other failed reason\n",
+			" EXPAND_INVENTORY_RESULT_OTHER_WORK - failed because player busy with other work\n",
+			" EXPAND_INVENTORY_RESULT_MISSING_ITEM - failed because missing item\n",
+			" EXPAND_INVENTORY_RESULT_MAX_SIZE - failed because inventory size already maximum\n",
+			"\n",
+			"Works for 20181212 zero clients\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

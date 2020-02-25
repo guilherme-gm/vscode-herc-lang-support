@@ -1,0 +1,28 @@
+{
+	"openstorage": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This will open character's Kafra storage window on the client connected to\n",
+			"the invoking character. It can be used from any kind of NPC or item\n",
+			"script, not just limited to Kafra Staff.\n",
+			"\n",
+			"The storage window opens regardless of whether there are open NPC dialogs\n",
+			"or not, but it is preferred to close the dialog before displaying the\n",
+			"storage window, to avoid any disruption when both windows overlap.\n",
+			"\n",
+			"\tmes(\"I will now open your stash for you\");\n",
+			"\tclose2();\n",
+			"\topenstorage();\n",
+			"\tend;\n",
+			"\n",
+			"The mapflag 'nostorage' when set to type '2' (or 3), will not open the\n",
+			"account storage. Unless the character group has the permission 'bypass_nostorage'.\n",
+			"In case blocked by mapflag, returns 0.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

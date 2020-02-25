@@ -1,0 +1,37 @@
+{
+	"successrefitem": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"upgrade_count": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			],
+			[
+				"equipment slot",
+				"upgrade_count"
+			]
+		],
+		"doc": [
+			"This command will refine an item in the specified equipment slot of the\n",
+			"invoking character by +1 (unless <upgrade_count> is specified).\n",
+			"For a list of equipment slots see 'getequipid'.\n",
+			"This command will also display a 'refine success'\n",
+			"effect on the character and put appropriate messages into their chat\n",
+			"window. It will also give the character fame points if a weapon reached\n",
+			"+10 this way, even though these will only take effect for blacksmith who\n",
+			"will later forge a weapon.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

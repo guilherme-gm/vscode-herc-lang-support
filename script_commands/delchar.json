@@ -1,0 +1,32 @@
+{
+	"delchar": {
+		"params": {
+			"string": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"index": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"string",
+				"index"
+			]
+		],
+		"doc": [
+			"Returns the original string with the char at the specified index removed.\n",
+			"If index is out of range, original string will be returned.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\tdelchar(\"Diet\", 3); //returns \"Die\"\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

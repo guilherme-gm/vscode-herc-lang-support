@@ -1,0 +1,34 @@
+{
+	"completequest": {
+		"params": {
+			"ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"ID2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"ID"
+			],
+			[
+				"ID",
+				"ID2"
+			]
+		],
+		"doc": [
+			"Change the state for the given quest <ID> to \"complete\" and remove from\n",
+			"the users quest log.\n",
+			"\n",
+			"If a second quest id of greater value is specified, all quests between the two\n",
+			"will be completed.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

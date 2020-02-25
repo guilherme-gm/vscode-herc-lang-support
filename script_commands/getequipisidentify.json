@@ -1,0 +1,26 @@
+{
+	"getequipisidentify": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			]
+		],
+		"doc": [
+			"This function will return true if an item in the specified equipment slot is\n",
+			"identified and false if it isn't. Since you can't even equip unidentified\n",
+			"equipment, there's a question of whether it can actually end up there, and\n",
+			"it will normally return true all the time if there is an item in this\n",
+			"equipment slot, which makes this script command kinda pointless.\n",
+			"For a list of equipment slots see getequipid().\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

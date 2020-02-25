@@ -1,0 +1,50 @@
+{
+	"recovery": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"x2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name"
+			],
+			[
+				"map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2"
+			]
+		],
+		"doc": [
+			"This command will revive and restore full HP and SP to all characters currently\n",
+			"connected to the server. If an account id is supplied, it will instead only\n",
+			"affect this character. If a map is supplied it will affect a whole map or area.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

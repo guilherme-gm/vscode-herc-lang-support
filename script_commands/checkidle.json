@@ -1,0 +1,23 @@
+{
+	"checkidle": {
+		"params": {
+			"Player Name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"Player Name"
+			]
+		],
+		"doc": [
+			"Returns the time, in seconds, that the specified player has been idle.\n",
+			"Name is optional, and defaults to the attached player if omitted.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

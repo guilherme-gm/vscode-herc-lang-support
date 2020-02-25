@@ -1,0 +1,41 @@
+{
+	"pcblockmove": {
+		"params": {
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"option": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"account id",
+				"option"
+			]
+		],
+		"doc": [
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"    @ /!\\ This command is deprecated @\n",
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"\n",
+			"Prevents the player from moving when the option != 0, and 0 enables the\n",
+			"player to move again. The player has to be the account ID of a character,\n",
+			"and will run for the attached player if zero is supplied.\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"// Prevents the current char from moving away.\n",
+			"\tpcblockmove(getcharid(CHAR_ID_ACCOUNT), true);\n",
+			"\n",
+			"// Enables the current char to move again.\n",
+			"\tpcblockmove(getcharid(CHAR_ID_ACCOUNT), false);\n"
+		],
+		"return": "unknown",
+		"deprecated": true
+	}
+}

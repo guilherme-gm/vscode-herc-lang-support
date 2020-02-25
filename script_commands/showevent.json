@@ -1,0 +1,58 @@
+{
+	"showevent": {
+		"params": {
+			"icon": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"mark color": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"icon"
+			],
+			[
+				"icon",
+				"mark color"
+			]
+		],
+		"doc": [
+			"Show an emotion on top of a NPC, and optionally,\n",
+			"a colored mark in the mini-map like viewpoint().\n",
+			"This is used to indicate that a NPC has a quest or an event to\n",
+			"a certain player.\n",
+			"\n",
+			"Available Icons:\n",
+			"\n",
+			"Remove Icon\t: QTYPE_NONE\n",
+			"! Quest Icon\t: QTYPE_QUEST\n",
+			"? Quest Icon\t: QTYPE_QUEST2\n",
+			"! Job Icon\t: QTYPE_JOB\n",
+			"? Job Icon\t: QTYPE_JOB2\n",
+			"! Event Icon\t: QTYPE_EVENT\n",
+			"? Event Icon\t: QTYPE_EVENT2\n",
+			"Warg\t\t: QTYPE_WARG\n",
+			"Warg Face\t: QTYPE_WARG2 (Only for packetver >= 20120410 && packetver < 20170315)\n",
+			"\n",
+			"- Only for packetver >= 20170315\n",
+			"Click Me Icon      : QTYPE_CLICKME\n",
+			"! Daily Quest Icon : QTYPE_DAILYQUEST\n",
+			"! Green Event Icon : QTYPE_EVENT3\n",
+			"! Job Quest Icon   : QTYPE_JOBQUEST\n",
+			"Jumping Poring     : QTYPE_JUMPING_PORING\n",
+			"\n",
+			"Mark Color:\n",
+			"0 - No Mark\n",
+			"1 - Yellow Mark\n",
+			"2 - Green Mark\n",
+			"3 - Purple Mark\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

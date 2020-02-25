@@ -1,0 +1,65 @@
+{
+	"copyarray": {
+		"params": {
+			"destination array": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"first value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"source array": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount of data to copy": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"destination array",
+				"first value",
+				"source array",
+				"first value",
+				"amount of data to copy"
+			]
+		],
+		"doc": [
+			"This command lets you quickly shuffle a lot of data between arrays, which\n",
+			"is in some cases invaluable.\n",
+			"\n",
+			"\tsetarray(.@array, 100, 200, 300, 400, 500, 600);\n",
+			"\t// So we have made .@array[]\n",
+			"\tcopyarray(.@array2[0], .@array[2], 2);\n",
+			"\n",
+			"\t// Now, .@array2[0] will be equal to .@array[2] (300) and\n",
+			"\t// .@array2[1] will be equal to .@array[3].\n",
+			"\n",
+			"So using the examples above:\n",
+			" .@array[0] = 100\n",
+			" .@array[1] = 200\n",
+			" .@array[2] = 300\n",
+			" .@array[3] = 400\n",
+			" .@array[4] = 500\n",
+			" .@array[5] = 600\n",
+			"\n",
+			"New Array:\n",
+			" .@array2[0] = 300\n",
+			" .@array2[1] = 400\n",
+			" .@array2[2] = 0\n",
+			" .@array2[3] = 0\n",
+			"\n",
+			"Notice that .@array[4] and .@array[5] won't be copied to the second array,\n",
+			"and it will return a 0.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,88 @@
+{
+	"delitem2": {
+		"params": {
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"identify": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"refine": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"attribute": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card3": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card4": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item name",
+				"amount",
+				"identify",
+				"refine",
+				"attribute",
+				"card1",
+				"card2",
+				"card3",
+				"card4"
+			],
+			[
+				"item name",
+				"amount",
+				"identify",
+				"refine",
+				"attribute",
+				"card1",
+				"card2",
+				"card3",
+				"card4",
+				"account ID"
+			]
+		],
+		"doc": [
+			"This command will remove a specified amount of items from the invoking or\n",
+			"target character.\n",
+			"Check getitem2() to understand its expanded parameters.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

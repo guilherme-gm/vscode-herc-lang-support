@@ -1,0 +1,63 @@
+{
+	"callshop": {
+		"params": {
+			"name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"option": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"name",
+				"option"
+			]
+		],
+		"doc": [
+			"These are a series of commands used to create dynamic shops.\n",
+			"The callshop() function calls an invisible shop (FAKE_NPC) as if the player\n",
+			"clicked on it.\n",
+			"\n",
+			"For the options on callShop:\n",
+			"\t0 = The normal window (buy, sell and cancel)\n",
+			"\t1 = The buy window\n",
+			"\t2 = The sell window\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"//Will call the shop named DaShop and opens the buy menu.\n",
+			"callshop(\"DaShop\", 1);\n",
+			"\n",
+			"\n",
+			"The shop which is called by callshop() (as long as an npcshop* command is\n",
+			"executed from that NPC (see note 1)) will trigger the labels OnBuyItem and\n",
+			"OnSellitem. These labels can take over handling for relatively the buying\n",
+			"of items from the shop and selling the items to a shop. Via these labels\n",
+			"you can customize the way an item is bought or sold by a player.\n",
+			"\n",
+			"In the OnBuyItem, two arrays are filled (@bought_nameid and\n",
+			"@bought_quantity) with information about the name id (item id) sold\n",
+			"and the amount sold of it. Same goes for the OnSellItem label, only the\n",
+			"variables are named different (@sold_nameid, @sold_quantity, @sold_refine,\n",
+			"@sold_attribute, @sold_identify, @sold_card1, @sold_card2, @sold_card3,\n",
+			"@sold_card4). An example on a shop comes with Hercules, and can be found\n",
+			"in the doc/sample/npc_dynamic_shop.txt file.\n",
+			"\n",
+			"This example shows how to use the labels and their set variables to create\n",
+			"a dynamic shop.\n",
+			"\n",
+			"Note 1: These labels will only be triggered if a npcshop* command is\n",
+			"executed, this is because these commands set a special data on the shop\n",
+			"NPC, named master_nd in the source.\n",
+			"The OnSellItem and OnBuyItem are triggered in the NPC whose master_nd is\n",
+			"given in the shop.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

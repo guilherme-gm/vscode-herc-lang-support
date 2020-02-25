@@ -1,0 +1,34 @@
+{
+	"setfont": {
+		"params": {
+			"font": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"font"
+			]
+		],
+		"doc": [
+			"This command sets the current RO client interface font to one of the fonts\n",
+			"stored in data\\*.eot by using an ID of the font. When the ID of the\n",
+			"currently used font is used, default interface font is used again.\n",
+			"\n",
+			"\t0 - Default\n",
+			"\t1 - RixLoveangel\n",
+			"\t2 - RixSquirrel\n",
+			"\t3 - NHCgogo\n",
+			"\t4 - RixDiary\n",
+			"\t5 - RixMiniHeart\n",
+			"\t6 - RixFreshman\n",
+			"\t7 - RixKid\n",
+			"\t8 - RixMagic\n",
+			"\t9 - RixJJangu\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

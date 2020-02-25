@@ -1,0 +1,27 @@
+{
+	"rid2name": {
+		"params": {
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"account id"
+			]
+		],
+		"doc": [
+			"Converts rid to name. Note: The player/monster/NPC must be online/enabled.\n",
+			"Good for PCKillEvent where you can convert 'killedrid' to the name of the\n",
+			"player.\n",
+			"\n",
+			"Note: rid2name() may not produce correct character names since RID means\n",
+			"      account id.\n",
+			"      It will return the current online character of the account only.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"dressroom": {
+		"params": {
+			"mode": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"mode"
+			]
+		],
+		"doc": [
+			"This command controls the dressing room for the attached player. If no <mode>\n",
+			"is passed, DRESSROOM_OPEN is used by default.\n",
+			"\n",
+			"Valid <mode> for dressroom() are:\n",
+			"\tDRESSROOM_OPEN     opens the dressing room window\n",
+			"\tDRESSROOM_CLOSE    closes the dressing room window\n",
+			"\n",
+			"Example:\n",
+			"\tmes(\"Close this window to open the Dress Room window.\");\n",
+			"\tclose2();\n",
+			"\tdressroom(DRESSROOM_OPEN);\n",
+			"\tend;\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

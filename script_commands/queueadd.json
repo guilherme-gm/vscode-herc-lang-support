@@ -1,0 +1,30 @@
+{
+	"queueadd": {
+		"params": {
+			"queue_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"var_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"queue_id",
+				"var_id"
+			]
+		],
+		"doc": [
+			"Adds <var_id> to queue of <queue_id>.\n",
+			"\n",
+			"Returns false if <var_id> couldn't be added (was already present in the queue),\n",
+			"true otherwise.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

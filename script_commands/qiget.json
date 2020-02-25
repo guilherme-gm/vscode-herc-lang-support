@@ -1,0 +1,27 @@
+{
+	"qiget": {
+		"params": {
+			"queue_iterator_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"queue_iterator_id"
+			]
+		],
+		"doc": [
+			"obtains the next member in the iterator's queue, returns the next member's\n",
+			"id or 0 when it doesnt exist.\n",
+			"\n",
+			"Example:\n",
+			"\tfor (.@elem = qiget(.@queue_iterator_id); qicheck(.@queue_iterator_id); .@elem = qiget(.@queue_iterator_id)) {\n",
+			"\t\t//Do something\n",
+			"\t}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

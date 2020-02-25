@@ -1,0 +1,30 @@
+{
+	"goto": {
+		"params": {
+			"label": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"label"
+			]
+		],
+		"doc": [
+			"This command will make the script jump to a label, usually used in\n",
+			"conjunction with other instructions, such as \"if\", but often used on its own.\n",
+			"\n",
+			"\t...\n",
+			"\tgoto(Label);\n",
+			"\tmes(\"This will not be seen\");\n",
+			"Label:\n",
+			"\tmes(\"This will be seen\");\n",
+			"\n",
+			"Gotos are considered to be harmful and should be avoided whenever possible.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

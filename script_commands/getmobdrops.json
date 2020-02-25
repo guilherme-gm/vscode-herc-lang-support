@@ -1,0 +1,68 @@
+{
+	"getmobdrops": {
+		"params": {
+			"mob id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"mob id"
+			]
+		],
+		"doc": [
+			"This command will find all drops of the specified mob and return the item\n",
+			"IDs and drop percentages into arrays of temporary global variables.\n",
+			"getmobdrops() returns true if successful and false if the mob ID doesn't\n",
+			"exist.\n",
+			"\n",
+			"Upon executing this,\n",
+			"\n",
+			"$@MobDrop_item[] is a global temporary number array which contains the\n",
+			"                 item IDs of the monster's drops.\n",
+			"\n",
+			"$@MobDrop_rate[] is a global temporary number array which contains the\n",
+			"                 drop percentages of each item. (1 = .01%)\n",
+			"\n",
+			"$@MobDrop_count  is the number of item drops found.\n",
+			"\n",
+			"Be sure to use $@MobDrop_count to go through the arrays, and not\n",
+			"'getarraysize', because the temporary global arrays are not cleared\n",
+			"between runs of 'getmobdrops'. If a mob with 7 item drops is looked up,\n",
+			"the arrays would have 7 elements. But if another mob is looked up and it\n",
+			"only has 5 item drops, the server will not clear the arrays for you,\n",
+			"overwriting the values instead. So in addition to returning the 5 item\n",
+			"drops, the 6th and 7th elements from the last call remain, and you will\n",
+			"get 5+2 item drops, of which the last 2 don't belong to the new mob.\n",
+			"$@MobDrop_count will always contain the correct number (5), unlike\n",
+			"getarraysize() which would return 7 in this case.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\t// get a Mob ID from the user\n",
+			"\tinput(.@mob_id);\n",
+			"\n",
+			"\tif (getmobdrops(.@mob_id)) { // getmobdrops() returns true on success\n",
+			"\t\t// immediately copy global temporary variables into scope\n",
+			"\t\t// variables, since we don't know when getmobdrops() will get\n",
+			"\t\t// called again for another mob, overwriting your global temporary\n",
+			"\t\t// variables.\n",
+			"\t\t.@count = $@MobDrop_count;\n",
+			"\t\tcopyarray(.@item[0], $@MobDrop_item[0], .@count);\n",
+			"\t\tcopyarray(.@rate[0], $@MobDrop_rate[0], .@count);\n",
+			"\n",
+			"\t\tmes(getmonsterinfo(.@mob_id, MOB_NAME) + \" - \" + .@count + \" drops found:\");\n",
+			"\t\tfor (.@i = 0; .@i < .@count; ++.@i) {\n",
+			"\t\t\tmes(.@item[.@i] + \" (\" + getitemname(.@item[.@i]) + \") \" + .@rate[.@i]/100 + ((.@rate[.@i]%100 < 10) ? \".0\":\".\") + .@rate[.@i]%100 + \"%\");\n",
+			"\t\t}\n",
+			"\t} else {\n",
+			"\t\tmes(\"Unknown monster ID.\");\n",
+			"\t}\n",
+			"\tclose();\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

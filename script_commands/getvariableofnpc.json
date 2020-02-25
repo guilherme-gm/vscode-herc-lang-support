@@ -1,0 +1,44 @@
+{
+	"getvariableofnpc": {
+		"params": {
+			"variable": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"npc name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"variable",
+				"npc name"
+			]
+		],
+		"doc": [
+			"Returns a reference to a NPC variable (. prefix) from the target NPC.\n",
+			"This can only be used to get . variables.\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"//This will return the value of .var, note that this can't be used, since\n",
+			"//the value isn't caught.\n",
+			"\tgetvariableofnpc(.var, \"TargetNPC\");\n",
+			"\n",
+			"//This will set the .@v variable to the value of the TargetNPC's .var\n",
+			"//variable.\n",
+			"\t.@v = getvariableofnpc(.var, \"TargetNPC\");\n",
+			"\n",
+			"//This will set the .var variable of TargetNPC to 1.\n",
+			"\tset(getvariableofnpc(.var, \"TargetNPC\"), 1);\n",
+			"\n",
+			"Note: even though function objects can have .variables,\n",
+			"getvariableofnpc() should not be used on them.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

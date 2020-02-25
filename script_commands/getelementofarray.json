@@ -1,0 +1,35 @@
+{
+	"getelementofarray": {
+		"params": {
+			"array name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"index": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"array name",
+				"index"
+			]
+		],
+		"doc": [
+			"This command retrieves the value of the element of given array at given\n",
+			"index. This is equivalent to using:\n",
+			"\n",
+			"\t<array name>[<index>]\n",
+			"\n",
+			"Also useful when passing arrays to functions or accessing another npc's\n",
+			"arrays:\n",
+			"\tgetelementofarray(getarg(0), <index>)\n",
+			"\tgetelementofarray(getvariableofnpc(.var, \"testNPC\"), <index>)\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

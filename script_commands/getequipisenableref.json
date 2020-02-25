@@ -1,0 +1,32 @@
+{
+	"getequipisenableref": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			]
+		],
+		"doc": [
+			"Will return true if the item equipped on the invoking character in the\n",
+			"specified equipment slot is refinable, and false if it isn't. For a list\n",
+			"of equipment slots see getequipid().\n",
+			"\n",
+			"\tif (getequipisenableref(EQI_HEAD_TOP)) {\n",
+			"\t\tmes(\"[Refiner]\");\n",
+			"\t\tmes(\"Ok I can refine this\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\tmes(\"[Refiner]\");\n",
+			"\tmes(\"I can't refine this hat!...\");\n",
+			"\tclose();\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

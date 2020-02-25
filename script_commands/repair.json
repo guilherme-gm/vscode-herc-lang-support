@@ -1,0 +1,26 @@
+{
+	"repair": {
+		"params": {
+			"broken item number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"broken item number"
+			]
+		],
+		"doc": [
+			"This command repairs a broken piece of equipment, using the same list of\n",
+			"broken items as available through 'getbrokenid'.\n",
+			"\n",
+			"The official scripts seem to use the repair command as a function instead:\n",
+			"'repair(<number>)' but it returns nothing on the stack. Probably only\n",
+			"Valaris, who made it, can answer why is it so.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

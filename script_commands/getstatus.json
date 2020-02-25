@@ -1,0 +1,44 @@
+{
+	"getstatus": {
+		"params": {
+			"effect type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"effect type"
+			],
+			[
+				"effect type",
+				"type"
+			]
+		],
+		"doc": [
+			"Retrieve information about a specific status effect when called. Depending\n",
+			"on <type> specified the function will return different information.\n",
+			"\n",
+			"Possible <type> values:\n",
+			"\t- 0 or undefined: whether the status is active\n",
+			"\t- 1: the val1 of the status\n",
+			"\t- 2: the val2 of the status\n",
+			"\t- 3: the val3 of the status\n",
+			"\t- 4: the val4 of the status\n",
+			"\t- 5: the amount of time in milliseconds that the status has remaining\n",
+			"\n",
+			"If <type> is not defined or is set to 0, then the script function will\n",
+			"either return 1 if the status is active, or 0 if the status is not active.\n",
+			"If the status is not active when any of the <type> fields are provided,\n",
+			"this script function will always return 0.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

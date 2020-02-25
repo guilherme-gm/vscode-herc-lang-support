@@ -1,0 +1,32 @@
+{
+	"getrandgroupitem": {
+		"params": {
+			"item id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"quantity": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item id",
+				"quantity"
+			]
+		],
+		"doc": [
+			"Similar to the above example, this command allows players to obtain the specified\n",
+			"quantity of a random item from the container. The different containers\n",
+			"are specified in 'db/(pre-)re/item_group.conf'.\n",
+			"\n",
+			"Example:\n",
+			"   getrandgroupitem(Old_Blue_Box, 1);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

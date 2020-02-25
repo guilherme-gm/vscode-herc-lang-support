@@ -1,0 +1,23 @@
+{
+	"checkequipedcard": {
+		"params": {
+			"card id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"card id"
+			]
+		],
+		"doc": [
+			"This function will return true if the card specified by it's item ID number\n",
+			"is inserted into any equipment they have in their inventory, currently\n",
+			"equipped or not.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,101 @@
+{
+	"mapannounce": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"text": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontColor": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontType": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontSize": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontAlign": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontY": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"text",
+				"flag"
+			],
+			[
+				"map name",
+				"text",
+				"flag",
+				"fontColor"
+			],
+			[
+				"map name",
+				"text",
+				"flag",
+				"fontColor",
+				"fontType"
+			],
+			[
+				"map name",
+				"text",
+				"flag",
+				"fontColor",
+				"fontType",
+				"fontSize"
+			],
+			[
+				"map name",
+				"text",
+				"flag",
+				"fontColor",
+				"fontType",
+				"fontSize",
+				"fontAlign"
+			],
+			[
+				"map name",
+				"text",
+				"flag",
+				"fontColor",
+				"fontType",
+				"fontSize",
+				"fontAlign",
+				"fontY"
+			]
+		],
+		"doc": [
+			"This command will work like announce() but will only broadcast to\n",
+			"characters currently residing on the specified map. The flag and optional\n",
+			"parameters parameters are the same as in announce(), but target and source\n",
+			"flags are ignored.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

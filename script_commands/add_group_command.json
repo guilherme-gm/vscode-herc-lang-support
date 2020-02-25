@@ -1,0 +1,48 @@
+{
+	"add_group_command": {
+		"params": {
+			"command": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"group id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"use on self": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"use on other": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"command",
+				"group id",
+				"use on self",
+				"use on other"
+			]
+		],
+		"doc": [
+			"Allows to explicitly change the command permissions for a specific group.\n",
+			"\n",
+			"This command bypasses group inheritance, which means groups inheriting from\n",
+			"the specified <group id> will NOT inherit the specified permission. You should\n",
+			"use add_group_command() for every group you want to give permission to.\n",
+			"\n",
+			"Example:\n",
+			"\tbindatcmd(\"foobar\", \"NPC::OnUseCommand\", 99, 99, 0); // define the command\n",
+			"\tadd_group_command(\"foobar\", 2, true, false); // allow group 2 to use @foobar\n",
+			"\tadd_group_command(\"foobar\", 5, true, true); // allow group 5 to use @foobar and #foobar\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

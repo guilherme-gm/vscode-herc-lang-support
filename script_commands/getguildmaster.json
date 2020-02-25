@@ -1,0 +1,50 @@
+{
+	"getguildmaster": {
+		"params": {
+			"guild id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"guild id"
+			]
+		],
+		"doc": [
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"    @ /!\\ This command is deprecated @\n",
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"\n",
+			"This function return the name of the master of the guild which has the\n",
+			"specified ID number. If there is no such guild, \"null\" will be returned.\n",
+			"\n",
+			"// Would return the guild master of guild 10007, whatever that might be.\n",
+			"\tmes(getguildmaster(10007)+\" runs \"+getguildname(10007));\n",
+			"\n",
+			"Can be used to check if the character is the guild master of the specified\n",
+			"guild.\n",
+			"\n",
+			"Maybe you want to make a room only guild masters can enter:\n",
+			"\n",
+			"\t.@GID = getcharid(CHAR_ID_GUILD);\n",
+			"\tif (.@GID == 0) {\n",
+			"\t\tmes(\"Sorry you are not in a guild\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\tif (strcharinfo(PC_NAME) == getguildmaster(.@GID)) {\n",
+			"\t\tmes(\"Welcome guild master of \"+getguildname(.@GID));\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\tmes(\"Sorry you don't own the guild you are in\");\n",
+			"\tclose();\n",
+			"\n",
+			"This command is deprecated and it should not be used in new scripts, as it is\n",
+			"likely to be removed at a later time. Please use getguildinfo instead:\n",
+			"\tgetguildinfo(GUILDINFO_MASTER_NAME, <guild id>)\n"
+		],
+		"return": "unknown",
+		"deprecated": true
+	}
+}

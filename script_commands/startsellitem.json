@@ -1,0 +1,38 @@
+{
+	"startsellitem": {
+		"params": {
+			"Item_ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"zeny": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"qty": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"Item_ID",
+				"zeny",
+				"qty"
+			]
+		],
+		"doc": [
+			"Starts adding item into expanded barter shop (NST_EXPANDED_BARTER).\n",
+			"Before this command possible to use commands *sellitemcurrency.\n",
+			"Need PACKETVER 20190904 main or 20190904 RE or 20190828 zero or newer.\n",
+			"\n",
+			"Alternative way for add item to expanded barter shop is *sellitem with\n",
+			"currency parameters.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

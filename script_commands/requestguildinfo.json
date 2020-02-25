@@ -1,0 +1,34 @@
+{
+	"requestguildinfo": {
+		"params": {
+			"guild id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"event label": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"guild id"
+			],
+			[
+				"guild id",
+				"event label"
+			]
+		],
+		"doc": [
+			"This command requests the guild data from the char server and merrily\n",
+			"continues with the execution. Whenever the guild information becomes\n",
+			"available (which happens instantly if the guild information is already in\n",
+			"memory, or later, if it isn't and the map server has to wait for the char\n",
+			"server to reply) it will run the specified event as in a 'doevent' call.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

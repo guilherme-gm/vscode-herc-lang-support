@@ -1,0 +1,38 @@
+{
+	"pcfollow": {
+		"params": {
+			"id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"target id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"id",
+				"target id"
+			]
+		],
+		"doc": [
+			"Makes a character follow or stop following someone. This command does the\n",
+			"same as the @follow command. The main difference is that @follow can use\n",
+			"character names, and this commands needs the Account ID for the target.\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"// This will make Aaron follow Bullah, when both of these characters are\n",
+			"// online.\n",
+			"\tpcfollow(getcharid(CHAR_ID_ACCOUNT, \"Aaron\"), getcharid(CHAR_ID_ACCOUNT, \"Bullah\"));\n",
+			"\n",
+			"// Makes Aaron stop following whoever he is following.\n",
+			"\tpcstopfollow(getcharid(CHAR_ID_ACCOUNT, \"Aaron\"));\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

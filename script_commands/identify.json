@@ -1,0 +1,24 @@
+{
+	"identify": {
+		"params": {
+			"Item ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"Item ID"
+			]
+		],
+		"doc": [
+			"This function identifies the first <Item ID> item in attached player's inventory.\n",
+			"\n",
+			"Returns -2 if an error happens, -1 if no unidentified <Item ID> was found.\n",
+			"Otherwise, returns the idx of the identified item.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

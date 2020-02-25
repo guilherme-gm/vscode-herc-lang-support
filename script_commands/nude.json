@@ -1,0 +1,16 @@
+{
+	"nude": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command will unequip anything equipped on the invoking character.\n",
+			"\n",
+			"It is not required to do this when changing jobs since jobchange() will\n",
+			"unequip everything not equippable by the new job class anyway.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

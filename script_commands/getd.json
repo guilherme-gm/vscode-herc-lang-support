@@ -1,0 +1,30 @@
+{
+	"getd": {
+		"params": {
+			"variable name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"variable name"
+			]
+		],
+		"doc": [
+			"Returns a reference to a variable, the name can be constructed dynamically.\n",
+			"Refer to setd() for usage.\n",
+			"\n",
+			"This can also be used to set an array dynamically:\n",
+			"  setarray(getd(\".array[0]\"), 1, 2, 3, 4, 5);\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"  mes(\"The value of $varReference is: \" + getd(\"$varRefence\"));\n",
+			"  set(.@i, getd(\"$\" + \"pikachu\"));\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

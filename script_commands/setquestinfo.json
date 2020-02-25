@@ -1,0 +1,42 @@
+{
+	"setquestinfo": {
+		"params": {
+			"Type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"Values...": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"Type"
+			],
+			[
+				"Type",
+				"Values..."
+			]
+		],
+		"doc": [
+			"Use this command ONLY after a questinfo()\n",
+			"it allows you to set multiple required conditions for the quest bubble to show up.\n",
+			"\n",
+			"supported types: values\n",
+			"\tQINFO_JOB: job_id\n",
+			"\tQINFO_SEX: sex\n",
+			"\tQINFO_BASE_LEVEL: min, max\n",
+			"\tQINFO_JOB_LEVEL: min, max\n",
+			"\tQINFO_ITEM: item_id, min amount, max amount // append to the items list on each use\n",
+			"\tQINFO_HOMUN_LEVEL: min\n",
+			"\tQINFO_HOMUN_TYPE: homunculus_type (0 - regular, 1 - evolved, 2 - S)\n",
+			"\tQINFO_QUEST: quest_id, state // append to the quests list on each use\n",
+			"\tQINFO_MERCENARY_CLASS: mercenary_class\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

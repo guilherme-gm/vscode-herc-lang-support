@@ -1,0 +1,54 @@
+{
+	"isequipped": {
+		"params": {
+			"item id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item id"
+			],
+			[
+				"item id",
+				"item id"
+			],
+			[
+				"item id",
+				"item id",
+				"item id"
+			],
+			[
+				"item id",
+				"item id",
+				"item id",
+				"item id"
+			]
+		],
+		"doc": [
+			"This function will return true if the invoking character has all of the item\n",
+			"IDs given equipped (if card IDs are passed, then it checks if the cards\n",
+			"are inserted into slots in the equipment they are currently wearing).\n",
+			"Theoretically there is no limit to the number of items that may be tested\n",
+			"for at the same time.\n",
+			"If even one of the items given is not equipped, false will be returned.\n",
+			"\n",
+			"\t// (Poring, Santa Poring, Poporing, Marin)\n",
+			"\tif (isequipped(Poring_Card, Poring__Card, Poporing_Card, Marin_Card))\n",
+			"\t\tmes(\"Wow! You're wearing a full complement of possible poring cards!\");\n",
+			"\t// (Poring)\n",
+			"\tif (isequipped(Poring_Card))\n",
+			"\t\tmes(\"A poring card is useful, don't you think?\");\n",
+			"\t// (Earring)\n",
+			"\tif (isequipped(Earring_))\n",
+			"\t\tmes(\"You got a pair of nice Earring.\");\n",
+			"\n",
+			"The function was meant for item scripts to support the cards released by\n",
+			"Gravity in February 2005, but it will work just fine in normal NPC scripts.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"addchannelhandler": {
+		"params": {
+			"#channel": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"NPC::OnEvent": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"#channel",
+				"NPC::OnEvent"
+			]
+		],
+		"doc": [
+			"This command will trigger the specified event every time a player\n",
+			"talks in the specified channel, with said player as attached rid.\n",
+			"It assigns the message to @channelmes$\n",
+			"\n",
+			"OnChannelMessage:\n",
+			"\tchannelmes(\"#chan\", \"Echo: \" + @channelmes$);\n",
+			"\tend;\n",
+			"\n",
+			"OnInit:\n",
+			"\taddchannelhandler(\"#chan\", \"NPC::OnChannelMessage\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

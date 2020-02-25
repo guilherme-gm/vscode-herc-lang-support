@@ -1,0 +1,44 @@
+{
+	"cooking": {
+		"params": {
+			"dish level": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"dish level"
+			]
+		],
+		"doc": [
+			"This command will open a produce window on the client connected to the\n",
+			"invoking character. The 'dish level' is the number which determines what\n",
+			"kind of dish level you can produce. You can see the full list of dishes\n",
+			"that can be produced in 'db/produce_db.txt'.\n",
+			"\n",
+			"The window will be shown empty if the invoking character does not have\n",
+			"enough of the required incredients to cook a dish.\n",
+			"\n",
+			"Valid dish levels are:\n",
+			"\n",
+			"11 - Level 1 Dish\n",
+			"12 - Level 2 Dish\n",
+			"13 - Level 3 Dish\n",
+			"14 - Level 4 Dish\n",
+			"15 - Level 5 Dish\n",
+			"16 - Level 6 Dish\n",
+			"17 - Level 7 Dish\n",
+			"18 - Level 8 Dish\n",
+			"19 - Level 9 Dish\n",
+			"20 - Level 10 Dish\n",
+			"\n",
+			"Although it's required to set a dish level, it doesn't matter if you set\n",
+			"it to 1 and you want to cook a level 10 dish, as long as you got the\n",
+			"required ingredients to cook the dish the command works.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

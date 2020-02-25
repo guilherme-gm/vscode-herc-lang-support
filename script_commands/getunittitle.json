@@ -1,0 +1,22 @@
+{
+	"getunittitle": {
+		"params": {
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"GID"
+			]
+		],
+		"doc": [
+			"Return unit title string.\n",
+			"Works for 20180207 main clients, 20171129 re clients, 20171130 zero clients\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

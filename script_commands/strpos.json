@@ -1,0 +1,45 @@
+{
+	"strpos": {
+		"params": {
+			"haystack": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"needle": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"offset": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"haystack",
+				"needle"
+			],
+			[
+				"haystack",
+				"needle",
+				"offset"
+			]
+		],
+		"doc": [
+			"PHP style strpos. Finds a substring (needle) within a string (haystack).\n",
+			"The offset parameter indicates the index of the string to start searching.\n",
+			"Returns index of substring on successful search, else -1.\n",
+			"Comparison is case sensitive.\n",
+			"\n",
+			"Example:\n",
+			"\tstrpos(\"foobar\", \"bar\", 0); //returns 3\n",
+			"\tstrpos(\"foobarfoo\", \"foo\", 0); //returns 0\n",
+			"\tstrpos(\"foobarfoo\", \"foo\", 1); //returns 6\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

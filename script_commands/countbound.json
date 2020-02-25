@@ -1,0 +1,34 @@
+{
+	"countbound": {
+		"params": {
+			"bound type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"bound type"
+			]
+		],
+		"doc": [
+			"This function will return the number of bounded items in the character's\n",
+			"inventory, and sets an array @bound_items[] containing all item IDs of the\n",
+			"counted items. If a bound type is specified, only those items will be counted.\n",
+			"\n",
+			"For a list of bound types see 'getitembound'.\n",
+			"\n",
+			"Example:\n",
+			"\tmes(\"You currently have \"+countbound()+\" bound items.\");\n",
+			"\tnext();\n",
+			"\tmes(\"The list of bounded items include:\");\n",
+			"\tfor (.@i = 0; .@i < getarraysize(@bound_items); ++.@i)\n",
+			"\t\tmes(getitemname(@bound_items[.@i]));\n",
+			"\tclose();\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

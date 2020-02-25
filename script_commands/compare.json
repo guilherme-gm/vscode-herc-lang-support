@@ -1,0 +1,37 @@
+{
+	"compare": {
+		"params": {
+			"string": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"substring": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"string",
+				"substring"
+			]
+		],
+		"doc": [
+			"This command returns true when the substring is in the main string or\n",
+			"false otherwise. This command is not case sensitive.\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"//dothis(); will be executed ('Bloody Murderer' contains 'Blood').\n",
+			"\tif (compare(\"Bloody Murderer\", \"Blood\"))\n",
+			"\t\tdothis();\n",
+			"//dothat(); will not be executed ('Blood butterfly' does not contain 'Bloody').\n",
+			"\tif (compare(\"Blood Butterfly\", \"Bloody\"))\n",
+			"\t\tdothat();\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

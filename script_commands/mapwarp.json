@@ -1,0 +1,72 @@
+{
+	"mapwarp": {
+		"params": {
+			"from map": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"to map": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"from map",
+				"to map",
+				"x",
+				"y"
+			],
+			[
+				"from map",
+				"to map",
+				"x",
+				"y",
+				"type",
+				"ID"
+			]
+		],
+		"doc": [
+			"This command will collect all characters located on the From map and warp\n",
+			"them wholesale to the same point on the To map, or randomly distribute\n",
+			"them there if the coordinates are zero. \"Random\" is understood as a\n",
+			"special To map name and will mean randomly shuffling everyone on the same\n",
+			"map.\n",
+			"\n",
+			"Optionally, a type and ID can be specified. Available types are:\n",
+			"\n",
+			" 0 - Everyone\n",
+			" 1 - Guild\n",
+			" 2 - Party\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"// Will warp all members of guild with ID 63 on map prontera to alberta.\n",
+			"\tmapwarp(\"prontera\", \"alberta\", 150, 150, 1, 63);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

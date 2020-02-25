@@ -1,0 +1,14 @@
+{
+	"getbrokencount": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This function will return the total amount of broken equipment on the\n",
+			"invoking character.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

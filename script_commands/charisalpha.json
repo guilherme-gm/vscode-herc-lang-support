@@ -1,0 +1,29 @@
+{
+	"charisalpha": {
+		"params": {
+			"string": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"position": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"string",
+				"position"
+			]
+		],
+		"doc": [
+			"This function will return true if the character number Position in the given\n",
+			"string is a letter, false if it isn't a letter but a digit or a space.\n",
+			"The first letter is position 0.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

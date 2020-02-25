@@ -1,0 +1,56 @@
+{
+	"strcharinfo": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"default value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type"
+			],
+			[
+				"type",
+				"default value"
+			],
+			[
+				"type",
+				"default value",
+				"GID"
+			]
+		],
+		"doc": [
+			"This function will return either the name, party name or guild name for\n",
+			"the invoking character. Whatever it returns is determined by type.\n",
+			"(0) PC_NAME\t\t- Character's name.\n",
+			"(1) PC_PARTY\t- The name of the party they're in if any.\n",
+			"(2) PC_GUILD\t- The name of the guild they're in if any.\n",
+			"(3) PC_MAP\t\t- The name of the map the character is in.\n",
+			"(4) PC_CLAN   - The name of the clan they're in if any.\n",
+			"\n",
+			"If <GID> is passed, it will return the value of the specified player instead\n",
+			"the attached player. If the player is not found, it will return\n",
+			"<default value>, if any, or else return an empty string.\n",
+			"\n",
+			"If a character is not a member of any party or guild, an empty string will\n",
+			"be returned when requesting that information.\n",
+			"\n",
+			"Note: Numbers can also be used in <type>, but their usage is disncouraged as\n",
+			"using only numbers reduces script readability\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

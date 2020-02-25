@@ -1,0 +1,28 @@
+{
+	"hateffect": {
+		"params": {
+			"Hat Effect ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"State": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"Hat Effect ID",
+				"State"
+			]
+		],
+		"doc": [
+			"This will set a Hat Effect onto the player. The state field allows you to\n",
+			"enable (true) or disable (false) the effect on the player.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

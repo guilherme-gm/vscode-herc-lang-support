@@ -1,0 +1,49 @@
+{
+	"explode": {
+		"params": {
+			"dest_array": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"string": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"delimiter": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"dest_array",
+				"string",
+				"delimiter"
+			]
+		],
+		"doc": [
+			"Breaks a string up into substrings based on the specified delimiter.\n",
+			"Substrings will be stored within the specified string array. Only the 1st\n",
+			"char of the delimiter parameter will be used. If an empty string is passed\n",
+			"as a delimiter, the string will be placed in the array in its original\n",
+			"form, without any changes. Return the number of elements written to\n",
+			"<dest_array>.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\t.@num_elements = explode(.@my_array$, \"Explode:Test:1965:red:PIE\", \":\");\n",
+			"\t//.@my_array$ contents will be...\n",
+			"\t//.@my_array$[0]: \"Explode\"\n",
+			"\t//.@my_array$[1]: \"Test\"\n",
+			"\t//.@my_array$[2]: \"1965\"\n",
+			"\t//.@my_array$[3]: \"red\"\n",
+			"\t//.@my_array$[4]: \"PIE\"\n",
+			"\t//.@num_elements: 5\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

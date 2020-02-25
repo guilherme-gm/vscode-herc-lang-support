@@ -1,0 +1,51 @@
+{
+	"strnpcinfo": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"default value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type"
+			],
+			[
+				"type",
+				"default value"
+			],
+			[
+				"type",
+				"default value",
+				"GID"
+			]
+		],
+		"doc": [
+			"This function will return the various parts of the name of the calling NPC.\n",
+			"Whatever it returns is determined by type.\n",
+			"\n",
+			"(0) NPC_NAME\t    - The NPC's display name (visible#hidden)\n",
+			"(1) NPC_NAME_VISIBLE - The visible part of the NPC's display name\n",
+			"(2) NPC_NAME_HIDDEN  - The hidden part of the NPC's display name\n",
+			"(3) NPC_NAME_UNIQUE  - The NPC's unique name (::name)\n",
+			"(4) NPC_MAP\t\t    - The name of the map the NPC is in.\n",
+			"\n",
+			"If <GID> is passed, it will return the value of the specified NPC instead of\n",
+			"the attached NPC. If the NPC is not found, it will return <default value>,\n",
+			"if any, or else return an empty string.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

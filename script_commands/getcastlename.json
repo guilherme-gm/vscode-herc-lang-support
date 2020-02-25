@@ -1,0 +1,22 @@
+{
+	"getcastlename": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name"
+			]
+		],
+		"doc": [
+			"This function returns the name of the castle when given the map name for\n",
+			"that castle. The data is read from 'db/castle_db.txt'.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

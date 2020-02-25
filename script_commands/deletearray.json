@@ -1,0 +1,54 @@
+{
+	"deletearray": {
+		"params": {
+			"array name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"first value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"how much to delete": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"array name",
+				"first value",
+				"how much to delete"
+			]
+		],
+		"doc": [
+			"This command will delete a specified number of array elements totally from\n",
+			"an array, shifting all the elements beyond this towards the beginning.\n",
+			"\n",
+			"\t// This will delete array element 0, and move all the other array\n",
+			"\t// elements up one place.\n",
+			"\tdeletearray(.@array[0], 1);\n",
+			"\n",
+			"\t// This would delete array elements numbered 1, 2 and 3, leave element 0\n",
+			"\t// in its place, and move the other elements ups, so there are no gaps.\n",
+			"\tdeletearray(.@array[1], 3);\n",
+			"\n",
+			"If the amount of items to delete is not specified, all elements of the\n",
+			"array starting from the specified one to the end, are deleted. If no\n",
+			"starting element is specified either, the the entire array will be\n",
+			"deleted.\n",
+			"\n",
+			"\t// This would delete all elements of the array starting from 2, leaving\n",
+			"\t// element 0 and 1\n",
+			"\tdeletearray(.@array[2]);\n",
+			"\n",
+			"\t// This would delete all elements of the array\n",
+			"\tdeletearray(.@array);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

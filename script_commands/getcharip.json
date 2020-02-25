@@ -1,0 +1,32 @@
+{
+	"getcharip": {
+		"params": {
+			"character id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"character id"
+			]
+		],
+		"doc": [
+			"This function will return the IP address of the invoking character, or, if\n",
+			"a player is specified, of that character. A blank string is returned if no\n",
+			"player is attached.\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"// Outputs IP address of attached player.\n",
+			"\tmes(\"Your IP: \" + getcharip());\n",
+			"\n",
+			"// Outputs IP address of character \"Silver\".\n",
+			"\tmes(\"Silver's IP: \" + getcharip(\"Silver\"));\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

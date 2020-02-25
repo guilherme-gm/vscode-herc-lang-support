@@ -1,0 +1,45 @@
+{
+	"classchange": {
+		"params": {
+			"view id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"char id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"view id",
+				"type"
+			],
+			[
+				"view id",
+				"type",
+				"char id"
+			]
+		],
+		"doc": [
+			"This command is very ancient, it's origins are clouded in mystery.\n",
+			"It will send a 'display id change' packet to player with given char ID\n",
+			"or to everyone in the immediate area of the NPC object if char ID is 0 or\n",
+			"not passed, which will make the NPC look like a different sprite, an NPC\n",
+			"sprite ID, or a monster ID. This effect is not stored anywhere and will\n",
+			"not persist.\n",
+			"Note that you can't send a Job sprite ID\n",
+			"\n",
+			"type is not used and should always be 0.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

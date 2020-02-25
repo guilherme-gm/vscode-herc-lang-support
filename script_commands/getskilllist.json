@@ -1,0 +1,24 @@
+{
+	"getskilllist": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command sets a bunch of arrays with a complete list of skills the\n",
+			"invoking character has. Here's what you get:\n",
+			"\n",
+			"@skilllist_id[]   - skill ids.\n",
+			"@skilllist_lv[]   - skill levels.\n",
+			"@skilllist_flag[] - see 'skill' for the meaning of skill flags.\n",
+			"@skilllist_count  - number of skills in the above arrays.\n",
+			"\n",
+			"While getskilllv() is probably more useful for most situations, this is the\n",
+			"easiest way to store all the skills and make the character something else\n",
+			"for a while. Advanced job for a day? :) This could also be useful to see\n",
+			"how many skills a character has.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

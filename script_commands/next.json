@@ -1,0 +1,26 @@
+{
+	"next": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command will display a 'next' button in the message window for the\n",
+			"invoking character. Clicking on it will cause the window to clear and\n",
+			"display a new one. Used to segment NPC-talking, next() is often used in\n",
+			"combination with mes() and close().\n",
+			"\n",
+			"If no window is currently on screen, one will be created, but once the\n",
+			"invoking character clicks on it, a warning is thrown on the server console\n",
+			"and the script will terminate.\n",
+			"\n",
+			"    mes(\"[Woman]\");\n",
+			"    mes(\"This would appear on the page\");\n",
+			"    next();\n",
+			"    mes(\"[Woman]\"); // This is needed since it is a new page and the top will now be blank\n",
+			"    mes(\"This would appear on the 2nd page\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

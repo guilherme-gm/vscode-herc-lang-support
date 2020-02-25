@@ -1,0 +1,27 @@
+{
+	"prompt": {
+		"params": {
+			"option": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"option"
+			],
+			[
+				"option",
+				"option"
+			]
+		],
+		"doc": [
+			"This function behaves exactly like select(), but when a player presses cancel\n",
+			"it returns MAX_MENU_OPTIONS and the script is not terminated. You almost always\n",
+			"want to use select() rather than prompt().\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

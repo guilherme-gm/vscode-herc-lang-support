@@ -1,0 +1,162 @@
+{
+	"checkbound": {
+		"params": {
+			"item_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"bound_type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"refine": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"attribute": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card_1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card_2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card_3": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card_4": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item_id"
+			],
+			[
+				"item_id",
+				"bound_type"
+			],
+			[
+				"item_id",
+				"bound_type",
+				"refine"
+			],
+			[
+				"item_id",
+				"bound_type",
+				"refine",
+				"attribute"
+			],
+			[
+				"item_id",
+				"bound_type",
+				"refine",
+				"attribute",
+				"card_1"
+			],
+			[
+				"item_id",
+				"bound_type",
+				"refine",
+				"attribute",
+				"card_1",
+				"card_2"
+			],
+			[
+				"item_id",
+				"bound_type",
+				"refine",
+				"attribute",
+				"card_1",
+				"card_2",
+				"card_3"
+			],
+			[
+				"item_id",
+				"bound_type",
+				"refine",
+				"attribute",
+				"card_1",
+				"card_2",
+				"card_3",
+				"card_4"
+			]
+		],
+		"doc": [
+			"This command allows you to check whether or not the attached player has the specified bound item in their inventory.\n",
+			"If a bound type is not specified or a bound type of 0 is used, it will search the player's inventory for a bound item\n",
+			"of any type, so long as the other parameters match. In all cases, this command will return the bound type of the\n",
+			"item found, or 0 if the specified item was not found.\n",
+			"\n",
+			"Valid bound types are:\n",
+			" 0 - All Bound types.\n",
+			" 1 - Account Bound\n",
+			" 2 - Guild Bound\n",
+			" 3 - Party Bound\n",
+			" 4 - Character Bound\n",
+			"\n",
+			"Optional Parameters:\n",
+			" bound_type - checks to see if the item has the specified bound type.\n",
+			" refine - checks to see if the item is refined to the given number.\n",
+			" attribute - whether the item is broken (1) or not (0).\n",
+			" card 1,2,3,4 - checks to see if the specified cards are compounded on the item as well.\n",
+			"\n",
+			"Example:\n",
+			"\t// This will check if you have a bound (any type) 1205 (Cutter).\n",
+			"\tif (checkbound(Cutter)) {\n",
+			"\t\tmes(\"You have a bound Cutter\");\n",
+			"\t} else {\n",
+			"\t\tmes(\"You do not have a bound Cutter\");\n",
+			"\t}\n",
+			"\tclose();\n",
+			"\n",
+			"\t// This will also check if you have a bound (any type) 1205 (Cutter).\n",
+			"\tif (checkbound(Cutter, 0)) {\n",
+			"\t\tmes(\"You have a bound Cutter\");\n",
+			"\t} else {\n",
+			"\t\tmes(\"You do not have a bound Cutter\");\n",
+			"\t}\n",
+			"\tclose();\n",
+			"\n",
+			"\t// This will check if the player doesn't have a bound 1205 (Cutter).\n",
+			"\tif (!checkbound(Cutter)) {\n",
+			"\t\tmes(\"You do not have a bound Cutter\");\n",
+			"\t} else {\n",
+			"\t\tmes(\"You do have a bound Cutter\");\n",
+			"\t}\n",
+			"\tclose();\n",
+			"\n",
+			"\t// This will check if the item found, has a bound type of 2 (guild_bound)\n",
+			"\tif (checkbound(Cutter) == 2) {\n",
+			"\t\tmes(\"You have a guild_bound Cutter\");\n",
+			"\t} else {\n",
+			"\t\tmes(\"You do not have a guild_bound Cutter.\");\n",
+			"\t}\n",
+			"\tclose();\n",
+			"\n",
+			"\t// This will check if you have a 'guild_bound' +7 1205 (Cutter).\n",
+			"\tif (checkbound(Cutter, 2, 7)) {\n",
+			"\t\tmes(\"You have a +7 guild_bound Cutter.\");\n",
+			"\t} else {\n",
+			"\t\tmes(\"You don't have the required item.\");\n",
+			"\t}\n",
+			"\tclose();\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

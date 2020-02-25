@@ -1,0 +1,75 @@
+{
+	"getitem": {
+		"params": {
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item name",
+				"amount"
+			],
+			[
+				"item name",
+				"amount",
+				"account ID"
+			]
+		],
+		"doc": [
+			"This command will give a specific amount of specified items to the target\n",
+			"character. If the character is not online, nothing will happen.\n",
+			"If <account ID> is not specified, items will be created in the invoking\n",
+			"character inventory instead.\n",
+			"\n",
+			"In the first and most commonly used version of this command, items are\n",
+			"referred to by their database ID number found in 'db/(pre-)re/item_db.txt'.\n",
+			"\n",
+			"\tgetitem(Apple, 10); // The person will receive 10 apples\n",
+			"\tgetitem(Old_Violet_Box, 1);  // The person will receive 1 Old Violet Box\n",
+			"\n",
+			"Giving an item ID of -1 will give a specified number of random items from\n",
+			"the list of those that fall out of Old Blue Box. Unlike in all other\n",
+			"cases, these will be unidentified, if they turn out to be equipment. This\n",
+			"is exactly what's written in the Old Blue Box's item script.\n",
+			"\n",
+			"Other negative IDs also correspond to other random item generating item\n",
+			"tables:\n",
+			"\n",
+			"Giving an item ID of -2 will produce the effects of Old Violet Box.\n",
+			"Giving an item ID of -3 will produce the effects of Old Card Album.\n",
+			"Giving an item ID of -4 will produce the effects of Gift Box.\n",
+			"Giving an item ID of -5 will produce the effects of Worn Out Scroll,\n",
+			"which, in current Git, drops only Jellopies anyway.\n",
+			"\n",
+			"This transaction is logged if the log script generated transactions option\n",
+			"is enabled.\n",
+			"\n",
+			"You may also create an item by it's name in the 'english name' field in\n",
+			"the item database:\n",
+			"\n",
+			"    getitem(\"Red_Potion\", 10); // Not recommended, use Red_Potion instead of \"Red_Potion\"\n",
+			"\n",
+			"Which will do what you'd expect. If it can't find that name in the\n",
+			"database, apples will be created anyway.\n",
+			"\n",
+			"This is used in pretty much all NPC scripts that have to do with items and\n",
+			"quite a few item scripts. For more examples check just about any official\n",
+			"script.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

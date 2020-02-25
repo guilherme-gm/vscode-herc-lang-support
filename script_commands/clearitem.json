@@ -1,0 +1,15 @@
+{
+	"clearitem": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command will destroy all items the invoking character has in their\n",
+			"inventory (including equipped items). It will not affect anything else,\n",
+			"like storage or cart.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

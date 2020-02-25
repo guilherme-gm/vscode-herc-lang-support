@@ -1,0 +1,21 @@
+{
+	"shopcount": {
+		"params": {
+			"Item_ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"Item_ID"
+			]
+		],
+		"doc": [
+			"Returns the amount of still-available <Item_ID> in the shop (on a NST_MARKET trader).\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"wedding": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command will call up wedding effects - the music and confetti -\n",
+			"centered on the invoking character. Example can be found in the wedding\n",
+			"script.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

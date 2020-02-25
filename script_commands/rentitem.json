@@ -1,0 +1,36 @@
+{
+	"rentitem": {
+		"params": {
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"time": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item name",
+				"time"
+			]
+		],
+		"doc": [
+			"Creates a rental item in the attached character's inventory. The item will\n",
+			"expire in <time> seconds and be automatically deleted. When receiving a\n",
+			"rental item, the character will receive a message in their chat window.\n",
+			"The character will also receive warning messages in their chat window\n",
+			"before the item disappears.\n",
+			"\n",
+			"This command can not be used to rent stackable items. Rental items cannot\n",
+			"be dropped, traded, sold to NPCs, or placed in guild storage (i.e. trade\n",
+			"mask 75).\n",
+			"Note: delitem() in an NPC script can still remove rental items.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

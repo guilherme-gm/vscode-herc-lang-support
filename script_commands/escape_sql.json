@@ -1,0 +1,26 @@
+{
+	"escape_sql": {
+		"params": {
+			"value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"value"
+			]
+		],
+		"doc": [
+			"Converts the value to a string and escapes special characters so that it's\n",
+			"safe to use in query_sql(). Returns the escaped form of the given value.\n",
+			"\n",
+			"Example:\n",
+			"\t.@str$ = \"John's Laptop\";\n",
+			"\t.@esc_str$ = escape_sql(.@name$); // Escaped string: John\\'s Laptop\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

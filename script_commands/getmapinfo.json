@@ -1,0 +1,45 @@
+{
+	"getmapinfo": {
+		"params": {
+			"info": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"map id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"info"
+			],
+			[
+				"info",
+				"map id"
+			]
+		],
+		"doc": [
+			"This command returns various information about a specific map. If the second\n",
+			"argument is omitted, it will try to use the map of the attached NPC, or the\n",
+			"map of the attached player if the NPC can't be found.\n",
+			"\n",
+			"Valid <info> are:\n",
+			"\tMAPINFO_NAME         name of the map\n",
+			"\tMAPINFO_ID           numeric ID of the map\n",
+			"\tMAPINFO_ZONE         name of the zone used by the map\n",
+			"\tMAPINFO_SIZE_X       width of the map (cells on the x axis)\n",
+			"\tMAPINFO_SIZE_Y       height of the map (cells on the y axis)\n",
+			"\tMAPINFO_NPC_COUNT    total number of NPC in the map\n",
+			"\n",
+			"Examples:\n",
+			"\tgetmapinfo(MAPINFO_ID, \"map name\"); // ID from name\n",
+			"\tgetmapinfo(MAPINFO_NAME, 3); // name from ID\n",
+			"\tgetmapinfo(MAPINFO_ZONE); // zone, ie Normal, PvP, Jail, ...\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

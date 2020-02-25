@@ -1,0 +1,32 @@
+{
+	"setgroupid": {
+		"params": {
+			"new group id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"new group id"
+			],
+			[
+				"new group id",
+				"account id"
+			]
+		],
+		"doc": [
+			"This function will temporary adjust the id of player group the account to which the\n",
+			"player specified if the new group id is available.\n",
+			"Return true if successful, otherwise it will return false.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

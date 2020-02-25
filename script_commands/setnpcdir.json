@@ -1,0 +1,31 @@
+{
+	"setnpcdir": {
+		"params": {
+			"name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"direction": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"name",
+				"direction"
+			]
+		],
+		"doc": [
+			"Set npc direction. If npc name missing, will be used attached npc.\n",
+			"\n",
+			"Example:\n",
+			"\tsetnpcdir(DIR_WEST);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

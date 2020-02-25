@@ -1,0 +1,29 @@
+{
+	"getmapflag": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"flag"
+			]
+		],
+		"doc": [
+			"This command checks the status of a given mapflag and returns the\n",
+			"mapflag's state.\n",
+			"false means OFF, and true means ON. See setmapflag() for examples of mapflags.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

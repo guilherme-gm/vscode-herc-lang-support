@@ -1,0 +1,14 @@
+{
+	"purchaseok": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"Signs that the transaction (on a NST_CUSTOM trader) has been successful,\n",
+			"to be used within a \"OnPayFunds\" event of a NST_CUSTOM trader.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

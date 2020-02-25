@@ -1,0 +1,36 @@
+{
+	"implode": {
+		"params": {
+			"string_array": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"glue": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"string_array"
+			],
+			[
+				"string_array",
+				"glue"
+			]
+		],
+		"doc": [
+			"Combines all substrings within the specified string array into a single\n",
+			"string. If the glue parameter is specified, it will be inserted inbetween\n",
+			"each substring.\n",
+			"\n",
+			"Example:\n",
+			"\tsetarray(.@my_array$[0], \"This\", \"is\", \"a\", \"test\");\n",
+			"\timplode(.@my_array$, \" \"); //returns \"This is a test\"\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

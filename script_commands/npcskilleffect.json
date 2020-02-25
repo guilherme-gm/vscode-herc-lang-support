@@ -1,0 +1,42 @@
+{
+	"npcskilleffect": {
+		"params": {
+			"skill name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"skill name",
+				"number",
+				"x",
+				"y"
+			]
+		],
+		"doc": [
+			"This command behaves identically to skilleffect(), however, the effect\n",
+			"will not be centered on the invoking character's sprite, nor on the NPC\n",
+			"sprite, if any, but will be centered at map coordinates given on the same\n",
+			"map as the invoking character.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

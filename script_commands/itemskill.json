@@ -1,0 +1,64 @@
+{
+	"itemskill": {
+		"params": {
+			"skill name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"skill level": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"skill name",
+				"skill level"
+			],
+			[
+				"skill name",
+				"skill level",
+				"flag"
+			]
+		],
+		"doc": [
+			"This command meant for item scripts to replicate single-use skills in\n",
+			"usable items. It will not work properly if there is a visible dialog\n",
+			"window or menu.\n",
+			"If the skill is self or auto-targeting, it will be used immediately.\n",
+			"Otherwise, a target cursor is shown.\n",
+			"Optional value <flag> is a bitmask to manipulate how the skill is casted.\n",
+			"Since <flag> is a bitmask, the flags can be summed up.\n",
+			"Possible flags are:\n",
+			" - 0x00 - ISF_NONE\t\t- Skill is casted as if has been used from skill tree.\n",
+			"\t\t\t\t  (Same like <flag> was omitted.)\n",
+			" - 0x01 - ISF_IGNORECONDITIONS\t- Skill requirements are ignored and not consumed\n",
+			" - 0x02 - ISF_INSTANTCAST\t- Skill is casted instantaneously.\n",
+			" - 0x04 - ISF_CASTONSELF\t- Skill is forcefully casted on invoking character,\n",
+			"\t\t\t\t  without showing the target selection cursor.\n",
+			"\n",
+			"Important: Items which use itemskill() should be of type IT_USABLE.\n",
+			"           If the item type is IT_DELAYCONSUME and ISF_IGNORECONDITIONS is set,\n",
+			"           the item won't be consumed when using the item!\n",
+			"\n",
+			"// When Anodyne is used, it will cast Endure, Level 1, as if the actual skill\n",
+			"// has been used from skill tree.\n",
+			"\titemskill(SM_ENDURE, 1);\n",
+			"\n",
+			"// Instantaneously cast Level 10 Increase Agility on invoking character,\n",
+			"// without checking/consuming skill requirements.\n",
+			"\titemskill(AL_INCAGI, 10, ISF_IGNORECONDITIONS | ISF_INSTANTCAST | ISF_CASTONSELF);\n",
+			"// Instaed of using the constants, one could also do it like this:\n",
+			"\titemskill(AL_INCAGI, 10, 7);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

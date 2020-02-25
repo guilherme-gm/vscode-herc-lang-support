@@ -1,0 +1,62 @@
+{
+	"pcre_match": {
+		"params": {
+			"string": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"regex": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"string",
+				"regex"
+			]
+		],
+		"doc": [
+			"The string <string> will be searched for a match to the regular expression\n",
+			"<regex>, and the number of matches will be returned.\n",
+			"\n",
+			"An alternative way to invoke this command is to use the operators '~=' or '~!'.\n",
+			"The operator '~=' is exactly the same as pcre_match, while the operator '~!'\n",
+			"will return true if no matches were found, or false if at least a match was found.\n",
+			"\n",
+			"\tif (pcre_match(\"string\", \"regex\"))\n",
+			"\t\tmes(\"There was a match.\");\n",
+			"\tif (\"string\" ~= \"regex\")\n",
+			"\t\tmes(\"There was a match.\");\n",
+			"\tif (\"string\" ~! \"regex\")\n",
+			"\t\tmes(\"There were no matches.\");\n",
+			"\n",
+			"You can find more usage examples in the test script npc/custom/test.txt.\n",
+			"\n",
+			"Using regular expressions is high wizardry. But with this high wizardry\n",
+			"comes unparalleled power of text manipulation. For an explanation of what\n",
+			"a regular expression pattern is, see a few web pages:\n",
+			"\n",
+			"http://www.regular-expressions.info/\n",
+			"http://www.weitz.de/regex-coach/\n",
+			"\n",
+			"Additionally, the following temporary variables will be filled (unless the\n",
+			"command is invoked as '~!'):\n",
+			"\n",
+			"- $@regexmatchcount: The number of matches detected, including any\n",
+			"  parenthesized capture-groups.\n",
+			"- $@regexmatch$[0]: The part of <string> That matched the full <regex> pattern.\n",
+			"- $@regexmatch$[1 .. $@regexmatchcount]: The parts of <string> that matched\n",
+			"  each of the parenthesized capture-groups in <pattern>.\n",
+			"\n",
+			"A capture group is a part of a regex enclosed in (parentheses) in order to\n",
+			"store in a variable the part of the expression that was matched by that part of\n",
+			"the regex. For more details, see the links above, as this is not intended to be\n",
+			"a regex tutorial.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

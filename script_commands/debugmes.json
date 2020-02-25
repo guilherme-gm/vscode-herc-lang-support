@@ -1,0 +1,47 @@
+{
+	"debugmes": {
+		"params": {
+			"format string": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"param": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"format string"
+			],
+			[
+				"format string",
+				"param"
+			],
+			[
+				"format string",
+				"param"
+			]
+		],
+		"doc": [
+			"\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"\t@ /!\\ This command is deprecated @\n",
+			"\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"\n",
+			"This command will print a message in the server console (map-server window),\n",
+			"after applying the same format-string replacements as sprintf(). It will not be\n",
+			"displayed anywhere else. Returns true on success.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\t// Displays \"NAME has clicked me!\" in the map-server window.\n",
+			"\tdebugmes(\"%s has clicked me!\", strcharinfo(PC_NAME));\n",
+			"\n",
+			"\tdebugmes(\"\\033[0;32mHello World\"); // supports ANSI escape sequences\n"
+		],
+		"return": "unknown",
+		"deprecated": true
+	}
+}

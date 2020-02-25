@@ -1,0 +1,24 @@
+{
+	"gettimetick": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type"
+			]
+		],
+		"doc": [
+			"Valid types are :\n",
+			"\t0 - server's tick (milleseconds), unsigned int, loops every ~50 days\n",
+			"\t1 - time since the start of the current day in seconds\n",
+			"\t2 - UNIX epoch time (number of seconds elapsed since 1st of January 1970)\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

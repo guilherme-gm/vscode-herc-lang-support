@@ -1,0 +1,18 @@
+{
+	"checkhomcall": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This function checks if the attached player's Homunculus is active,\n",
+			"and will return the following values:\n",
+			" -1: The player has no Homunculus.\n",
+			"  0: The player's Homunculus is active.\n",
+			"  1: The player's Homunculus is vaporized.\n",
+			"  2: The player's Homunculus is in morph state.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

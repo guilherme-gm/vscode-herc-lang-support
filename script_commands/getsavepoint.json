@@ -1,0 +1,27 @@
+{
+	"getsavepoint": {
+		"params": {
+			"information type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"information type"
+			]
+		],
+		"doc": [
+			"This function will return information about the invoking character's save\n",
+			"point. You can use it to let a character swap between several recorded\n",
+			"save points. Available information types are:\n",
+			"\n",
+			" 0 - Map name (a string)\n",
+			" 1 - X coordinate\n",
+			" 2 - Y coordinate\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

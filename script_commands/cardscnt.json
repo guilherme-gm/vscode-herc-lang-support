@@ -1,0 +1,18 @@
+{
+	"cardscnt": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This function will return the number of cards inserted into the weapon\n",
+			"currently equipped on the invoking character.\n",
+			"While this function was meant for item scripts, it will work outside them:\n",
+			"\n",
+			"\tif (cardscnt() == 4)\n",
+			"\t\tmes(\"So you've stuck four cards into that weapon, think you're cool now?\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

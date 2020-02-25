@@ -1,0 +1,41 @@
+{
+	"guardianinfo": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"guardian number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"guardian number",
+				"type"
+			]
+		],
+		"doc": [
+			"This function will return various info about the specified guardian, or -1\n",
+			"if it fails for some reason. It is primarily used in the castle manager\n",
+			"NPC.\n",
+			"\n",
+			"Map name and guardian number (value between 0 and 7) define the target.\n",
+			"Type indicates what information to return:\n",
+			" 0 - visibility (whether the guardian is installed or not)\n",
+			" 1 - max. hp\n",
+			" 2 - current hp\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

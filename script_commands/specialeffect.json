@@ -1,0 +1,80 @@
+{
+	"specialeffect": {
+		"params": {
+			"effect number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"send_target": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"NPC Name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"effect number"
+			],
+			[
+				"effect number",
+				"send_target"
+			],
+			[
+				"effect number",
+				"send_target",
+				"NPC Name"
+			],
+			[
+				"effect number",
+				"send_target",
+				"NPC Name",
+				"account id"
+			]
+		],
+		"doc": [
+			"This command will display special effect with the given number, centered\n",
+			"on the specified NPCs coordinates, if any. For a full list of special\n",
+			"effect numbers known see 'doc/effect_list.txt'. Some effect numbers are\n",
+			"known not to work in some client releases. (Notably, rain is absent from\n",
+			"any client executables released after April 2005.)\n",
+			"\n",
+			"<NPC name> parameter will display <effect number> on another NPC. If the\n",
+			"NPC specified does not exist, the command will do nothing. When specifying\n",
+			"an NPC, <send_target> must be specified when specifying an <NPC Name>,\n",
+			"specifying AREA will retain the default behavior of the command.\n",
+			"\n",
+			"<unit id> behaves like <NPC Name> except it can display the effect on\n",
+			"any kind of unit, not just NPC, by specifying its GID.\n",
+			"\n",
+			"When <send_target> is SELF you can specify which player to send the effect\n",
+			"to by passing <account id>.\n",
+			"\n",
+			"Example usage:\n",
+			"\n",
+			"\t// To make a NPC do an effect and show it to everyone:\n",
+			"\tspecialeffect(EF_HIT1, AREA, \"John Doe#1\");\n",
+			"\n",
+			"\t// To make a player do an effect and show it to everyone:\n",
+			"\tspecialeffect(EF_HIT1, AREA, getcharid(CHAR_ID_ACCOUNT, \"player\"));\n",
+			"\n",
+			"\t// To make a NPC do an effect and show it only to the attached player:\n",
+			"\tspecialeffect(EF_HIT1, SELF, \"John Doe#1\");\n",
+			"\n",
+			"\t// To make a NPC do an effect and show it only to another player:\n",
+			"\tspecialeffect(EF_HIT1, SELF, \"John Doe#1\", getcharid(CHAR_ID_ACCOUNT, \"player\"));\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

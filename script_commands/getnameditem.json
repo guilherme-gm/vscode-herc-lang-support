@@ -1,0 +1,44 @@
+{
+	"getnameditem": {
+		"params": {
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"character ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item name",
+				"character ID"
+			]
+		],
+		"doc": [
+			"Create an item signed with the given character's name.\n",
+			"\n",
+			"The command returns true when the item is created successfully, or false\n",
+			"if it fails. Failure occurs when:\n",
+			"- There is no player attached.\n",
+			"- Item name or ID is not valid.\n",
+			"- The given character ID/name is offline.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"//This will give the currently attached player a Aaron's Apple (if Aaron\n",
+			"//is online).\n",
+			"\tgetnameditem(Apple, \"Aaron\");\n",
+			"\n",
+			"//Self-explanatory (I hope).\n",
+			"\tif (getnameditem(Apple, \"Aaron\")) {\n",
+			"\t\tmes(\"You now have a Aaron's Apple!\");\n",
+			"\t}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

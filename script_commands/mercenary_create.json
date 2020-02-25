@@ -1,0 +1,60 @@
+{
+	"mercenary_create": {
+		"params": {
+			"class": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"contract time": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"class",
+				"contract time"
+			]
+		],
+		"doc": [
+			"This command summons a mercenary of given class, for given amount of time\n",
+			"in milliseconds. Typically used in item scripts of mercenary scrolls.\n",
+			"\n",
+			"----------------------------------------\n",
+			"\n",
+			"\n",
+			"This command works like heal(), but affects the mercenary of the currently\n",
+			"attached character.\n",
+			"\n",
+			"----------------------------------------\n",
+			"\n",
+			"\n",
+			"This command works like sc_start(), but affects the mercenary of the\n",
+			"currently attached character.\n",
+			"\n",
+			"----------------------------------------\n",
+			"\n",
+			"\n",
+			"Sets or gets the mercenary calls value for given guild for currently\n",
+			"attached character. Guild can be one or the following constants:\n",
+			"\n",
+			"\tARCH_MERC_GUILD\n",
+			"\tSPEAR_MERC_GUILD\n",
+			"\tSWORD_MERC_GUILD\n",
+			"\n",
+			"----------------------------------------\n",
+			"\n",
+			"\n",
+			"Sets or gets the mercenary faith value for given guild for currently\n",
+			"attached character. Guild can be one or the following constants:\n",
+			"\n",
+			"\tARCH_MERC_GUILD\n",
+			"\tSPEAR_MERC_GUILD\n",
+			"\tSWORD_MERC_GUILD\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

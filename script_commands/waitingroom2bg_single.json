@@ -1,0 +1,47 @@
+{
+	"waitingroom2bg_single": {
+		"params": {
+			"battle group": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"mapname": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"npc name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"battle group",
+				"mapname",
+				"x",
+				"y",
+				"npc name"
+			]
+		],
+		"doc": [
+			"Adds the first waiting player from the chat room of given NPC to an\n",
+			"existing battleground group and warps it to specified coordinates on given\n",
+			"map.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

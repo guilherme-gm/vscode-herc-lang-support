@@ -1,0 +1,26 @@
+{
+	"getarrayindex": {
+		"params": {
+			"array name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"array name"
+			]
+		],
+		"doc": [
+			"This command returns the index of the passed array. This is useful when\n",
+			"used in combination with getarg()\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\tgetarrayindex(.@foo[42]) // 42\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

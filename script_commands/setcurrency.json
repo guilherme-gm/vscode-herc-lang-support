@@ -1,0 +1,34 @@
+{
+	"setcurrency": {
+		"params": {
+			"Val1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"Val2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"Val1"
+			],
+			[
+				"Val1",
+				"Val2"
+			]
+		],
+		"doc": [
+			"updates the currently attached player shop funds,\n",
+			"to be used within a \"OnCountFunds\" event of a NST_CUSTOM trader type.\n",
+			"\n",
+			"<Val1> is the value used in the *Cash* Points field\n",
+			"<Val2> is the value used in the Kafra Points field\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

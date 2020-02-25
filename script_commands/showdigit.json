@@ -1,0 +1,56 @@
+{
+	"showdigit": {
+		"params": {
+			"value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"value"
+			],
+			[
+				"value",
+				"type"
+			]
+		],
+		"doc": [
+			"This command return the player's current font.\n",
+			"if no player is attached it would always return a 0, which is also the default font.\n",
+			"\n",
+			"---------------------------------------'\n",
+			"\n",
+			"Displays given numeric 'value' in large digital clock font on top of the\n",
+			"screen. The optional parameter 'type' specifies visual aspects of the\n",
+			"\"clock\" and can be one of the following values:\n",
+			"\n",
+			"\t0 - Displays the value for 5 seconds (default).\n",
+			"\t1 - Incremental counter (1 tick/second).\n",
+			"\t2 - Decremental counter (1 tick/second). Does not stop at zero, but\n",
+			"\t\toverflows.\n",
+			"\t3 - Decremental counter (1 tick/second). Two digits only, stops at\n",
+			"\t\tzero.\n",
+			"\n",
+			"For type 1 and 2 the start value is set by using negative number of the\n",
+			"one intended to set (ex. -10 starts the counter at 10 seconds). Except for\n",
+			"type 3 the value is interpreted as seconds and formatted as time in days,\n",
+			"hours, minutes and seconds. Note, that the official script command does\n",
+			"not have the optional parameter.\n",
+			"\n",
+			"\t// displays 23:59:59 for 5 seconds\n",
+			"\tshowdigit(86399);\n",
+			"\n",
+			"\t// counter that starts at 60 and runs for 60 seconds\n",
+			"\tshowdigit(60, 3);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"unbindatcmd": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command will unbind a NPC event label from an atcommand.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

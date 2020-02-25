@@ -1,0 +1,43 @@
+{
+	"questprogress": {
+		"params": {
+			"ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"ID"
+			],
+			[
+				"ID",
+				"type"
+			]
+		],
+		"doc": [
+			"If no additional argument supplied, return the state of the quest:\n",
+			"\t0 = Quest not started (not in quest log)\n",
+			"\t1 = Quest has been given\n",
+			"\t2 = Quest completed\n",
+			"\n",
+			"If <type> PLAYTIME is supplied:\n",
+			"\t0 = Quest not started (not in quest log)\n",
+			"\t1 = The time limit has not yet been reached\n",
+			"\t2 = The time limit has been reached\n",
+			"\n",
+			"If <type> HUNTING is supplied:\n",
+			"\t0 = Quest not started (not in quest log)\n",
+			"\t1 = Player hasn't killed all of the target monsters\n",
+			"\t2 = Player has killed all of the target monsters\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

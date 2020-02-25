@@ -1,0 +1,26 @@
+{
+	"jobname": {
+		"params": {
+			"job number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"job number"
+			]
+		],
+		"doc": [
+			"This command retrieves the name of the given job using the names defined\n",
+			"in messages.conf.\n",
+			"\n",
+			"\tmes(\"[Kid]\");\n",
+			"\tmes(\"I never thought I'd met a \"+jobname(Class)+\" here of all places.\");\n",
+			"\tclose();\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

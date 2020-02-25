@@ -1,0 +1,27 @@
+{
+	"isstr": {
+		"params": {
+			"argument": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"argument"
+			]
+		],
+		"doc": [
+			"This command checks if the given <argument> is a string (1),\n",
+			"an integer (0) or something else (2).\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"    isstr(69); // outputs 0\n",
+			"    isstr(\"69\"); // outputs 1\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

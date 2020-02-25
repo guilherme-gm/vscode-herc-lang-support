@@ -1,0 +1,20 @@
+{
+	"getpartnerid": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This function returns the character ID of the invoking character's\n",
+			"marriage partner, if any. If the invoking character is not married, it\n",
+			"will return 0, which is a quick way to see if they are married:\n",
+			"\n",
+			"\tif (getpartnerid() == 0)\n",
+			"\t\tmes(\"I'm not going to be your girlfriend!\");\n",
+			"\telse\n",
+			"\t\tmes(\"You're married already!\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

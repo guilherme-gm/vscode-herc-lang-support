@@ -1,0 +1,32 @@
+{
+	"charat": {
+		"params": {
+			"string": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"index": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"string",
+				"index"
+			]
+		],
+		"doc": [
+			"Returns char at specified index. If index is out of range, returns an\n",
+			"empty string.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\tcharat(\"This is a string\", 10); //returns \"s\"\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

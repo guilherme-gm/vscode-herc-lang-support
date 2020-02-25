@@ -1,0 +1,23 @@
+{
+	"itempreview": {
+		"params": {
+			"index": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"index"
+			]
+		],
+		"doc": [
+			"Update already opened preview window with item from\n",
+			" inventory with given index.\n",
+			"Works for 20181017 RE and main clients or newer.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

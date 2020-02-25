@@ -1,0 +1,13 @@
+{
+	"instance_id": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"Retrieves the instance id of the script it is being run on.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

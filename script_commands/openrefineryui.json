@@ -1,0 +1,14 @@
+{
+	"openrefineryui": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"Opens refinery user interface for the player\n",
+			"returns true on success and false on failure\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

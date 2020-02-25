@@ -1,0 +1,39 @@
+{
+	"substr": {
+		"params": {
+			"string": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"start_index": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"end_index": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"string",
+				"start_index",
+				"end_index"
+			]
+		],
+		"doc": [
+			"Returns the sub-string of the specified string inclusively between the set\n",
+			"indexes. If indexes are out of range, or the start index is after the end\n",
+			"index, an empty string will be returned.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\tsubstr(\"foobar\", 3, 5); //returns \"bar\"\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

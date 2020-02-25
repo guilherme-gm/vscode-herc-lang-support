@@ -1,0 +1,111 @@
+{
+	"areawarp": {
+		"params": {
+			"from map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"x2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"to map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x3": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y3": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"x4": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y4": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"from map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"to map name",
+				"x3",
+				"y3"
+			],
+			[
+				"from map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"to map name",
+				"x3",
+				"y3",
+				"x4",
+				"y4"
+			]
+		],
+		"doc": [
+			"This command is similar to 'warp', however, it will not refer to the\n",
+			"invoking character, but instead, all characters within a specified area,\n",
+			"defined by the x1/y1-x2/y2 square, will be warped. Nobody outside the area\n",
+			"will be affected, including the activating character, if they are outside\n",
+			"the area.\n",
+			"\n",
+			"\tareawarp(\"place\", 10, 10, 120, 120, \"place2\", 150, 150);\n",
+			"\n",
+			"Everyone that is in the area between X 10 Y 10 and X 120 Y 120, in a\n",
+			"square shape, on the map called \"place\", will be affected, and warped to\n",
+			"\"place2\" X 150 Y 150.\n",
+			"\n",
+			"\tareawarp(\"place\", 10, 10, 120, 120, \"place2\", 0, 0);\n",
+			"\n",
+			"By using 0,0; as the destination coordinates it will take all the\n",
+			"characters in the affected area to a random set of co-ordinates on the\n",
+			"\"place2\" map.\n",
+			"\n",
+			"\tareawarp(\"place\", 10, 10, 120, 120, \"place2\", 150, 150, 200, 200);\n",
+			"\n",
+			"By using the optional x4 and y4 parameters, the destination coordinates\n",
+			"will be a random place within the defined x3/y3-x4/y4 square.\n",
+			"\n",
+			"Like warp(), areawarp() will also explicitly warp characters randomly into\n",
+			"the current map if you give the 'to map name' as \"Random\".\n",
+			"\n",
+			"See also warp().\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

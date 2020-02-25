@@ -1,0 +1,32 @@
+{
+	"dispbottom": {
+		"params": {
+			"message": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"color": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"message"
+			],
+			[
+				"message",
+				"color"
+			]
+		],
+		"doc": [
+			"This command will send the given message into the invoking character's\n",
+			"chat window. The color format is in RGB (0xRRGGBB), and default to green\n",
+			"if <color> field is left out.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

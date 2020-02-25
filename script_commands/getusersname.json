@@ -1,0 +1,17 @@
+{
+	"getusersname": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command will give the invoking character a list of names of the\n",
+			"connected characters (including themselves) into an NPC script message\n",
+			"window (see 'mes') paging it by 10 names as if with the next() command.\n",
+			"\n",
+			"You need to put a 'close' after that yourself.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,93 @@
+{
+	"setunitdata": {
+		"params": {
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"DataType": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"Val": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"GID",
+				"DataType",
+				"Val"
+			]
+		],
+		"doc": [
+			"Sets or alters the data in real-time for game objects of the following types -\n",
+			"NPCs, Pets, Monsters, Homunuculus', Mercenaries, Elementals.\n",
+			"\n",
+			"Applicable Data Types (available as constants) -\n",
+			"\tData Types                Description (parameter type)\n",
+			"\tUDT_SIZE:                 Unit Size\n",
+			"\tUDT_LEVEL:                Level\n",
+			"\tUDT_HP:                   Current HP\n",
+			"\tUDT_MAXHP:                Max HP\n",
+			"\tUDT_SP:                   SP\n",
+			"\tUDT_MAXSP:                MAX SP\n",
+			"\tUDT_MASTERAID:            Master Account ID (for Summons)\n",
+			"\tUDT_MASTERCID:            Master Char ID (for Summons)\n",
+			"\tUDT_SPEED:                Unit Speed.\n",
+			"\tUDT_MODE:                 Mode (Mobs only)\n",
+			"\tUDT_AI:                   Unit AI Type (see doc/constants.md for Unit AI Types)\n",
+			"\tUDT_SCOPTION:             Status Options. (see doc/constants.md for Unit Option Types)\n",
+			"\tUDT_SEX:                  Gender of the unit. (see doc/constants.md for Genders)\n",
+			"\tUDT_CLASS:                Class of the unit. (Monster ID)\n",
+			"\tUDT_HAIRSTYLE:            Hair Style ID.\n",
+			"\tUDT_HAIRCOLOR:            Hair Color ID.\n",
+			"\tUDT_HEADBOTTOM:           Headgear Bottom Sprite ID.\n",
+			"\tUDT_HEADMIDDLE:           Headgear Middle Sprite ID.\n",
+			"\tUDT_HEADTOP:              Headgear Top Sprite ID.\n",
+			"\tUDT_CLOTHCOLOR:           Cloth Color ID.\n",
+			"\tUDT_SHIELD:               Shield Sprite ID.\n",
+			"\tUDT_WEAPON:               Weapon Sprite ID.\n",
+			"\tUDT_LOOKDIR:              Face direction.\n",
+			"\tUDT_CANMOVETICK:          Stop a unit from move for n seconds.\n",
+			"\tUDT_STR:                  Unit STR.\n",
+			"\tUDT_AGI:                  Unit AGI.\n",
+			"\tUDT_VIT:                  Unit VIT.\n",
+			"\tUDT_INT:                  Unit INT.\n",
+			"\tUDT_DEX:                  Unit DEX.\n",
+			"\tUDT_LUK:                  Unit LUK.\n",
+			"\tUDT_ATKRANGE:             Attack range of a unit.\n",
+			"\tUDT_ATKMIN:               Min Atk of a unit.\n",
+			"\tUDT_ATKMAX:               Max Atk of a unit.\n",
+			"\tUDT_MATKMIN:              Min MATK of a unit.\n",
+			"\tUDT_MATKMAX:              Max MATK of a unit.\n",
+			"\tUDT_DEF:                  DEF.\n",
+			"\tUDT_MDEF:                 MDEF.\n",
+			"\tUDT_HIT:                  HIT.\n",
+			"\tUDT_FLEE:                 FLEE.\n",
+			"\tUDT_PDODGE:               Perfect Dodge.\n",
+			"\tUDT_CRIT:                 Critical Rate.\n",
+			"\tUDT_RACE:                 Race. (Eg. constants RC_DemiHuman or Integer 7).\n",
+			"\tUDT_ELETYPE:              Element. (Eg. constants Ele_Neutral or Integer 0).\n",
+			"\tUDT_ELELEVEL:             Element Level.\n",
+			"\tUDT_AMOTION:              AMotion Rate.\n",
+			"\tUDT_ADELAY:               ADelay Rate.\n",
+			"\tUDT_DMOTION:              DMotion Rate.\n",
+			"\tUDT_HUNGER:               Hunger Rate - for summons.\n",
+			"\tUDT_INTIMACY:             Intimacy Rate - for summons.\n",
+			"\tUDT_LIFETIME:             LifeTime - for summons.\n",
+			"\tUDT_MERC_KILLCOUNT:       Kill count for mercenaries\n",
+			"\tUDT_STATADD:              Status Points - for NPCs.\n",
+			"\tUDT_GROUP:                group id\n",
+			"\tUDT_DAMAGE_TAKEN_RATE:    damage taken rate of a unit.\n",
+			"\n",
+			"returns 0 if value could not be set, 1 if successful.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

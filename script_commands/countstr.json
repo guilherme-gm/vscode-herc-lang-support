@@ -1,0 +1,42 @@
+{
+	"countstr": {
+		"params": {
+			"input": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"search": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"usecase": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"input",
+				"search"
+			],
+			[
+				"input",
+				"search",
+				"usecase"
+			]
+		],
+		"doc": [
+			"Counts all instances of a search string in the input. By default is case\n",
+			"sensitive unless <usecase> is set to false.\n",
+			"\n",
+			"Example:\n",
+			"\tcountstr(\"test test test Test\", \"test\"); //returns 3\n",
+			"\tcountstr(\"cake Cake\", \"Cake\", false); //returns 2\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

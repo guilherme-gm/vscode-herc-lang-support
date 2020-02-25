@@ -1,0 +1,38 @@
+{
+	"warppartner": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"x",
+				"y"
+			]
+		],
+		"doc": [
+			"This function will find the invoking character's marriage partner, if any,\n",
+			"and warp them to the map and coordinates given. Go kidnap that spouse. :)\n",
+			"It will return true upon success and false if the partner is not online,\n",
+			"the character is not married, or if there's no invoking character (no\n",
+			"RID).\n",
+			"0,0 will, as usual, normally translate to random coordinates.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

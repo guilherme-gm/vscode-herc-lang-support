@@ -1,0 +1,59 @@
+{
+	"consolemes": {
+		"params": {
+			"type": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"format string": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"param": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type",
+				"format string"
+			],
+			[
+				"type",
+				"format string",
+				"param"
+			],
+			[
+				"type",
+				"format string",
+				"param"
+			]
+		],
+		"doc": [
+			"This command will print a message in the server console (map-server window),\n",
+			"after applying the same format-string replacements as sprintf(). It will not be\n",
+			"displayed anywhere else. Returns true on success.\n",
+			"\n",
+			"List of available <type> are:\n",
+			"\tCONSOLEMES_DEBUG   = 0\n",
+			"\tCONSOLEMES_ERROR   = 1\n",
+			"\tCONSOLEMES_WARNING = 2\n",
+			"\tCONSOLEMES_INFO    = 3\n",
+			"\tCONSOLEMES_STATUS  = 4\n",
+			"\tCONSOLEMES_NOTICE  = 5\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\t// Displays \"NAME has clicked me!\" in the map-server window.\n",
+			"\tconsolemes(CONSOLEMES_DEBUG, \"%s has clicked me!\", strcharinfo(PC_NAME));\n",
+			"\n",
+			"\tconsolemes(CONSOLEMES_DEBUG, \"\\033[0;32mHello World\"); // supports ANSI escape sequences\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

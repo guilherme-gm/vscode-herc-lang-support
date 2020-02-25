@@ -1,0 +1,51 @@
+{
+	"mesf": {
+		"params": {
+			"format": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"param": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"format"
+			],
+			[
+				"format",
+				"param"
+			],
+			[
+				"format",
+				"param",
+				"param"
+			],
+			[
+				"format",
+				"param",
+				"param"
+			]
+		],
+		"doc": [
+			"This command will display a box on the screen for the invoking character,\n",
+			"if no such box is displayed already, and will print the string specified\n",
+			"into that box, after applying the same format-string replacements as sprintf().\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\tmesf(\"Hello, I'm %s, a level %d %s\", strcharinfo(PC_NAME), BaseLevel, jobname(Class));\n",
+			"\t// is equivalent to:\n",
+			"\tmes(sprintf(\"Hello, I'm %s, a level %d %s\", strcharinfo(PC_NAME), BaseLevel, jobname(Class)));\n",
+			"\n",
+			"This command is a combination of mes() and sprintf(). See their documentation\n",
+			"for more details.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

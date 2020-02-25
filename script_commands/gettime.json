@@ -1,0 +1,43 @@
+{
+	"gettime": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type"
+			]
+		],
+		"doc": [
+			"This function returns specified information about the current system time.\n",
+			"\n",
+			"Valid types:\n",
+			"\t1 - GETTIME_SECOND     - Seconds (of a minute)\n",
+			"\t2 - GETTIME_MINUTE     - Minutes (of an hour)\n",
+			"\t3 - GETTIME_HOUR       - Hour (of a day)\n",
+			"\t4 - GETTIME_WEEKDAY    - Week day (0 for Sunday, 6 is Saturday)\n",
+			"\t                       - Additional: SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY\n",
+			"\t5 - GETTIME_DAYOFMONTH - Day of the month.\n",
+			"\t6 - GETTIME_MONTH      - Number of the month.\n",
+			"\t                       - Additional: JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER\n",
+			"\t7 - GETTIME_YEAR       - Year\n",
+			"\t8 - GETTIME_DAYOFYEAR  - Day of the year.\n",
+			"\n",
+			"It will only return numbers based on types.\n",
+			"Example :\n",
+			"\tif (gettime(GETTIME_WEEKDAY) == SATURDAY) {\n",
+			"\t\tmes(\"It's a Saturday. I don't work on Saturdays.\");\n",
+			"\t} else if (gettime(GETTIME_MONTH) == JANUARY) {\n",
+			"\t\tmes(\"It's January. I don't work on January.\");\n",
+			"\t} else if (gettime(GETTIME_MONTH) == OCTOBER && gettime(GETTIME_DAYOFMONTH) == 31) {\n",
+			"\t\tmes(\"It's Halloween.\");\n",
+			"\t}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

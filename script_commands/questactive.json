@@ -1,0 +1,24 @@
+{
+	"questactive": {
+		"params": {
+			"ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"ID"
+			]
+		],
+		"doc": [
+			"Check whether the given quest is in its active state.\n",
+			"\n",
+			"Returns true if the quest is active, false otherwise (quest not started,\n",
+			"inactive or completed)\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

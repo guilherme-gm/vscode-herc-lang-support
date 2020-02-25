@@ -1,0 +1,56 @@
+{
+	"movenpc": {
+		"params": {
+			"NPC name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"dir": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"NPC name",
+				"x",
+				"y"
+			],
+			[
+				"NPC name",
+				"x",
+				"y",
+				"dir"
+			]
+		],
+		"doc": [
+			"This command looks like the npcwalktoxy function, but is a little different.\n",
+			"\n",
+			"While npcwalktoxy just makes the NPC 'walk' to the coordinates given\n",
+			"(which sometimes gives problems if the path isn't a straight line without\n",
+			"objects), this command just moves the NPC. It basically warps out and in\n",
+			"on the current and given spot. Direction can be used to change the NPC's\n",
+			"facing direction.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"// This will move Bugga from to the coordinates 100,20 (if those\n",
+			"// coordinates are legit).\n",
+			"\tmovenpc(\"Bugga\", 100, 20);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

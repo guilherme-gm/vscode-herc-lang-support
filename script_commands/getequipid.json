@@ -1,0 +1,76 @@
+{
+	"getequipid": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			]
+		],
+		"doc": [
+			"This function returns the item ID of the item equipped in the equipment\n",
+			"slot specified on the invoking character. If nothing is equipped there, it\n",
+			"returns -1. Valid equipment slots are:\n",
+			"\n",
+			"EQI_HEAD_TOP (1)          - Upper head gear\n",
+			"EQI_ARMOR (2)             - Armor (Where you keep your Jackets and Robes)\n",
+			"EQI_HAND_L (3)            - What is in your Left hand.\n",
+			"EQI_HAND_R (4)            - What is in your Right hand.\n",
+			"EQI_GARMENT (5)           - The garment slot (Mufflers, Hoods, Manteaus)\n",
+			"EQI_SHOES (6)             - What foot gear the player has on.\n",
+			"EQI_ACC_L (7)             - Accessory 1.\n",
+			"EQI_ACC_R (8)             - Accessory 2.\n",
+			"EQI_HEAD_MID (9)          - Middle Headgear (masks and glasses)\n",
+			"EQI_HEAD_LOW (10)         - Lower Headgear (beards, some masks)\n",
+			"EQI_COSTUME_HEAD_LOW (11) - Lower Costume Headgear\n",
+			"EQI_COSTUME_HEAD_MID (12) - Middle Costume Headgear\n",
+			"EQI_COSTUME_HEAD_TOP (13) - Upper Costume Headgear\n",
+			"EQI_COSTUME_GARMENT (14)  - Costume Garment\n",
+			"EQI_SHADOW_ARMOR (15)     - Shadow Armor\n",
+			"EQI_SHADOW_WEAPON (16)    - Shadow Weapon\n",
+			"EQI_SHADOW_SHIELD (17)    - Shadow Shield\n",
+			"EQI_SHADOW_SHOES (18)     - Shadow Shoes\n",
+			"EQI_SHADOW_ACC_R (19)     - Shadow Accessory 2\n",
+			"EQI_SHADOW_ACC_L (20)     - Shadow Accessory 1\n",
+			"\n",
+			"Notice that a few items occupy several equipment slots, and if the\n",
+			"character is wearing such an item, 'getequipid' will return it's ID number\n",
+			"for either slot.\n",
+			"\n",
+			"Can be used to check if you have something equipped, or if you haven't got\n",
+			"something equipped:\n",
+			"\n",
+			"\tif (getequipid(EQI_HEAD_TOP) == Tiara) {\n",
+			"\t\tmes(\"What a lovely Tiara you have on\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\tmes(\"Come back when you have a Tiara on\");\n",
+			"\tclose();\n",
+			"\n",
+			"You can also use it to make sure people don't pass a point before removing\n",
+			"an item totally from them. Let's say you don't want people to wear Legion\n",
+			"Plate armor, but also don't want them to equip if after the check, you\n",
+			"would do this:\n",
+			"\n",
+			"\tif (getequipid(EQI_ARMOR) == Full_Plate_Armor || getequipid(EQI_ARMOR) == Full_Plate_Armor_) {\n",
+			"\t\tmes(\"You are wearing some Legion Plate Armor, please drop that in your stash before continuing\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\tif (countitem(Full_Plate_Armor) > 0 || countitem(Full_Plate_Armor_) > 0) {\n",
+			"\t\tmes(\"You have some Legion Plate Armor in your inventory, please drop that in your stash before continuing\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\tmes(\"I will lets you pass\");\n",
+			"\tclose2();\n",
+			"\twarp(\"place\", 50, 50);\n",
+			"\tend;\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

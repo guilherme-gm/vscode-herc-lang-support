@@ -1,0 +1,25 @@
+{
+	"ord": {
+		"params": {
+			"chr": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"chr"
+			]
+		],
+		"doc": [
+			"Returns the ASCII value of char <chr>.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"    ord(\"c\"); //returns 99\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

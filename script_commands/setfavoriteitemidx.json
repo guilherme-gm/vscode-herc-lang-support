@@ -1,0 +1,33 @@
+{
+	"setfavoriteitemidx": {
+		"params": {
+			"idx": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"idx",
+				"flag"
+			]
+		],
+		"doc": [
+			"This function will set an item in inventory as favorite or not.\n",
+			"If its favorite item, it will be moved to favorite tab, else move out from favorite tab.\n",
+			"Note: Cant change favorite flag of an equipped item.\n",
+			"\n",
+			"Valid Parameters:\n",
+			"\t<idx>    - inventory index, refer *getinventorylist()\n",
+			"\t<flag>   - true/false (true = favorite item, false = otherwise)\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

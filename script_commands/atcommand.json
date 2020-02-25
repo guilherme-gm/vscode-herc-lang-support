@@ -1,0 +1,32 @@
+{
+	"atcommand": {
+		"params": {
+			"command": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"command"
+			]
+		],
+		"doc": [
+			"This command will run the given command line exactly as if it was typed in\n",
+			"from the keyboard by the player connected to the invoking character, and\n",
+			"that character belonged to an account which had GM level 99.\n",
+			"\n",
+			"\t// This will ask the invoker for a character name and then use the\n",
+			"\t// '@nuke' GM command on them, killing them mercilessly.\n",
+			"\tinput(.@player$);\n",
+			"\tatcommand(\"@nuke \"+.@player$);\n",
+			"\n",
+			"Use of this command is not recommended unless you know what you're\n",
+			"doing, since not all atcommands are intended to be used by the script\n",
+			"engine.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

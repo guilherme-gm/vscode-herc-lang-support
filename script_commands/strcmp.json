@@ -1,0 +1,35 @@
+{
+	"strcmp": {
+		"params": {
+			"string": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"string",
+				"string"
+			]
+		],
+		"doc": [
+			"This command compares two strings and is similar to strcmp in C.\n",
+			"\n",
+			"Return Values:\n",
+			"\t>0  : String 1 > String 2\n",
+			"\t0  : Strings are equal\n",
+			"\t<0 : String 1 < String 2\n",
+			"\n",
+			"Examples:\n",
+			"\t.@a = strcmp(\"abcdef\", \"ABCDEF\");\n",
+			"\tif (.@a > 0){\n",
+			"\t\tmes(\".@a is greater than 0.\"); //Output is this.\n",
+			"\t} else {\n",
+			"\t\tmes(\".@a is less or equal to 0\");\n",
+			"\t}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

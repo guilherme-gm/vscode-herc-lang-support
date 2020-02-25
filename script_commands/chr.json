@@ -1,0 +1,25 @@
+{
+	"chr": {
+		"params": {
+			"int": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"int"
+			]
+		],
+		"doc": [
+			"Returns a char from its ASCII value.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"    chr(99); //returns \"c\"\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

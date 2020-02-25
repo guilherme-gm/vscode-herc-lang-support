@@ -1,0 +1,36 @@
+{
+	"channelmes": {
+		"params": {
+			"#channel": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"message": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"#channel",
+				"message"
+			]
+		],
+		"doc": [
+			"This command will send a message to the specified chat channel.\n",
+			"\n",
+			"The sent message will not include any character's names.\n",
+			"\n",
+			"For special channels, such as #map and #ally, the attached RID's map or guild\n",
+			"will be used.\n",
+			"\n",
+			"If the channel doesn't exist (or, in the case of a character-specific channel,\n",
+			"no RID is attached), false will be returned. In case of success, true is\n",
+			"returned.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

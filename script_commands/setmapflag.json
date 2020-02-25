@@ -1,0 +1,52 @@
+{
+	"setmapflag": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"val": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"flag"
+			],
+			[
+				"map name",
+				"flag",
+				"val"
+			]
+		],
+		"doc": [
+			"This command marks a specified map with a map flag given. Map flags alter\n",
+			"the behavior of the map, you can see the list of the available ones in\n",
+			"'doc/constants.md' under 'Mapflags'.\n",
+			"\n",
+			"The map flags alter the behavior of the map regarding teleporting\n",
+			"(mf_nomemo, mf_noteleport, mf_nowarp), storing location when\n",
+			"disconnected (mf_nosave), dead branch usage (mf_nobranch), penalties\n",
+			"upon death (mf_nopenalty, mf_nozenypenalty), PVP behavior (mf_pvp,\n",
+			"mf_pvp_noparty, mf_pvp_noguild), WoE behavior (mf_gvg, mf_gvg_noparty),\n",
+			"ability to use skills or open up trade deals (mf_notrade, mf_novending,\n",
+			"mf_noskill, mf_noicewall), current weather effects (mf_snow, mf_fog,\n",
+			"mf_sakura, mf_leaves, mf_clouds, mf_clouds2, mf_fireworks), whether\n",
+			"night will be in effect on this map (mf_nightenabled) and so on.\n",
+			"\n",
+			"The val optional parameter is as the mapflags variable when one exists, it\n",
+			"may be a number or a string depending on the mapflag in question.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

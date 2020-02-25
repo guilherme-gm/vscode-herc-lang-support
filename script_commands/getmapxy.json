@@ -1,0 +1,98 @@
+{
+	"getmapxy": {
+		"params": {
+			"variable for map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"variable for x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"variable for y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"search parameter": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"variable for map name",
+				"variable for x",
+				"variable for y",
+				"type"
+			],
+			[
+				"variable for map name",
+				"variable for x",
+				"variable for y",
+				"type",
+				"search parameter"
+			]
+		],
+		"doc": [
+			"This function will locate a character object, NPC object or pet's\n",
+			"coordinates and place their coordinates into the variables specified when\n",
+			"calling it. It will return 0 if the search was successful, and -1 if the\n",
+			"parameters given were not variables or the search was not successful.\n",
+			"\n",
+			"Type is the type of object to search for:\n",
+			"\n",
+			"\tUNITTYPE_PC   - Character object\n",
+			"\tUNITTYPE_NPC  - NPC object\n",
+			"\tUNITTYPE_PET  - Pet object\n",
+			"\tUNITTYPE_MOB  - Monster object\n",
+			"\tUNITTYPE_HOM  - Homunculus object\n",
+			"\tUNITTYPE_MER  - Mercenary object\n",
+			"\tUNITTYPE_ELEM - Elemental object\n",
+			"\n",
+			"To look for a monster object, monster GID is required. The function will\n",
+			"always return -1 when search using string.\n",
+			"\n",
+			"The search parameter is optional. If it is not specified, the location of the\n",
+			"invoking character will always be returned for UNITTYPE_PC, the location of the\n",
+			"NPC running this function for UNITTYPE_NPC. If a search parameter is specified,\n",
+			"for UNITTYPE_PC and UNITTYPE_NPC, the character or NPC with the specified name\n",
+			"or GID will be located.\n",
+			"\n",
+			"If type is UNITTYPE_PET, UNITTYPE_HOM, UNITTYPE_MER or UNITTYPE_ELEM the search\n",
+			"will locate the owner's pet/homun/mercenary/elementals if the search parameter\n",
+			"is not provided. It will NOT locate these object by name, but can be done if GID\n",
+			"is provided.\n",
+			"\n",
+			"What a mess. Example, a working and tested one now:\n",
+			"\n",
+			"\tprontera,164,301,3%TAB%script%TAB%Meh%TAB%730,{\n",
+			"\t\tmes(\"My name is Meh. I'm here so that Nyah can find me.\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\n",
+			"\tprontera,164,299,3%TAB%script%TAB%Nyah%TAB%730,{\n",
+			"\t\tmes(\"My name is Nyah.\");\n",
+			"\t\tmes(\"I will now search for Meh all across the world!\");\n",
+			"\t\tif (getmapxy(.@mapname$, .@mapx, .@mapy, UNITTYPE_NPC, \"Meh\") != 0) {\n",
+			"\t\t\tmes(\"I can't seem to find Meh anywhere!\");\n",
+			"\t\t\tclose();\n",
+			"\t\t}\n",
+			"\t\tmes(\"And I found him on map \"+.@mapname$+\" at X:\"+.@mapx+\" Y:\"+.@mapy+\" !\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\n",
+			"Notice that NPC objects disabled with disablenpc() will still be located.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

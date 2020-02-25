@@ -1,0 +1,24 @@
+{
+	"queueiterator": {
+		"params": {
+			"queue_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"queue_id"
+			]
+		],
+		"doc": [
+			"Creates a new queue iterator instance.\n",
+			"A queue iterator is not a reference to a queue's actual members, it copies\n",
+			"the queues members when initialized, this way you can loop through them\n",
+			"even if you remove them from the queue.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

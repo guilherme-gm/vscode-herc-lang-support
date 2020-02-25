@@ -1,0 +1,96 @@
+{
+	"waitingroom": {
+		"params": {
+			"chatroom name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"limit": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"event label": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"trigger": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"required zeny": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"min lvl": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"max lvl": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"chatroom name",
+				"limit"
+			],
+			[
+				"chatroom name",
+				"limit",
+				"event label",
+				"trigger",
+				"required zeny",
+				"min lvl",
+				"max lvl"
+			]
+		],
+		"doc": [
+			"This command will create a chat room, owned by the NPC object running this\n",
+			"script and displayed above the NPC sprite.\n",
+			"The maximum length of a chat room name is 60 letters.\n",
+			"\n",
+			"The limit is the maximum number of people allowed to enter the chat room.\n",
+			"The attached NPC is included in this count. If the optional event and\n",
+			"trigger parameters are given, the event label\n",
+			"(\"<NPC object name>::<label name>\") will be invoked as if with a donpcevent()\n",
+			"upon the number of people in the chat room reaching the given triggering\n",
+			"amount.\n",
+			"\n",
+			"// The NPC will just show a box above its head that says \"Hello World\",\n",
+			"// clicking it will do nothing, since the limit is zero.\n",
+			"\twaitingroom(\"Hello World\", 0);\n",
+			"\n",
+			"// The NPC will have a box above its head, with \"Disco - Waiting Room\"\n",
+			"// written on it, and will have 8 waiting slots. Clicking this will enter\n",
+			"// the chat room, where the player will be able to wait until 7 players\n",
+			"// accumulate. Once this happens, it will cause the NPC \"Bouncer\" run the\n",
+			"// label \"OnStart\".\n",
+			"\n",
+			"\twaitingroom(\"Disco - Waiting Room\", 8, \"Bouncer::OnStart\", 7);\n",
+			"\n",
+			"// The NPC will have a box above its head, with \"Party - Waiting Room\"\n",
+			"// written on it, and will have 8 waiting slots. Clicking this will allow\n",
+			"// a player who has 5000 zeny and lvl 50~99 to enter the chat room, where\n",
+			"// the player will be able to wait until 7 players accumulate. Once this\n",
+			"// happens, it will cause the NPC \"Bouncer\" run the label \"OnStart\".\n",
+			"\n",
+			"\twaitingroom(\"Party - Waiting Room\", 8, \"Bouncer::OnStart\", 7, 5000, 50, 99);\n",
+			"\n",
+			"Creating a waiting room does not stop the execution of the script and it\n",
+			"will continue to the next line.\n",
+			"\n",
+			"For more examples see the 2-1 and 2-2 job quest scripts which make\n",
+			"extensive use of waiting rooms.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

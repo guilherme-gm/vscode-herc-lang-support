@@ -1,0 +1,67 @@
+{
+	"warpwaitingpc": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"number of people": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"x",
+				"y"
+			],
+			[
+				"map name",
+				"x",
+				"y",
+				"number of people"
+			]
+		],
+		"doc": [
+			"This command will warp the amount of characters equal to the trigger\n",
+			"number of the waiting room chat attached to the NPC object running this\n",
+			"command to the specified map and coordinates, kicking them out of the\n",
+			"chat. Those waiting the longest will get warped first. It can also do a\n",
+			"random warp on the same map (\"Random\" instead of map name) and warp to the\n",
+			"save point (\"SavePoint\").\n",
+			"\n",
+			"The list of characters to warp is taken from the list of the chat room\n",
+			"members. Those not in the chat room will not be considered even if they\n",
+			"are talking to the NPC in question. If the number of people is given,\n",
+			"exactly this much people will be warped.\n",
+			"\n",
+			"This command can also keep track of who just got warped. It does this by\n",
+			"setting special variables:\n",
+			"\n",
+			"$@warpwaitingpc[] is an array containing the account_id numbers of the\n",
+			"                  characters who were just warped.\n",
+			"$@warpwaitingpcnum contains the number of the character it just warped.\n",
+			"\n",
+			"See also 'getpartymember' for advice on what to do with those variables.\n",
+			"\n",
+			"The obvious way of using this effectively would be to set up a waiting\n",
+			"room for two characters to be warped onto a random PVP map for a\n",
+			"one-on-one duel, for example.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

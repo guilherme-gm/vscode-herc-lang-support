@@ -1,0 +1,23 @@
+{
+	"getequipisenableopt": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			]
+		],
+		"doc": [
+			"This function checks if the equipped item allows the use of bonus options.\n",
+			"\n",
+			"Returns 1 if allowed, 0 if not.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

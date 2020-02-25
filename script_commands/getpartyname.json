@@ -1,0 +1,28 @@
+{
+	"getpartyname": {
+		"params": {
+			"party id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"party id"
+			]
+		],
+		"doc": [
+			"This function will return the name of a party that has the specified ID\n",
+			"number. If there is no such party ID, \"null\" will be returned.\n",
+			"\n",
+			"Lets say the ID of a party was saved as a global variable:\n",
+			"\n",
+			"\t// This would return the name of the party from the ID stored in a\n",
+			"\t// variable\n",
+			"\tmes(\"You're in the '\"+getpartyname($@var)+\"' party, I know!\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

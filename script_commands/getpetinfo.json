@@ -1,0 +1,39 @@
+{
+	"getpetinfo": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type"
+			]
+		],
+		"doc": [
+			"This command will return the currently active pet information of the invoking character.\n",
+			"These fields are associate in 'db/(pre-)re/pet_db.conf'. Valid types are:\n",
+			"\n",
+			"\tPETINFO_ID            - Pet Database ID, stored in `pet` table to distinguish from other pets.\n",
+			"\tPETINFO_CLASS         - Pet class ID. (Id field)\n",
+			"\tPETINFO_NAME          - Pet Name, return \"null\" if there's no active pet.\n",
+			"\tPETINFO_INTIMACY      - Pet Intimacy level. 1000 is full loyalty.\n",
+			"\tPETINFO_HUNGRY        - Pet hungry level. 100 is completely full.\n",
+			"\tPETINFO_RENAME        - Pet rename flag. 0 means this pet has not been named yet.\n",
+			"\tPETINFO_GID           - Pet Game ID\n",
+			"\tPETINFO_EGGITEM       - Pet EggItem\n",
+			"\tPETINFO_FOODITEM      - Pet FoodItem\n",
+			"\tPETINFO_ACCESSORYITEM - Pet AccessoryItem\n",
+			"\tPETINFO_ACCESSORYFLAG - return 1 if the pet currently equipping accessory, return 0 otherwise.\n",
+			"\tPETINFO_EVO_EGGID     - Pet Evolve EggID\n",
+			"\tPETINFO_AUTOFEED      - Pet AutoFeed flag.\n",
+			"\n",
+			"If the invoking player doesn't own a pet, this command will\n",
+			"return \"null\" for type PETINFO_NAME, and return 0 for other types.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

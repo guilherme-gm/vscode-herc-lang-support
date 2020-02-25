@@ -1,0 +1,34 @@
+{
+	"downrefitem": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"downgrade_count": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			],
+			[
+				"equipment slot",
+				"downgrade_count"
+			]
+		],
+		"doc": [
+			"This command will downgrade an item by - 1 (unless optional <downgrade_count> is provided)\n",
+			"in the specified equipment slot  of the invoking character.\n",
+			"So the item will not be destroyed unlike in the failedrefitem() script\n",
+			"command. This will also display a 'refine failure' effect on the\n",
+			"character and put appropriate messages into their chat window.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

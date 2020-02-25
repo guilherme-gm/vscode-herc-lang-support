@@ -1,0 +1,35 @@
+{
+	"misceffect": {
+		"params": {
+			"effect number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"effect number"
+			]
+		],
+		"doc": [
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"    @ /!\\ This command is deprecated @\n",
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"\n",
+			"This command, if run from an NPC object that has a sprite, will call up a\n",
+			"specified effect number, centered on the NPC sprite. If the running code\n",
+			"does not have an object ID (a 'floating' NPC) or is not running from an\n",
+			"NPC object at all (an item script) the effect will be centered on the\n",
+			"character who's RID got attached to the script, if any. For usable item\n",
+			"scripts, this command will create an effect centered on the player using\n",
+			"the item.\n",
+			"\n",
+			"This command is deprecated and it should not be used in new scripts, as it is\n",
+			"likely to be removed at a later time. Please use specialeffect instead,\n",
+			"ie: specialeffect(<effect number>, <send target>, <unit id>)\n"
+		],
+		"return": "unknown",
+		"deprecated": true
+	}
+}

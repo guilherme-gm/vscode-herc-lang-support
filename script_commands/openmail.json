@@ -1,0 +1,19 @@
+{
+	"openmail": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This will open a character's Mail window on the client connected to the\n",
+			"invoking character.\n",
+			"\n",
+			"\tmes(\"Close this window to open your mail inbox.\");\n",
+			"\tclose2();\n",
+			"\topenmail();\n",
+			"\tend;\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

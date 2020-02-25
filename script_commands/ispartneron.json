@@ -1,0 +1,15 @@
+{
+	"ispartneron": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This function returns true if the invoking character's marriage partner\n",
+			"is currently online and false if they are not or if the character has no\n",
+			"partner.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"resetlvl": {
+		"params": {
+			"action type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"action type"
+			]
+		],
+		"doc": [
+			"This is a character reset command, meant mostly for rebirth script\n",
+			"supporting Advanced jobs, which will reset the invoking character's stats\n",
+			"and level depending on the action type given. Valid action types are:\n",
+			"\n",
+			" 1 - Base level 1, Job level 1, 0 skill points, 0 base exp, 0 job exp,\n",
+			"     wipes the status effects (only the ones settable by 'setoption'),\n",
+			"     sets all stats to 1. If the new job is 'Novice High', give 100 status\n",
+			"     points, give First Aid and Play Dead skills.\n",
+			" 2 - Base level 1, Job level 1, 0 skill points, 0 base exp, 0 job exp.\n",
+			"     Skills and attribute values are not altered.\n",
+			" 3 - Base level 1, base exp 0. Nothing else is changed.\n",
+			" 4 - Job level 1, job exp 0. Nothing else is changed.\n",
+			"\n",
+			"In all cases everything the character has on will be unequipped.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

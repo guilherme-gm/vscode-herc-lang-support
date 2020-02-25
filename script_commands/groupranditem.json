@@ -1,0 +1,25 @@
+{
+	"groupranditem": {
+		"params": {
+			"item id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item id"
+			]
+		],
+		"doc": [
+			"Returns the item_id of a random item picked from the item container specified. There\n",
+			"are different item containers and they are specified in 'db/(pre-)re/item_group.conf'.\n",
+			"\n",
+			"Example:\n",
+			"   getitem(groupranditem(Old_Blue_Box), 1);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

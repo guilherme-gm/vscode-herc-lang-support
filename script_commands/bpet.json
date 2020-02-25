@@ -1,0 +1,17 @@
+{
+	"bpet": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command opens up a pet hatching window on the client connected to the\n",
+			"invoking character. It is used in item script for the pet incubators and\n",
+			"will let the player hatch an owned egg. If the character has no eggs, it\n",
+			"will just open up an empty incubator window.\n",
+			"This is still usable outside item scripts.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

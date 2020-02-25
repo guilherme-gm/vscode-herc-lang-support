@@ -1,0 +1,21 @@
+{
+	"instance_attach": {
+		"params": {
+			"instance id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"instance id"
+			]
+		],
+		"doc": [
+			"Attaches the current script to the instance given by <instance id>.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

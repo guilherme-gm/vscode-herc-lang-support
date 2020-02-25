@@ -1,0 +1,18 @@
+{
+	"homevolution": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command will try to evolve the current player's homunculus.\n",
+			"If it doesn't work, the /swt emotion is shown.\n",
+			"\n",
+			"To evolve a homunculus, the invoking player must have a homunculus, the\n",
+			"homunculus must not be the last evolution and the homunculus must have\n",
+			"above 91000 intimacy with its owner.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,52 @@
+{
+	"cleararray": {
+		"params": {
+			"array name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"first value to alter": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"number of values to set": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"array name",
+				"first value to alter",
+				"value",
+				"number of values to set"
+			]
+		],
+		"doc": [
+			"This command will change many array values at the same time to the same\n",
+			"value.\n",
+			"\n",
+			"\tsetarray(.@array, 100, 200, 300, 400, 500, 600);\n",
+			"\t// This will make all 6 values 0\n",
+			"\tcleararray(.@array[0], 0, 6);\n",
+			"\t// This will make array element 0 change to 245\n",
+			"\tcleararray(.@array[0], 245, 1);\n",
+			"\t// This is equivalent to the above\n",
+			"\tcleararray(.@array, 245, 1);\n",
+			"\t// This will make elements 1 and 2 change to 345\n",
+			"\tcleararray(.@array[1], 345, 2);\n",
+			"\n",
+			"See 'setarray'.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

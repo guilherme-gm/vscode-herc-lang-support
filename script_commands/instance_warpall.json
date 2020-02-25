@@ -1,0 +1,47 @@
+{
+	"instance_warpall": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"instance id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"x",
+				"y"
+			],
+			[
+				"map name",
+				"x",
+				"y",
+				"instance id"
+			]
+		],
+		"doc": [
+			"Warps all players in the instance <instance id> to <map name> at given\n",
+			"coordinates. If no ID is specified, the instance the script is attached to\n",
+			"is used. If in the end no instance_id is found the command halts the,\n",
+			"script execution.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

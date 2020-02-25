@@ -1,0 +1,20 @@
+{
+	"basicskillcheck": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This function will return the state of the configuration option\n",
+			"'basic_skill_check' in 'conf/map/battle.conf'. Returns true if the\n",
+			"option is enabled and false if it isn't. If the 'basic_skill_check'\n",
+			"option is enabled, which it is by default, characters must have a\n",
+			"certain number of basic skill levels to sit, request a trade, use\n",
+			"emotions, etc.  Making your script behave differently depending on\n",
+			"whether the characters must actually have the skill to do all these\n",
+			"things might in some cases be required.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

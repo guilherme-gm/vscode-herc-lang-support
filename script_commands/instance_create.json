@@ -1,0 +1,58 @@
+{
+	"instance_create": {
+		"params": {
+			"instance name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"owner id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"optional owner_type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"instance name",
+				"owner id"
+			],
+			[
+				"instance name",
+				"owner id",
+				"optional owner_type"
+			]
+		],
+		"doc": [
+			"Create an instance using the name \"<instance name>\" for the <owner_id> of\n",
+			"owner_type (when not provided, defaults to IOT_PARTY). Most instance_*\n",
+			"commands are used in conjunction with this command and depend on the\n",
+			"ID this command returns.\n",
+			"\n",
+			"Example:\n",
+			"\t// Store the Party ID of the invoking character.\n",
+			"\t.@party_id = getcharid(CHAR_ID_PARTY);\n",
+			"\n",
+			"\t// Attempt to create an instance using that party ID.\n",
+			"\t.@id = instance_create(\"Endless Tower\", .@party_id);\n",
+			"\tif (.@id == -1) { // Invalid type - not used anymore\n",
+			"\t\t// ...\n",
+			"\t} else if (.@id == -2) { // Invalid Party ID\n",
+			"\t\t// ...\n",
+			"\t} else if (.@id == -3) { // No free instances (MAX_INSTANCE exceeded)\n",
+			"\t\t// ...\n",
+			"\t} else if (.@id == -4) { // Already exists\n",
+			"\t\t// ...\n",
+			"\t} else (.@id < 0) { // Unspecified error while queuing instance.\n",
+			"\t\t// ...\n",
+			"\t}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

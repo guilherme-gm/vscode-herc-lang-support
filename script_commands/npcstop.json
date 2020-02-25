@@ -1,0 +1,34 @@
+{
+	"npcstop": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"These commands will make the NPC object in question move around the map.\n",
+			"As they currently are, they are a bit buggy and are not useful for much\n",
+			"more than making an NPC move randomly around the map.\n",
+			"\n",
+			"npcspeed() will set the NPCs walking speed to a specified value. As in the\n",
+			"@speed GM command, 200 is the slowest possible speed while 0 is the\n",
+			"fastest possible (instant motion). 100 is the default character walking\n",
+			"speed.\n",
+			"npcwalkto() will start the NPC sprite moving towards the specified\n",
+			"coordinates on the same map as it is currently on. The script proceeds\n",
+			"immediately after the NPC begins moving.\n",
+			"npcstop() will stop the motion.\n",
+			"\n",
+			"While in transit, the NPC will be clickable, but invoking it will cause it\n",
+			"to stop moving, which will make it's coordinates different from what the\n",
+			"client computed based on the speed and motion coordinates. The effect is\n",
+			"rather unnerving.\n",
+			"\n",
+			"Only a few NPC sprites have walking animations, and those that do, do not\n",
+			"get the animation invoked when moving the NPC, due to the problem in the\n",
+			"NPC walking code, which looks a bit silly. You might have better success\n",
+			"by defining a job-sprite based sprite id in 'db/mob_avail.txt' with this.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

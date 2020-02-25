@@ -1,0 +1,42 @@
+{
+	"expandinventoryack": {
+		"params": {
+			"result": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"itemId": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"result"
+			],
+			[
+				"result",
+				"itemId"
+			]
+		],
+		"doc": [
+			"Send initial inventory expansion result.\n",
+			"Normally this function should be called from script label\n",
+			"inventory_expansion::OnInventoryExpandRequest.\n",
+			"\n",
+			"Valid result statuses:\n",
+			" EXPAND_INVENTORY_ASK_CONFIRMATION - force client to ask player about inventory expansion\n",
+			" EXPAND_INVENTORY_FAILED - other failed reason\n",
+			" EXPAND_INVENTORY_OTHER_WORK - failed because player busy with other work\n",
+			" EXPAND_INVENTORY_MISSING_ITEM - failed because missing item\n",
+			" EXPAND_INVENTORY_MAX_SIZE - failed because inventory size already maximum\n",
+			"\n",
+			"ItemId make sense only if result is EXPAND_INVENTORY_ASK_CONFIRMATION\n",
+			"Works for 20181212 zero clients\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

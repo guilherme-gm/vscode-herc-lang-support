@@ -1,0 +1,44 @@
+{
+	"setparam": {
+		"params": {
+			"parameter number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"parameter number",
+				"value"
+			],
+			[
+				"parameter number",
+				"value",
+				"account id"
+			]
+		],
+		"doc": [
+			"Sets a parameter on the given player. See readparam() for more info about\n",
+			"parameters. Keep in mind that not all read-able parameters are also set-able.\n",
+			"\n",
+			"Parameters that can be modified include:\n",
+			"\n",
+			"StatusPoint, BaseLevel, SkillPoint, Zeny, Sex, Weight, MaxWeight, JobLevel,\n",
+			"BaseExp, JobExp, Hp, MaxHp, Sp, MaxSp, Karma, Manner, Fame, bVit, bDex, bAgi,\n",
+			"bStr, bInt, bLuk\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

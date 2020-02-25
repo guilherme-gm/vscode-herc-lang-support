@@ -1,0 +1,36 @@
+{
+	"day": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"These two commands will switch the entire server between day and night\n",
+			"mode respectively. If your server is set to cycle between day and night by\n",
+			"configuration, it will eventually return to that cycle.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"-\tscript\tDayNight\tFAKE_NPC,{\n",
+			"OnClock0600:\n",
+			"\tday();\n",
+			"\tend;\n",
+			"OnInit:\n",
+			"\t// setting correct mode upon server start-up\n",
+			"\tif (gettime(GETTIME_HOUR) >= 6 && gettime(GETTIME_HOUR) < 18)\n",
+			"\t\tend;\n",
+			"OnClock1800:\n",
+			"\tnight();\n",
+			"\tend;\n",
+			"}\n",
+			"\n",
+			"This script allows to emulate the day/night cycle as the server does, but\n",
+			"also allows triggering additional effects upon change, like announces,\n",
+			"gifts, etc.\n",
+			"The day/night cycle set by configuration should be disabled when this\n",
+			"script is used.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

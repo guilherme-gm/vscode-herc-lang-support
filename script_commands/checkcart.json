@@ -1,0 +1,23 @@
+{
+	"checkcart": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"If <type> is 0 this command will remove the cart from the character.\n",
+			"Otherwise it gives the invoking character a cart. The cart given will be\n",
+			"cart number <type> and will work regardless of whether the character is a\n",
+			"merchant class or not.\n",
+			"Note: the character needs to have the skill MC_PUSHCART to gain a cart.\n",
+			"\n",
+			"The accompanying function will return true if the invoking character has a\n",
+			"cart (any kind of cart) and false if they don't.\n",
+			"\n",
+			"\tif (checkcart())\n",
+			"\t\tmes(\"But you already have a cart!\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

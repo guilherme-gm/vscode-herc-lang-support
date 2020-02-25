@@ -1,0 +1,38 @@
+{
+	"strmobinfo": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"monster id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type",
+				"monster id"
+			]
+		],
+		"doc": [
+			"This function will return information about a monster record in the\n",
+			"database, as per 'db/(pre-)re/mob_db.txt'. Type is the kind of information\n",
+			"returned. Valid types are:\n",
+			"\n",
+			" 1 - 'english name' field in the database, a string.\n",
+			" 2 - 'japanese name' field in the database, a string.\n",
+			"     All other returned values are numbers:\n",
+			" 3 - Level.\n",
+			" 4 - Maximum HP.\n",
+			" 5 - Maximum SP.\n",
+			" 6 - Experience reward.\n",
+			" 7 - Job experience reward.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

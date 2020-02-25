@@ -1,0 +1,42 @@
+{
+	"logmes": {
+		"params": {
+			"message": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"log type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"message"
+			],
+			[
+				"message",
+				"log type"
+			]
+		],
+		"doc": [
+			"This command will write the message given to the map server log files, as\n",
+			"specified in 'conf/map/logs.conf'. If SQL logging is enabled, the message will\n",
+			"go to the specified log table. If logs are not enabled, nothing will happen.\n",
+			"\n",
+			"Log types are:\n",
+			"\n",
+			"LOGMES_NPC - log to the 'npclog' table (Default)\n",
+			"LOGMES_ATCOMMAND - log to the 'atcommandlog' table\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"    logmes(\"foobar\");\n",
+			"    logmes(\"foobar\", LOGMES_ATCOMMAND);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

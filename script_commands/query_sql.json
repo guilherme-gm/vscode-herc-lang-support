@@ -1,0 +1,40 @@
+{
+	"query_sql": {
+		"params": {
+			"array variable": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"array variable",
+				"array variable"
+			],
+			[
+				"array variable",
+				"array variable"
+			]
+		],
+		"doc": [
+			"Executes an SQL query. A 'select' query can fill array variables with up\n",
+			"to 128 rows of values, and will return the number of rows (the array size).\n",
+			"\n",
+			"Note that query_sql() runs on the main database while query_logsql() runs\n",
+			"on the log database.\n",
+			"\n",
+			"Example:\n",
+			"\t.@nb = query_sql(\"select name, fame from `char` ORDER BY fame DESC LIMIT 5\", .@name$, .@fame);\n",
+			"\tmes(\"Hall Of Fame: TOP5\");\n",
+			"\tmes(\"1.\"+.@name$[0]+\"(\"+.@fame[0]+\")\"); // Will return a person with the biggest fame value.\n",
+			"\tmes(\"2.\"+.@name$[1]+\"(\"+.@fame[1]+\")\");\n",
+			"\tmes(\"3.\"+.@name$[2]+\"(\"+.@fame[2]+\")\");\n",
+			"\tmes(\"4.\"+.@name$[3]+\"(\"+.@fame[3]+\")\");\n",
+			"\tmes(\"5.\"+.@name$[4]+\"(\"+.@fame[4]+\")\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

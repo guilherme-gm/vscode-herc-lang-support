@@ -1,0 +1,69 @@
+{
+	"instance_check_party": {
+		"params": {
+			"party id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"min": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"max": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"party id"
+			],
+			[
+				"party id",
+				"amount"
+			],
+			[
+				"party id",
+				"amount",
+				"min"
+			],
+			[
+				"party id",
+				"amount",
+				"min",
+				"max"
+			]
+		],
+		"doc": [
+			"This function checks if a party meets certain requirements, returning true if\n",
+			"all conditions are met and false otherwise. It will only check online\n",
+			"characters.\n",
+			"\n",
+			"amount - number of online party members (default is 1).\n",
+			"min    - minimum level of all characters in the party (default is 1).\n",
+			"max    - maximum level of all characters in the party (default is max\n",
+			"         level in conf).\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"if (instance_check_party(getcharid(CHAR_ID_PARTY), 2, 2, 149)) {\n",
+			"\tmes(\"Your party meets the Memorial Dungeon requirements.\");\n",
+			"\tmes(\"All online members are between levels 1-150 and at least two are online.\");\n",
+			"\tclose();\n",
+			"} else {\n",
+			"\tmes(\"Sorry, your party does not meet the requirements.\");\n",
+			"\tclose();\n",
+			"}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,52 @@
+{
+	"queueopt": {
+		"params": {
+			"queue_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"optionType": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"event label})": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"queue_id",
+				"optionType"
+			],
+			[
+				"queue_id",
+				"optionType",
+				"event label})"
+			]
+		],
+		"doc": [
+			"Modifies <queue_id>'s <optionType>. When <event label> is not present\n",
+			"<optionType> is removed from <queue_id>. When present it will execute the\n",
+			"<event label> when the <queue_id>'s <optionType> condition is met.\n",
+			"\n",
+			"Returns true on success, false on failure.\n",
+			"\n",
+			"Currently 3 options are available:\n",
+			"- QUEUEOPT_DEATH (1)\n",
+			"- QUEUEOPT_LOGOUT (2)\n",
+			"- QUEUEOPT_MAPCHANGE (3)\n",
+			"\n",
+			"When the QUEUEOPT_MAPCHANGE event is triggered, it sets a temp char var\n",
+			"@Queue_Destination_Map$ with the destination map name.\n",
+			"\n",
+			"Example:\n",
+			"\tqueueopt(.@queue_id, QUEUEOPT_DEATH, \"MyNPC::OnQueueMemberDeathEvent\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

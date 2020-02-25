@@ -1,0 +1,22 @@
+{
+	"kickwaitingroomall": {
+		"params": {
+			"NPC object name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"NPC object name"
+			]
+		],
+		"doc": [
+			"This command kicks everybody out of a specified waiting room chat.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

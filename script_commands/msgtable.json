@@ -1,0 +1,31 @@
+{
+	"msgtable": {
+		"params": {
+			"message_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"color": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"message_id"
+			],
+			[
+				"message_id",
+				"color"
+			]
+		],
+		"doc": [
+			"Show in client message by <message_id> from msg string table\n",
+			"with optional <color>.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

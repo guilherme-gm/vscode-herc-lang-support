@@ -1,0 +1,39 @@
+{
+	"petstat": {
+		"params": {
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"flag"
+			]
+		],
+		"doc": [
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"    @ /!\\ This command is deprecated @\n",
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"\n",
+			"Returns current pet status, all are integers except name.\n",
+			"Returns 0 or \"\" if the player doesn't have pets.\n",
+			"\n",
+			"Flags usable:\n",
+			"PET_CLASS\n",
+			"PET_NAME\n",
+			"PET_LEVEL\n",
+			"PET_HUNGRY\n",
+			"PET_INTIMATE\n",
+			"\n",
+			"Example:\n",
+			"\t.@i = petstat(PET_CLASS);\n",
+			"\n",
+			"This command is deprecated and it should not be used in new scripts, as it is\n",
+			"likely to be removed at a later time. Please use 'getpetinfo' instead.\n"
+		],
+		"return": "unknown",
+		"deprecated": true
+	}
+}

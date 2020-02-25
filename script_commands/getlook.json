@@ -1,0 +1,25 @@
+{
+	"getlook": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type"
+			]
+		],
+		"doc": [
+			"This function will return the number for the current character look value\n",
+			"specified by type. See 'setlook' for valid look types.\n",
+			"\n",
+			"This can be used to make a certain script behave differently for\n",
+			"characters dressed in black. :)\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

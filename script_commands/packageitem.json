@@ -1,0 +1,28 @@
+{
+	"packageitem": {
+		"params": {},
+		"signatures": [
+			[],
+			[]
+		],
+		"doc": [
+			"This command has only 1 param which is optional. If the package item_id is not provided, it\n",
+			"will try to use the item id from the item it is being used from (if called from an item script).\n",
+			"It runs a item package and grants the items accordingly to the attached player.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"/* This example is an item script from the item db */\n",
+			"\t{\n",
+			"\t\tId: 12477\n",
+			"\t\tAegisName: \"Gift_Bundle\"\n",
+			"\t\tName: \"Gift Bundle\"\n",
+			"\t\tType: 2\n",
+			"\t\tBuy: 0\n",
+			"\t\tScript: <\" packageitem(); \">\n",
+			"\t},\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

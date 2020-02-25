@@ -1,0 +1,26 @@
+{
+	"unequip": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			]
+		],
+		"doc": [
+			"This command will unequip whatever is currently equipped in the invoking\n",
+			"character's specified equipment slot. For a full list of possible\n",
+			"equipment slots see 'getequipid'.\n",
+			"\n",
+			"If an item occupies several equipment slots, it will get unequipped from\n",
+			"all of them.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

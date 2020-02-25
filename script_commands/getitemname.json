@@ -1,0 +1,24 @@
+{
+	"getitemname": {
+		"params": {
+			"item id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item id"
+			]
+		],
+		"doc": [
+			"Given the database ID number of an item, this function will return the\n",
+			"text stored in the 'japanese name' field (which, in Hercules, stores an\n",
+			"English name the players would normally see on screen).\n",
+			"Return \"null\" if no such item exist.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

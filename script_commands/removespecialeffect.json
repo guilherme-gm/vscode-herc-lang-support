@@ -1,0 +1,55 @@
+{
+	"removespecialeffect": {
+		"params": {
+			"effect number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"send_target": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"NPC Name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"effect number"
+			],
+			[
+				"effect number",
+				"send_target"
+			],
+			[
+				"effect number",
+				"send_target",
+				"NPC Name"
+			],
+			[
+				"effect number",
+				"send_target",
+				"NPC Name",
+				"account id"
+			]
+		],
+		"doc": [
+			"Works for:\n",
+			"\tmain client from version 2018-10-02\n",
+			"\tre   client from version 2018-10-02\n",
+			"This command will remove special effect. All parameters same with specialeffect.\n",
+			"Examples and detailed explanation about parameters see in specialeffect.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

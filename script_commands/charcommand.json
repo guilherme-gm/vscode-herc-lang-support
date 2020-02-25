@@ -1,0 +1,33 @@
+{
+	"charcommand": {
+		"params": {
+			"command": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"command"
+			]
+		],
+		"doc": [
+			"This command will run the given command line exactly as if it was typed in\n",
+			"from the keyboard from a character that belonged to an account which had\n",
+			"GM level 99.\n",
+			"\n",
+			"The commands can also run without an attached rid.\n",
+			"\n",
+			"\t// This would do the same as above, but now\n",
+			"\t// it doesn't need a player attached by default.\n",
+			"\tcharcommand(\"#option 0 0 0 Roy\");\n",
+			"\n",
+			"Use of this command is not recommended unless you know what you're\n",
+			"doing, since not all atcommands are intended to be used by the script\n",
+			"engine.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

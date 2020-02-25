@@ -1,0 +1,52 @@
+{
+	"npctalk": {
+		"params": {
+			"message": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"npc name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"show_name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"message"
+			],
+			[
+				"message",
+				"npc name"
+			],
+			[
+				"message",
+				"npc name",
+				"show_name"
+			]
+		],
+		"doc": [
+			"show_npcname values:\n",
+			"\ttrue: shows npc name (default)\n",
+			"\tfalse: hide npc name\n",
+			"\n",
+			"This command will display a message to the surrounding area as if the NPC\n",
+			"object running it was a player talking - that is, above their head and in\n",
+			"the chat window. If show_npcname is true the name of the NPC will get appended in front of\n",
+			"the message, otherwise the npc name will not be shown.\n",
+			"\n",
+			"\t// This will make everyone in the area see the NPC greet the character\n",
+			"\t// who just invoked it.\n",
+			"\tnpctalk(\"Hello \"+strcharinfo(PC_NAME)+\", how are you?\");\n",
+			"\tnpctalk(\"Hello \"+strcharinfo(PC_NAME)+\", how are you?\", \"Another_NPC_Name\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

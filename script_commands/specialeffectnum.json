@@ -1,0 +1,71 @@
+{
+	"specialeffectnum": {
+		"params": {
+			"effect number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"num1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"num2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"send_target": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"NPC Name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"effect number",
+				"num1",
+				"num2"
+			],
+			[
+				"effect number",
+				"num1",
+				"num2",
+				"send_target"
+			],
+			[
+				"effect number",
+				"num1",
+				"num2",
+				"send_target",
+				"NPC Name"
+			],
+			[
+				"effect number",
+				"num1",
+				"num2",
+				"send_target",
+				"NPC Name",
+				"account id"
+			]
+		],
+		"doc": [
+			"Works same as specialeffect but also send effect numbers to client.\n",
+			"For PACKETVER >= 20191127 support two numbers (num1, num2).\n",
+			"For older packet versions only num1 supported.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

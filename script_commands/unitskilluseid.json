@@ -1,0 +1,48 @@
+{
+	"unitskilluseid": {
+		"params": {
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"skill name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"skill lvl": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"target id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"GID",
+				"skill name",
+				"skill lvl"
+			],
+			[
+				"GID",
+				"skill name",
+				"skill lvl",
+				"target id"
+			]
+		],
+		"doc": [
+			"This is the replacement of the older commands, these use the same values\n",
+			"for GID as the other unit* commands (See 'GID').\n",
+			"\n",
+			"Skill ID is the ID of the skill, skill level is the level of the skill.\n",
+			"For the position, the x and y are given in the unitskillusepos.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

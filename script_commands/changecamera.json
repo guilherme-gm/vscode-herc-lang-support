@@ -1,0 +1,47 @@
+{
+	"changecamera": {
+		"params": {
+			"range": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"rotation": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"latitude": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"target": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"range",
+				"rotation",
+				"latitude"
+			],
+			[
+				"range",
+				"rotation",
+				"latitude",
+				"target"
+			]
+		],
+		"doc": [
+			"Change camera range, rotation, latitude.\n",
+			"The optional target parameter specifies who will get changed\n",
+			"camera.\n",
+			"Works for 20160525 clients or newer.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

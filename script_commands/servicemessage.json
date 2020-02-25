@@ -1,0 +1,41 @@
+{
+	"servicemessage": {
+		"params": {
+			"message": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"color": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"player_name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"message",
+				"color"
+			],
+			[
+				"message",
+				"color",
+				"player_name"
+			]
+		],
+		"doc": [
+			"That command will send a service message to the chat window of the character\n",
+			"specified by account ID or name, or to connected to npc player.\n",
+			"It will not be seen by anyone else.\n",
+			"\n",
+			"Works for 20170830 RE and main and for any zero clients\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

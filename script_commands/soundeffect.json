@@ -1,0 +1,48 @@
+{
+	"soundeffect": {
+		"params": {
+			"effect filename": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"effect filename",
+				"type"
+			]
+		],
+		"doc": [
+			"These two commands will play a sound effect to either the invoking\n",
+			"character only (soundeffect()) or multiple characters (soundeffectall()).\n",
+			"If the running code does not have an object ID (a 'floating' NPC) or is\n",
+			"not running from an NPC object at all (an item script) the sound will be\n",
+			"centered on the character who's RID got attached to the script, if any.\n",
+			"If it does, it will be centered on that object. (an NPC sprite)\n",
+			"\n",
+			"Effect filename is the filename in a GRF. It must have the .wav extension.\n",
+			"\n",
+			"It's not quite certain what the 'type' actually does, it is sent to the\n",
+			"client directly. It probably determines which directory to play the effect\n",
+			"from. It's certain that giving 0 for the number will play sound files from\n",
+			"'\\data\\wav\\', but where the other numbers will read from is unclear.\n",
+			"\n",
+			"The sound files themselves must be in the PCM format, and file names\n",
+			"should also have a maximum length of 23 characters including the .wav\n",
+			"extension:\n",
+			"\n",
+			"soundeffect(\"1234567890123456789.wav\", 0); // will play the soundeffect\n",
+			"soundeffect(\"12345678901234567890.wav\", 0); // throws gravity error\n",
+			"\n",
+			"You can add your own effects this way, naturally.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

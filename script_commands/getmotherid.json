@@ -1,0 +1,17 @@
+{
+	"getmotherid": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"These functions return the character ID of the attached player's child,\n",
+			"mother, mother, or father, respectively. It returns 0 if no ID is found.\n",
+			"\n",
+			"\tif (getmotherid() != 0)\n",
+			"\t\tmes(\"Your mother's ID is: \"+getmotherid());\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

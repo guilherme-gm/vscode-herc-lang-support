@@ -1,0 +1,200 @@
+{
+	"areamonster": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"x2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"name to show": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"mob id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"event label": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"size": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"ai": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"name to show",
+				"mob id",
+				"amount"
+			],
+			[
+				"map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"name to show",
+				"mob id",
+				"amount",
+				"event label"
+			],
+			[
+				"map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"name to show",
+				"mob id",
+				"amount",
+				"event label",
+				"size"
+			],
+			[
+				"map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"name to show",
+				"mob id",
+				"amount",
+				"event label",
+				"size",
+				"ai"
+			]
+		],
+		"doc": [
+			"This command will spawn a monster on the specified coordinates on the\n",
+			"specified map. If the script is invoked by a character, a special map\n",
+			"name, \"this\", will be recognized to mean the name of the map the invoking\n",
+			"character is located at. This command works fine in the item scripts.\n",
+			"\n",
+			"The same command arguments mean the same things as described above in the\n",
+			"beginning of this document when talking about permanent monster spawns.\n",
+			"Monsters spawned in this manner will not respawn upon being killed.\n",
+			"\n",
+			"Unlike the permanent monster spawns, if the mob id is -1, a random monster\n",
+			"will be picked from the entire database according to the rules configured\n",
+			"in the server for dead branches. This will work for all other kinds of\n",
+			"non-permanent monster spawns.\n",
+			"\n",
+			"The only very special thing about this command is an event label, which is\n",
+			"an optional parameter. This label is written like\n",
+			"'<NPC object name>::<label name>' and upon the monster being killed, it\n",
+			"will execute the script inside of the specified NPC object starting from\n",
+			"the label given. The RID of the player attached at this execution will be\n",
+			"the RID of the killing character.\n",
+			"\n",
+			"<size> can be:\n",
+			"\tSize_Medium = medium (default)\n",
+			"\tSize_Small = small\n",
+			"\tSize_Large = big\n",
+			"\n",
+			"<ai> can be:\n",
+			"\t0 = none (default)\n",
+			"\t1 = attack/friendly\n",
+			"\t2 = sphere (Alchemist skill)\n",
+			"\t3 = flora (Alchemist skill)\n",
+			"\t4 = zanzou (Kagerou/Oboro skill)\n",
+			"\n",
+			"\tmonster(\"place\", 60, 100, \"Poring\", PORING, 1, \"NPCNAME::OnLabel\");\n",
+			"\n",
+			"The coordinates of 0,0 will spawn the monster on a random place on the\n",
+			"map. Both 'monster' and 'areamonster' return the GID of the monster\n",
+			"spawned if there was ONLY ONE monster to be spawned. This is useful for\n",
+			"controlling each of the spawned mobs with the unit* commands shown below.\n",
+			"For example:\n",
+			"\n",
+			"\t// We'll make a poring which will automatically attack invoking player:\n",
+			"\t.@mobGID = monster(\"prontera\", 150, 150, \"Poring\", PORING, 1); // PORING is defined in the mob db and its value is 1002\n",
+			"\tunitattack(.@mobGID, getcharid(CHAR_ID_ACCOUNT)); // Attacker GID, attacked GID\n",
+			"\n",
+			"The way you can get the GID of more than only one monster is looping\n",
+			"through all the summons to get their individual GIDs and do whatever you\n",
+			"want with them. For example:\n",
+			"\n",
+			"\t// We want to summon .mobnumber porings which will give us a kiss\n",
+			"\tfor (.@i = 0; .@i < .mobnumber; ++.@i) {\n",
+			"\t\t.@mobGID = monster(\"map\", .x, .y, \"Kisser Poring\", PORING, 1);\n",
+			"\t\tunitemote(.@mobGID, e_kis);\n",
+			"\t}\n",
+			"\n",
+			"Refer to the unit* commands below.\n",
+			"\n",
+			"The areamonster() command works much like the monster() command and is not\n",
+			"significantly different, but spawns the monsters within a square defined\n",
+			"by x1/y1-x2/y2.\n",
+			"\n",
+			"Simple monster killing script:\n",
+			"\n",
+			"\t<NPC object definition. Let's assume you called him NPCNAME.>\n",
+			"\t\tmes(\"[Summon Man]\");\n",
+			"\t\tmes(\"Want to start the kill?\");\n",
+			"\t\tnext();\n",
+			"\t\tif (select(\"Yes\", \"No\") != 1) {\n",
+			"\t\t\tmes(\"[Summon Man]\");\n",
+			"\t\t\tmes(\"Come back later\");\n",
+			"\t\t\tclose();\n",
+			"\t\t}\n",
+			"\t\tmonster(\"prontera\", 0, 0, \"Quest Poring\", PORING, 10, \"NPCNAME::OnPoringKilled\");\n",
+			"\t\t// By using 0,0 it will spawn them in a random place.\n",
+			"\t\tmes(\"[Summon Man]\");\n",
+			"\t\tmes(\"Now go and kill all the Poring I summoned\");\n",
+			"\t\t// He summoned ten.\n",
+			"\t\tclose();\n",
+			"\tOnPoringKilled:\n",
+			"\t\t++$poring_killed;\n",
+			"\t\tif ($poring_killed == 10) {\n",
+			"\t\t\tannounce(\"Summon Man: Well done all the poring are dead\", bc_self);\n",
+			"\t\t\t$poring_killed = 0;\n",
+			"\t\t}\n",
+			"\t\tend;\n",
+			"\n",
+			"For more examples see just about any official 2-1 or 2-2 job quest script.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,33 @@
+{
+	"erasequest": {
+		"params": {
+			"ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"ID2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"ID"
+			],
+			[
+				"ID",
+				"ID2"
+			]
+		],
+		"doc": [
+			"Remove the quest of the given <ID> from the user's quest log.\n",
+			"\n",
+			"If a second quest id of greater value is specified, all quests between the two\n",
+			"will be erased.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"killmonsterall": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name"
+			],
+			[
+				"map name",
+				"type"
+			]
+		],
+		"doc": [
+			"This command will kill all monsters on a specified map name, regardless of\n",
+			"how they were spawned or what they are without triggering any event label\n",
+			"attached to them, unless you specify 1 for type parameter. In this case,\n",
+			"mob death labels will be allowed totrigger when there is no player. Any\n",
+			"other number for this parameter won't be recognized.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,46 @@
+{
+	"skilleffect": {
+		"params": {
+			"skill name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"skill name",
+				"number"
+			]
+		],
+		"doc": [
+			"This command displays visual and aural effects of given skill on currently\n",
+			"attached character. The number parameter is for skill whose visual effect\n",
+			"involves displaying of a number (healing or damaging). Note that this\n",
+			"command will not actually use the skill: it is intended for scripts which\n",
+			"simulate skill usage by the NPC, such as buffs, by setting appropriate\n",
+			"status and displaying the skill's effect.\n",
+			"\n",
+			"\tmes(\"Be blessed!\");\n",
+			"\t// Heal of 2000 HP\n",
+			"\theal(2000, 0);\n",
+			"\tskilleffect(AL_HEAL, 2000);\n",
+			"\t// Blessing Level 10\n",
+			"\tsc_start(SC_BLESSING, 240000, 10);\n",
+			"\tskilleffect(AL_BLESSING, 0);\n",
+			"\t// Increase AGI Level 5\n",
+			"\tsc_start(SC_INC_AGI, 140000, 5);\n",
+			"\tskilleffect(AL_INCAGI, 0);\n",
+			"\n",
+			"This will heal the character with 2000 HP, buff it with Blessing Lv 10 and\n",
+			"Increase AGI Lv 5, and display appropriate effects.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

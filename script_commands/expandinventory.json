@@ -1,0 +1,26 @@
+{
+	"expandinventory": {
+		"params": {
+			"value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"value"
+			]
+		],
+		"doc": [
+			"Adjust player inventory to given value.\n",
+			"Maximum inventory size is MAX_INVENTORY.\n",
+			"Minimum inventory size is FIXED_INVENTORY_SIZE.\n",
+			"For supported clients it send inventory change packet. For old clients,\n",
+			"this change is silent.\n",
+			"Current max inventory size can be read by function getInventorySize().\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

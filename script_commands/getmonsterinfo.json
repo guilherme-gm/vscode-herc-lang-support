@@ -1,0 +1,58 @@
+{
+	"getmonsterinfo": {
+		"params": {
+			"mob ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"mob ID",
+				"type"
+			]
+		],
+		"doc": [
+			"This function will look up the monster with the specified ID number in the\n",
+			"mob database and return the info set by TYPE argument.\n",
+			"It will return -1 if there is no such monster (or the type value is\n",
+			"invalid), or \"null\" if you requested the monster's name.\n",
+			"\n",
+			"Valid types are listed in doc/constants.md:\n",
+			"\tMOB_NAME               0\n",
+			"\tMOB_LV                 1\n",
+			"\tMOB_MAXHP              2\n",
+			"\tMOB_BASEEXP            3\n",
+			"\tMOB_JOBEXP             4\n",
+			"\tMOB_ATK1               5\n",
+			"\tMOB_ATK2               6\n",
+			"\tMOB_DEF                7\n",
+			"\tMOB_MDEF               8\n",
+			"\tMOB_STR                9\n",
+			"\tMOB_AGI               10\n",
+			"\tMOB_VIT               11\n",
+			"\tMOB_INT               12\n",
+			"\tMOB_DEX               13\n",
+			"\tMOB_LUK               14\n",
+			"\tMOB_RANGE             15\n",
+			"\tMOB_RANGE2            16\n",
+			"\tMOB_RANGE3            17\n",
+			"\tMOB_SIZE              18\n",
+			"\tMOB_RACE              19\n",
+			"\tMOB_ELEMENT           20\n",
+			"\tMOB_MODE              21\n",
+			"\tMOB_MVPEXP            22\n",
+			"\tMOB_DMG_TAKEN_RATE    23\n",
+			"\n",
+			"Check sample in doc/sample/getmonsterinfo.txt\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

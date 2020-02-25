@@ -1,0 +1,25 @@
+{
+	"getnpcid": {
+		"params": {
+			"npc name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"npc name"
+			]
+		],
+		"doc": [
+			"Retrieves IDs of the currently invoked NPC. If a unique npc name is given,\n",
+			"IDs of that NPC are retrieved instead.\n",
+			"\n",
+			"If the NPC does not exist, 0 is returned.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

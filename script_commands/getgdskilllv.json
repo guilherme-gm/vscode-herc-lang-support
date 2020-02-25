@@ -1,0 +1,32 @@
+{
+	"getgdskilllv": {
+		"params": {
+			"guild id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"skill name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"guild id",
+				"skill name"
+			]
+		],
+		"doc": [
+			"This function returns the level of the skill <skill id> of the guild\n",
+			"<guild id>.\n",
+			"If the guild does not have that skill, 0 is returned.\n",
+			"If the guild does not exist, -1 is returned.\n",
+			"Refer to 'db/(pre-)re/skill_db.txt' for the full list of skills.\n",
+			"GD_* are guild skills\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

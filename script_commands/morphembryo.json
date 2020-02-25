@@ -1,0 +1,21 @@
+{
+	"morphembryo": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command will try to put the invoking player's Homunculus in an\n",
+			"uncallable state, required for mutation into a Homunculus S. The player\n",
+			"will also receive a Strange Embryo (ID 6415) in their inventory if\n",
+			"successful, which is deleted upon mutation.\n",
+			"\n",
+			"The command will fail if the invoking player does not have an evolved\n",
+			"Homunculus at level 99 or above. The /swt emotion is shown upon failure.\n",
+			"\n",
+			"Returns 1 upon success and 0 for all failures.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

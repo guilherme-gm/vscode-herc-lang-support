@@ -1,0 +1,37 @@
+{
+	"progressbar": {
+		"params": {
+			"color": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"seconds": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"color",
+				"seconds"
+			]
+		],
+		"doc": [
+			"This command works almost like sleep2(), but displays a progress bar above\n",
+			"the head of the currently attached character (like cast bar). Once the\n",
+			"given amount of seconds passes, the script resumes. If the character moves\n",
+			"while the progress bar progresses, it is aborted and the script ends. The\n",
+			"color format is in RGB (0xRRGGBB). The color is currently ignored by the\n",
+			"client and appears always green.\n",
+			"\n",
+			"progressbar_unit works only for PACKETVER >= 20130821\n",
+			"The progressbar will show on the given unit id but it will not\n",
+			"put the unit in timeout (the progressbar would be just an animation).\n",
+			"if GID is not given use the attached player.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

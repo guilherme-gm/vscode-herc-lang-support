@@ -1,0 +1,147 @@
+{
+	"areaannounce": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"x2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"text": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontColor": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontType": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontSize": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontAlign": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontY": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"text",
+				"flag"
+			],
+			[
+				"map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"text",
+				"flag",
+				"fontColor"
+			],
+			[
+				"map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"text",
+				"flag",
+				"fontColor",
+				"fontType"
+			],
+			[
+				"map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"text",
+				"flag",
+				"fontColor",
+				"fontType",
+				"fontSize"
+			],
+			[
+				"map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"text",
+				"flag",
+				"fontColor",
+				"fontType",
+				"fontSize",
+				"fontAlign"
+			],
+			[
+				"map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"text",
+				"flag",
+				"fontColor",
+				"fontType",
+				"fontSize",
+				"fontAlign",
+				"fontY"
+			]
+		],
+		"doc": [
+			"This command works like 'announce' but will only broadcast to characters\n",
+			"residing in the specified x1/y1-x2/y2 rectangle on the map given. The\n",
+			"flags and optional parameters are the same as in announce(), but target\n",
+			"and source flags are ignored.\n",
+			"\n",
+			"\tareaannounce(\"prt_church\", 0, 0, 350, 350, \"God's in his heaven, all right with the world\", 0);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

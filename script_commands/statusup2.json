@@ -1,0 +1,32 @@
+{
+	"statusup2": {
+		"params": {
+			"stat": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"stat",
+				"amount"
+			]
+		],
+		"doc": [
+			"This command will bump a specified stat of the invoking character up by\n",
+			"the specified amount permanently without using status points.\n",
+			"Amount can be negative. See statusup().\n",
+			"\n",
+			"// This will decrease a character's Vit forever.\n",
+			"\tstatusup(bVit, -1);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

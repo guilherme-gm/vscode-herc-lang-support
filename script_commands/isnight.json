@@ -1,0 +1,17 @@
+{
+	"isnight": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This functions will return true or false depending on whether the server is in\n",
+			"night mode or day mode:\n",
+			"\n",
+			"\tif (!isnight())\n",
+			"\t\tmes(\"I only prowl in the night.\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,34 @@
+{
+	"globalmes": {
+		"params": {
+			"message": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"NPC name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"message"
+			],
+			[
+				"message",
+				"NPC name"
+			]
+		],
+		"doc": [
+			"This command will send a message to the chat window of all currently\n",
+			"connected characters.\n",
+			"\n",
+			"If NPC name is specified, the message will be sent as if the sender would\n",
+			"be the NPC with the said name.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,105 @@
+{
+	"getunits": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"variable": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"limit": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"map": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"x2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type",
+				"variable",
+				"limit"
+			],
+			[
+				"type",
+				"variable",
+				"limit",
+				"map"
+			],
+			[
+				"type",
+				"variable",
+				"limit",
+				"map",
+				"x1",
+				"y1",
+				"x2",
+				"y2"
+			]
+		],
+		"doc": [
+			"This function searches a whole map or area for units and adds their GID to\n",
+			"the provided <variable> array. It filters units by <type> and stops searching\n",
+			"after <limit> units have been found. Set <limit> to false (0) if you wish to\n",
+			"disable the limit altogether. If <map> is omitted, this command will search\n",
+			"on the whole server (slow). Returns the number of units added to the array.\n",
+			"\n",
+			"Type is the type of unit to search for:\n",
+			"\n",
+			"\tBL_PC    - Character object\n",
+			"\tBL_MOB   - Monster object\n",
+			"\tBL_PET   - Pet object\n",
+			"\tBL_HOM   - Homunculus object\n",
+			"\tBL_MER   - Mercenary object\n",
+			"\tBL_ITEM  - Item object (item drops)\n",
+			"\tBL_SKILL - Skill object (skill fx & sfx)\n",
+			"\tBL_NPC   - NPC object\n",
+			"\tBL_CHAT  - Chat object\n",
+			"\tBL_ELEM  - Elemental object\n",
+			"\tBL_CHAR  - Shorthand for (BL_PC|BL_MOB|BL_HOM|BL_MER|BL_ELEM)\n",
+			"\tBL_ALL   - Any kind of object\n",
+			"\n",
+			"\n",
+			"   yet, the mobs will not have spawned in the map yet, so getunits() will be\n",
+			"   unable to find them when searching for BL_MOB.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\t.@count = getunits((BL_PC | BL_NPC), .@units, false, \"prontera\");\n",
+			"\n",
+			"The above example would search the map \"prontera\" for all PC and NPC units and\n",
+			"add them to the .@units array, while setting .@count to the amount of units\n",
+			"added to the array (useful in for() loops).\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

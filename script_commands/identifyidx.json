@@ -1,0 +1,24 @@
+{
+	"identifyidx": {
+		"params": {
+			"Inventory Index": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"Inventory Index"
+			]
+		],
+		"doc": [
+			"This will identify item at attached player's <Inventory Index> inventory index.\n",
+			"\n",
+			"Returns true if the item was identified, false otherwise.\n",
+			"Note: If the item was already identified, it returns false.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

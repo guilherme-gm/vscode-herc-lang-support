@@ -1,0 +1,31 @@
+{
+	"makepet": {
+		"params": {
+			"pet id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"pet id"
+			]
+		],
+		"doc": [
+			"This command will create a pet egg and put it in the invoking character's\n",
+			"inventory. The kind of pet is specified by pet ID numbers listed in\n",
+			"'db/pet_db.txt'. The egg is created exactly as if the character just\n",
+			"successfully caught a pet in the normal way.\n",
+			"\n",
+			"\t// This will make you a poring:\n",
+			"\tmakepet(PORING);\n",
+			"\n",
+			"Notice that you absolutely have to create pet eggs with this command. If\n",
+			"you try to give a pet egg with getitem(), pet data will not be created by\n",
+			"the char server and the egg will disappear when anyone tries to hatch it.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,60 @@
+{
+	"skill": {
+		"params": {
+			"skill name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"level": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"skill name",
+				"level"
+			],
+			[
+				"skill name",
+				"level",
+				"flag"
+			]
+		],
+		"doc": [
+			"These commands will give the invoking character a specified skill. This is\n",
+			"also used for item scripts.\n",
+			"\n",
+			"Level is obvious. Skill id is the ID number of the skill in question as\n",
+			"per 'db/(pre-)re/skill_db.txt'. It is not known for certain whether this\n",
+			"can be used to give a character a monster's skill, but you're welcome to\n",
+			"try with the numbers given in 'db/(pre-)re/mob_skill_db.txt'.\n",
+			"\n",
+			"Flag is 0 if the skill is given permanently (will get written with the\n",
+			"character data) or 1 if it is temporary (will be lost eventually, this is\n",
+			"meant for card item scripts usage.).  The flag parameter is optional, and\n",
+			"defaults to 1 in 'skill' and to 2 in 'addtoskill'.\n",
+			"\n",
+			"Flag 2 means that the level parameter is to be interpreted as a stackable\n",
+			"additional bonus to the skill level. If the character did not have that\n",
+			"skill previously, they will now at 0+the level given.\n",
+			"\n",
+			"// This will permanently give the character Stone Throw\n",
+			"// (TF_THROWSTONE, 152), at level 1.\n",
+			"    skill(TF_THROWSTONE, 1, 0);\n",
+			"\n",
+			"Flag 3 is the same as flag 0 in that it saves to the database. However,\n",
+			"these skills are ignored when any action is taken that adjusts the skill\n",
+			"tree (reset/job change).\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

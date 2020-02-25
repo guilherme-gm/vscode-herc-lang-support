@@ -1,0 +1,169 @@
+{
+	"rodex_sendmail": {
+		"params": {
+			"char id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"sender name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"title": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"body": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"zeny": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"item1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"item2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"item3": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount3": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"item4": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount4": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"item5": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount5": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"char id",
+				"sender name",
+				"title",
+				"body"
+			],
+			[
+				"char id",
+				"sender name",
+				"title",
+				"body",
+				"zeny"
+			],
+			[
+				"char id",
+				"sender name",
+				"title",
+				"body",
+				"zeny",
+				"item1",
+				"amount1"
+			],
+			[
+				"char id",
+				"sender name",
+				"title",
+				"body",
+				"zeny",
+				"item1",
+				"amount1",
+				"item2",
+				"amount2"
+			],
+			[
+				"char id",
+				"sender name",
+				"title",
+				"body",
+				"zeny",
+				"item1",
+				"amount1",
+				"item2",
+				"amount2",
+				"item3",
+				"amount3"
+			],
+			[
+				"char id",
+				"sender name",
+				"title",
+				"body",
+				"zeny",
+				"item1",
+				"amount1",
+				"item2",
+				"amount2",
+				"item3",
+				"amount3",
+				"item4",
+				"amount4"
+			],
+			[
+				"char id",
+				"sender name",
+				"title",
+				"body",
+				"zeny",
+				"item1",
+				"amount1",
+				"item2",
+				"amount2",
+				"item3",
+				"amount3",
+				"item4",
+				"amount4",
+				"item5",
+				"amount5"
+			]
+		],
+		"doc": [
+			"This will send a mail using the RoDEX mail system, in newer clients the message will be marked as a NPC mail (that you can't reply).\n",
+			"If items and zeny are specified, they will be added as attachments to the message.\n",
+			"\n",
+			"For examples of usage, see /doc/sample/npc_rodex.txt\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

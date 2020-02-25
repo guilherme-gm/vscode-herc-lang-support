@@ -1,0 +1,29 @@
+{
+	"countitem": {
+		"params": {
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item name"
+			]
+		],
+		"doc": [
+			"This function will return the number of items for the specified item ID\n",
+			"that the invoking character has in the inventory.\n",
+			"\n",
+			"\tmes(\"[Item Checker]\");\n",
+			"\tmes(\"Hmmm, it seems you have \"+countitem(Apple)+\" apples\");\n",
+			"\tclose;\n",
+			"\n",
+			"Like getitem(), this function will also accept an 'english name' from the\n",
+			"database as an argument.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,59 @@
+{
+	"unitkill": {
+		"params": {
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"GID"
+			]
+		],
+		"doc": [
+			"Okay, these commands should be fairly self explaining.\n",
+			"For the emotions, you can look in 'doc/constants.md' under 'Emotes'\n",
+			"PS: unitwarp() supports a <GID> of zero, which causes the executor of the\n",
+			"PS: unittalk() can receive 3 extra parameters:\n",
+			"\tshow_name:\n",
+			"\t\ttrue: Shows Unit name like \"UnitName : Message\" (default)\n",
+			"\t\tfalse: Hides Unit name\n",
+			"\tsend_target:\n",
+			"\t\tAREA_CHAT_WOC: sends the message to everyone in view range including the attached unit (default)\n",
+			"\t\tSELF: sends the message to the given unit gid only\n",
+			"\ttarget_id:\n",
+			"\t\tif send_target is set to SELF, the message will be shown by the given gid,\n",
+			"\t\ttarget_id allows changing the unit that will see the message.\n",
+			"script to be affected. This can be used with OnTouchNPC to warp\n",
+			"monsters:\n",
+			"\n",
+			"OnTouchNPC:\n",
+			"\tunitwarp(0, \"this\", -1, -1);\n",
+			"\n",
+			"\t// hide the npc name from the text\n",
+			"\tunittalk(getnpcid(0), \"foobar\", false);\n",
+			"\n",
+			"\t// display by npc to everyone\n",
+			"\tunittalk(getnpcid(0), \"foobar\", true);\n",
+			"\n",
+			"\t// display by npc to npc\n",
+			"\tunittalk(getnpcid(0), \"foobar\", true, SELF);\n",
+			"\n",
+			"\t// display the text by the npc to the attached player only\n",
+			"\tunittalk(getnpcid(0), \"foobar\", true, SELF, playerattached());\n",
+			"\n",
+			"\t// display by player to everyone\n",
+			"\tunittalk(playerattached(), \"foobar\", true);\n",
+			"\n",
+			"\t// display by player to himself only\n",
+			"\tunittalk(playerattached(), \"foobar\", true, SELF);\n",
+			"\n",
+			"\t// display the text by the 1st player to the attached player only\n",
+			"\tunittalk(getcharid(CHAR_ID_ACCOUNT, \"Name\"), \"foobar\", true, SELF, playerattached());\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

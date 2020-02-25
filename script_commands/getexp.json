@@ -1,0 +1,44 @@
+{
+	"getexp": {
+		"params": {
+			"base xp": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"job xp": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"base xp",
+				"job xp"
+			]
+		],
+		"doc": [
+			"This command will give the invoking character a specified number of base\n",
+			"and job experience points. Should be used as a quest reward. Negative values\n",
+			"won't work.\n",
+			"Is subject to EXP bonuses and to the `quest_exp_rate` config option.\n",
+			"\n",
+			"\tgetexp(10000, 5000);\n",
+			"\n",
+			"You can also assign directly to the parameters defined in\n",
+			"'doc/constants.md':\n",
+			"\n",
+			"\tBaseExp += 10000;\n",
+			"\tJobExp += 5000;\n",
+			"\n",
+			"You can also reduce the amount of experience points:\n",
+			"\n",
+			"\tBaseExp -= 10000;\n",
+			"\n",
+			"When setting the parameters directly no bonuses or config options are applied.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

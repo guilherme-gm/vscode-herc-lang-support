@@ -1,0 +1,106 @@
+{
+	"sprintf": {
+		"params": {
+			"format": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"format"
+			],
+			[
+				"format"
+			],
+			[
+				"format"
+			],
+			[
+				"format"
+			]
+		],
+		"doc": [
+			"C style sprintf. The resulting string is returned.\n",
+			"\n",
+			"The format string can contain placeholders (format specifiers) using the\n",
+			"following structure:\n",
+			"\n",
+			"  %[parameter][flags][width]type\n",
+			"\n",
+			"The following format specifier types are supported:\n",
+			"\n",
+			"%%: Prints a literal '%' (special case, doesn't support parameter, flag, width)\n",
+			"%d, %i: Formats the specified value as a decimal signed number\n",
+			"%u: Formats the specified value as a decimal unsigned number\n",
+			"%x: Formats the specified value as a hexadecimal (lowercase) unsigned number\n",
+			"%X: Formats the specified value as a hexadecimal (uppercase) unsigned number\n",
+			"%o: Formats the specified value as an octal unsigned number\n",
+			"%s: Formats the specified value as a string\n",
+			"%c: Formats the specified value as a character (only uses the first character\n",
+			"    of strings)\n",
+			"\n",
+			"The following format specifier types are not supported:\n",
+			"\n",
+			"%n (not implemented due to safety concerns)\n",
+			"%f, %F, %e, %E, %g, %G (the script engine doesn't use floating point values)\n",
+			"%p (the script engine doesn't use pointers)\n",
+			"%a, %A (not supported, use 0x%x and 0x%X respectively instead)\n",
+			"\n",
+			"An ordinal parameter can be specified in the form 'x$' (where x is a number),\n",
+			"to reorder the output (this may be useful in translated strings, where the\n",
+			"sentence order may be different from the original order). Example:\n",
+			"\n",
+			"\t// Name, level, job name\n",
+			"\tmes(sprintf(\"Hello, I'm %s, a level %d %s\", strcharinfo(PC_NAME), BaseLevel, jobname(Class)));\n",
+			"\n",
+			"When translating the sentence to other languages (for example Italian),\n",
+			"swapping some arguments may be appropriate, and it may be desirable to keep the\n",
+			"actual arguments in the same order (i.e. when translating through the HULD):\n",
+			"\n",
+			"\t// Job name is printed before the level, although they're specified in the opposite order.\n",
+			"\t// Name, job name, level\n",
+			"\tmes(sprintf(\"Ciao, io sono %1$s, un %3$s di livello %2$d\", strcharinfo(PC_NAME), BaseLevel, jobname(Class)));\n",
+			"\n",
+			"The supported format specifier flags are:\n",
+			"\n",
+			"- (minus): Left-align the output of this format specifier. (the default is to\n",
+			"  right-align the output).\n",
+			"+ (plus): Prepends a plus for positive signed-numeric types. positive = '+',\n",
+			"  negative = '-'.\n",
+			"(space): Prepends a space for positive signed-numeric types. positive = ' ',\n",
+			"  negative = '-'.  This flag is ignored if the '+' flag exists.\n",
+			"0 (zero): When a field width option is specified, prepends zeros for numeric\n",
+			"  types. (the default prepends spaces).\n",
+			"A field width can be specified.\n",
+			"\n",
+			"\tmes(sprintf(\"The temperature is %+d degrees Celsius\", .@temperature)); // Keeps the '+' sign in front of positive values\n",
+			"\t.@map_name$ = sprintf(\"quiz_%02d\", .@i); // Keeps the leading 0 in \"quiz_00\", etc\n",
+			"\n",
+			"A field width may be specified, to ensure that 'at least' that many characters\n",
+			"are printed. If a star ('*') is specified as width, then the width is read as\n",
+			"argument to the sprintf() function. This also supports positional arguments.\n",
+			"\n",
+			"\tsprintf(\"%04d\", 10) // Returns \"0010\"\n",
+			"\tsprintf(\"%0*d\", 5, 10) // Returns \"00010\"\n",
+			"\tsprintf(\"%5d\", 10) // Returns \"   10\"\n",
+			"\tsprintf(\"%-5d\", 10) // Returns \"10   \"\n",
+			"\tsprintf(\"%10s\", \"Hello\") // Returns \"     Hello\";\n",
+			"\tsprintf(\"%-10s\", \"Hello\") // Returns \"Hello    \";\n",
+			"\n",
+			"Precision ('.X') and length ('hh', 'h', 'l', 'll', 'L', 'z', 'j', 't')\n",
+			"specifiers are not implemented (not necessary for the script engine purposes)\n",
+			"\n",
+			"Example:\n",
+			"\t.@format$ = \"The %s contains %d monkeys\";\n",
+			"\tdispbottom(sprintf(.@format$, \"zoo\", 5));\n",
+			"\t//prints \"The zoo contains 5 monkeys\"\n",
+			"\n",
+			"\tdispbottom(sprintf(.@format$, \"barrel\", 82));\n",
+			"\t//prints \"The barrel contains 82 monkeys\"\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,152 @@
+{
+	"announce": {
+		"params": {
+			"text": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontColor": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontType": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontSize": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontAlign": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontY": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"text",
+				"flag"
+			],
+			[
+				"text",
+				"flag",
+				"fontColor"
+			],
+			[
+				"text",
+				"flag",
+				"fontColor",
+				"fontType"
+			],
+			[
+				"text",
+				"flag",
+				"fontColor",
+				"fontType",
+				"fontSize"
+			],
+			[
+				"text",
+				"flag",
+				"fontColor",
+				"fontType",
+				"fontSize",
+				"fontAlign"
+			],
+			[
+				"text",
+				"flag",
+				"fontColor",
+				"fontType",
+				"fontSize",
+				"fontAlign",
+				"fontY"
+			]
+		],
+		"doc": [
+			"This command will broadcast a message to all or most players, similar to\n",
+			"@kami/@kamib GM commands.\n",
+			"\n",
+			"\tannounce(\"This will be shown to everyone at all in yellow.\", bc_all);\n",
+			"\n",
+			"The region the broadcast is heard in (target), source of the broadcast and\n",
+			"the color the message will come up as is determined by the flags.\n",
+			"\n",
+			"The flag values are coded as constants in doc/constants.md to make them\n",
+			"easier to use.\n",
+			"\n",
+			"Target flags:\n",
+			"- bc_all:\tBroadcast message is sent server-wide (default).\n",
+			"- bc_map:\tMessage is sent to everyone in the same map as the source of\n",
+			"\t\t\tthe broadcast (see below).\n",
+			"- bc_area:\tMessage is sent to players in the vicinity of the source.\n",
+			"- bc_self:\tMessage is sent only to current player.\n",
+			"You cannot\tuse more than one target flag.\n",
+			"\n",
+			"Source flags:\n",
+			"- bc_pc:\tBroadcast source is the attached player (default).\n",
+			"- bc_npc:\tBroadcast source is the NPC, not the player attached to the\n",
+			"\t\t\tscript (useful when a player is not attached or the message\n",
+			"\t\t\tshould be sent to those nearby the NPC).\n",
+			"You cannot use more than one source flag.\n",
+			"\n",
+			"Special flags:\n",
+			"- bc_yellow:Broadcast will be displayed in yellow color (default).\n",
+			"- bc_blue:\tBroadcast will be displayed in blue color.\n",
+			"- bc_woe:\tIndicates that this broadcast is 'WoE Information' that can\n",
+			"\t\t\tbe disabled client-side.\n",
+			"Due to the way client handles broadcasts, it is impossible to set both\n",
+			"bc_blue and bc_woe.\n",
+			"\n",
+			"The optional parameters allow usage of broadcasts in custom colors,\n",
+			"font-weights, sizes etc. If any of the optional parameters is used,\n",
+			"special flag is ignored. Optional parameters may not work well (or at all)\n",
+			"depending on a game client used.\n",
+			"\n",
+			"The color parameter is a single number which can be in hexadecimal\n",
+			"notation. C_ constant can also be used for color effects, see the full list\n",
+			"of the available ones in 'db/constants.conf' under 'C_'.\n",
+			"\n",
+			"For example:\n",
+			"\tannounce(\"This announcement will be shown to everyone in green.\", bc_all, 0x00FF00);\n",
+			"Will display a global announce in green. The color format is in RGB\n",
+			"(0xRRGGBB).\n",
+			"\n",
+			"Another example:\n",
+			"\tannounce(\"This announcement will shown to everyone in purple.\", bc_all, C_PURPLE);\n",
+			"\n",
+			"In official scripts only two font-weights (types) are used:\n",
+			" - normal (FW_NORMAL = 400, default),\n",
+			" - bold   (FW_BOLD = 700).\n",
+			"\n",
+			"Default font size is 12.\n",
+			"\n",
+			"Using this for private messages to players is probably not that good an\n",
+			"idea, but it can be used instead in NPCs to \"preview\" an announce.\n",
+			"\n",
+			"\t// This will be a private message to the player using the NPC that\n",
+			"\t// made the announcement\n",
+			"\tannounce(\"This is my message just for you\", bc_blue|bc_self);\n",
+			"\n",
+			"\t// This will be shown on everyones screen that is in sight of the NPC.\n",
+			"\tannounce(\"This is my message just for you people here\", bc_npc|bc_area);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"getequippedoptioninfo": {
+		"params": {
+			"info_type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"info_type"
+			]
+		],
+		"doc": [
+			"This function is to be used with the scripts of contents listed in\n",
+			"db/item_options.conf only.\n",
+			"\n",
+			"Returns the value of the current equipment being parsed.\n",
+			"If the equip was not found or the type is invalid, -1 is returned.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

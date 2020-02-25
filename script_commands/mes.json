@@ -1,0 +1,74 @@
+{
+	"mes": {
+		"params": {
+			"string": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"string"
+			]
+		],
+		"doc": [
+			"This command will displays a box on the screen for the invoking character,\n",
+			"if no such box is displayed already, and will print the string specified\n",
+			"into that box. There is normally no 'close' or 'next' button on this box,\n",
+			"unless you create one with 'close' or 'next', and while it's open the\n",
+			"player can't do much else, so it's important to create a button later. If\n",
+			"the string is empty, it will show up as an empty line.\n",
+			"\n",
+			"    mes(\"Text that will appear in the box\");\n",
+			"\n",
+			"Inside the string you may put color codes, which will alter the color of\n",
+			"the text printed after them. The color codes are all '^<R><G><B>' and\n",
+			"contain three hexadecimal numbers representing colors as if they were\n",
+			"HTML colors - ^FF0000 is bright red, ^00FF00 is bright green, ^0000FF is\n",
+			"bright blue, ^000000 is black. ^FF00FF is a pure magenta, but it's also\n",
+			"a color that is considered transparent whenever the client is drawing\n",
+			"windows on screen, so printing text in that color will have kind of a\n",
+			"weird effect.  You may also use C_ constants accompany with \"F_MesColor\"\n",
+			"function for the color effect, see the full list of the available ones\n",
+			"in 'db/constants.conf' under 'C_'. Once you've set a text's color to something,\n",
+			"you have to set it back to black unless you want all the rest of the text be in\n",
+			"that color:\n",
+			"\n",
+			"    mes(\"This is ^FF0000 red ^000000 and this is ^00FF00 green, ^000000 so.\");\n",
+			"    mesf(\"%sThis message is now in BLUE.\", F_MesColor(C_BLUE));\n",
+			"\n",
+			"Notice that the text coloring is handled purely by the client. If you use\n",
+			"non-English characters, the color codes might get screwed if they stick to\n",
+			"letters with no intervening space. Separating them with spaces from the\n",
+			"letters on either side solves the problem.\n",
+			"\n",
+			"If you're using a client from 2011-10-10aRagexe.exe onwards, you can also\n",
+			"use automatic navigation and open URLs in browser by using some HTML-like\n",
+			"labels. For example:\n",
+			"\n",
+			"    mes(\"go to <NAVI>[Hat Maker]<INFO>izlude,131,148,</INFO></NAVI> to make hats\");\n",
+			"\n",
+			"Will make the [Hat Maker] text clickable in the client and start a navigation\n",
+			"to that point.\n",
+			"\n",
+			"    mes(\"You can <URL>Google<INFO>http://www.google.com/</INFO></URL> anything\");\n",
+			"\n",
+			"This will allow you to visit 'Google' with the in-game browser using default dimensions.\n",
+			"\n",
+			"    mes(\"You can <URL>Bing!<INFO>http://www.bing.com/,800,600</INFO></URL> anything\");\n",
+			"\n",
+			"Clicking 'Bing!' will open the in-game browser using the specified dimensions. (800x600)\n",
+			"\n",
+			"If you're using client from 2013-01-30 onwards, you can also use <ITEMLINK> to show\n",
+			"the item's description. Gravity changed this into <ITEM> since 2015-07-29 onwards.\n",
+			"\n",
+			"    mes(\"Bring me an <ITEM>Apple<INFO>512</INFO></ITEM>.\");\n",
+			"    mesf(\"Bring me an %s.\", F_MesItemInfo(Apple));\n",
+			"\n",
+			"This will show the item name and a clickable link for the item description.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"tradertype": {
+		"params": {
+			"Type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"Type"
+			]
+		],
+		"doc": [
+			"Modifies the npc trader type, item list is cleared upon modifiying the value.\n",
+			"By default, all npcs staart with tradertype(NST_ZENY);\n",
+			"\n",
+			"- NST_ZENY (0) Normal Zeny Shop\n",
+			"- NST_CASH (1) Normal Cash Shop\n",
+			"- NST_MARKET (2) Normal NPC Market Shop (where items have limited availability and need to be refurbished)\n",
+			"- NST_CUSTOM (3) Custom Shop (any currency, item/var/etca, check sample)\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

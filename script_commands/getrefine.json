@@ -1,0 +1,17 @@
+{
+	"getrefine": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This function will return the refine count of the equipment from which\n",
+			"the function is called. This function is intended for use in item scripts.\n",
+			"\n",
+			"\tif (getrefine() == 10)\n",
+			"\t\tmes(\"Wow. That's a murder weapon.\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"mobattached": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command will return RID of the monster running from 'OnTouchNPC:' label.\n",
+			"\n",
+			"\n",
+			"//\tKill any monster entering npc's trigger area\n",
+			"OnTouchNPC:\n",
+			"\tkillmonstergid mobattached();\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

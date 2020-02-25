@@ -1,0 +1,31 @@
+{
+	"gethominfo": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type"
+			]
+		],
+		"doc": [
+			"This function works as a direct counterpart of 'getpetinfo':\n",
+			" 0 - Homunculus unique ID\n",
+			" 1 - Homunculus Class\n",
+			" 2 - Name\n",
+			" 3 - Friendly level (intimacy score). 100000 is full loyalty.\n",
+			" 4 - Hungry level. 100 is completely full.\n",
+			" 5 - Rename flag. 0 means this homunculus has not been named yet.\n",
+			" 6 - Homunculus level\n",
+			"\n",
+			"If the attached player doesn't own a homunculus, this command will return\n",
+			"\"null\" for type 2, and return 0 for other types.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,39 @@
+{
+	"setd": {
+		"params": {
+			"variable name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"variable name",
+				"value"
+			]
+		],
+		"doc": [
+			"Works almost identically as set(), except the variable name is\n",
+			"identified as a string and can thus be constructed dynamically.\n",
+			"\n",
+			"This command is equivalent to:\n",
+			"  set(getd(\"variable name\"), <value>);\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"  setd(\".@var$\", \"Poporing\");\n",
+			"  mes(.@var$); // Displays \"Poporing\".\n",
+			"\n",
+			"  setd(\".@\" + .@var$ + \"123$\", \"Poporing is cool\");\n",
+			"  mes(.@Poporing123$); // Displays \"Poporing is cool\".\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

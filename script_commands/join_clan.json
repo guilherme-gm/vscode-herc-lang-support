@@ -1,0 +1,33 @@
+{
+	"join_clan": {
+		"params": {
+			"ClanID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"ClanID"
+			],
+			[
+				"ClanID",
+				"account id"
+			]
+		],
+		"doc": [
+			"Joins a player into the given clan.\n",
+			"If no RID is given, will run with the current attached player.\n",
+			"\n",
+			"returns true on success, false on failure.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

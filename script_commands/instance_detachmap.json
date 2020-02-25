@@ -1,0 +1,32 @@
+{
+	"instance_detachmap": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"instance id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name"
+			],
+			[
+				"map name",
+				"instance id"
+			]
+		],
+		"doc": [
+			"Detach the map \"<map name>\" to the instance with the <instance id>. If no\n",
+			"ID is specified, the instance the script is attached to is used. If in the\n",
+			"end no instance_id is found the command halts the script execution.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

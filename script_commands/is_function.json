@@ -1,0 +1,50 @@
+{
+	"is_function": {
+		"params": {
+			"function name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"function name"
+			]
+		],
+		"doc": [
+			"This command checks whether or not a function exists and returns its type.\n",
+			"Returns false if it cannot be found.\n",
+			"\n",
+			"return values:\n",
+			"\n",
+			"\tFUNCTION_IS_COMMAND - built-in script command (eg: mes, select, ...)\n",
+			"\tFUNCTION_IS_GLOBAL  - user-defined global function (callable with callfunc)\n",
+			"\tFUNCTION_IS_LOCAL   - user-defined local function\n",
+			"\tFUNCTION_IS_LABEL   - user-defined label function (callable with callsub)\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\tfunction\tscript\tfunc1\t{\n",
+			"\t\tdothat();\n",
+			"\t}\n",
+			"\n",
+			"\t-\tscript\ttest\tFAKE_NPC,{\n",
+			"\t\tfunction func2 {\n",
+			"\t\t\tdo_something();\n",
+			"\t\t}\n",
+			"\n",
+			"\tfunc3:\n",
+			"\t\tend;\n",
+			"\n",
+			"\t\tis_function(\"func1\"); // FUNCTION_IS_GLOBAL\n",
+			"\t\tis_function(\"func2\"); // FUNCTION_IS_LOCAL\n",
+			"\t\tis_function(\"func3\"); // FUNCTION_IS_LABEL\n",
+			"\t\tis_function(\"select\"); // FUNCTION_IS_COMMAND\n",
+			"\t\tis_function(\"invalid\"); // false\n",
+			"\t}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

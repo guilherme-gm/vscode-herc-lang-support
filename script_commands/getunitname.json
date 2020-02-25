@@ -1,0 +1,23 @@
+{
+	"getunitname": {
+		"params": {
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"GID"
+			]
+		],
+		"doc": [
+			"Retrieve the name of a unit.\n",
+			"\n",
+			"returns \"Unknown\" if the value could not be retrieved.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

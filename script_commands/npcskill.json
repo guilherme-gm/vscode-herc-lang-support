@@ -1,0 +1,50 @@
+{
+	"npcskill": {
+		"params": {
+			"skill name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"skill lvl": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"stat point": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"NPC level": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"skill name",
+				"skill lvl",
+				"stat point",
+				"NPC level"
+			]
+		],
+		"doc": [
+			"This command causes the attached NPC object to cast a skill on the\n",
+			"attached player. The skill will have no cast time or cooldown. The player\n",
+			"must be within the default skill range or the command will fail silently.\n",
+			"\n",
+			"The \"stat point\" parameter temporarily sets all NPC stats to the given\n",
+			"value, and \"NPC level\" is the temporary level of the NPC (used in some\n",
+			"skills). Neither value can be greater than the max level defined in\n",
+			"config, and will not work properly if the NPC has a mob sprite.\n",
+			"\n",
+			"\t// Casts Level 10 Heal on the attached player, calculated with\n",
+			"\t// all stats 99 and base level 60.\n",
+			"\tnpcskill(AL_HEAL, 10, 99, 60);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

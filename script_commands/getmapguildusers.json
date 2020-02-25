@@ -1,0 +1,31 @@
+{
+	"getmapguildusers": {
+		"params": {
+			"mapname": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"guild id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"mapname",
+				"guild id"
+			]
+		],
+		"doc": [
+			"Returns the amount of characters from the specified guild on the given map.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\tmes(\"You have \"+getmapguildusers(\"prontera\", getcharid(CHAR_ID_GUILD))+\" guild members in Prontera.\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

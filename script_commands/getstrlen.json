@@ -1,0 +1,24 @@
+{
+	"getstrlen": {
+		"params": {
+			"string": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"string"
+			]
+		],
+		"doc": [
+			"This function will return the length of the string given as an argument.\n",
+			"It is useful to check if anything input by the player exceeds name length\n",
+			"limits and other length limits and asking them to try to input something\n",
+			"else.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

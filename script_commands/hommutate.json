@@ -1,0 +1,35 @@
+{
+	"hommutate": {
+		"params": {
+			"ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"ID"
+			]
+		],
+		"doc": [
+			"This command will try to mutate the invoking player's Homunculus into a\n",
+			"Homunculus S. The Strange Embryo (Strange_Embryo, ID 6415) is deleted\n",
+			"upon success.\n",
+			"\n",
+			"The command will fail if the invoking player does not have an evolved\n",
+			"Homunculus at level 99 or above, if it is not in the embryo state\n",
+			"(from the morphembryo() command), or if the invoking player does not\n",
+			"possess a Strange Embryo. The /swt emotion is shown upon failure.\n",
+			"\n",
+			"If the optional parameter <ID> is set, the invoking player's Homunculus\n",
+			"will change into the specified Homunculus ID. Otherwise, a random Homunculus S\n",
+			"will be chosen. See 'db/homunculus_db.txt' for a full list of IDs.\n",
+			"\n",
+			"Returns true upon success and false for all failures.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

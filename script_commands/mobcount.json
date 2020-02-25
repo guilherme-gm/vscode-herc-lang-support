@@ -1,0 +1,44 @@
+{
+	"mobcount": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"event label": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"event label"
+			]
+		],
+		"doc": [
+			"This function will count all the monsters on the specified map that have a\n",
+			"given event label and return the number or 0 if it can't find any.\n",
+			"Naturally, only monsters spawned with 'monster' and 'areamonster' script\n",
+			"commands can have non-empty event label.\n",
+			"If you pass this function an empty string for the event label, it will\n",
+			"return the total count of monster without event label, including\n",
+			"permanently spawning monsters.\n",
+			"\n",
+			"With the dynamic mobs system enabled, where mobs are not kept in memory\n",
+			"for maps with no actual people playing on them, this will return a 0 for\n",
+			"any such map.\n",
+			"\n",
+			"If the event label is given as \"all\", all monsters will be counted,\n",
+			"regardless of having any event label attached.\n",
+			"\n",
+			"If the map name is given as \"this\", the map the invoking character is on\n",
+			"will be used. If the map is not found, or the invoker is not a character\n",
+			"while the map is \"this\", it will return -1.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

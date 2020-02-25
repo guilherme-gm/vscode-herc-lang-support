@@ -1,0 +1,176 @@
+{
+	"getitem2": {
+		"params": {
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"identify": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"refine": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"attribute": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card3": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card4": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item name",
+				"amount",
+				"identify",
+				"refine",
+				"attribute",
+				"card1",
+				"card2",
+				"card3",
+				"card4"
+			],
+			[
+				"item name",
+				"amount",
+				"identify",
+				"refine",
+				"attribute",
+				"card1",
+				"card2",
+				"card3",
+				"card4",
+				"account ID"
+			]
+		],
+		"doc": [
+			"This command will give an amount of specified items to the invoking\n",
+			"character. If an optional account ID is specified, and the target\n",
+			"character is currently online, items will be created in their inventory\n",
+			"instead. If they are not online, nothing will happen. It works essentially\n",
+			"the same as 'getitem' (it even works for negative ID numbers the same way)\n",
+			"but is a lot more flexible.\n",
+			"\n",
+			"Those parameters that are different from getitem() are:\n",
+			"\n",
+			"identify\t- Whether you want the item to be identified (1) or not (0).\n",
+			"refine\t\t- For how many pluses will it be refined. It will not let you\n",
+			"\t\t\t  refine an item higher than the max refine.\n",
+			"attribute\t- Whether the item is broken (1) or not (0).\n",
+			"card1,2,3,4\t- If you want a card compound to it, place the card ID number\n",
+			"\t\t\t  into the specific card slot.\n",
+			"\n",
+			"Card1-card4 values are also used to store name information for named\n",
+			"items, as well as the elemental property of weapons and armor. You can\n",
+			"create a named item in this manner, however, if you just need a named\n",
+			"piece of standard equipment, it is much easier to the 'getnameditem'\n",
+			"function instead.\n",
+			"\n",
+			"You will need to keep these values if you want to destroy and then\n",
+			"perfectly recreate a named item, for this see getinventorylist().\n",
+			"\n",
+			"If you still want to try creating a named item with this command because\n",
+			"'getnameditem' won't do it for you cause it's too limited, you can do it\n",
+			"like this. Careful, minor magic ahead.\n",
+			"\n",
+			"\t// First, let's get an ID of a character who's name will be on the\n",
+			"\t// item. Only an existing character's name may be there.\n",
+			"\t// Let's assume our character is 'Adam' and find his ID.\n",
+			"\n",
+			"\t.@charid = getcharid(CHAR_ID_CHAR, \"Adam\");\n",
+			"\n",
+			"\t// Now we split the character ID number into two portions with a\n",
+			"\t// binary shift operation. If you don't understand what this does,\n",
+			"\t// just copy it.\n",
+			"\n",
+			"\t.@card3 = .@charid & 65535;\n",
+			"\t.@card4 = .@charid >> 16;\n",
+			"\n",
+			"\t// If you're inscribing non-equipment, .@card1 must be 254.\n",
+			"\t// Arrows are also not equipment. :)\n",
+			"\t.@card1 = 254;\n",
+			"\n",
+			"\t// For named equipment, card2 means the Star Crumbs and elemental\n",
+			"\t// crystals used to make this equipment. For everything else, it's 0.\n",
+			"\n",
+			"\t.@card2 = 0;\n",
+			"\n",
+			"\t// Now, let's give the character who invoked the script some\n",
+			"\t// Adam's Apples:\n",
+			"\n",
+			"\tgetitem2(Apple, 1, 1, 0, 0, .@card1, .@card2, .@card3, .@card4);\n",
+			"\n",
+			"This wasn't tested with all possible items, so I can't give any promises,\n",
+			"experiment first before relying on it.\n",
+			"\n",
+			"To create equipment, continue this example it like this:\n",
+			"\n",
+			"\t// We've already have card3 and card4 loaded with correct\n",
+			"\t// values so we'll just set up card1 and card2 with data\n",
+			"\t// for an Ice Stiletto.\n",
+			"\n",
+			"\t// If you're inscribing equipment, .@card1 must be 255.\n",
+			"\t.@card1 = 255;\n",
+			"\n",
+			"\t// That's the number of star crumbs in a weapon.\n",
+			"\t.@sc = 2;\n",
+			"\n",
+			"\t// That's the number of elemental property of the weapon.\n",
+			"\t.@ele = 1;\n",
+			"\n",
+			"\t// And that's the wacky formula that makes them into\n",
+			"\t// a single number.\n",
+			"\t.@card2 = .@ele+((.@sc*5)<<8);\n",
+			"\n",
+			"\t// That will make us an Adam's +2 VVS Ice Stiletto:\n",
+			"\n",
+			"\tgetitem2(Stiletto, 1, 1, 2, 0, .@card1, .@card2, .@card3, .@card4);\n",
+			"\n",
+			"Experiment with the number of star crumbs - I'm not certain just how much\n",
+			"will work most and what it depends on. The valid element numbers are:\n",
+			"\n",
+			" 1 - Ice, 2 - Earth 3 - Fire 4 - Wind.\n",
+			"\n",
+			"You can, apparently, even create duplicates of the same pet egg with this\n",
+			"command, creating a pet which is the same, but simultaneously exists in\n",
+			"two eggs, and may hatch from either, although, I'm not sure what kind of a\n",
+			"mess will this really cause.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

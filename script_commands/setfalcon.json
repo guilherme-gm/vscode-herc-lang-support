@@ -1,0 +1,32 @@
+{
+	"setfalcon": {
+		"params": {
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"flag"
+			]
+		],
+		"doc": [
+			"If <flag> is 0 this command will remove the falcon from the character.\n",
+			"Otherwise it gives the invoking character a falcon. The falcon will be\n",
+			"there regardless of whether the character is a hunter or not. It will\n",
+			"(probably) not have any useful effects for non-hunters though.\n",
+			"Note: the character needs to have the skill HT_FALCON to gain a falcon.\n",
+			"\n",
+			"The accompanying function will return true if the invoking character has a\n",
+			"falcon and false if they don't.\n",
+			"\n",
+			"\tif (checkfalcon())\n",
+			"\t\tmes(\"But you already have a falcon!\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

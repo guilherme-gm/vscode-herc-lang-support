@@ -1,0 +1,55 @@
+{
+	"getcharid": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"character name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type"
+			],
+			[
+				"type",
+				"character name"
+			]
+		],
+		"doc": [
+			"This function will return a unique ID number of the invoking character,\n",
+			"or, if a character name is specified, of that player.\n",
+			"\n",
+			"Type is the kind of associated ID number required:\n",
+			"\n",
+			"(0) CHAR_ID_CHAR - Character ID number.\n",
+			"(1) CHAR_ID_PARTY - Party ID number.\n",
+			"(2) CHAR_ID_GUILD - Guild ID number.\n",
+			"(3) CHAR_ID_ACCOUNT - Account ID number.\n",
+			"(4) CHAR_ID_BG - Battle ground ID\n",
+			"(5) CHAR_ID_CLAN - Clan ID number.\n",
+			"\n",
+			"For most purposes other than printing it, a number is better to have than\n",
+			"a name (people do horrifying things to their character names).\n",
+			"\n",
+			"If the character is not in a party or not in a guild, the function will\n",
+			"return 0 if guild or party number is requested. If a name is specified and\n",
+			"the character is not found, 0 is returned.\n",
+			"\n",
+			"If getcharid(CHAR_ID_CHAR) returns a zero, the script got called not by a character\n",
+			"and doesn't have an attached RID. Note that this will cause the map server\n",
+			"to print \"player not attached!\" error messages, so it is preferred to use\n",
+			"playerattached() to check for the character attached to the script.\n",
+			"\n",
+			"\tif (getcharid(CHAR_ID_GUILD) == 0)\n",
+			"\t\tmes(\"Only members of a guild are allowed here!\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

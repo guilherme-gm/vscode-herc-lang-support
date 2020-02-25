@@ -1,0 +1,40 @@
+{
+	"checkchatting": {
+		"params": {
+			"Player Name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"Player Name"
+			]
+		],
+		"doc": [
+			"Checks if the player is vending or in a chatroom.\n",
+			"Name is optional, and defaults to the attached player if omitted.\n",
+			"\n",
+			"Return values for 'checkvending' are\n",
+			"  0 = not vending\n",
+			"  1 = normal vending\n",
+			"  2 = vending using @autotrade\n",
+			"\n",
+			"checkchatting() returns true if they are in a chat room, false if they are not.\n",
+			"\n",
+			"Examples:\n",
+			"\t//This will check if Aaron is vending, and if so, put a message in\n",
+			"\t//front of the attached player saying Aaron is vending.\n",
+			"\tif (checkvending(\"Aaron\"))\n",
+			"\t\tmes(\"Aaron is currently vending!\");\n",
+			"\n",
+			"\t//This will check if the attached player in a chat room or not.\n",
+			"\tif (checkchatting())\n",
+			"\t\tmes(\"You are currently in a chat room!\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

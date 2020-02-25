@@ -1,0 +1,29 @@
+{
+	"makerune": {
+		"params": {
+			"% success bonus": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"% success bonus"
+			]
+		],
+		"doc": [
+			"This command will open a rune crafting window on the client connected to\n",
+			"the invoking character. Since this command is officially used in rune\n",
+			"ores, a bonus success rate must be specified (which adds to the base\n",
+			"formula).\n",
+			"\n",
+			"You can see the full list of runes that can be produced in\n",
+			"'db/produce_db.txt'. The window will not be empty only if the invoking\n",
+			"character can actually produce a rune and has the appropriate raw\n",
+			"materials in their inventory.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

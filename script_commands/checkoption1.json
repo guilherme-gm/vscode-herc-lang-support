@@ -1,0 +1,91 @@
+{
+	"checkoption1": {
+		"params": {
+			"option number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"option number"
+			],
+			[
+				"option number",
+				"account id"
+			]
+		],
+		"doc": [
+			"The setoption() series of functions check for a so-called option that is\n",
+			"set on the invoking character. 'Options' are used to store status\n",
+			"conditions and a lot of other non-permanent character data of the yes-no\n",
+			"kind. For most common cases, it is better to use checkcart(),\n",
+			"checkfalcon(), checkmount() and other similar functions, but there are\n",
+			"some options which you cannot get at this way. If <account id> is given,\n",
+			"this player will be used instead of the invoking character.\n",
+			"\n",
+			"Option numbers valid for the first (option) version of this command are:\n",
+			"\n",
+			"0x000000 Option_Nothing   - No options\n",
+			"0x000001 Option_Sight     - Sight in effect.\n",
+			"0x000002 Option_Hide      - Hide in effect.\n",
+			"0x000004 Option_Cloak     - Cloaking in effect.\n",
+			"0x000008                  - Cart number 1 present.\n",
+			"0x000010 Option_Falcon    - Falcon present.\n",
+			"0x000020 Option_Riding    - Peco Peco present.\n",
+			"0x000040 Option_Invisible - GM Perfect Hide in effect.\n",
+			"0x000080                  - Cart number 2 present.\n",
+			"0x000100                  - Cart number 3 present.\n",
+			"0x000200                  - Cart number 4 present.\n",
+			"0x000400                  - Cart number 5 present.\n",
+			"0x000800 Option_Orcish    - Orc head present.\n",
+			"0x001000 Option_Wedding   - The character is wearing a wedding sprite.\n",
+			"0x002000                  - Ruwach is in effect.\n",
+			"0x004000 Option_Chasewalk - Chasewalk in effect.\n",
+			"0x008000 Option_Flying    - Flying or Xmas suit.\n",
+			"0x010000                  - Sighttrasher.\n",
+			"0x100000 Option_Wug       - Warg present.\n",
+			"0x200000 Option_Wugrider  - The character is riding a warg.\n",
+			"\n",
+			"Option numbers valid for the second version (opt1) of this command are:\n",
+			"\n",
+			"1 - Petrified.\n",
+			"2 - Frozen.\n",
+			"3 - Stunned.\n",
+			"4 - Sleeping.\n",
+			"6 - Petrifying (the state where you can still walk)\n",
+			"\n",
+			"Option numbers valid for the third version (opt2) of this command are:\n",
+			"\n",
+			"0x01 - Poisoned.\n",
+			"0x02 - Cursed.\n",
+			"0x04 - Silenced.\n",
+			"0x08 - Signum Crucis (plays a howl-like sound effect, but otherwise no\n",
+			"       visible effects are displayed)\n",
+			"0x10 - Blinded.\n",
+			"0x80 - Deadly poisoned.\n",
+			"\n",
+			"Option numbers (except for opt1) are bit-masks - you can add them up to\n",
+			"check for several states, but the functions will return true if at least\n",
+			"one of them is in effect.\n",
+			"\n",
+			"setoption() will set options on the invoking character. There are no\n",
+			"second and third versions of this command, so you can only change the\n",
+			"values in the first list (cloak, cart, ruwach, etc). If flag is 1 (default\n",
+			"when omitted), the option will be added to what the character currently\n",
+			"has; if 0, the option is removed.\n",
+			"\n",
+			"This is definitely not a complete list of available option flag numbers.\n",
+			"Ask a core developer (or read the source: src/map/status.h) for the full\n",
+			"list.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

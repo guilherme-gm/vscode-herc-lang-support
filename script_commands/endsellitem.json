@@ -1,0 +1,14 @@
+{
+	"endsellitem": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"Complete adding item into expanded barter shop (NST_EXPANDED_BARTER).\n",
+			"Need PACKETVER 20190904 main or 20190904 RE or 20190828 zero or newer.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

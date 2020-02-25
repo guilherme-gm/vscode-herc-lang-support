@@ -1,0 +1,50 @@
+{
+	"getskilllv": {
+		"params": {
+			"skill name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"skill name"
+			]
+		],
+		"doc": [
+			"This function returns the level of the specified skill that the invoking\n",
+			"character has. If they don't have the skill, 0 will be returned. The full\n",
+			"list of character skills is available in 'db/(pre-)re/skill_db.txt'.\n",
+			"\n",
+			"There are two main uses for this function, it can check whether the\n",
+			"character has a skill or not, and it can tell you if the level is high\n",
+			"enough.\n",
+			"\n",
+			"Example 1:\n",
+			"\n",
+			"\tif (getskilllv(TF_THROWSTONE)) {\n",
+			"\t\t// TF_THROWSTONE is defined in skill_db.txt and its value is 152\n",
+			"\t\tmes(\"You have got the skill Throw Stone\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\tmes(\"You don't have Throw Stone\");\n",
+			"\tclose();\n",
+			"\n",
+			"Example 2:\n",
+			"\n",
+			"\tif (getskilllv(AL_HEAL) == 10) {\n",
+			"\t\tmes(\"Your heal lvl has been maxed\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\tif (getskilllv(AL_HEAL) >= 5) {\n",
+			"\t\tmes(\"Your heal lvl is 5 or more\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\tmes(\"You heal skill is below lvl 5\");\n",
+			"\tclose();\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

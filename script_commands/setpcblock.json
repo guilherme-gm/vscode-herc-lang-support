@@ -1,0 +1,69 @@
+{
+	"setpcblock": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"option": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type",
+				"option"
+			]
+		],
+		"doc": [
+			"Prevents the player from doing the following action.\n",
+			"\n",
+			"For setpcblock, when the <option> is true(1) will block them, and false(0)\n",
+			"will allow those actions again.\n",
+			"\n",
+			"The checkpcblock command returned value is a bit mask of the currently\n",
+			"enabled block flags (or PCBLOCK_NONE when none is set).\n",
+			"\n",
+			"The <type> listed are a bit mask of the following:\n",
+			"\tPCBLOCK_NONE (only used by checkpcblock)\n",
+			"\tPCBLOCK_MOVE\n",
+			"\tPCBLOCK_ATTACK\n",
+			"\tPCBLOCK_SKILL\n",
+			"\tPCBLOCK_USEITEM\n",
+			"\tPCBLOCK_CHAT\n",
+			"\tPCBLOCK_IMMUNE\n",
+			"\tPCBLOCK_SITSTAND\n",
+			"\tPCBLOCK_COMMANDS\n",
+			"\tPCBLOCK_NPC\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"// Make the current attached player invulnerable, same as @monsterignore\n",
+			"\tsetpcblock(PCBLOCK_IMMUNE, true);\n",
+			"\n",
+			"// Prevents the current char from attacking or using skills\n",
+			"\tsetpcblock(PCBLOCK_ATTACK|PCBLOCK_SKILL, true);\n",
+			"\n",
+			"// Re-enables attack, skills and item use\n",
+			"\tsetpcblock(PCBLOCK_ATTACK|PCBLOCK_SKILL|PCBLOCK_USEITEM, false);\n",
+			"\n",
+			"// checkpcblock related checks\n",
+			"\tif ((checkpcblock() & PCBLOCK_IMMUNE) != 0)\n",
+			"\t\tmes \"You are invulnerable!\";\n",
+			"\n",
+			"\tif ((checkpcblock() & (PCBLOCK_MOVE|PCBLOCK_SITSTAND)) == (PCBLOCK_MOVE|PCBLOCK_SITSTAND))\n",
+			"\t\tmes \"You can't walk or sit\";\n",
+			"\n",
+			"\tif ((checkpcblock() & (PCBLOCK_ATTACK|PCBLOCK_SKILL)) == PCBLOCK_NONE)\n",
+			"\t\tmes \"You can attack and use skills\";\n",
+			"\n",
+			"\tif ((checkpcblock() & PCBLOCK_CHAT) == PCBLOCK_NONE)\n",
+			"\t\tmes \"You can't chat\";\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

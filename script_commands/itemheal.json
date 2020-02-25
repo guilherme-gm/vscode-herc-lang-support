@@ -1,0 +1,46 @@
+{
+	"itemheal": {
+		"params": {
+			"hp": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"sp": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"hp",
+				"sp"
+			]
+		],
+		"doc": [
+			"This command heals given relative amounts of HP and/or SP on the invoking\n",
+			"character. Unlike heal, this command is intended for use in item scripts.\n",
+			"It applies potion-related bonuses, such as alchemist ranking, cards,\n",
+			"status changes.\n",
+			"It also applies a sp/vit-related bonus that is calculated by:\n",
+			"\theal = heal*[(100+STATUS*2)/100]\n",
+			"So if a player has 99 vit and the script is 'itemheal 5, 0':\n",
+			"\theal(hp) = 5*[(100+99*2)/100]\n",
+			"\theal(hp) = 14.9\n",
+			"\theal(hp) = 14\n",
+			"\theal(sp) = 0\n",
+			"\n",
+			"When used inside an NPC script, potion-related bonuses are omitted.\n",
+			"\n",
+			"There is also a nice example on using this with the rand() function, to\n",
+			"give you a random amount of healing.\n",
+			"\n",
+			"\t// If the player has 50 vit and no bonuses this will heal\n",
+			"\t// anything from 200 to 300 HP and 5 SP\n",
+			"\titemheal(rand(100, 150), 5);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

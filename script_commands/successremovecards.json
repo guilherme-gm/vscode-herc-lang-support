@@ -1,0 +1,24 @@
+{
+	"successremovecards": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			]
+		],
+		"doc": [
+			"This command will remove all cards from the item found in the specified\n",
+			"equipment slot of the invoking character, create new card items and give\n",
+			"them to the character. If any cards were removed in this manner, it will\n",
+			"also show a success effect.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

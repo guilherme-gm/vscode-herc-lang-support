@@ -1,0 +1,30 @@
+{
+	"getitemslots": {
+		"params": {
+			"item ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item ID"
+			]
+		],
+		"doc": [
+			"This function will look up the item with the specified ID number in the\n",
+			"database and return the number of slots this kind of items has - 0 if they\n",
+			"are not slotted. It will also be 0 for all non-equippable items,\n",
+			"naturally, unless someone messed up the item database. It will return -1\n",
+			"if there is no such item.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"//.@slots now has the amount of slots of the item with ID 1205.\n",
+			"\t.@slots = getitemslots(1205);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

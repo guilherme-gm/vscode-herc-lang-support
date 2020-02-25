@@ -1,0 +1,34 @@
+{
+	"set": {
+		"params": {
+			"variable": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"expression": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"variable",
+				"expression"
+			]
+		],
+		"doc": [
+			"This command will set a variable to the value that the expression results\n",
+			"in. This isn't the only way to set a variable directly: you can set them\n",
+			"much like any other programming language as stated before (refer to the\n",
+			"'Assigning variables' section).\n",
+			"\n",
+			"This command is deprecated and it shouldn't be used in new scripts, except\n",
+			"some special cases (mostly, set(getvariableofnpc(), <value>)). Use direct value\n",
+			"assignment instead.\n"
+		],
+		"return": "unknown",
+		"deprecated": true
+	}
+}

@@ -1,0 +1,68 @@
+{
+	"countitem2": {
+		"params": {
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"identify": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"refine": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"attribute": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card3": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card4": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item name",
+				"identify",
+				"refine",
+				"attribute",
+				"card1",
+				"card2",
+				"card3",
+				"card4"
+			]
+		],
+		"doc": [
+			"Expanded version of countitem() function, used for created/carded/forged\n",
+			"items.\n",
+			"\n",
+			"This function will return the number of items for the specified item ID\n",
+			"and other parameters that the invoking character has in the inventory.\n",
+			"Check getitem2() to understand the arguments of the function.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

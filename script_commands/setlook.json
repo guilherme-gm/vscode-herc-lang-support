@@ -1,0 +1,81 @@
+{
+	"setlook": {
+		"params": {
+			"look type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"look value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"look type",
+				"look value"
+			]
+		],
+		"doc": [
+			"'setlook' will alter the look data for the invoking character. It is used\n",
+			"mainly for changing the palette used on hair and clothes: you specify\n",
+			"which look type you want to change, then the palette you want to use. Make\n",
+			"sure you specify a palette number that exists/is usable by the client you\n",
+			"use. 'changelook' works the same, but is only client side (it doesn't save\n",
+			"the look value).\n",
+			"\n",
+			"\t// This will change your hair(6), so that it uses palette 8, what ever\n",
+			"\t// your palette 8 is, your hair will use that color.\n",
+			"\n",
+			"\tsetlook(LOOK_HAIR_COLOR, 8);\n",
+			"\n",
+			"\t// This will change your clothes(7), so they are using palette 1,\n",
+			"\t// whatever your palette 1 is, your clothes will then use that set of\n",
+			"\t// colors.\n",
+			"\n",
+			"\tsetlook(LOOK_CLOTHES_COLOR, 1);\n",
+			"\n",
+			"Here are the possible look types:\n",
+			"\n",
+			"  0 - LOOK_BASE           Base sprite\n",
+			"  1 - LOOK_HAIR           Hairstyle\n",
+			"  2 - LOOK_WEAPON         Weapon\n",
+			"  3 - LOOK_HEAD_BOTTOM    Head bottom\n",
+			"  4 - LOOK_HEAD_TOP       Head top\n",
+			"  5 - LOOK_HEAD_MID       Head mid\n",
+			"  6 - LOOK_HAIR_COLOR     Hair color\n",
+			"  7 - LOOK_CLOTHES_COLOR  Clothes color\n",
+			"  8 - LOOK_SHIELD         Shield\n",
+			"  9 - LOOK_SHOES          Shoes\n",
+			" 10 - LOOK_BODY           Body(N/A)\n",
+			" 11 - LOOK_FLOOR          FLOOR(N/A)\n",
+			" 12 - LOOK_ROBE           Robe\n",
+			" 13 - LOOK_BODY2          Body style\n",
+			"\n",
+			"Whatever 'shoes' means is anyone's guess, ask Gravity - the client does\n",
+			"nothing with this value. It still wants it from the server though, so it\n",
+			"is kept, but normally doesn't do a thing.\n",
+			"\n",
+			"Only the look data for hairstyle, hair color and clothes color are saved\n",
+			"to the char server's database and will persist. The rest freely change as\n",
+			"the character puts on and removes equipment, changes maps, logs in and out\n",
+			"and otherwise you should not expect to set them. In fact, messing with\n",
+			"them is generally hazardous, do it at your own risk, it is not tested\n",
+			"what will this actually do - it won't cause database corruption and\n",
+			"probably won't cause a server crash, but it's easy to crash the client\n",
+			"with just about anything unusual.\n",
+			"\n",
+			"However, it might be an easy way to quickly check for empty view IDs for\n",
+			"sprites, which is essential for making custom headgear.\n",
+			"\n",
+			"Since a lot of people have different palettes for hair and clothes, it's\n",
+			"impossible to tell you what all the color numbers are. If you want a\n",
+			"serious example, there is a Stylist script inside the default Hercules\n",
+			"installation that you can look at: 'npc/custom/stylist.txt'\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

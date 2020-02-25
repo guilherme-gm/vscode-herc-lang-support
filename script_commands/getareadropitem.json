@@ -1,0 +1,60 @@
+{
+	"getareadropitem": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"x2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"item": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"item"
+			]
+		],
+		"doc": [
+			"This function will count all the items with the specified ID number lying\n",
+			"on the ground on the specified map within the x1/y1-x2/y2 square on it and\n",
+			"return that number.\n",
+			"\n",
+			"This is the only function around where a parameter may be either a string\n",
+			"or a number! If it's a number, it means that only the items with that item\n",
+			"ID number will be counted. If it is a string, it is assumed to mean the\n",
+			"'english name' field from the item database. If you give it an empty\n",
+			"string, or something that isn't found from the item database, it will\n",
+			"count items number 512 (Apple).\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

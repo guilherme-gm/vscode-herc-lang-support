@@ -1,0 +1,80 @@
+{
+	"getitembound2": {
+		"params": {
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"identify": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"refine": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"attribute": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card3": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card4": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"bound type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item name",
+				"amount",
+				"identify",
+				"refine",
+				"attribute",
+				"card1",
+				"card2",
+				"card3",
+				"card4",
+				"bound type"
+			]
+		],
+		"doc": [
+			"This command behaves identically to getitem2(), but the items created will be\n",
+			"bound to the target character as specified by the bound type. All items created\n",
+			"in this manner cannot be dropped, sold, vended, auctioned, or mailed, and in\n",
+			"some cases cannot be traded or stored.\n",
+			"\n",
+			"For a list of bound types see getitembound().\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

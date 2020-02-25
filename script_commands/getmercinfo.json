@@ -1,0 +1,46 @@
+{
+	"getmercinfo": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"char id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type"
+			],
+			[
+				"type",
+				"char id"
+			]
+		],
+		"doc": [
+			"Retrieves information about mercenary of the currently attached character.\n",
+			"If char id is given, the information of that character is retrieved\n",
+			"instead. Type specifies what information to retrieve and can be one of the\n",
+			"following:\n",
+			"\n",
+			"\tMERCINFO_ID        - Mercenary Database ID\n",
+			"\tMERCINFO_CLASS     - Mercenary Class\n",
+			"\tMERCINFO_NAME      - Mercenary Name\n",
+			"\tMERCINFO_FAITH     - Mercenary faith value for this mercenary's guild, if any\n",
+			"\tMERCINFO_CALLS     - Mercenary calls value for this mercenary's guild, if any\n",
+			"\tMERCINFO_KILLCOUNT - Mercenary kill count\n",
+			"\tMERCINFO_LIFETIME  - Mercenary remaining life time in mili-second\n",
+			"\tMERCINFO_LEVEL     - Mercenary Level\n",
+			"\tMERCINFO_GID       - Mercenary Game ID\n",
+			"\n",
+			"If the character does not have a mercenary, the command returns \"\" for MERCINFO_NAME\n",
+			"and 0 for all other types.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

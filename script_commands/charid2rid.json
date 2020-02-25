@@ -1,0 +1,23 @@
+{
+	"charid2rid": {
+		"params": {
+			"char id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"char id"
+			]
+		],
+		"doc": [
+			"This function returns the RID of the character with the given character ID.\n",
+			"\n",
+			"If the character is offline or doesn't exist, 0 is returned.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

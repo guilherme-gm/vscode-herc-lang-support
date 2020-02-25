@@ -1,0 +1,41 @@
+{
+	"produce": {
+		"params": {
+			"item level": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item level"
+			]
+		],
+		"doc": [
+			"This command will open a crafting window on the client connected to the\n",
+			"invoking character. The 'item level' is a number which determines what\n",
+			"kind of a crafting window will pop-up.\n",
+			"\n",
+			"You can see the full list of such item levels in 'db/produce_db.txt' which\n",
+			"determines what can actually be produced. The window will not be empty\n",
+			"only if the invoking character can actually produce the items of that type\n",
+			"and has the appropriate raw materials in their inventory.\n",
+			"\n",
+			"The success rate to produce the item is the same as the success rate of\n",
+			"the skill associated with the item level. If there is no skill id, the\n",
+			"success rate will be 50%.\n",
+			"\n",
+			"Valid item levels are:\n",
+			"\n",
+			" 1   - Level 1 Weapons\n",
+			" 2   - Level 2 Weapons\n",
+			" 3   - Level 3 Weapons\n",
+			" 21  - Blacksmith's Stones and Metals\n",
+			" 22  - Alchemist's Potions, Holy Water, Assassin Cross's Deadly Poison\n",
+			" 23  - Elemental Converters\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

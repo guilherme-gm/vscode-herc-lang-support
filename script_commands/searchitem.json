@@ -1,0 +1,37 @@
+{
+	"searchitem": {
+		"params": {
+			"array name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"array name",
+				"item name"
+			]
+		],
+		"doc": [
+			"This command will fill the given array with the ID of items whose name\n",
+			"matches the given one. It returns the number of items found. For\n",
+			"performance reasons, the results array is limited to 10 items.\n",
+			"\n",
+			"\tmes(\"What item are you looking for?\");\n",
+			"\tinput(.@name$);\n",
+			"\t.@qty = searchitem(.@matches[0], .@name$);\n",
+			"\tmes(\"I found \"+.@qty+\" items:\");\n",
+			"\tfor (.@i = 0; .@i < .@qty; ++.@i)\n",
+			"\t\t//Display name (eg: \"Apple[0]\")\n",
+			"\t\tmes(getitemname(.@matches[.@i])+\"[\"+getitemslots(.@matches[.@i])+\"]\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,66 @@
+{
+	"instance_check_guild": {
+		"params": {
+			"guild_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"min": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"max": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"guild_id"
+			],
+			[
+				"guild_id",
+				"amount"
+			],
+			[
+				"guild_id",
+				"amount",
+				"min"
+			],
+			[
+				"guild_id",
+				"amount",
+				"min",
+				"max"
+			]
+		],
+		"doc": [
+			"This function checks if a guild meets certain requirements, returning true if\n",
+			"all conditions are met and false otherwise. it will only check online characters.\n",
+			"\n",
+			"amount - number of online guild members (default is 1).\n",
+			"min - minimum level of all characters in the guild (default is 1).\n",
+			"max - maximum level of all characters in the guild (default is max level in conf).\n",
+			"\n",
+			"Example:\n",
+			"\tif (instance_check_guild(getcharid(CHAR_ID_GUILD), 2, 1, 150)) {\n",
+			"\t\tmes(\"Your guild meets the Memorial Dungeon requirements.\");\n",
+			"\t\tmes(\"All online members are between levels 1-150 and at least two are online.\");\n",
+			"\t\tclose();\n",
+			"\t} else {\n",
+			"\t\tmes(\"Sorry, your guild does not meet the requirements.\");\n",
+			"\t\tclose();\n",
+			"\t}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

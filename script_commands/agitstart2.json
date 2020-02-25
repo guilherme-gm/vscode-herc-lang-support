@@ -1,0 +1,21 @@
+{
+	"agitstart2": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"These four commands will start/end War of Emperium or War of Emperium SE.\n",
+			"\n",
+			"This is a bit more complex than it sounds, since the commands themselves\n",
+			"won't actually do anything interesting, except causing all 'OnAgitStart:'\n",
+			"and 'OnAgitEnd:', or 'OnAgitStart2:' and 'OnAgitEnd2:' in the case of\n",
+			"latter two commands, events to run everywhere, respectively. They are used\n",
+			"as  simple triggers to run a lot of complex scripts all across the server,\n",
+			"and they, in turn, are triggered by clock with an 'OnClock<time>:'\n",
+			"time-triggering label.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

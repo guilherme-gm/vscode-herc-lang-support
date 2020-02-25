@@ -1,0 +1,43 @@
+{
+	"warpportal": {
+		"params": {
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"mapname": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"x",
+				"y",
+				"mapname",
+				"x",
+				"y"
+			]
+		],
+		"doc": [
+			"Creates a warp Portal as if a acolyte class character did it.\n",
+			"The first x and y is the place of the warp portal on the map where the NPC\n",
+			"is on the mapname and second x and y is the target area of the warp portal.\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"// Will create a warp portal on the NPC's map at 150,150\n",
+			"// leading to prontera, coords 150,180.\n",
+			"\twarpportal(150, 150, \"prontera\", 150, 180);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

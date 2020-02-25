@@ -1,0 +1,13 @@
+{
+	"queue": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"Creates a new queue instance and returns the created queue id.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,99 @@
+{
+	"areamobuseskill": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"range": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"mob id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"skill name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"skill level": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"cast time": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"cancelable": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"emotion": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"target type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"x",
+				"y",
+				"range",
+				"mob id",
+				"skill name",
+				"skill level",
+				"cast time",
+				"cancelable",
+				"emotion",
+				"target type"
+			]
+		],
+		"doc": [
+			"This command will make all monsters of the specified mob ID in the\n",
+			"specified area use the specified skill. Map name, x, and y define the\n",
+			"center of the area, which extending <range> cells in each direction (ex: a\n",
+			"range of 3 would create a 7x7 square). The skill can be specified by skill\n",
+			"ID or name. <cast time> is in milliseconds (1000 = 1 second), and the rest\n",
+			"should be self-explanatory.\n",
+			"\n",
+			"<target type> can be:\n",
+			"\t0 = self\n",
+			"\t1 = the mob's current target\n",
+			"\t2 = the mob's master\n",
+			"\t3 = random target\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\t// spawn 1 Shining Plant in the 5x5 area centered on (155,188)\n",
+			"\tareamonster(\"prontera\", 153, 186, 157, 190, \"Shining Plant\", SHINING_PLANT, 1);\n",
+			"\t// make the plant cast level 10 Cold Bolt on a random target\n",
+			"\tareamobuseskill(\"prontera\", 155, 188, 2, SHINING_PLANT, MG_COLDBOLT, 10, 3000, 1, e_gg, 3)\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

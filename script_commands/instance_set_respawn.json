@@ -1,0 +1,53 @@
+{
+	"instance_set_respawn": {
+		"params": {
+			"map_name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"instance_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map_name",
+				"x",
+				"y"
+			],
+			[
+				"map_name",
+				"x",
+				"y",
+				"instance_id"
+			]
+		],
+		"doc": [
+			"Updates the 'reload spawn' position of a instance,\n",
+			"that is where players in the instance are sent to upon @reloadscript,\n",
+			"uses the npc instance (if any) when instance_id is not provided,\n",
+			"handy to update a instance's progress so that when/if @reloadscript happens\n",
+			"the damage to the players progress is reduced.\n",
+			"It is most effective when used with instance variables (which are @reloadscript persistent)\n",
+			"\n",
+			"If a player warps into a instance before this command has been used,\n",
+			"it will use the player's warp destination as the initial respawn point,\n",
+			"it can of course be modified by using this script command at any point.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

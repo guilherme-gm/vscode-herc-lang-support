@@ -1,0 +1,50 @@
+{
+	"bonus4": {
+		"params": {
+			"bonus type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"val1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"val2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"val3": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"val4": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"bonus type",
+				"val1",
+				"val2",
+				"val3",
+				"val4"
+			]
+		],
+		"doc": [
+			"These commands are meant to be used in item scripts. They will probably\n",
+			"work outside item scripts, but the bonus will not persist for long. They,\n",
+			"as expected, refer only to an invoking character.\n",
+			"\n",
+			"You can find the full list of possible bonuses and which command to use\n",
+			"for each kind in 'doc/item_bonus.txt'.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

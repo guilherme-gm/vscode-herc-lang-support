@@ -1,0 +1,32 @@
+{
+	"achievement_iscompleted": {
+		"params": {
+			"ach_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"ach_id"
+			],
+			[
+				"ach_id",
+				"account_id"
+			]
+		],
+		"doc": [
+			"Checks whether the attached player have completed all the given achievement objectives.\n",
+			"\n",
+			"returns true if yes and false if no.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,52 @@
+{
+	"gettimer": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"event": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type"
+			],
+			[
+				"type",
+				"account id"
+			],
+			[
+				"type",
+				"account id",
+				"event"
+			]
+		],
+		"doc": [
+			"Returns informations on timers that were created by addtimer().\n",
+			"\n",
+			"valid <type> for gettimer() are:\n",
+			"\n",
+			"(0) TIMER_COUNT\n",
+			"\tWill return the total number of timers for the specified or\n",
+			"\tattached player. Can be filtered by <event>.\n",
+			"(1) TIMER_TICK_NEXT\n",
+			"\tWill return the number of ticks until the next timer runs\n",
+			"\tfor the specified or attached player. Can be filtered by <event>.\n",
+			"(2) TIMER_TICK_LAST\n",
+			"\tWill return the number of ticks until the last timer runs\n",
+			"\tfor the specified or attached player. Can be filtered by <event>.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

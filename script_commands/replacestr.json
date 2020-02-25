@@ -1,0 +1,64 @@
+{
+	"replacestr": {
+		"params": {
+			"input": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"search": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"replace": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"usecase": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"count": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"input",
+				"search",
+				"replace"
+			],
+			[
+				"input",
+				"search",
+				"replace",
+				"usecase"
+			],
+			[
+				"input",
+				"search",
+				"replace",
+				"usecase",
+				"count"
+			]
+		],
+		"doc": [
+			"Replaces all instances of a search string in the input with the specified\n",
+			"replacement string. By default is case sensitive unless <usecase> is set\n",
+			"to false. If specified it will only replace as many instances as specified\n",
+			"in the count parameter.\n",
+			"\n",
+			"Example:\n",
+			"\treplacestr(\"testing tester\", \"test\", \"dash\"); //returns \"dashing dasher\"\n",
+			"\treplacestr(\"Donkey\", \"don\", \"mon\", false); //returns \"monkey\"\n",
+			"\treplacestr(\"test test test test test\", \"test\", \"yay\", false, 3); //returns \"yay yay yay test test\"\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

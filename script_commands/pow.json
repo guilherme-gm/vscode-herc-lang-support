@@ -1,0 +1,38 @@
+{
+	"pow": {
+		"params": {
+			"number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"power": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"number",
+				"power"
+			]
+		],
+		"doc": [
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"    @ /!\\ This command is deprecated @\n",
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"\n",
+			"Returns the result of the calculation.\n",
+			"\n",
+			"Example:\n",
+			"\t.@i = pow(2, 3); // .@i will be 8\n",
+			"\n",
+			"This command is deprecated and it should not be used in new scripts, as it is\n",
+			"likely to be removed at a later time. Please use the exponentiation operator,\n",
+			"ie: (2 ** 3) instead of pow(2, 3)\n"
+		],
+		"return": "unknown",
+		"deprecated": true
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"issit": {
+		"params": {
+			"character name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"character name"
+			]
+		],
+		"doc": [
+			"This function will return a number depending on the character's sitting state.\n",
+			"If the character is sitting, it will return true, otherwise (standing) it will return false.\n",
+			"In case no player is specified, the function will return the state of the attached player.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"isloggedin": {
+		"params": {
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"char id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"account id"
+			],
+			[
+				"account id",
+				"char id"
+			]
+		],
+		"doc": [
+			"This function returns true if the specified account is logged in and\n",
+			"false if they aren't. You can also pass the char_id to check for both\n",
+			"account and char id.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

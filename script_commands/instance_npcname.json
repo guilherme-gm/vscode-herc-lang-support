@@ -1,0 +1,33 @@
+{
+	"instance_npcname": {
+		"params": {
+			"npc name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"instance id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"npc name"
+			],
+			[
+				"npc name",
+				"instance id"
+			]
+		],
+		"doc": [
+			"Retrieves the unique name given to a copy of an NPC given by \"<npc name>\"\n",
+			"in an instance specified <instance id>. If no ID is specified, the\n",
+			"instance the script is attached to is used. If in the end no instance_id,\n",
+			"is found the command halts the script execution.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,31 @@
+{
+	"min": {
+		"params": {
+			"number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"number"
+			],
+			[
+				"number",
+				"number",
+				"number"
+			]
+		],
+		"doc": [
+			"Returns the smallest (or biggest) from the set of given numbers.\n",
+			"\n",
+			"Example:\n",
+			"\t.@minimum = min(1, -6, -2, 8, 2); // .@minimum will be equal to -6\n",
+			"\t.@maximum = max(0, 5, 10, 4); // .@maximum will be equal to 10\n",
+			"\t.@level = min(BaseLevel, 70); // .@level will be the character's base level, capped to 70\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

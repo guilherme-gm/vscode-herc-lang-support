@@ -1,0 +1,27 @@
+{
+	"readbook": {
+		"params": {
+			"book id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"page": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"book id",
+				"page"
+			]
+		],
+		"doc": [
+			"This will open a book item at the specified page.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

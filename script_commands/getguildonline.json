@@ -1,0 +1,36 @@
+{
+	"getguildonline": {
+		"params": {
+			"guild id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"guild id"
+			],
+			[
+				"guild id",
+				"type"
+			]
+		],
+		"doc": [
+			"Returns the amount of players online in the specified guild id.\n",
+			"Returns -1 if the guild was not found.\n",
+			"\n",
+			"Valid <type> are:\n",
+			"\tGUILD_ONLINE_ALL         Returns the total amount of players online in the guild.\n",
+			"\tGUILD_ONLINE_VENDOR      Returns the total amount of vendors online in the guild.\n",
+			"\tGUILD_ONLINE_NO_VENDOR   Returns the total amount of non-vendors online in the guild.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

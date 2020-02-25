@@ -1,0 +1,47 @@
+{
+	"doevent": {
+		"params": {
+			"NPC object name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"event label": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"NPC object name",
+				"event label"
+			]
+		],
+		"doc": [
+			"This command will start a new execution thread in a specified NPC object\n",
+			"at the specified label. The execution of the script running this command\n",
+			"will not stop, and the event called by the doevent() command will not run\n",
+			"until the invoking script has terminated. No parameters may be passed with\n",
+			"a doevent() call.\n",
+			"\n",
+			"The script of the NPC object invoked in this manner will run as if it's\n",
+			"been invoked by the RID that was active in the script that issued a\n",
+			"'doevent'. As such, the command will not work if an RID is not attached.\n",
+			"\n",
+			"\tplace,100,100,1%TAB%script%TAB%NPC%TAB%53,{\n",
+			"\t\tmes(\"This is what you will see when you click me\");\n",
+			"\t\tclose();\n",
+			"\tOnLabel:\n",
+			"\t\tmes(\"This is what you will see if the doevent is activated\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\n",
+			"\t// ...\n",
+			"\n",
+			"\tdoevent(\"NPC::OnLabel\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

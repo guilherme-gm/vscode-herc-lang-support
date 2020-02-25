@@ -1,0 +1,38 @@
+{
+	"setbattleflag": {
+		"params": {
+			"battle flag": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"battle flag",
+				"value"
+			]
+		],
+		"doc": [
+			"Sets or gets the value of the given battle flag.\n",
+			"Battle flags are the flags found in the conf/map/battle/*.conf files and is\n",
+			"also used in Lupus' variable rates script.\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"// Will set the base experience rate to 20x (2000%)\n",
+			"\tsetbattleflag(\"base_exp_rate\", 2000);\n",
+			"\n",
+			"// Will return the value of the base experience rate (when used after the\n",
+			"// above example, it would print 2000).\n",
+			"\tmes(getbattleflag(\"base_exp_rate\"));\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

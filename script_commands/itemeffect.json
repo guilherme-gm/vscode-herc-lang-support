@@ -1,0 +1,24 @@
+{
+	"itemeffect": {
+		"params": {
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item name"
+			]
+		],
+		"doc": [
+			"This command will run the item script of the specified item on the\n",
+			"invoking character. The character does not need to posess the item, and\n",
+			"the item will not be deleted. While this command is intended for usable\n",
+			"items, it will run for any item type.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

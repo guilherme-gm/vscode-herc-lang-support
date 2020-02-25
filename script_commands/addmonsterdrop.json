@@ -1,0 +1,45 @@
+{
+	"addmonsterdrop": {
+		"params": {
+			"mob id or name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"item id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"rate": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"mob id or name",
+				"item id",
+				"rate"
+			]
+		],
+		"doc": [
+			"This command will temporarily add a drop to an existing monster. If the\n",
+			"monster already drops the specified item, its drop rate will be updated to the\n",
+			"given value.\n",
+			"\n",
+			"Both the monster and the item must be valid.  Acceptable values for the drop\n",
+			"rate are in the range [1:10000].\n",
+			"\n",
+			"Return value will be 1 in case of success (the item was added or its drop rate\n",
+			"was updated), and 0 otherwise (there were no free item drop slots).\n",
+			"\n",
+			"Example:\n",
+			"\t// Add Poring Doll (741) to the Poring's (1002) drops, with 1% (100) rate\n",
+			"\taddmonsterdrop(PORING, Poring_Doll, 100);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

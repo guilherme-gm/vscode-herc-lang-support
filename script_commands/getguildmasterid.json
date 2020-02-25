@@ -1,0 +1,31 @@
+{
+	"getguildmasterid": {
+		"params": {
+			"guild id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"guild id"
+			]
+		],
+		"doc": [
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"    @ /!\\ This command is deprecated @\n",
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"\n",
+			"This function will return the character ID number of the guild master of\n",
+			"the guild specified by the ID. 0 if the character is not a guild master of\n",
+			"any guild.\n",
+			"\n",
+			"This command is deprecated and it should not be used in new scripts, as it is\n",
+			"likely to be removed at a later time. Please use getguildinfo instead:\n",
+			"\tgetguildinfo(GUILDINFO_MASTER_CID, <guild id>)\n"
+		],
+		"return": "unknown",
+		"deprecated": true
+	}
+}

@@ -1,0 +1,35 @@
+{
+	"failedremovecards": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot",
+				"type"
+			]
+		],
+		"doc": [
+			"This command will remove all cards from the item found in the specified\n",
+			"equipment slot of the invoking character. 'type' determines what happens\n",
+			"to the item and the cards:\n",
+			"\n",
+			" 0 - will destroy both the item and the cards.\n",
+			" 1 - will keep the item, but destroy the cards.\n",
+			" 2 - will keep the cards, but destroy the item.\n",
+			"\n",
+			"Whatever the type is, it will also show a failure effect on screen.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,49 @@
+{
+	"specialeffect2": {
+		"params": {
+			"effect number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"send_target": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"Player Name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"effect number"
+			],
+			[
+				"effect number",
+				"send_target"
+			],
+			[
+				"effect number",
+				"send_target",
+				"Player Name"
+			]
+		],
+		"doc": [
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"    @ /!\\ This command is deprecated @\n",
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"\n",
+			"This command behaves identically to the specialeffect(), but the effect\n",
+			"will be centered on the invoking character's sprite.\n",
+			"\n",
+			"This command is deprecated and it should not be used in new scripts, as it is\n",
+			"likely to be removed at a later time. Please use specialeffect instead,\n",
+			"ie: specialeffect(<effect number>, <send_target>, playerattached())\n"
+		],
+		"return": "unknown",
+		"deprecated": true
+	}
+}

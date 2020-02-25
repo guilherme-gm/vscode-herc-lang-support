@@ -1,0 +1,23 @@
+{
+	"killmonstergid": {
+		"params": {
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"GID"
+			]
+		],
+		"doc": [
+			"This command will kill the specific monster GID. The difference between\n",
+			"this command and 'unitkill', is this command does not trigger monster's\n",
+			"event label.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

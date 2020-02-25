@@ -1,0 +1,23 @@
+{
+	"guildgetexp": {
+		"params": {
+			"amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"amount"
+			]
+		],
+		"doc": [
+			"This will give the specified amount of guild experience points to the\n",
+			"guild the invoking character belongs to. It will silently fail if they do\n",
+			"not belong to any guild.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

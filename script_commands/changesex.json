@@ -1,0 +1,21 @@
+{
+	"changesex": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command will change the gender for the attached character's account.\n",
+			"If it was male, it will become female, if it was female, it will become\n",
+			"male. The change will be written to the character server, the player will\n",
+			"receive the message: \"Need disconnection to perform change-sex request...\"\n",
+			"and the player will be immediately kicked to the login screen. When they\n",
+			"log back in, they will be the opposite sex.\n",
+			"\n",
+			"If there are any Dancer/Gypsy or Bard/Clown characters on the account,\n",
+			"they will also have their skills reset upon 'changesex'.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

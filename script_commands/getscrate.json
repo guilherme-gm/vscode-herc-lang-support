@@ -1,0 +1,47 @@
+{
+	"getscrate": {
+		"params": {
+			"effect type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"base rate": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"effect type",
+				"base rate"
+			],
+			[
+				"effect type",
+				"base rate",
+				"GID"
+			]
+		],
+		"doc": [
+			"This function will return the chance of a status effect affecting the\n",
+			"invoking character, in percent, modified by the their current defense\n",
+			"against said status. The 'base rate' is the base chance of the status\n",
+			"effect being inflicted, in percent.\n",
+			"\n",
+			"\tif (rand(100) > getscrate(Eff_Blind, 50)) {\n",
+			"\t\t// do something\n",
+			"\t}\n",
+			"\n",
+			"You can see the full list of available effect types you can possibly\n",
+			"inflict in 'doc/constants.md' under 'Status effects'.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

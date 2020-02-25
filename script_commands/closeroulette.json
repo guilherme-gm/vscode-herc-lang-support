@@ -1,0 +1,14 @@
+{
+	"closeroulette": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"Force close roulette window.\n",
+			"Works for 20141008 main clients, 20140903 re, any zero.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

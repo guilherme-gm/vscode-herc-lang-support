@@ -1,0 +1,40 @@
+{
+	"getequipoption": {
+		"params": {
+			"equip_index": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equip_index",
+				"slot",
+				"type"
+			]
+		],
+		"doc": [
+			"Gets the option information of an equipment.\n",
+			"\n",
+			"<equipment_index> For a list of equipment indexes see getequipid().\n",
+			"<option_slot> can range from 1 to MAX_ITEM_OPTIONS\n",
+			"<type> can be IT_OPT_INDEX (the ID of the option bonus, @see \"Id\" or \"Name\" in db/item_options.conf)\n",
+			"       or IT_OPT_VALUE (the value of the bonus script of the equipment, @see \"Script\" in db_item_options.conf).\n",
+			"\n",
+			"returns the value of the slot if exists or -1 for invalid slot, type or slots.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

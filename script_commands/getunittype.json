@@ -1,0 +1,30 @@
+{
+	"getunittype": {
+		"params": {
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"GID"
+			]
+		],
+		"doc": [
+			"Returns the type of object from the given Game ID. Returns -1 if the given GID\n",
+			"does not exist. The return values are :-\n",
+			"\n",
+			"\tUNITTYPE_PC     0\n",
+			"\tUNITTYPE_NPC    1\n",
+			"\tUNITTYPE_PET    2\n",
+			"\tUNITTYPE_MOB    3\n",
+			"\tUNITTYPE_HOM    4\n",
+			"\tUNITTYPE_MER    5\n",
+			"\tUNITTYPE_ELEM   6\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

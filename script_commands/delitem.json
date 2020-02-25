@@ -1,0 +1,50 @@
+{
+	"delitem": {
+		"params": {
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item name",
+				"amount"
+			],
+			[
+				"item name",
+				"amount",
+				"account ID"
+			]
+		],
+		"doc": [
+			"This command will remove a specified amount of items from the invoking or\n",
+			"target character. Like all the item commands, it uses the item ID found\n",
+			"inside 'db/(pre-)re/item_db.txt'.\n",
+			"\n",
+			"\tdelitem(Apple, 10); // The person will lose 10 apples\n",
+			"\tdelitem(Old_Violet_Box, 1);  // The person will lose 1 Old Violet Box\n",
+			"\n",
+			"It is always a good idea to check if the player actually has the items\n",
+			"before you delete them. If you try to delete more items that the player\n",
+			"has, the player will lose the ones he/she has and the script will be\n",
+			"terminated with an error.\n",
+			"\n",
+			"Like getitem() this command will also accept an 'english name' field from\n",
+			"the database. If the name is not found, nothing will be deleted.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

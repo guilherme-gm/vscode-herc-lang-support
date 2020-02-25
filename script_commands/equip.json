@@ -1,0 +1,42 @@
+{
+	"equip": {
+		"params": {
+			"item id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item id"
+			]
+		],
+		"doc": [
+			"These commands are to equip a equipment on the attached character.\n",
+			"The equip function will equip the item ID given when the player has this\n",
+			"item in his/her inventory, while the autoequip function will equip the\n",
+			"given item ID when this is looted. The option parameter of the autoequip\n",
+			"is 1 or 0, 1 to turn it on, and 0 to turn it off.\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"//This will equip a 1104 (falchion) on the character if this is in the\n",
+			"//inventory.\n",
+			"\tequip(Falchion);\n",
+			"\n",
+			"//This will equip a +10 1104 (falchion) on the character if this is in the\n",
+			"//inventory.\n",
+			"\tequip2(Falchion, 10, 0, 0, 0, 0, 0);\n",
+			"\n",
+			"//The invoked character will now automatically equip a falchion when it's\n",
+			"//looted.\n",
+			"\tautoequip(Falchion, 1);\n",
+			"\n",
+			"//The invoked character will no longer automatically equip a falchion.\n",
+			"\tautoequip(Falchion, 0);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

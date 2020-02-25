@@ -1,0 +1,56 @@
+{
+	"getguildmember": {
+		"params": {
+			"guild id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"guild id"
+			],
+			[
+				"guild id",
+				"type"
+			]
+		],
+		"doc": [
+			"This command will find all members of a specified guild and returns their names\n",
+			"(or character id or account id depending on the value of \"type\") into an array\n",
+			"of temporary global variables.\n",
+			"\n",
+			"Upon executing this,\n",
+			"\n",
+			"$@guildmembername$[] is a global temporary string array which contains all the\n",
+			"                     names of these guild members.\n",
+			"                     (only set when type is 0 or not specified)\n",
+			"\n",
+			"$@guildmembercid[]   is a global temporary number array which contains the\n",
+			"                     character id of these guild members.\n",
+			"                     (only set when type is 1)\n",
+			"\n",
+			"$@guildmemberaid[]   is a global temporary number array which contains the\n",
+			"                     account id of these guild members.\n",
+			"                     (only set when type is 2)\n",
+			"\n",
+			"$@guildmembercount   is the number of guild members that were found.\n",
+			"\n",
+			"The guild members will be found regardless of whether they are online or offline.\n",
+			"Note that the names come in no particular order.\n",
+			"\n",
+			"Be sure to use $@guildmembercount to go through this array, and not\n",
+			"getarraysize(), because it is not cleared between runs of getguildmember().\n",
+			"\n",
+			"For usage examples, see getpartymember().\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

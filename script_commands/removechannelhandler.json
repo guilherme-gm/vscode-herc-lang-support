@@ -1,0 +1,27 @@
+{
+	"removechannelhandler": {
+		"params": {
+			"#channel": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"NPC::OnEvent": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"#channel",
+				"NPC::OnEvent"
+			]
+		],
+		"doc": [
+			"Removes a channel handler added by addchannelhandler()\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

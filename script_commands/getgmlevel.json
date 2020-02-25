@@ -1,0 +1,24 @@
+{
+	"getgmlevel": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This function will return the (GM) level of player group the account to\n",
+			"which the invoking character belongs. If this is somehow executed from a\n",
+			"console command, 99 will be returned, and 0 will be returned if the\n",
+			"account has no GM level.\n",
+			"\n",
+			"This allows you to make NPC's only accessible for certain GM levels, or\n",
+			"behave specially when talked to by GMs.\n",
+			"\n",
+			"\tif (getgmlevel() > 0)\n",
+			"\t\tmes(\"What is your command, your godhood?\");\n",
+			"\tif (getgmlevel() < 99)\n",
+			"\t\tend;\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

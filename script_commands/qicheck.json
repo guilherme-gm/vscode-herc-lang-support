@@ -1,0 +1,23 @@
+{
+	"qicheck": {
+		"params": {
+			"queue_iterator_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"queue_iterator_id"
+			]
+		],
+		"doc": [
+			"Checks whether the current member in the iterator's queue exists.\n",
+			"\n",
+			"Returns true when it does, false otherwise.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

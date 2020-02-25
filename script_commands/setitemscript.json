@@ -1,0 +1,49 @@
+{
+	"setitemscript": {
+		"params": {
+			"item id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"\"{ new item script }\"": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item id",
+				"\"{ new item script }\""
+			],
+			[
+				"item id",
+				"\"{ new item script }\"",
+				"type"
+			]
+		],
+		"doc": [
+			"Set a new script bonus to the Item. Very useful for game events.\n",
+			"You can remove an item's itemscript by leaving the itemscript argument\n",
+			"empty. Returns 1 on success, or 0 on fail (item_id not found or new item\n",
+			"script is invalid).\n",
+			"Type can optionally be used indicates which script to set (default is 0):\n",
+			" 0 - Script\n",
+			" 1 - OnEquip_Script\n",
+			" 2 - OnUnequip_Script\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"setitemscript(Silver_Ring_, \"{ if (isequipped(Santa's_Hat) == 0) end; if (getskilllv(AL_TELEPORT)) { skill(MC_IDENTIFY, 1); } else { skill(AL_TELEPORT, 1+isequipped(Santa's_Hat)); } }\");\n",
+			"setitemscript(Silver_Ring_, \"\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

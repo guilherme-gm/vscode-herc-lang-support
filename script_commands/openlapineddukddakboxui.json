@@ -1,0 +1,22 @@
+{
+	"openlapineddukddakboxui": {
+		"params": {
+			"item_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item_id"
+			]
+		],
+		"doc": [
+			"Opens lapine ddukddak user interface for the player\n",
+			"returns true on success and false on failure\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

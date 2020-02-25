@@ -1,0 +1,90 @@
+{
+	"setiteminfo": {
+		"params": {
+			"item ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item ID",
+				"type",
+				"value"
+			]
+		],
+		"doc": [
+			"This function will look up the item with the specified ID number in the\n",
+			"database and return the info set by TYPE argument.\n",
+			"It will return -1 if there is no such item.\n",
+			"\n",
+			"Valid types are:\n",
+			"\n",
+			"\tITEMINFO_BUYPRICE                - Buy Price\n",
+			"\tITEMINFO_SELLPRICE               - Sell Price\n",
+			"\tITEMINFO_TYPE                    - Item Type\n",
+			"\tITEMINFO_MAXCHANCE               - Max drop chance of this item e.g. 1 = 0.01% , etc..\n",
+			"\t\t                               if = 0, then monsters don't drop it at all (rare or a quest item)\n",
+			"\t\t                               if = 10000, then this item is sold in NPC shops only\n",
+			"\tITEMINFO_SEX                     - Sex\n",
+			"\tITEMINFO_LOC                     - Equip location\n",
+			"\tITEMINFO_WEIGHT                  - Weight (note: 1/10 of unit)\n",
+			"\tITEMINFO_ATK                     - Attack\n",
+			"\tITEMINFO_DEF                     - Defense\n",
+			"\tITEMINFO_RANGE                   - Range\n",
+			"\tITEMINFO_SLOTS                   - Slots\n",
+			"\tITEMINFO_SUBTYPE                 - Item subtype\n",
+			"\tITEMINFO_ELV                     - Equip min. level\n",
+			"\tITEMINFO_ELV_MAX                 - Equip max. level\n",
+			"\tITEMINFO_WLV                     - Weapon level\n",
+			"\tITEMINFO_VIEWID                  - View ID (\"Sprite\" field in the Item DB)\n",
+			"\tITEMINFO_MATK                    - MATK (only relevant if RENEWAL is set)\n",
+			"\tITEMINFO_VIEWSPRITE              - View Sprite (\"ViewSprite\" field in the Item DB)\n",
+			"\tITEMINFO_TRADE                   - Trade Restriction (see \"doc/constant.md\": item trade restriction)\n",
+			"\tITEMINFO_DELAY                   - Delay\n",
+			"\tITEMINFO_DROPEFFECT_MODE         - Drop effect mode\n",
+			"\tITEMINFO_CLASS_BASE_1            - Class base 1\n",
+			"\tITEMINFO_CLASS_BASE_2            - Class base 2\n",
+			"\tITEMINFO_CLASS_BASE_3            - Class base 3\n",
+			"\tITEMINFO_CLASS_UPPER             - Class Upper\n",
+			"\tITEMINFO_FLAG_NO_REFINE          - No refine flag\n",
+			"\tITEMINFO_FLAG_DELAY_CONSUME      - Delay consume flag\n",
+			"\tITEMINFO_FLAG_AUTOEQUIP          - Auto equip flag\n",
+			"\tITEMINFO_FLAG_AUTO_FAVORITE      - Auto favorite flag\n",
+			"\tITEMINFO_FLAG_BUYINGSTORE        - Buying store flag\n",
+			"\tITEMINFO_FLAG_BINDONEQUIP        - Bind on equip flag\n",
+			"\tITEMINFO_FLAG_KEEPAFTERUSE       - Keep after use flag\n",
+			"\tITEMINFO_FLAG_FORCE_SERIAL       - Force serial flag\n",
+			"\tITEMINFO_FLAG_NO_OPTIONS         - No random item options flag\n",
+			"\tITEMINFO_FLAG_DROP_ANNOUNCE      - Drop announce flag\n",
+			"\tITEMINFO_FLAG_SHOWDROPEFFECT     - Shopw drop effect flag\n",
+			"\tITEMINFO_STACK_AMOUNT            - Stack amount\n",
+			"\tITEMINFO_STACK_FLAG              - Stack amount flag (1: inventory, 2:cart, 4:storage: 8:guildstorage)\n",
+			"\tITEMINFO_ITEM_USAGE_FLAG         - Item usage flag\n",
+			"\tITEMINFO_ITEM_USAGE_OVERRIDE     - Item usage override\n",
+			"\tITEMINFO_GM_LV_TRADE_OVERRIDE    - Min. GM level override trade restriction\n",
+			"\n",
+			"Check sample in doc/sample/getiteminfo.txt\n",
+			"\n",
+			"The setiteminfo function will, instead, set the item's parameters. It returns\n",
+			"the new value on success, or -1 on failure (item_id not found).\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\tsetiteminfo(Stone, ITEMINFO_WEIGHT, 9990); // Stone now weighs 999.0\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

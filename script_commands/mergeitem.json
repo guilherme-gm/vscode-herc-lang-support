@@ -1,0 +1,16 @@
+{
+	"mergeitem": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"mergeitem() opens the item merge window,\n",
+			"The Item merge window shows all stackable item(same ItemID) with different\n",
+			"serial, that can be merged into one stack.\n",
+			"Check sample: npc/other/item_merge.txt\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

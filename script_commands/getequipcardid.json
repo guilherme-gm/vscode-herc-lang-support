@@ -1,0 +1,31 @@
+{
+	"getequipcardid": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot",
+				"card slot"
+			]
+		],
+		"doc": [
+			"Returns value for equipped item slot in the indicated slot (0, 1, 2, or 3).\n",
+			"\n",
+			"This function returns CARD ID, 255, 254, -255 (for card 0, if the item is\n",
+			"produced). It's useful for when you want to check whether an item contains\n",
+			"cards or if it's signed.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

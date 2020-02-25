@@ -1,0 +1,55 @@
+{
+	"setarray": {
+		"params": {
+			"array name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"first value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"array name",
+				"first value",
+				"value"
+			],
+			[
+				"array name",
+				"first value",
+				"value",
+				"value",
+				"value"
+			]
+		],
+		"doc": [
+			"This command will allow you to quickly fill up an array in one go. Check\n",
+			"the Kafra scripts in the distribution to see this used a lot.\n",
+			"\n",
+			"\tsetarray(.@array[0], 100, 200, 300, 400, 500, 600);\n",
+			"\n",
+			"The index of the first element of the array to alter can be omitted if\n",
+			"zero. For example:\n",
+			"\n",
+			"\tsetarray(.@array, 200, 200, 200);\n",
+			"\tsetarray(.@array[1], 300, 150);\n",
+			"\n",
+			"will produce:\n",
+			"\n",
+			" .@array[0] = 200\n",
+			" .@array[1] = 300\n",
+			" .@array[2] = 150\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

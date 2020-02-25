@@ -1,0 +1,66 @@
+{
+	"getcalendartime": {
+		"params": {
+			"hour": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"minute": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"day of month": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"day of week": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"hour",
+				"minute"
+			],
+			[
+				"hour",
+				"minute",
+				"day of month"
+			],
+			[
+				"hour",
+				"minute",
+				"day of month",
+				"day of week"
+			]
+		],
+		"doc": [
+			"This function returns the timestamp of the next ocurrence of given time.\n",
+			"\n",
+			"Day of Month specifies a day between 1 and 31 in the future, by default its value is -1 (don't use).\n",
+			"Day of Week specifies a day in the week and its valid values are:\n",
+			"\t0 - SUNDAY\n",
+			"\t1 - MONDAY\n",
+			"\t2 - TUESDAY\n",
+			"\t3 - WEDNESDAY\n",
+			"\t4 - THURSDAY\n",
+			"\t5 - FRIDAY\n",
+			"\t6 - SATURDAY\n",
+			"\n",
+			"In order to use Day of Week, you must use Day of Month as -1.\n",
+			"If for some reason the command fails, it'll return -1.\n",
+			"\n",
+			"Examples :\n",
+			"\tgetcalendartime(19, 00); // Next 7 pm\n",
+			"\tgetcalendartime(19, 00, 6); // Next day 6 of the month, at 7pm\n",
+			"\tgetcalendartime(19, 10, -1, 1); // Next Monday, at 7:10pm\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

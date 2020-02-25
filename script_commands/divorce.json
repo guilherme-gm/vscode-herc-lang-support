@@ -1,0 +1,20 @@
+{
+	"divorce": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This function will \"un-marry\" the invoking character from whoever they\n",
+			"were married to. Both will no longer be each other's marriage partner,\n",
+			"(at least in current Git, which prevents the cases of multi-spouse\n",
+			"problems). It will return true upon success or false if the character\n",
+			"was not married at all.\n",
+			"\n",
+			"This function will also destroy both wedding rings and send a message to\n",
+			"both players, telling them they are now divorced.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

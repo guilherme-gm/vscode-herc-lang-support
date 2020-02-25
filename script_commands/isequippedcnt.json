@@ -1,0 +1,43 @@
+{
+	"isequippedcnt": {
+		"params": {
+			"item id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item id"
+			],
+			[
+				"item id",
+				"item id"
+			],
+			[
+				"item id",
+				"item id",
+				"item id"
+			],
+			[
+				"item id",
+				"item id",
+				"item id",
+				"item id"
+			]
+		],
+		"doc": [
+			"This function is similar to isequipped(), but instead of true or false, it will\n",
+			"return the number of equipped items/cards in the list given that were found on the\n",
+			"invoking character.\n",
+			"\n",
+			"\tif (isequippedcnt(Poring_Card, Poring__Card, Poporing_Card, Marin_Card) == 4)\n",
+			"\t\tmes(\"Finally got all four poring cards?\");\n",
+			"\tif (isequippedcnt(Helm_Of_Sun_, Earring_) == 2)\n",
+			"\t\tmes(\"You equipped both Helm of Sun and Earring.\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

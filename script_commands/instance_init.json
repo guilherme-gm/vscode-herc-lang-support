@@ -1,0 +1,22 @@
+{
+	"instance_init": {
+		"params": {
+			"instance id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"instance id"
+			]
+		],
+		"doc": [
+			"Initializes the instance given by <instance id>. This copies all NPCs from\n",
+			"the source maps to the instanced maps.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"guildchangegm": {
+		"params": {
+			"guild id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"new master's name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"guild id",
+				"new master's name"
+			]
+		],
+		"doc": [
+			"This function will change the Guild Master of a guild. The ID is the\n",
+			"guild's id, and the new guild master's name must be passed.\n",
+			"\n",
+			"Returns true on success, false otherwise.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

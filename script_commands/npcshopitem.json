@@ -1,0 +1,64 @@
+{
+	"npcshopitem": {
+		"params": {
+			"name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"item id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"price": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"name",
+				"item id",
+				"price"
+			],
+			[
+				"name",
+				"item id",
+				"price",
+				"item id",
+				"price"
+			],
+			[
+				"name",
+				"item id",
+				"price",
+				"item id",
+				"price",
+				"item id",
+				"price"
+			],
+			[
+				"name",
+				"item id",
+				"price",
+				"item id",
+				"price",
+				"item id",
+				"price"
+			]
+		],
+		"doc": [
+			"This command lets you override the contents of an existing NPC shop or\n",
+			"cashshop. The current sell list will be wiped, and only the items\n",
+			"specified with the price specified will be for sale.\n",
+			"\n",
+			"The function returns true if shop was updated successfully, or false if not found.\n",
+			"\n",
+			"Note that you cannot use -1 to specify default selling price!\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

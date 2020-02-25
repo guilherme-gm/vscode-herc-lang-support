@@ -1,0 +1,42 @@
+{
+	"countnameditem": {
+		"params": {
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"character ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item name",
+				"character ID"
+			]
+		],
+		"doc": [
+			"This function will return the number of signed items for the specified item ID\n",
+			"that the invoking character has in their inventory.\n",
+			"\n",
+			"\tmes(\"[Item Checker]\");\n",
+			"\tif (countnameditem(Apple) > 0) {\n",
+			"\t\tmes(\"You have an apple with your name on it!\");\n",
+			"\t} else {\n",
+			"\t\tmes(\"You do not have an apple with your name on it.\");\n",
+			"\t}\n",
+			"\tnext();\n",
+			"\tmes(\"[Item Checker]\");\n",
+			"\tmesf(\"You have %d apples with John's name on it!\", countnameditem(Apple, \"John\"));\n",
+			"\tclose();\n",
+			"\n",
+			"Like getnameditem(), this function will also accept an 'english name' from the\n",
+			"database as an argument.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

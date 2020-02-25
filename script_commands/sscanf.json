@@ -1,0 +1,45 @@
+{
+	"sscanf": {
+		"params": {
+			"string": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"format": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"string",
+				"format"
+			],
+			[
+				"string",
+				"format"
+			],
+			[
+				"string",
+				"format"
+			],
+			[
+				"string",
+				"format"
+			]
+		],
+		"doc": [
+			"C style sscanf. All C format specifiers are supported.\n",
+			"More info: sscanf @ www.cplusplus.com. The number of params is only\n",
+			"limited by Hercules' script engine.\n",
+			"\n",
+			"Example:\n",
+			"\tsscanf(\"This is a test: 42 foobar\", \"This is a test: %d %s\", .@num, .@str$);\n",
+			"\tdispbottom(.@num + \" \" + .@str$); //prints \"42 foobar\"\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

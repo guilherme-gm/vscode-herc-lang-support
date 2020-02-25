@@ -1,0 +1,33 @@
+{
+	"autofavoriteitem": {
+		"params": {
+			"item_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item_id",
+				"flag"
+			]
+		],
+		"doc": [
+			"This function will auto set an item as favorite when <item_id> is obtained.\n",
+			"If its favorite item, it will be auto moved to favorite tab, else move out from favorite tab.\n",
+			"This setting affect not only attached player, but also everyone player globally.\n",
+			"\n",
+			"Valid Parameters:\n",
+			"\t<item_id> - item ID\n",
+			"\t<flag>    - true/false (true = favorite item, false = otherwise)\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

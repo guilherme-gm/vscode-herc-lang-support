@@ -1,0 +1,14 @@
+{
+	"checkwug": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This function will return true if the invoking character has a warg and false if\n",
+			"they don't.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

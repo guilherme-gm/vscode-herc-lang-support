@@ -1,0 +1,71 @@
+{
+	"questinfo": {
+		"params": {
+			"Icon": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"Map Mark Color": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"Icon"
+			],
+			[
+				"Icon",
+				"Map Mark Color"
+			]
+		],
+		"doc": [
+			"This is esentially a showevent() that supports different conditions that can be set using setquestinfo().\n",
+			"Use this only in an OnInit label.\n",
+			"For Icon, use one of the following:\n",
+			"\n",
+			"No Icon\t\t: QTYPE_NONE\n",
+			"! Quest Icon\t: QTYPE_QUEST\n",
+			"? Quest Icon\t: QTYPE_QUEST2\n",
+			"! Job Icon\t: QTYPE_JOB\n",
+			"? Job Icon\t: QTYPE_JOB2\n",
+			"! Event Icon\t: QTYPE_EVENT\n",
+			"? Event Icon\t: QTYPE_EVENT2\n",
+			"Warg\t\t: QTYPE_WARG\n",
+			"Warg Face\t: QTYPE_WARG2 (Only for packetver >= 20120410 && packetver < 20170315)\n",
+			"\n",
+			"- Only for packetver >= 20170315\n",
+			"Click Me Icon      : QTYPE_CLICKME\n",
+			"! Daily Quest Icon : QTYPE_DAILYQUEST\n",
+			"! Green Event Icon : QTYPE_EVENT3\n",
+			"! Job Quest Icon   : QTYPE_JOBQUEST\n",
+			"Jumping Poring     : QTYPE_JUMPING_PORING\n",
+			"\n",
+			"Map Mark Color, when used, creates a mark in the user's mini map on the position of the NPC,\n",
+			"the available color values are:\n",
+			"\n",
+			"0 - No Marker\n",
+			"1 - Yellow Marker\n",
+			"2 - Green Marker\n",
+			"3 - Purple Marker\n",
+			"\n",
+			"When a user shows up on a map, each NPC is checked for questinfo that has been set.\n",
+			"If questinfo is present, it will check if the quest has been started, if it has not, the bubble will appear.\n",
+			"\n",
+			"Example\n",
+			"\tizlude,100,100,4\tscript\tTest\t844,{\n",
+			"\t\tmes(\"[Test]\");\n",
+			"\t\tmes(\"Hello World.\");\n",
+			"\t\tclose();\n",
+			"\n",
+			"\tOnInit:\n",
+			"\t\tquestinfo(QTYPE_QUEST);\n",
+			"\t\tend;\n",
+			"\t}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,23 @@
+{
+	"qiclear": {
+		"params": {
+			"queue_iterator_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"queue_iterator_id"
+			]
+		],
+		"doc": [
+			"Deletes a queue iterator from memory.\n",
+			"\n",
+			"Returns false when it fails, otherwise true is returned.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

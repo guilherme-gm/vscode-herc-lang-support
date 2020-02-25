@@ -1,0 +1,26 @@
+{
+	"sqrt": {
+		"params": {
+			"number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"number"
+			]
+		],
+		"doc": [
+			"Returns square-root of number.\n",
+			"\n",
+			"Note: The value is truncated to integer.\n",
+			"\n",
+			"Example:\n",
+			"\t.@i = sqrt(25); // .@i will be 5\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

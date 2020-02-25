@@ -1,0 +1,52 @@
+{
+	"getwaitingroomstate": {
+		"params": {
+			"information type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"NPC object name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"information type"
+			],
+			[
+				"information type",
+				"NPC object name"
+			]
+		],
+		"doc": [
+			"This function will return information about the waiting room state for the\n",
+			"attached waiting room or for a waiting room attached to the specified NPC\n",
+			"if any.\n",
+			"\n",
+			"The valid information types are:\n",
+			"\n",
+			" 0  - Number of users currently in the waiting room\n",
+			"\t  $@chatmembers[] - list of user account_id\n",
+			" 1  - Maximum number of users allowed.\n",
+			" 2  - Will return 1 if the waiting room has a trigger set.\n",
+			"      0 otherwise.\n",
+			" 3  - Will return 1 if the waiting room is currently disabled.\n",
+			"      0 otherwise.\n",
+			" 4  - The Title of the waiting room (string)\n",
+			" 5  - Password of the waiting room, if any. Pointless, since there is no\n",
+			"      way to set a password on a waiting room right now.\n",
+			" 16 - Event name of the waiting room (string)\n",
+			" 32 - Whether or not the waiting room is full.\n",
+			" 33 - Whether the amount of users in the waiting room is higher than the\n",
+			"      trigger number.\n",
+			" 34 - Minimum Base Level to enter waiting room.\n",
+			" 35 - Maximum Base Level to enter waiting room.\n",
+			" 36 - Minimum Zeny to enter waiting room.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

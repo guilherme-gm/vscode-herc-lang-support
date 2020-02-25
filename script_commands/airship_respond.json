@@ -1,0 +1,28 @@
+{
+	"airship_respond": {
+		"params": {
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"flag"
+			]
+		],
+		"doc": [
+			"Send client respond to different private airship status.\n",
+			"the available flags are:\n",
+			"\tP_AIRSHIP_NONE\n",
+			"\tP_AIRSHIP_RETRY\n",
+			"\tP_AIRSHIP_INVALID_START_MAP\n",
+			"\tP_AIRSHIP_INVALID_END_MAP\n",
+			"\tP_AIRSHIP_ITEM_NOT_ENOUGH\n",
+			"\tP_AIRSHIP_ITEM_INVALID\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

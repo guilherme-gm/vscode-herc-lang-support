@@ -1,0 +1,41 @@
+{
+	"sellitemcurrency": {
+		"params": {
+			"Item_ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"qty": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"refine": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"Item_ID",
+				"qty"
+			],
+			[
+				"Item_ID",
+				"qty",
+				"refine"
+			]
+		],
+		"doc": [
+			"adds <Item_ID> as currency into expanded barter shop (NST_EXPANDED_BARTER)\n",
+			"If <refine> set to -1, mean for any refine level.\n",
+			"if <refine> missing used value -1.\n",
+			"\n",
+			"Need PACKETVER 20190904 main or 20190904 RE or 20190828 zero or newer.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

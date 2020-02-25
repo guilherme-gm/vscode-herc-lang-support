@@ -1,0 +1,54 @@
+{
+	"getequippercentrefinery": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			],
+			[
+				"equipment slot",
+				"type"
+			]
+		],
+		"doc": [
+			"This function calculates and returns the percent value chance to\n",
+			"successfully refine the item found in the specified equipment slot of the\n",
+			"invoking character by +1. Refine rates are defined in the db/<re/pre-re>/refine_db.conf\n",
+			"files. For a list of equipment slots see getequipid().\n",
+			"\n",
+			"These values can be displayed for the player to see, or used to calculate\n",
+			"the random change of a refine succeeding or failing and then going through\n",
+			"with it (which is what the official NPC refinery scripts use it for).\n",
+			"\n",
+			"Refine Chance Type Constants -\n",
+			"REFINE_CHANCE_TYPE_NORMAL: 0        (Normal Ores)\n",
+			"REFINE_CHANCE_TYPE_ENRICHED: 1      (Enriched Ores)\n",
+			"REFINE_CHANCE_TYPE_E_NORMAL: 2      (Event Normal Ores)\n",
+			"REFINE_CHANCE_TYPE_E_ENRICHED: 3    (Event Enriched Ores)\n",
+			"\n",
+			"Refine rate information -\n",
+			"Normal Ores: http://ro.gnjoy.com/news/probability/View.asp?category=4&seq=1941553&curpage=1\n",
+			"Enriched Ores:  http://ro.gnjoy.com/news/probability/View.asp?category=4&seq=1941565&curpage=1\n",
+			"Event Normal Ores: http://ro.gnjoy.com/news/probability/View.asp?category=4&seq=1941558&curpage=1\n",
+			"Event Enriched Ores: http://ro.gnjoy.com/news/probability/View.asp?category=4&seq=1941567&curpage=1\n",
+			"\n",
+			"// This will find a random number from 0 - 99 and if that is equal to or\n",
+			"// more than the value recovered by this command it will show a message\n",
+			"\tif (getequippercentrefinery(EQI_HAND_L, REFINE_CHANCE_TYPE_NORMAL) <= rand(100))\n",
+			"\t\tmes(\"Aww\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

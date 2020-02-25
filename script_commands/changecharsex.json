@@ -1,0 +1,15 @@
+{
+	"changecharsex": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command is exactly same as changesex(), with an exception that,\n",
+			"character sex will be changed instead of account sex.\n",
+			"Requires client 2014-10-22 or greater.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,31 @@
+{
+	"marriage": {
+		"params": {
+			"spouse name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"spouse name"
+			]
+		],
+		"doc": [
+			"This function will marry two characters, the invoking character and the\n",
+			"one referred to by name given, together, setting them up as each other's\n",
+			"marriage partner. No second function call has to be issued (in current Git\n",
+			"at least) to make sure the marriage works both ways. The function returns\n",
+			"true upon success, or false if the marriage could not be completed, either\n",
+			"because the other character wasn't found or because one of the two\n",
+			"characters is already married.\n",
+			"\n",
+			"This will do nothing else for the marriage except setting up the spouse ID\n",
+			"for both of these characters. No rings will be given and no effects will\n",
+			"be shown.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

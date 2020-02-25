@@ -1,0 +1,40 @@
+{
+	"unitwalk": {
+		"params": {
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"target_GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"GID",
+				"target_GID"
+			]
+		],
+		"doc": [
+			"This is one command, but can be used in two ways. If only the first\n",
+			"argument is given, the unit whose GID is given will start walking towards\n",
+			"the target whose GID is given.\n",
+			"\n",
+			"When 2 arguments are passed, the given unit will walk to the given x,y\n",
+			"coordinates on the map where the unit currently is.\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"//Will move/walk the poring we made to the coordinates 150,150\n",
+			"\tunitwalk(.GID, 150, 150);\n",
+			"\n",
+			"//NPC will move towards the attached player.\n",
+			"\tunitwalk(.GID, getcharid(CHAR_ID_ACCOUNT));//a player's GID is their account ID\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

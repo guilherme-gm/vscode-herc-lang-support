@@ -1,0 +1,34 @@
+{
+	"flagemblem": {
+		"params": {
+			"guild id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"guild id"
+			]
+		],
+		"doc": [
+			"This command only works when run by the NPC objects which have sprite id\n",
+			"GUILD_FLAG (722), which is a 3D guild flag sprite. If it isn't, the data\n",
+			"will change, but nothing will be seen by anyone. If it is invoked in\n",
+			"that manner, the emblem of the specified guild will appear on the flag,\n",
+			"though, if any players are watching it at this moment, they will not see\n",
+			"the emblem change until they move out of sight of the flag and return.\n",
+			"\n",
+			"This is commonly used in official guildwar scripts with a function call\n",
+			"which returns a guild id:\n",
+			"\n",
+			"// This will change the emblem on the flag to that of the guild that owns\n",
+			"// \"guildcastle\"\n",
+			"\n",
+			"\tflagemblem(getcastledata(\"guildcastle\", 1));\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

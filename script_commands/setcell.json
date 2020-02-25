@@ -1,0 +1,94 @@
+{
+	"setcell": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"x2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"x1",
+				"y1",
+				"x2",
+				"y2",
+				"type",
+				"flag"
+			]
+		],
+		"doc": [
+			"Each map cell has several 'flags' that specify the properties of that cell.\n",
+			"These include terrain properties (walkability, shootability, presence of\n",
+			"water), skills (basilica, land protector, ...) and other (NPC nearby, no\n",
+			"vending, ...).\n",
+			"Each of these can be 'on' or 'off'. Together they define a cell's behavior.\n",
+			"\n",
+			"This command lets you alter these flags for all map cells in the specified\n",
+			"(x1,y1)-(x2,y2) rectangle.\n",
+			"'type' defines which flag to modify. Possible options include cell_walkable,\n",
+			"cell_shootable, cell_basilica. For a full list, see 'doc/constants.md'.\n",
+			"'flag' can be false (clear flat) or true (set flag).\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\tsetcell(\"arena\", 0, 0, 300, 300, cell_basilica, true);\n",
+			"\tsetcell(\"arena\", 140, 140, 160, 160, cell_basilica, false);\n",
+			"\tsetcell(\"arena\", 135, 135, 165, 165, cell_walkable, false);\n",
+			"\tsetcell(\"arena\", 140, 140, 160, 160, cell_walkable, true);\n",
+			"\n",
+			"This will add a makeshift ring into the center of the map. The ring will\n",
+			"be surrounded by a 5-cell wide 'gap' to prevent interference from outside,\n",
+			"and the rest of the map will be marked as 'basilica', preventing observers\n",
+			"from casting any offensive skills or fighting among themselves. Note that\n",
+			"the wall will not be shown nor known client-side, which may cause movement\n",
+			"problems.\n",
+			"\n",
+			"Another example:\n",
+			"\n",
+			"OnBarricadeDeploy:\n",
+			"\tsetcell(\"schg_cas05\", 114, 51, 125, 51, cell_walkable, false);\n",
+			"\tend;\n",
+			"OnBarricadeBreak:\n",
+			"\tsetcell(\"schg_cas05\", 114, 51, 125, 51, cell_walkable, true);\n",
+			"\tend;\n",
+			"\n",
+			"This could be a part of the WoE:SE script, where attackers are not allowed\n",
+			"to proceed until all barricades are destroyed. This script would place and\n",
+			"remove a nonwalkable row of cells after the barricade mobs.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

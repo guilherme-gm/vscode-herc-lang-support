@@ -1,0 +1,23 @@
+{
+	"stand": {
+		"params": {
+			"character name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"character name"
+			]
+		],
+		"doc": [
+			"This function will force a character to sit/stand if it is standing/sitting.\n",
+			"If no player is specified, the attached player will be used.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

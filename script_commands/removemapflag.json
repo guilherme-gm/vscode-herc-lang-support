@@ -1,0 +1,28 @@
+{
+	"removemapflag": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"flag"
+			]
+		],
+		"doc": [
+			"This command removes a mapflag from a specified map.\n",
+			"See setmapflag() for examples of mapflags.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

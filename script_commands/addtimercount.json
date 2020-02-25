@@ -1,0 +1,29 @@
+{
+	"addtimercount": {
+		"params": {
+			"ticks": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"ticks",
+				"account id"
+			]
+		],
+		"doc": [
+			"Delays a timer that was created with addtimer() by <ticks> ticks\n",
+			"if it matches the given event label. Refer to addtimer() for additional\n",
+			"information.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

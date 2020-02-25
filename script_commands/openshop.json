@@ -1,0 +1,15 @@
+{
+	"openshop": {
+		"params": {},
+		"signatures": [
+			[],
+			[]
+		],
+		"doc": [
+			"opens the trader shop from the currently-attached npc unless,\n",
+			"when the optional NPC_Name param is used.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

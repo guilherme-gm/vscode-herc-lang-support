@@ -1,0 +1,30 @@
+{
+	"queueremove": {
+		"params": {
+			"queue_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"var_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"queue_id",
+				"var_id"
+			]
+		],
+		"doc": [
+			"Removes <var_id> from queue of <queue_id>.\n",
+			"\n",
+			"Returns false if <var_id> couldn't be removed (wasn't present in the queue),\n",
+			"true otherwise.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

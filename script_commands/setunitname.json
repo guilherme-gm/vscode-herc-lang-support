@@ -1,0 +1,31 @@
+{
+	"setunitname": {
+		"params": {
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"Name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"GID",
+				"Name"
+			]
+		],
+		"doc": [
+			"Changes the name of a unit.\n",
+			"\n",
+			"Supported Types - [ MOB | HOM | PET ].\n",
+			"\n",
+			"returns 1 on success, 0 on failure.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

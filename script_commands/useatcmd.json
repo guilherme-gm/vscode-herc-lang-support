@@ -1,0 +1,24 @@
+{
+	"useatcmd": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"    @ /!\\ This command is deprecated @\n",
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"\n",
+			"This command will execute an atcommand binding on the attached RID from a\n",
+			"script. The three .@atcmd_***** variables will NOT be set when invoking\n",
+			"scripts-atcommands this way.\n",
+			"\n",
+			"This command is deprecated and it should not be used in new scripts, as it is\n",
+			"likely to be removed at a later time. Instead, you should directly call to the\n",
+			"event label of the binding using timers or doevent(). For built-in commands,\n",
+			"atcommand() should be used instead.\n"
+		],
+		"return": "unknown",
+		"deprecated": true
+	}
+}

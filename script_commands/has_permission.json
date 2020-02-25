@@ -1,0 +1,78 @@
+{
+	"has_permission": {
+		"params": {
+			"permission": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"permission"
+			],
+			[
+				"permission",
+				"account id"
+			]
+		],
+		"doc": [
+			"Check if the attached or specified player has the specified permission\n",
+			"and returns true or false accordingly. See doc/permissions.md for\n",
+			"details about permissions.\n",
+			"\n",
+			"Valid <permission> are:\n",
+			"\n",
+			"\tPERM_TRADE\n",
+			"\tPERM_PARTY\n",
+			"\tPERM_ALL_SKILL\n",
+			"\tPERM_USE_ALL_EQUIPMENT\n",
+			"\tPERM_SKILL_UNCONDITIONAL\n",
+			"\tPERM_JOIN_ALL_CHAT\n",
+			"\tPERM_NO_CHAT_KICK\n",
+			"\tPERM_HIDE_SESSION\n",
+			"\tPERM_WHO_DISPLAY_AID\n",
+			"\tPERM_RECEIVE_HACK_INFO\n",
+			"\tPERM_WARP_ANYWHERE\n",
+			"\tPERM_VIEW_HPMETER\n",
+			"\tPERM_VIEW_EQUIPMENT\n",
+			"\tPERM_USE_CHECK\n",
+			"\tPERM_USE_CHANGEMAPTYPE\n",
+			"\tPERM_USE_ALL_COMMANDS\n",
+			"\tPERM_RECEIVE_REQUESTS\n",
+			"\tPERM_SHOW_BOSS\n",
+			"\tPERM_DISABLE_PVM\n",
+			"\tPERM_DISABLE_PVP\n",
+			"\tPERM_DISABLE_CMD_DEAD\n",
+			"\tPERM_HCHSYS_ADMIN\n",
+			"\tPERM_TRADE_BOUND\n",
+			"\tPERM_DISABLE_PICK_UP\n",
+			"\tPERM_DISABLE_STORE\n",
+			"\tPERM_DISABLE_EXP\n",
+			"\tPERM_DISABLE_SKILL_USAGE\n",
+			"\tPERM_BYPASS_NOSTORAGE\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\tif (has_permission(PERM_WARP_ANYWHERE)) {\n",
+			"\t\t//do something\n",
+			"\t}\n",
+			"\n",
+			"It is also possible to pass a string for plugin permissions:\n",
+			"\n",
+			"\tif (has_permission(\"show_version\")) {\n",
+			"\t\t//do something\n",
+			"\t}\n",
+			"\n",
+			"   the engine has to loop through the array to find the permission.\n",
+			"   In most cases you should use the PERM_ constants.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

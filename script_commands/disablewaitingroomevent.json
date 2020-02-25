@@ -1,0 +1,32 @@
+{
+	"disablewaitingroomevent": {
+		"params": {
+			"NPC object name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"NPC object name"
+			]
+		],
+		"doc": [
+			"This will enable and disable triggering the waiting room event (see\n",
+			"waitingroom()) respectively. Optionally giving an NPC object name will do\n",
+			"that for a specified NPC object. The chat room will not disappear when\n",
+			"triggering is disabled and enabled in this manner and players will not be\n",
+			"kicked out of it. Enabling a chat room event will also cause it to\n",
+			"immediately check whether the number of users in it exceeded the trigger\n",
+			"amount and trigger the event accordingly.\n",
+			"\n",
+			"Normally, whenever a waiting room was created to make sure that only one\n",
+			"character is, for example, trying to pass a job quest trial, and no other\n",
+			"characters are present in the room to mess up the script.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

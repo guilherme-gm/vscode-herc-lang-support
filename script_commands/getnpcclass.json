@@ -1,0 +1,26 @@
+{
+	"getnpcclass": {
+		"params": {
+			"name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"name"
+			]
+		],
+		"doc": [
+			"Return npc class/sprite id for npc with given name or for attached npc.\n",
+			"If name missing and no attached npc, return -1.\n",
+			"\n",
+			"Example:\n",
+			"\t.@class = getnpcclass();\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

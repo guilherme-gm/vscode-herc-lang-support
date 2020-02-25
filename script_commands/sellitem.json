@@ -1,0 +1,80 @@
+{
+	"sellitem": {
+		"params": {
+			"Item_ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"zeny": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"qty": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"currency_id1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"currency_amount1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"currency_refine1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"Item_ID",
+				"zeny",
+				"qty"
+			],
+			[
+				"Item_ID",
+				"zeny",
+				"qty",
+				"currency_id1",
+				"currency_amount1"
+			],
+			[
+				"Item_ID",
+				"zeny",
+				"qty",
+				"currency_id1",
+				"currency_amount1",
+				"currency_refine1"
+			],
+			[
+				"Item_ID",
+				"zeny",
+				"qty",
+				"currency_id1",
+				"currency_amount1",
+				"currency_refine1"
+			]
+		],
+		"doc": [
+			"adds (or modifies) <Item_ID> data to the shop,\n",
+			"when <price> is not provided (or when it is -1) itemdb default is used.\n",
+			"qty is only necessary for NST_MARKET trader types.\n",
+			"\n",
+			"when <Item_ID> is already in the shop,\n",
+			"the previous data (price/qty), is overwritten with the new.\n",
+			"\n",
+			"currency_id and currency_amount can be used only with shop type NST_BARTER.\n",
+			"zeny, currency_id1, currency_amount1, currency_refine1, can be used only with\n",
+			"shop type NST_EXPANDED_BARTER.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

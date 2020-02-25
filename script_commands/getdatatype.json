@@ -1,0 +1,39 @@
+{
+	"getdatatype": {
+		"params": {
+			"argument": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"argument"
+			]
+		],
+		"doc": [
+			"This command returns the raw type of the given <argument>. Unlike\n",
+			"isstr, this command does not evaluate the argument. The returned type\n",
+			"is bitmasked.\n",
+			"\n",
+			"types include:\n",
+			"\n",
+			"\tDATATYPE_NIL\n",
+			"\tDATATYPE_STR\n",
+			"\tDATATYPE_INT\n",
+			"\tDATATYPE_CONST\n",
+			"\tDATATYPE_PARAM\n",
+			"\tDATATYPE_VAR\n",
+			"\tDATATYPE_LABEL\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\tgetdatatype() // DATATYPE_NIL\n",
+			"\tgetdatatype(\"foo\") // DATATYPE_STR\n",
+			"\tgetdatatype(@foo$) // (DATATYPE_VAR | DATATYPE_STR)\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

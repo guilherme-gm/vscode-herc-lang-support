@@ -1,0 +1,27 @@
+{
+	"delequip": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			]
+		],
+		"doc": [
+			"This command will destroy whatever is currently equipped in the invoking\n",
+			"character's specified equipment slot. For a full list of possible equipment\n",
+			"slots see getequipid().\n",
+			"\n",
+			"It is always a good idea to check if the player actually has the item you want\n",
+			"before you use this command. If you try to delete in a position that the player\n",
+			"has no gear, script will be terminated with an error.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

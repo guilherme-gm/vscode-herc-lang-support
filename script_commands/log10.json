@@ -1,0 +1,26 @@
+{
+	"log10": {
+		"params": {
+			"number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"number"
+			]
+		],
+		"doc": [
+			"Returns log base 10 of the number.\n",
+			"\n",
+			"Note: The value is truncated to integer.\n",
+			"\n",
+			"Example:\n",
+			"\t.@i = log10(100); // .@i will be 2\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

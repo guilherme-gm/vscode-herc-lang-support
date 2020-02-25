@@ -1,0 +1,13 @@
+{
+	"openstylist": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"Opens the styling shop on client\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

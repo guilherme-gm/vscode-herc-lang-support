@@ -1,0 +1,51 @@
+{
+	"gettimestr": {
+		"params": {
+			"format string": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"max length": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"timestamp": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"format string",
+				"max length"
+			],
+			[
+				"format string",
+				"max length",
+				"timestamp"
+			]
+		],
+		"doc": [
+			"This function will return a string containing time data as specified by\n",
+			"the format string.\n",
+			"\n",
+			"This uses the C function 'strftime', which obeys special format\n",
+			"characters. For a full description see, for example, the description of\n",
+			"'strftime' at http://www.delorie.com/gnu/docs/glibc/libc_437.html\n",
+			"All the format characters given in there should properly work.\n",
+			"Max length is the maximum length of a time string to generate.\n",
+			"\n",
+			"The example given in Hercules sample scripts works like this:\n",
+			"\n",
+			"\tmes(gettimestr(\"%Y-%m/%d %H:%M:%S\", 21));\n",
+			"\tmes(gettimestr(\"%Y-%m/%d %H:%M:%S\", 21, getcalendartime(0, 0)));\n",
+			"\n",
+			"This will print a full date and time like 'YYYY-MM/DD HH:MM:SS'.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

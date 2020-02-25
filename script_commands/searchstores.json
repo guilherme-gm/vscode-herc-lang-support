@@ -1,0 +1,41 @@
+{
+	"searchstores": {
+		"params": {
+			"uses": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"effect": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"uses",
+				"effect"
+			]
+		],
+		"doc": [
+			"Invokes the store search window, which allows to search for both vending\n",
+			"and buying stores. Parameter uses indicates, how many searches can be\n",
+			"started, before the window has to be reopened. Effect value affects what\n",
+			"happens when a result item is double-clicked and can be one of the\n",
+			"following:\n",
+			"\n",
+			"\t0 = Shows the store's position on the mini-map and highlights the shop\n",
+			"\t\tsign with yellow color, when the store is on same map as the\n",
+			"\t\tinvoking player.\n",
+			"\t1 = Directly opens the shop, regardless of distance.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\t// Item Universal_Catalog_Gold (10 uses, effect: open shop)\n",
+			"\tsearchstores(10, 1);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

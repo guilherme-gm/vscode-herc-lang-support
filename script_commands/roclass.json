@@ -1,0 +1,49 @@
+{
+	"roclass": {
+		"params": {
+			"job number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"gender": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"job number"
+			],
+			[
+				"job number",
+				"gender"
+			]
+		],
+		"doc": [
+			"Does the opposite of eaclass(). That is, given an eA job-number, it returns\n",
+			"the corresponding RO class number. A gender is required because both Bard\n",
+			"and Dancers share the same eA job-number (EAJ_BARDDANCER), and uses the\n",
+			"invoking player's gender if none is given (if no player is attached,\n",
+			"male will be used by default). The command will return -1 if there is no\n",
+			"valid class to represent the specified job (for example, if you try to get\n",
+			"the baby version of a Taekwon class).\n",
+			"\n",
+			"\t.@eac = eaclass();\n",
+			"\t//Check if class is already rebirth\n",
+			"\tif (.@eac&EAJL_UPPER) {\n",
+			"\t\tmes(\"You look strong.\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\t.@eac = roclass(.@eac|EAJL_UPPER);\n",
+			"\t//Check if class has a rebirth version\n",
+			"\tif (.@eac != -1) {\n",
+			"\t\tmes(\"Bet you can't wait to become a \"+jobname(.@eac)+\"!\");\n",
+			"\t\tclose();\n",
+			"\t}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

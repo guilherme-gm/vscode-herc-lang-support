@@ -1,0 +1,46 @@
+{
+	"distance": {
+		"params": {
+			"x0": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y0": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"x1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"x0",
+				"y0",
+				"x1",
+				"y1"
+			]
+		],
+		"doc": [
+			"Returns distance between 2 points.\n",
+			"\n",
+			"Note: When Hercules is configured to use circular areas, the Euclidean distance\n",
+			"is returned, otherwise the Chebyshev distance. The value is truncated to\n",
+			"integer.\n",
+			"\n",
+			"Example:\n",
+			"\t.@i = distance(100, 200, 101, 202);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

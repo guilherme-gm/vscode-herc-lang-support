@@ -1,0 +1,67 @@
+{
+	"warp": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"x",
+				"y"
+			],
+			[
+				"map name",
+				"x",
+				"y",
+				"flag"
+			]
+		],
+		"doc": [
+			"This command will take the invoking character to the specified map, and if\n",
+			"wanted, specified coordinates too, but these can be random.\n",
+			"\n",
+			"\twarp(\"place\", 50, 55);\n",
+			"\n",
+			"This would take them to X 50 Y 55 on the map called \"place\". If your X and\n",
+			"Y coordinates land on an unwalkable map square, it will send the warped\n",
+			"character to a random place. Same will happen if they are both zero:\n",
+			"\n",
+			"\twarp(\"place\", 0, 0);\n",
+			"\n",
+			"Notice that while warping people to coordinates 0,0 will normally get them\n",
+			"into a random place, it's not certain to always be so. Darned if I know\n",
+			"where this is actually coded, it might be that this happens because square\n",
+			"0,0 is unwalkable on all official maps. Beware if you're using custom maps.\n",
+			"\n",
+			"There are also three special 'map names' you can use:\n",
+			"\n",
+			"\"Random\" will warp the player randomly on the current map.\n",
+			"\"Save\" and \"SavePoint\" will warp the player back to their save point.\n",
+			"\n",
+			"If flag parameter is set to 0, after player warped will be not stopped\n",
+			"currend running npc script. Running script after warp can be issue for\n",
+			"Gravity client if warp to other maps.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

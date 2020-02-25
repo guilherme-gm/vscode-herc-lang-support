@@ -1,0 +1,29 @@
+{
+	"swap": {
+		"params": {
+			"variable": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"variable",
+				"variable"
+			]
+		],
+		"doc": [
+			"Swap the value of 2 variables. Both sides must be same integer or string type.\n",
+			"\n",
+			"Example:\n",
+			"\t.@var1 = 111;\n",
+			"\t.@var2 = 222;\n",
+			"\tswap(.@var1, .@var2);\n",
+			"\tmes(\"var1 = \"+ .@var1); // return 222\n",
+			"\tmes(\"var2 = \"+ .@var2); // return 111\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

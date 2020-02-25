@@ -1,0 +1,55 @@
+{
+	"addtimer": {
+		"params": {
+			"ticks": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"ticks"
+			],
+			[
+				"ticks",
+				"account id"
+			]
+		],
+		"doc": [
+			"This command will create a countdown timer.\n",
+			"The event label given is the identifier of that timer.\n",
+			"The timer runs on the character object that is attached to the script,\n",
+			"and can have multiple instances. If <acccount id> is passed, this player\n",
+			"will be used instead. When the label is run, it is run as if the player\n",
+			"that the timer runs on has clicked the NPC.\n",
+			"\n",
+			"When this timer runs out, a new execution thread will start in the\n",
+			"specified NPC object at the specified label.\n",
+			"\n",
+			"The ticks are given in 1/1000ths of a second.\n",
+			"\n",
+			"One more thing. These timers are stored as part of player data. If the\n",
+			"player logs out, all of these get immediately deleted, without executing\n",
+			"the script. If this behavior is undesirable, use some other timer\n",
+			"mechanism (like sleep()).\n",
+			"\n",
+			"Example:\n",
+			"<NPC Header> {\n",
+			"\tdispbottom(\"Starting a 5 second timer...\");\n",
+			"\taddtimer(5000, strnpcinfo(NPC_NAME_UNIQUE)+\"::On5secs\");\n",
+			"\tend;\n",
+			"On5secs:\n",
+			"\tdispbottom(\"5 seconds have passed!\");\n",
+			"\tend;\n",
+			"}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

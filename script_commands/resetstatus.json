@@ -1,0 +1,17 @@
+{
+	"resetstatus": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This is a character reset command, which will reset the stats on the\n",
+			"invoking character and give back all the stat points used to raise them\n",
+			"previously. Nothing will happen to any other numbers about the character.\n",
+			"\n",
+			"Used in reset NPC's (duh!).\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

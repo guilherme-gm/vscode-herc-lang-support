@@ -1,0 +1,29 @@
+{
+	"setnpcdisplay": {
+		"params": {
+			"npc name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"class id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"npc name",
+				"class id"
+			]
+		],
+		"doc": [
+			"Changes the display name and/or display class of the target NPC.\n",
+			"Returns 0 is successful, 1 if the NPC does not exist.\n",
+			"Size is 0 = normal 1 = small 2 = big.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,39 @@
+{
+	"setchar": {
+		"params": {
+			"string": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"char": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"index": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"string",
+				"char",
+				"index"
+			]
+		],
+		"doc": [
+			"Returns the original string with the char at the specified index set to\n",
+			"the specified char. If index is out of range, the original string will be\n",
+			"returned. Only the 1st char in the <char> parameter will be used.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\tsetchar(\"Cat\", \"B\", 0); //returns \"Bat\"\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

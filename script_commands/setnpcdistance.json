@@ -1,0 +1,26 @@
+{
+	"setnpcdistance": {
+		"params": {
+			"distance": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"distance"
+			]
+		],
+		"doc": [
+			"This command can reduce distance from where npc can be clicked.\n",
+			"Usefull to use from OnInit event.\n",
+			"\n",
+			"\t// Set distance to one tile on server load\n",
+			"\tOnInit:\n",
+			"\tsetnpcdistance(1);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

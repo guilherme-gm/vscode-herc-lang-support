@@ -1,0 +1,27 @@
+{
+	"attachrid": {
+		"params": {
+			"account ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"account ID"
+			]
+		],
+		"doc": [
+			"These commands allow the manipulation of the script's currently attached\n",
+			"player. While attachrid() allows attaching of a different player by using\n",
+			"its account id for the parameter rid, detachrid() makes the following\n",
+			"commands run as if the script was never invoked by a player.\n",
+			"\n",
+			"In case, that the player cannot be attached, such as, when the player went\n",
+			"offline in the mean time, attachrid() returns false, otherwise true.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

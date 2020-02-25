@@ -1,0 +1,52 @@
+{
+	"getvariableofpc": {
+		"params": {
+			"variable": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"default value": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"variable",
+				"account id"
+			],
+			[
+				"variable",
+				"account id",
+				"default value"
+			]
+		],
+		"doc": [
+			"Returns a reference to a PC variable from the target player.\n",
+			"If <default value> is passed, it will return this value if the player is\n",
+			"not found.\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"//This will return the value of @var, note that this can't be used, since\n",
+			"//the value isn't caught.\n",
+			"\tgetvariableofpc(@var, getcharid(CHAR_ID_ACCOUNT, \"player\"));\n",
+			"\n",
+			"//This will set the .@v variable to the value of the player's @var\n",
+			"//variable.\n",
+			"\t.@v = getvariableofpc(@var, getcharid(CHAR_ID_ACCOUNT, \"player\"));\n",
+			"\n",
+			"//This will set the @var variable of the player to 1.\n",
+			"\tset(getvariableofpc(@var, getcharid(CHAR_ID_ACCOUNT, \"player\")), 1);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

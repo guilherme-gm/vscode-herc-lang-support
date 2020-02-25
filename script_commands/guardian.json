@@ -1,0 +1,80 @@
+{
+	"guardian": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"name to show": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"mob id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"event label": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"guardian index": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"x",
+				"y",
+				"name to show",
+				"mob id"
+			],
+			[
+				"map name",
+				"x",
+				"y",
+				"name to show",
+				"mob id",
+				"event label"
+			],
+			[
+				"map name",
+				"x",
+				"y",
+				"name to show",
+				"mob id",
+				"event label",
+				"guardian index"
+			]
+		],
+		"doc": [
+			"This command is roughly equivalent to monster(), but is meant to be used\n",
+			"with castle guardian monsters and will only work with them. It will set\n",
+			"the guardian characteristics up according to the castle's investment\n",
+			"values and otherwise set the things up that only castle guardians need.\n",
+			"\n",
+			"Returns the id of the mob or 0 if an error occurred.\n",
+			"When 'guardian index' isn't supplied it produces a temporary guardian.\n",
+			"Temporary guardians are not saved with the castle and can't be accessed by\n",
+			"guardianinfo.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

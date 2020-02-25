@@ -1,0 +1,25 @@
+{
+	"resethate": {
+		"params": {
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"account id"
+			]
+		],
+		"doc": [
+			"The first resets a character's 'Feeling' maps.\n",
+			"The second resets a character's 'Hatred' targets.\n",
+			"\n",
+			"If no RID is given, will run with the current attached player.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

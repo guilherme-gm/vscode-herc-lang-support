@@ -1,0 +1,49 @@
+{
+	"maprespawnguildid": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"guild id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"guild id",
+				"flag"
+			]
+		],
+		"doc": [
+			"This command goes through the specified map and for each player and\n",
+			"monster found there does stuff.\n",
+			"\n",
+			"Flag is a bit-mask (add up numbers to get effects you want)\n",
+			" 1 - warp all guild members to their save points.\n",
+			" 2 - warp all non-guild members to their save points.\n",
+			" 4 - remove all monsters which are not guardian or Emperium.\n",
+			"\n",
+			"Flag 7 will, therefore, mean 'wipe all mobs but guardians and the Emperium\n",
+			"and kick all characters out', which is what the official scripts do upon\n",
+			"castle surrender. Upon start of WoE, the scripts do 2 (warp out all people\n",
+			"not in the guild that owns the castle).\n",
+			"\n",
+			"Characters not belonging to any guild will be warped out regardless of the\n",
+			"flag setting.\n",
+			"\n",
+			"For examples, check the WoE scripts in the distribution.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

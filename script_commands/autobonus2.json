@@ -1,0 +1,105 @@
+{
+	"autobonus2": {
+		"params": {
+			"bonus script": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"rate": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"duration": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"other script": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"bonus script",
+				"rate",
+				"duration"
+			],
+			[
+				"bonus script",
+				"rate",
+				"duration",
+				"flag"
+			],
+			[
+				"bonus script",
+				"rate",
+				"duration",
+				"flag",
+				"other script"
+			]
+		],
+		"doc": [
+			"These commands are meant to be used in item scripts. They will probably\n",
+			"work outside item scripts, but the bonus will not persist for long. They,\n",
+			"as expected, refer only to an invoking character.\n",
+			"\n",
+			"What these commands do is 'attach' a script to the player which will get\n",
+			"executed on attack (or when attacked in the case of autobonus2()).\n",
+			"\n",
+			"Rate is the trigger rate of the script (1000 = 100%).\n",
+			"\n",
+			"Duration is the time that the bonus will last for since the script has\n",
+			"triggered.\n",
+			"\n",
+			"Skill ID/skill name the skill which will be used as trigger to start the\n",
+			"bonus (for autobonus3()).\n",
+			"\n",
+			"The optional argument 'flag' is used to classify the type of attack where\n",
+			"the script can trigger (it shares the same flags as the bAutoSpell bonus\n",
+			"script):\n",
+			"\n",
+			"Range criteria:\n",
+			"\tBF_SHORT:  Trigger on melee attack\n",
+			"\tBF_LONG:   Trigger on ranged attack\n",
+			"\tDefault:   BF_SHORT+BF_LONG\n",
+			"Attack type criteria:\n",
+			"\tBF_WEAPON: Trigger on weapon skills\n",
+			"\tBF_MAGIC:  Trigger on magic skills\n",
+			"\tBF_MISC:   Trigger on misc skills\n",
+			"\tDefault:   BF_WEAPON\n",
+			"Skill criteria:\n",
+			"\tBF_NORMAL: Trigger on normal attacks\n",
+			"\tBF_SKILL:  Trigger on skills\n",
+			"\tdefault:   If the attack type is BF_WEAPON (only) BF_NORMAL is used,\n",
+			"\t\t       otherwise BF_SKILL+BF_NORMAL is used.\n",
+			"\n",
+			"The difference between the optional argument 'other script' and the 'bonus\n",
+			"script' is that, the former one triggers only when attacking (or attacked)\n",
+			"and the latter one runs on status calculation as well, which makes sure,\n",
+			"within the duration, the \"bonus\" that get lost on status calculation is\n",
+			"restored. So, 'bonus script' is technically supposed to accept \"bonus\"\n",
+			"command only. And we usually use 'other script' to show visual effects.\n",
+			"\n",
+			"In all cases, when the script triggers, the attached player will be the\n",
+			"one who holds the bonus. There is currently no way of knowing within this\n",
+			"script who was the other character (the attacker in autobonus2(), or the\n",
+			"target in autobonus() and autobonus3()).\n",
+			"\n",
+			"//Grants a 1% chance of starting the state \"all stats +10\" for 10 seconds\n",
+			"//when using weapon or misc attacks (both melee and ranged skills) and\n",
+			"//shows a special effect when the bonus is active.\n",
+			"\tautobonus(\"{ bonus(bAllStats, 10); }\", 10, 10000, BF_WEAPON|BF_MISC, \"{ specialeffect(EF_FIRESPLASHHIT, AREA, playerattached()); }\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,27 @@
+{
+	"guildopenstorage": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This function works the same as openstorage() but will open a guild\n",
+			"storage window instead for the guild storage of the guild the invoking\n",
+			"character belongs to. This is a function because it returns a value - 0 if\n",
+			"the guild storage was opened successfully and 1 if it wasn't. (Notice,\n",
+			"it's a ZERO upon success.)\n",
+			"Since guild storage is only accessible to one character at one time, it\n",
+			"may fail if another character is accessing the guild storage at the same\n",
+			"time.\n",
+			"\n",
+			"This will also fail and return 2 if the attached character does not belong\n",
+			"to any guild.\n",
+			"\n",
+			"The mapflag 'nogstorage' when set to type '2' (or 3), will not open the\n",
+			"guild storage. Unless the character group has the permission 'bypass_nostorage'.\n",
+			"In case blocked by mapflag, returns 1.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

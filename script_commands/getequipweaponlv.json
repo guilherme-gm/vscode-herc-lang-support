@@ -1,0 +1,80 @@
+{
+	"getequipweaponlv": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			]
+		],
+		"doc": [
+			"This function returns the weapon level for the weapon equipped in the\n",
+			"specified equipment slot on the invoking character. For a list of\n",
+			"equipment slots see 'getequipid'.\n",
+			"\n",
+			"Only EQI_HAND_L and EQI_HAND_R normally make sense, since only weapons\n",
+			"have a weapon level. You can, however, probably, use this field for other\n",
+			"equippable custom items as a flag or something.\n",
+			"\n",
+			"If no item is equipped in this slot, or if it doesn't have a weapon level\n",
+			"according to the database, 0 will be returned.\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"// Right hand can only contain a weapon.\n",
+			"\tswitch (getequipweaponlv(EQI_HAND_R)) {\n",
+			"\tcase 1:\n",
+			"\t\tmes(\"You are holding a lvl 1 weapon.\");\n",
+			"\t\tbreak;\n",
+			"\tcase 2:\n",
+			"\t\tmes(\"You are holding a lvl 2 weapon.\");\n",
+			"\t\tbreak;\n",
+			"\tcase 3:\n",
+			"\t\tmes(\"You are holding a lvl 3 weapon.\");\n",
+			"\t\tbreak;\n",
+			"\tcase 4:\n",
+			"\t\tmes(\"You are holding a lvl 4 weapon.\");\n",
+			"\t\tbreak;\n",
+			"\tcase 5:\n",
+			"\t\tmes(\"You are holding a lvl 5 weapon, hm, must be a custom design...\");\n",
+			"\t\tbreak;\n",
+			"\tdefault:\n",
+			"\t\tmes(\"Seems you don't have a weapon on.\");\n",
+			"\t\tbreak;\n",
+			"\t}\n",
+			"\n",
+			"// Left hand can hold either a weapon or shield.\n",
+			"\tif (getequipid(EQI_HAND_R) == 0) {\n",
+			"\t\tmes(\"Seems you have nothing equipped here.\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\tswitch (getequipweaponlv(EQI_HAND_L)) {\n",
+			"\tcase 0:\n",
+			"\t\tmes(\"You are holding a shield, so it doesn't have a level.\");\n",
+			"\t\tbreak;\n",
+			"\tcase 1:\n",
+			"\t\tmes(\"You are holding a lvl 1 weapon.\");\n",
+			"\t\tbreak;\n",
+			"\tcase 2:\n",
+			"\t\tmes(\"You are holding a lvl 2 weapon.\");\n",
+			"\t\tbreak;\n",
+			"\tcase 3:\n",
+			"\t\tmes(\"You are holding a lvl 3 weapon.\");\n",
+			"\t\tbreak;\n",
+			"\tcase 4:\n",
+			"\t\tmes(\"You are holding a lvl 4 weapon.\");\n",
+			"\t\tbreak;\n",
+			"\tcase 5:\n",
+			"\t\tmes(\"You are holding a lvl 5 weapon, hm, must be a custom design...\");\n",
+			"\t\tbreak;\n",
+			"\t}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

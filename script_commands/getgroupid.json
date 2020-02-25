@@ -1,0 +1,23 @@
+{
+	"getgroupid": {
+		"params": {
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"account id"
+			]
+		],
+		"doc": [
+			"This command returns the id of the group of the attached or specified player.\n",
+			"If the player is not found, returns -1.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

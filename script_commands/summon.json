@@ -1,0 +1,48 @@
+{
+	"summon": {
+		"params": {
+			"monster id": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"Time Out": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"monster id",
+				"Time Out"
+			],
+			[
+				"monster id",
+				"Time Out"
+			]
+		],
+		"doc": [
+			"This command will summon a monster. (see also monster()) Unlike monsters\n",
+			"spawned with other commands, this one will set up the monster to fight to\n",
+			"protect the invoking character. Monster name and mob id obey the same\n",
+			"rules as the one given at the beginning of this document for permanent\n",
+			"monster spawns with the exceptions mentioned when describing 'monster'\n",
+			"command.\n",
+			"\n",
+			"The effect for the skill 'Call Homunculus' will be displayed centered on\n",
+			"the invoking character.\n",
+			"\n",
+			"Timeout is the time in milliseconds the summon lives, and is set default\n",
+			"to 60000 (1 minute). Note that also the value 0 will set the timer to\n",
+			"default, and it is not possible to create a spawn that lasts forever.\n",
+			"If an event label is given, upon the monster being killed, the event label\n",
+			"will run as if by donpcevent().\n",
+			"\n",
+			"// Will summon a poring to fight for the character.\n",
+			"\tsummon(\"--ja--\", PORING);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

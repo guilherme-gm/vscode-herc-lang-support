@@ -1,0 +1,36 @@
+{
+	"percentheal": {
+		"params": {
+			"hp": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"sp": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"hp",
+				"sp"
+			]
+		],
+		"doc": [
+			"This command will heal the invoking character. It heals the character, but\n",
+			"not by a set value - it adds percent of their maximum HP/SP.\n",
+			"\n",
+			"\tpercentheal(100, 0); // This will heal 100% HP\n",
+			"\tpercentheal(0, 100); // This will heal 100% SP\n",
+			"\tpercentheal(50, 50); // This will heal 50% HP and 50% SP\n",
+			"\n",
+			"So the amount that this will heal will depend on the total amount of HP or\n",
+			"SP you have maximum. Like heal(), this will not call up any animations or\n",
+			"effects.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

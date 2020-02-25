@@ -1,0 +1,59 @@
+{
+	"defpattern": {
+		"params": {
+			"set number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"regular expression pattern": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"event label": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"set number",
+				"regular expression pattern",
+				"event label"
+			]
+		],
+		"doc": [
+			"They will make the NPC object listen for text spoken publicly by players\n",
+			"and match it against regular expression patterns, then trigger labels\n",
+			"associated with these regular expression patterns.\n",
+			"\n",
+			"Patterns are organized into sets, which are referred to by a set number.\n",
+			"You can have multiple sets patterns, and multiple patterns may be active\n",
+			"at once. Numbers for pattern sets start at 1.\n",
+			"\n",
+			"defpattern() will associate a given regular expression pattern with an\n",
+			"event label. This event will be triggered whenever something a player says\n",
+			"is matched by this regular expression pattern, if the pattern is currently\n",
+			"active.\n",
+			"\n",
+			"activatepset() will make the pattern set specified active. An active\n",
+			"pattern will enable triggering labels defined with defpattern(), which\n",
+			"will not happen by default.\n",
+			"deactivatepset() will deactivate a specified pattern set. Giving -1 as a\n",
+			"pattern set number in this case will deactivate all pattern sets defined.\n",
+			"\n",
+			"deletepset() will delete a pattern set from memory, so you can create a\n",
+			"new pattern set in its place.\n",
+			"\n",
+			"For an example of this in use, see doc/sample/npc_test_pcre.txt\n",
+			"\n",
+			"With this you could, for example, automatically punish players for asking\n",
+			"for Zeny in public places, or alternatively, automatically give them Zeny\n",
+			"instead if they want it so much.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

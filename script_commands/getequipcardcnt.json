@@ -1,0 +1,23 @@
+{
+	"getequipcardcnt": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			]
+		],
+		"doc": [
+			"This function will return the number of cards that have been compounded\n",
+			"onto a specific equipped item for the invoking character. See 'getequipid'\n",
+			"for a list of possible equipment slots.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

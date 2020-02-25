@@ -1,0 +1,27 @@
+{
+	"data_to_string": {
+		"params": {
+			"data": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"data"
+			]
+		],
+		"doc": [
+			"Returns a string representation of the given data, similar to the .toString()\n",
+			"method in JavaScript.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\tdata_to_string(DATATYPE_VAR) // \"DATATYPE_VAR\"\n",
+			"\tdata_to_string(.@foo) // \".@foo\"\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

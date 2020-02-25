@@ -1,0 +1,112 @@
+{
+	"sc_start": {
+		"params": {
+			"effect type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"ticks": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"value 1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"rate": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"effect type",
+				"ticks",
+				"value 1"
+			],
+			[
+				"effect type",
+				"ticks",
+				"value 1",
+				"rate",
+				"flag"
+			],
+			[
+				"effect type",
+				"ticks",
+				"value 1",
+				"rate",
+				"flag",
+				"GID"
+			]
+		],
+		"doc": [
+			"These commands will bestow a status effect on a character.\n",
+			"\n",
+			"The <effect type> determines which status is invoked. This can be either a number\n",
+			"or constant, with the common statuses (mostly negative) found in\n",
+			"'doc/constants.md' under 'Status Changes'. A full list is located in\n",
+			"'src/map/status.h', though they are not currently documented.\n",
+			"\n",
+			"The duration of the status is given in <ticks>, or milleseconds.\n",
+			"\n",
+			"Certain status changes take an additional parameter <value 1>, which typically\n",
+			"modifies player stats by the given number or percentage. This differs for each\n",
+			"status, and is sometimes zero.\n",
+			"\n",
+			"Optional value <rate> is the chance that the status will be invoked (10000 = 1%).\n",
+			"This is used primarily in item scripts. When used in an NPC script, a flag MUST\n",
+			"be defined for the rate to work.\n",
+			"\n",
+			"Optional value <flag> is how the status change start will be handled (a bitmask).\n",
+			" SCFLAG_NONE      = 0x00: No special behavior.\n",
+			" SCFLAG_NOAVOID   = 0x01: Status change cannot be avoided.\n",
+			" SCFLAG_FIXEDTICK = 0x02: Tick cannot be reduced by stats (default).\n",
+			" SCFLAG_LOADED    = 0x04: sc_data was loaded, no value will be altered.\n",
+			" SCFLAG_FIXEDRATE = 0x08: Rate cannot be reduced.\n",
+			" SCFLAG_NOICON    = 0x10: Status icon (SI) won't be shown.\n",
+			"\n",
+			"If a <GID> is given, the status change will be invoked on the specified character\n",
+			"instead of the one attached to the script. This can only be defined after setting\n",
+			"a rate and flag.\n",
+			"\n",
+			"sc_start2() and sc_start4() allow extra parameters to be passed, and are used only\n",
+			"for effects that require them. The meaning of the extra values vary depending on the\n",
+			"effect type.\n",
+			"\n",
+			"sc_end() will remove a specified status effect. If SC_ALL (-1) is given, it will\n",
+			"perform a complete removal of all statuses (although permanent ones will re-apply).\n",
+			"\n",
+			"Examples:\n",
+			"\t// This will poison the invoking character for 10 minutes at 50% chance.\n",
+			"\tsc_start(SC_POISON, 600000, 0, 5000);\n",
+			"\n",
+			"\t// This will bestow the effect of Level 10 Blessing.\n",
+			"\tsc_start(SC_BLESSING, 240000, 10);\n",
+			"\n",
+			"\t// This will end the Freezing status for the invoking character.\n",
+			"\tsc_end(SC_FREEZE);\n",
+			"\n",
+			"Note: to use SC_NOCHAT you should alter Manner\n",
+			"\tManner = -5;\t// Will mute a user for 5 minutes\n",
+			"\tManner = 0;\t// Will unmute a user\n",
+			"\tManner = 5;\t// Will unmute a user and prevent the next use of 'Manner'\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

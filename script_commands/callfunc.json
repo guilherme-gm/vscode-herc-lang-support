@@ -1,0 +1,91 @@
+{
+	"callfunc": {
+		"params": {
+			"function": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"argument": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"function"
+			],
+			[
+				"function",
+				"argument",
+				"argument"
+			]
+		],
+		"doc": [
+			"This command lets you call up a function NPC. A function NPC can be called\n",
+			"from any script on any map server. Using the 'return' instruction it\n",
+			"will come back to the place that called it.\n",
+			"\n",
+			"\tplace,50,50,6%TAB%script%TAB%Woman%TAB%115,{\n",
+			"\t\tmes(\"[Woman]\");\n",
+			"\t\tmes(\"Lets see if you win\");\n",
+			"\t\tcallfunc(\"funcNPC\");\n",
+			"\t\tmes(\"Well done you have won\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\tfunction%TAB%script%TAB%funcNPC%TAB%{\n",
+			"\t\t.@win = rand(2);\n",
+			"\t\tif (.@win == 0)\n",
+			"\t\t\treturn;\n",
+			"\t\tmes(\"Sorry you lost\");\n",
+			"\t\tend;\n",
+			"\t}\n",
+			"\n",
+			"You can pass arguments to your function - values telling it what exactly\n",
+			"to do - which will be available there with getarg() (see 'getarg').\n",
+			"Notice that returning is not mandatory, you can end execution right there.\n",
+			"\n",
+			"If you want to return a real value from inside your function NPC, you\n",
+			"may do so:\n",
+			"\n",
+			"\tplace,50,50,6%TAB%script%TAB%Man%TAB%115,{\n",
+			"\t\tmes(\"[Man]\");\n",
+			"\t\tmes(\"Gimme a number!\");\n",
+			"\t\tnext();\n",
+			"\t\tinput(.@number);\n",
+			"\t\tif (callfunc(\"OddFunc\", .@number))\n",
+			"\t\t\tmes(\"It's Odd!\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\tfunction%TAB%script%TAB%OddFunc%TAB%{\n",
+			"\t\tif (getarg(0)%2==0)\n",
+			"\t\t\treturn 0;// it's even\n",
+			"\t\treturn 1;// it's odd\n",
+			"\t}\n",
+			"\n",
+			"Alternately, user-defined functions may be called directly without the use\n",
+			"of the callfunc() script command.\n",
+			"\n",
+			"\tfunction<TAB>script<TAB>SayHello<TAB>{\n",
+			"\t\tmes(\"Hello \" + getarg(0));\n",
+			"\t\treturn 0;\n",
+			"\t}\n",
+			"\n",
+			"\tplace,50,50,6<TAB>script<TAB>Man<TAB>115,{\n",
+			"\t\tmes(\"[Man]\");\n",
+			"\t\tSayHello(strcharinfo(PC_NAME));\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\n",
+			"Note:\n",
+			"\n",
+			" !! A user-defined function must be declared /before/ a script attempts to\n",
+			" !! call it. That is to say, any functions should be placed above scripts\n",
+			" !! or NPCs (or loaded in a separate file first) before attempting to call\n",
+			" !! them directly.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

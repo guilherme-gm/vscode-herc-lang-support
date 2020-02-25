@@ -1,0 +1,67 @@
+{
+	"donpcevent": {
+		"params": {
+			"NPC object name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"event label": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"NPC object name",
+				"event label"
+			]
+		],
+		"doc": [
+			"This command invokes the event label code within an another NPC or NPCs.\n",
+			"It starts a separate instance of execution, and the invoking NPC will\n",
+			"resume execution its immediately.\n",
+			"\n",
+			"If the supplied event label has the form \"NpcName::OnLabel\", then only\n",
+			"given NPC's event label will be invoked (much like goto() into another\n",
+			"NPC). If the form is \"::OnLabel\" (NPC name omitted), the event code of all\n",
+			"NPCs with given label will be invoked, one after another. In both cases\n",
+			"the invoked script will run without an attached RID, whether or not the\n",
+			"invoking script was attached to a player. The event label name is required\n",
+			"to start with \"On\".\n",
+			"\n",
+			"This command can be used to make other NPCs act, as if they were\n",
+			"responding to the invoking NPC's actions, such as using an emotion or\n",
+			"talking.\n",
+			"\n",
+			"\tplace,100,100,1%TAB%script%TAB%NPC%TAB%53,{\n",
+			"\t\tmes(\"Hey NPC2 copy what I do\");\n",
+			"\t\tclose2();\n",
+			"\t\t@emote = rand(1, 30);\n",
+			"\t\tdonpcevent(\"NPC2::OnEmote\");\n",
+			"\tOnEmote:\n",
+			"\t\temotion(@emote);\n",
+			"\t\tend;\n",
+			"\t}\n",
+			"\n",
+			"\tplace,102,100,1%TAB%script%TAB%NPC2%TAB%53,{\n",
+			"\t\tmes(\"Hey NPC copy what I do\");\n",
+			"\t\tclose2();\n",
+			"\t\t@emote = rand(1, 30);\n",
+			"\t\tdonpcevent(\"NPC::OnEmote\");\n",
+			"\tOnEmote:\n",
+			"\t\temotion(@emote);\n",
+			"\t\tend;\n",
+			"\t}\n",
+			"\n",
+			"Whichever of the both NPCs is talked to, both will show a random emotion\n",
+			"at the same time.\n",
+			"\n",
+			"Command returns true or false on success and failure.\n",
+			"A debug message also shows on the console when no events are triggered.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

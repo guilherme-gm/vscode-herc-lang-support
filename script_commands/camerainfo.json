@@ -1,0 +1,14 @@
+{
+	"camerainfo": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"Show or hide camera info window.\n",
+			"Works for 20160525 clients or newer.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

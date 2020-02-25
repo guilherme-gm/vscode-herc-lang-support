@@ -1,0 +1,31 @@
+{
+	"getbrokenid": {
+		"params": {
+			"number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"number"
+			]
+		],
+		"doc": [
+			"This function will search the invoking character's inventory for any\n",
+			"broken items, and will return their item ID numbers. Since the character\n",
+			"may have several broken items, 1 given as an argument will return the\n",
+			"first one found, 2 will return the second one, etc. Will return 0 if no\n",
+			"such item is found.\n",
+			"\n",
+			"\t// Let's see if they have anything broken:\n",
+			"\tif (getbrokenid(1) == 0)\n",
+			"\t\tmes(\"You don't have anything broken, quit bothering me.\");\n",
+			"\telse // They do, so let's print the name of the first broken item:\n",
+			"\t\tmes(\"Oh, I see you have a broken \"+getitemname(getbrokenid(1))+\" here!\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

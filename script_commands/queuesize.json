@@ -1,0 +1,21 @@
+{
+	"queuesize": {
+		"params": {
+			"queue_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"queue_id"
+			]
+		],
+		"doc": [
+			"Returns the amount of entries in the queue instance of <queue_id>.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

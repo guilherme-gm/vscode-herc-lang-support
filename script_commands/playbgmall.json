@@ -1,0 +1,67 @@
+{
+	"playbgmall": {
+		"params": {
+			"BGM filename": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x0": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y0": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"x1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"BGM filename"
+			],
+			[
+				"BGM filename",
+				"map name"
+			],
+			[
+				"BGM filename",
+				"map name",
+				"x0",
+				"y0",
+				"x1",
+				"y1"
+			]
+		],
+		"doc": [
+			"These two commands will play a Background Music to either the invoking\n",
+			"character only (playbgm()) or multiple characters (playbgmall()).\n",
+			"\n",
+			"BGM filename is the filename in /BGM/ folder. It has to be in .mp3\n",
+			"extension, but it's not required to specify the extension in the script.\n",
+			"\n",
+			"If coordinates are omitted, BGM will be broadcasted on the entire map. If\n",
+			"the map name is also omitted the BGM will be played for the entire server.\n",
+			"\n",
+			"You can add your own BGMs this way, naturally.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,44 @@
+{
+	"changebase": {
+		"params": {
+			"job ID number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"job ID number"
+			]
+		],
+		"doc": [
+			"This command will change the appearance of the invoking character to that\n",
+			"of a specified job class. Nothing but appearance will change.\n",
+			"\n",
+			"Examples:\n",
+			"\n",
+			"\t/* This example is an item script in the item db */\n",
+			"\t{\n",
+			"\t\tId: 2338\n",
+			"\t\tAegisName: \"Wedding_Dress\"\n",
+			"\t\tName: \"Wedding Dress\"\n",
+			"\t\tType: 5\n",
+			"\t\tBuy: 43000\n",
+			"\t\tWeight: 500\n",
+			"\t\tJob: 0xFFFFFFFE\n",
+			"\t\tLoc: 16\n",
+			"\t\tScript: <\"\n",
+			"\t\t\tbonus(bMdef, 15);\n",
+			"\t\t\tchangebase(Job_Wedding);\n",
+			"\t\t\">\n",
+			"\t},\n",
+			"\n",
+			"changebase(Job_Novice); // Changes player to Novice sprite.\n",
+			"\n",
+			"changebase(Class); // Changes player back to default sprite.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

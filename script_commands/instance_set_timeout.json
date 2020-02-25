@@ -1,0 +1,45 @@
+{
+	"instance_set_timeout": {
+		"params": {
+			"alive timeout": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"idle timeout": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"instance id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"alive timeout",
+				"idle timeout"
+			],
+			[
+				"alive timeout",
+				"idle timeout",
+				"instance id"
+			]
+		],
+		"doc": [
+			"Sets the timeout values for an instance given by <instance id>. If no ID\n",
+			"is specified, the instance the script is attached to is used. If in the end,\n",
+			"no instance_id is found the command halts the script execution.\n",
+			"\n",
+			"Parameter <alive timeout> specifies the total amount of time the instance\n",
+			"will exist. Parameter <idle timeout> specifies how long players have, when\n",
+			"they are outside of the instance, until it is destroyed.\n",
+			"\n",
+			"Both timeout values are in seconds.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

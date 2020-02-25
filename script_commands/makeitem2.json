@@ -1,0 +1,122 @@
+{
+	"makeitem2": {
+		"params": {
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"identify": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"refine": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"attribute": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card1": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card2": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card3": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card4": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"X": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"Y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"range": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item name",
+				"amount",
+				"identify",
+				"refine",
+				"attribute",
+				"card1",
+				"card2",
+				"card3",
+				"card4"
+			],
+			[
+				"item name",
+				"amount",
+				"identify",
+				"refine",
+				"attribute",
+				"card1",
+				"card2",
+				"card3",
+				"card4",
+				"map name",
+				"X",
+				"Y",
+				"range"
+			]
+		],
+		"doc": [
+			"This script command work like 'makeitem', but it has additional parameters\n",
+			"to expand the usage of the scritp command.\n",
+			"\n",
+			"Parameter List:\n",
+			"\titemid\t\t- ID / Name of an item\n",
+			"\tamount\t\t- Amount you want produced (Value: 1~MAX_AMOUNT)\n",
+			"\t\t\t\t- if item type is Armor/Wepaon/PetEgg/PetArmor, amount will be limit to 1\n",
+			"\tidentify\t- Item to be identified (1) or not (0)\n",
+			"\trefine\t\t- Refine count of item. (Value: 0 ~ MAX_REFINE)\n",
+			"\tattribute\t- Item is broken (1) or not (0)\n",
+			"\tcard1,2,3,4\t- Card IDs that compound on each slot\n",
+			"\n",
+			"Optional Parameter List:\n",
+			"\tmap name\t- Map name (Default to attached player map)\n",
+			"\tX,Y\t\t\t- The coordinate of item will be dropped\n",
+			"\t\t\t\t\tIf value = 0, it's drop random across the map\n",
+			"\t\t\t\t\tIf value = -1, its drop around player\n",
+			"\trange\t\t- Range of item drop around player. (Value: 1 ~ battle_config.area_size, Default: 3)\n",
+			"\t\t\t\t\tDefault value will be used if no player are attached to the script.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,37 @@
+{
+	"stopselling": {
+		"params": {
+			"Item_ID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"currency_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"currency_amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"Item_ID"
+			],
+			[
+				"Item_ID",
+				"currency_id",
+				"currency_amount"
+			]
+		],
+		"doc": [
+			"attempts to remove <Item_ID> from the current shop list.\n",
+			"currency_id and currency_amount can be used only with shop type NST_BARTER\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

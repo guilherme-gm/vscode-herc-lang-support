@@ -1,0 +1,27 @@
+{
+	"close2": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command will create a 'close' button in the message window for the\n",
+			"invoking character. WARNING: If no window is currently on screen, the\n",
+			"script execution will halt indefinitely! See 'close'. There is one\n",
+			"important difference, though - even though the message box will have\n",
+			"closed, the script execution will not stop, and commands after 'close2'\n",
+			"will still run, meaning an 'end' has to be used to stop the script, unless\n",
+			"you make it stop in some other manner.\n",
+			"\n",
+			"    mes(\"[Woman]\");\n",
+			"    mes(\"I will warp you now.\");\n",
+			"    close2();\n",
+			"    warp(\"place\", 50, 50);\n",
+			"    end;\n",
+			"\n",
+			"Don't expect things to run smoothly if you don't make your scripts 'end'.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

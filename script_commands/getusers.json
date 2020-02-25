@@ -1,0 +1,29 @@
+{
+	"getusers": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type"
+			]
+		],
+		"doc": [
+			"This function will return a number of users on a map or the whole server.\n",
+			"What it returns is specified by Type.\n",
+			"\n",
+			"Type can be one of the following values, which control what is returned:\n",
+			"\n",
+			"\t0 - Count of all characters on the map of the invoking character.\n",
+			"\t1 - Count of all characters in the entire server.\n",
+			"\t8 - Count of all characters on the map of the NPC the script is\n",
+			"\t\trunning in.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,62 @@
+{
+	"delitemidx": {
+		"params": {
+			"index": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"index"
+			],
+			[
+				"index",
+				"amount"
+			],
+			[
+				"index",
+				"amount",
+				"account id"
+			]
+		],
+		"doc": [
+			"This command will remove an item at the given inventory index. Unlike the\n",
+			"'delitem()' counterpart, this doesn't check invalid Item ID, making it useful to remove\n",
+			"invalid item IDs in player's inventory.\n",
+			"\n",
+			"If <amount> is not specified, this will remove all of the items at the specified index.\n",
+			"Note that items with the 'ForceSerial' flag, not yet merged through 'mergeitem()', will only\n",
+			"be removed at the given index.\n",
+			"\n",
+			"The only way to get the inventory index is by using 'getinventorylist()'. After deleting\n",
+			"an item at the given index, that index can remain empty until the player relogs, so you\n",
+			"should recall 'getinventorylist()' again. If you try to delete an item at an invalid index, the\n",
+			"script will terminate with an error.\n",
+			"\n",
+			"This command is also useful to remove rental/bound items because 'delitem()'\n",
+			"does not discriminate at choosing which item to remove.\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"\t// This will remove all invalid Item ID in player's inventory\n",
+			"\tgetinventorylist();\n",
+			"\tfor (.@i = 0; .@i < @inventorylist_count; ++.@i)\n",
+			"\t\tif (getiteminfo(@inventorylist_id[.@i], ITEMINFO_TYPE) == -1)\n",
+			"\t\t\tdelitemidx(@inventorylist_idx[.@i]);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

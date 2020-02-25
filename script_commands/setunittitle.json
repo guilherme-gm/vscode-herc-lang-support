@@ -1,0 +1,29 @@
+{
+	"setunittitle": {
+		"params": {
+			"GID": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"title": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"GID",
+				"title"
+			]
+		],
+		"doc": [
+			"Set unit title string.\n",
+			"Invisible for players, because current implimentation using title id only.\n",
+			"Works for 20180207 main clients, 20171129 re clients, 20171130 zero clients\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,24 @@
+{
+	"failedrefitem": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			]
+		],
+		"doc": [
+			"This command will fail to refine an item in the specified equipment slot\n",
+			"of the invoking character. The item will be destroyed. This will also\n",
+			"display a 'refine failure' effect on the character and put appropriate\n",
+			"messages into their chat window.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

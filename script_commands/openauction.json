@@ -1,0 +1,19 @@
+{
+	"openauction": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This will open the Auction window on the client connected to the invoking\n",
+			"character.\n",
+			"\n",
+			"\tmes(\"Close this window to open the Auction window.\");\n",
+			"\tclose2();\n",
+			"\topenauction();\n",
+			"\tend;\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

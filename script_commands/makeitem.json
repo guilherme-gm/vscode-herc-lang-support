@@ -1,0 +1,58 @@
+{
+	"makeitem": {
+		"params": {
+			"item name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"X": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"Y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"item name",
+				"amount",
+				"map name",
+				"X",
+				"Y"
+			]
+		],
+		"doc": [
+			"This command will create an item lying around on a specified map in the\n",
+			"specified location.\n",
+			"\n",
+			"\titemid   - Found in 'db/(pre-)re/item_db.txt'\n",
+			"\tamount   - Amount you want produced\n",
+			"\tmap name - The map name\n",
+			"\tX        - The X coordinate\n",
+			"\tY        - The Y coordinate.\n",
+			"\n",
+			"This item will still disappear just like any other dropped item. Like\n",
+			"getitem(), it also accepts an 'english name' field from the database and\n",
+			"creates apples if the name isn't found.\n",
+			"If the map name is given as \"this\", the map the invoking character is on\n",
+			"will be used.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

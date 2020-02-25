@@ -1,0 +1,39 @@
+{
+	"cap_value": {
+		"params": {
+			"number": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"min": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"max": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"number",
+				"min",
+				"max"
+			]
+		],
+		"doc": [
+			"Returns the number but capped between <min> and <max>.\n",
+			"\n",
+			"Example:\n",
+			"\t// capped between 0 ~ 100\n",
+			"\t.@value = cap_value(10, 0, 100);   // .@value will be equal to 10\n",
+			"\t.@value = cap_value(1000, 0, 100); // .@value will be equal to 100\n",
+			"\t.@value = cap_value(-10, 3, 100);  // .@value will be equal to 3\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

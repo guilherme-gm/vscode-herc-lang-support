@@ -1,0 +1,41 @@
+{
+	"getequiprefinerycnt": {
+		"params": {
+			"equipment slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equipment slot"
+			],
+			[
+				"equipment slot",
+				"equipment slot"
+			],
+			[
+				"equipment slot",
+				"equipment slot",
+				"equipment slot"
+			]
+		],
+		"doc": [
+			"Returns the total of refine of item equipped in the equipment slots.\n",
+			"For a list of equipment slots, see 'getequipid'.\n",
+			"\n",
+			"For example:\n",
+			"\tif (getequiprefinerycnt(EQI_HEAD_TOP) > 10) {\n",
+			"\t\tmes(\"You equipped a headgear (top) with above 10 refine.\");\n",
+			"\t}\n",
+			"\n",
+			"For example:\n",
+			"\tif (getequiprefinerycnt(EQI_ARMOR, EQI_SHOES) > 20) {\n",
+			"\t\tmes(\"Total refine of Armor and Shoes exceed 20.\");\n",
+			"\t}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

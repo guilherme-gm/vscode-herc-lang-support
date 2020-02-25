@@ -1,0 +1,31 @@
+{
+	"skillpointcount": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"Returns the total amount of skill points a character possesses\n",
+			"(SkillPoint + skill points used in skills) This command can be used to\n",
+			"check the currently attached characters total amount of skill points.\n",
+			"This means the skill points used in skill are counted, and added to\n",
+			"SkillPoints (number of skill points not used).\n",
+			"\n",
+			"Example:\n",
+			"\n",
+			"//This will set the temp character variable @skill_points to the amount of\n",
+			"//skill points, and then tell the player the value.\n",
+			"\t@skill_points = skillpointcount();\n",
+			"\tmes(\"You have \"+@skill_points+\" skill points in total!\");\n",
+			"\n",
+			"//Self-explanatory... :P\n",
+			"\tif (skillpointcount() > 20)\n",
+			"\t\tmes(\"Wow, you have more then 20 Skill Points in total!\");\n",
+			"\n",
+			"This command does not count skills which are set as flag 3 (permamently\n",
+			"granted) (e.g. ALL_BUYING_STORE/ALL_INCCARRY).\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

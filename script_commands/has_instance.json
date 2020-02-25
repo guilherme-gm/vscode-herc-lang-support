@@ -1,0 +1,37 @@
+{
+	"has_instance": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"instance id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name"
+			],
+			[
+				"map name",
+				"instance id"
+			]
+		],
+		"doc": [
+			"Checks whether or not the given map belongs to specified instance. If no\n",
+			"ID is specified, the instance the script is attached to is used. If the\n",
+			"script is not attached to an instance, it'll try to check whether the,\n",
+			"player attached to the script possesses an instance with a map matching\n",
+			"\"<map name>\". If in the end no instance_id is found the command halts the,\n",
+			"script execution.\n",
+			"\n",
+			"Returns name of the instanced map on success, otherwise an empty string.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

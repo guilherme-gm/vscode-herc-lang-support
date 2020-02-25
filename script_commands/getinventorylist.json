@@ -1,0 +1,46 @@
+{
+	"getinventorylist": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command sets a bunch of arrays with a complete list of whatever the\n",
+			"invoking character has in its inventory, including all the data needed to\n",
+			"recreate these items perfectly if they are destroyed. Here's what you get:\n",
+			"\n",
+			"@inventorylist_id[]        - array of item ids.\n",
+			"@inventorylist_idx[]       - array of item inventory index.\n",
+			"@inventorylist_amount[]    - their corresponding item amounts.\n",
+			"@inventorylist_equip[]     - will return the slot the item is equipped on, if at all.\n",
+			"@inventorylist_refine[]    - for how much it is refined.\n",
+			"@inventorylist_identify[]  - whether it is identified.\n",
+			"@inventorylist_attribute[] - whether it is broken.\n",
+			"@inventorylist_card1[]     - These four arrays contain card data for the\n",
+			"@inventorylist_card2[]       items. These data slots are also used to store\n",
+			"@inventorylist_card3[]       names inscribed on the items, so you can\n",
+			"@inventorylist_card4[]       explicitly check if the character owns an item\n",
+			"                             made by a specific craftsman.\n",
+			"@inventorylist_expire[]    - expire time (Unix time stamp). 0 means never\n",
+			"                             expires.\n",
+			"@inventorylist_bound[]     - whether it is an account bounded item or not.\n",
+			"@inventorylist_favorite[]  - whether it is favorite (inside favorite tab) or not.\n",
+			"@inventorylist_count       - the number of items in these lists.\n",
+			"\n",
+			"This could be handy to save/restore a character's inventory, since no\n",
+			"other command returns such a complete set of data, and could also be the\n",
+			"only way to correctly handle an NPC trader for carded and named items who\n",
+			"could resell them - since NPC objects cannot own items, so they have to\n",
+			"store item data in variables and recreate the items.\n",
+			"\n",
+			"Notice that the variables this command generates are all temporary,\n",
+			"attached to the character, and integer.\n",
+			"\n",
+			"Be sure to use @inventorylist_count to go through these arrays, and not\n",
+			"getarraysize(), because the arrays are not automatically cleared between\n",
+			"runs of getinventorylist().\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

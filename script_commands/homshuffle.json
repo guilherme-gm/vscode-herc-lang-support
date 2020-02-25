@@ -1,0 +1,14 @@
+{
+	"homshuffle": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This will recalculate the homunculus stats according to its level, of the\n",
+			"current invoking character.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

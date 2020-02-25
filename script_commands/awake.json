@@ -1,0 +1,36 @@
+{
+	"awake": {
+		"params": {
+			"NPC name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"NPC name"
+			]
+		],
+		"doc": [
+			"These commands are used to control the pause of a NPC.\n",
+			"sleep() and sleep2() will pause the script for the given amount of\n",
+			"milliseconds.\n",
+			"awake() is used to cancel a sleep(). When awake() is called on a NPC it will run\n",
+			"as if the sleep timer ran out, and thus making the script continue. sleep()\n",
+			"and sleep2() basically do the same, but the main difference is that sleep()\n",
+			"will not keep the rid, while sleep2() does.\n",
+			"\n",
+			"Examples:\n",
+			"\t// This will pause the script for 10 seconds and ditch the RID\n",
+			"\t// (so no player is attached anymore)\n",
+			"\tsleep(10000);\n",
+			"\t// Pauses the script for 5 seconds, and continue with the RID attached.\n",
+			"\tsleep2(5000);\n",
+			"\t//Cancels any running sleep timers on the NPC 'NPC'.\n",
+			"\tawake(\"NPC\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

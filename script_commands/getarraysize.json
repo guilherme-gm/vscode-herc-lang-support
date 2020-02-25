@@ -1,0 +1,42 @@
+{
+	"getarraysize": {
+		"params": {
+			"array name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"array name"
+			]
+		],
+		"doc": [
+			"This function returns highest index of the array that is filled.\n",
+			"Notice that zeros and empty strings at the end of this array are not\n",
+			"counted towards this number.\n",
+			"\n",
+			"For example:\n",
+			"\n",
+			"\tsetarray(.@array, 100, 200, 300, 400, 500, 600);\n",
+			"\t.@arraysize = getarraysize(.@array);\n",
+			"\n",
+			"This will make .@arraysize == 6. But if you try this:\n",
+			"\n",
+			"\tsetarray(.@array, 100, 200, 300, 400, 500, 600, 0);\n",
+			"\t.@arraysize = getarraysize(.@array);\n",
+			"\n",
+			".@arraysize will still equal 6, even though you've set 7 values.\n",
+			"\n",
+			"If you do this:\n",
+			"\n",
+			"\t.@array[1000] = 1;\n",
+			"\t.@arraysize = getarraysize(.@array);\n",
+			"\n",
+			".@arraysize will be 1000, even though only one element has been set.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

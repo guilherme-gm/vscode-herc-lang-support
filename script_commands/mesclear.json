@@ -1,0 +1,22 @@
+{
+	"mesclear": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command will clear the dialog text and continue the script without player interaction.\n",
+			"\n",
+			"Example:\n",
+			"\tmes(\"This is how the 'mesclear' script command works.\");\n",
+			"\tsleep2 3000;\n",
+			"\tmesclear(); // This will clear the dialog and continue to the next one.\n",
+			"\tmes(\"I will show you again.\");\n",
+			"\tsleep2 3000;\n",
+			"\tmesclear(); // This will clear the dialog and continue to the next one.\n",
+			"\tmes(\"Bye!\");\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

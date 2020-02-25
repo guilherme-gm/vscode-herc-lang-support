@@ -1,0 +1,49 @@
+{
+	"getguildinfo": {
+		"params": {
+			"info type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"guild name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"info type"
+			],
+			[
+				"info type",
+				"guild name"
+			]
+		],
+		"doc": [
+			"This command returns misc info about the guild of the attached player. If a\n",
+			"guild id or guild name is specified it will be used instead. If the target guild\n",
+			"does not exist it returns an empty string or -1 depending on whether a string\n",
+			"or an integer was requested.\n",
+			"\n",
+			"Valid <info type> are:\n",
+			"\tGUILDINFO_NAME          - guild name\n",
+			"\tGUILDINFO_ID            - guild id\n",
+			"\tGUILDINFO_LEVEL         - current level\n",
+			"\tGUILDINFO_EXP           - current exp\n",
+			"\tGUILDINFO_NEXT_EXP      - exp required to reach the next level\n",
+			"\tGUILDINFO_SKILL_POINTS  - available skill points\n",
+			"\tGUILDINFO_ONLINE        - number of online members\n",
+			"\tGUILDINFO_AV_LEVEL      - average member level\n",
+			"\tGUILDINFO_MAX_MEMBERS   - guild capacity\n",
+			"\tGUILDINFO_MASTER_NAME   - name of the guild master\n",
+			"\tGUILDINFO_MASTER_CID    - char id of the guild master\n",
+			"\n",
+			"Example:\n",
+			"\tgetguildinfo(GUILDINFO_MASTER_NAME, getcharid(CHAR_ID_GUILD, \"Haru\"))\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

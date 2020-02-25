@@ -1,0 +1,100 @@
+{
+	"instance_announce": {
+		"params": {
+			"instance id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"text": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontColor": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontType": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontSize": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontAlign": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"fontY": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"instance id",
+				"text",
+				"flag"
+			],
+			[
+				"instance id",
+				"text",
+				"flag",
+				"fontColor"
+			],
+			[
+				"instance id",
+				"text",
+				"flag",
+				"fontColor",
+				"fontType"
+			],
+			[
+				"instance id",
+				"text",
+				"flag",
+				"fontColor",
+				"fontType",
+				"fontSize"
+			],
+			[
+				"instance id",
+				"text",
+				"flag",
+				"fontColor",
+				"fontType",
+				"fontSize",
+				"fontAlign"
+			],
+			[
+				"instance id",
+				"text",
+				"flag",
+				"fontColor",
+				"fontType",
+				"fontSize",
+				"fontAlign",
+				"fontY"
+			]
+		],
+		"doc": [
+			"Works like announce, but has the <instance id> parameter. If instance id\n",
+			"is -1, the instance the script is attached to is used. If in the\n",
+			"end no instance_id is found the command halts the script execution.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

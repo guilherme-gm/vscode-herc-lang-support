@@ -1,0 +1,87 @@
+{
+	"navigateto": {
+		"params": {
+			"map": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"hide_window": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"monster_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"char_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map"
+			],
+			[
+				"map",
+				"x",
+				"y",
+				"flag",
+				"hide_window",
+				"monster_id",
+				"char_id"
+			]
+		],
+		"doc": [
+			"Generates a navigation for attached or specified character. Requires client\n",
+			"2011-10-10aRagEXE or newer.\n",
+			"\n",
+			"The flag specifies how the client will calculate the specific route.\n",
+			"\n",
+			"Valid flags are:\n",
+			" NAV_NONE - No services\n",
+			" NAV_AIRSHIP_ONLY - Airship only\n",
+			" NAV_SCROLL_ONLY - Scroll only\n",
+			" NAV_AIRSHIP_AND_SCROLL - Airship and Scroll\n",
+			" NAV_KAFRA_ONLY - Kafra only\n",
+			" NAV_KAFRA_AND_AIRSHIP - Kafra and Airship\n",
+			" NAV_KAFRA_AND_SCROLL - Kafra and Scroll\n",
+			" NAV_ALL - All services\n",
+			"\n",
+			"When flag is not specified, the default value is NAV_KAFRA_AND_AIRSHIP.\n",
+			"\n",
+			"The hide_window specifies whether to display (0) or hide (1) the navigation window.\n",
+			"By default the window is hidden.\n",
+			"\n",
+			"You can specify the monster_id in combination with a mapname to make the\n",
+			"navigation system tell you, that you have reached the desired mob.\n",
+			"\n",
+			"Note:\n",
+			"The client requires custom monster spawns be in the navigation file\n",
+			"for using the embedded client Navigation feature to work properly. In this\n",
+			"instance sending the player to the map where the monster spawns is a simpler\n",
+			"solution rather than sending the map and the monster_id.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

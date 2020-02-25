@@ -1,0 +1,31 @@
+{
+	"statusup": {
+		"params": {
+			"stat": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"stat"
+			]
+		],
+		"doc": [
+			"This command will bump a specified stat of the invoking character up by\n",
+			"one permanently using status points to do so, if there aren't enough to perform\n",
+			"the change nothing will happen.\n",
+			"Stats are to be given as number, but you can use these constants to replace them:\n",
+			"\n",
+			"bStr -  Strength\n",
+			"bVit -  Vitality\n",
+			"bInt -  Intelligence\n",
+			"bAgi -  Agility\n",
+			"bDex -  Dexterity\n",
+			"bLuk -  Luck\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

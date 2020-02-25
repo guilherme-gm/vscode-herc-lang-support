@@ -1,0 +1,40 @@
+{
+	"getguildname": {
+		"params": {
+			"guild id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"guild id"
+			]
+		],
+		"doc": [
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"    @ /!\\ This command is deprecated @\n",
+			"    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n",
+			"\n",
+			"This function returns a guild's name given an ID number. If there is no\n",
+			"such guild, \"null\" will be returned;\n",
+			"\n",
+			"\t// Would print whatever guild 10007 name is.\n",
+			"\tmes(\"The guild \"+getguildname(10007)+\" are all nice people.\");\n",
+			"\n",
+			"\t// This will do the same as above:\n",
+			"\t.@var = 10007;\n",
+			"\tmes(\"We have some friends in \"+getguildname(.@var)+\", you know.\");\n",
+			"\n",
+			"This is used all over the WoE controlling scripts. You could also use it\n",
+			"for a guild-based event.\n",
+			"\n",
+			"This command is deprecated and it should not be used in new scripts, as it is\n",
+			"likely to be removed at a later time. Please use getguildinfo instead:\n",
+			"\tgetguildinfo(GUILDINFO_NAME, <guild id>)\n"
+		],
+		"return": "unknown",
+		"deprecated": true
+	}
+}

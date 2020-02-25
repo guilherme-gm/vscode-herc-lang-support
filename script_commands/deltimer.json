@@ -1,0 +1,23 @@
+{
+	"deltimer": {
+		"params": {
+			"account id": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[],
+			[
+				"account id"
+			]
+		],
+		"doc": [
+			"Deletes timers created by addtimer() that matches the given event\n",
+			"label. Refer to addtimer() for additional information.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,37 @@
+{
+	"delmonsterdrop": {
+		"params": {
+			"mob id or name": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"item id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"mob id or name",
+				"item id"
+			]
+		],
+		"doc": [
+			"This command will temporarily remove a drop from an existing monster.\n",
+			"\n",
+			"Both the monster and the item must be valid.\n",
+			"\n",
+			"Return value will be true in case of success (the item was removed), and\n",
+			"false otherwise (the monster didn't have the specified item in its drop\n",
+			"list).\n",
+			"\n",
+			"Example:\n",
+			"\t// Remove Jellopy (909) from the Poring's (1002) drops\n",
+			"\tdelmonsterdrop(PORING, Jellopy);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

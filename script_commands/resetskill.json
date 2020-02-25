@@ -1,0 +1,20 @@
+{
+	"resetskill": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This command takes off all the skill points on the invoking character, so\n",
+			"they only have Basic Skill blanked out (lvl 0) left, and returns the\n",
+			"points for them to spend again. Nothing else will change but the skills.\n",
+			"Quest skills will also reset if 'quest_skill_reset' option is set to true in\n",
+			"'conf/map/battle.conf'. If the 'quest_skill_learn' option is set in there, the\n",
+			"points in the quest skills will also count towards the total.\n",
+			"\n",
+			"Used in reset NPC's (duh!).\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

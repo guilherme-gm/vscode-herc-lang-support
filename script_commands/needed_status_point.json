@@ -1,0 +1,37 @@
+{
+	"needed_status_point": {
+		"params": {
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"val": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"type",
+				"val"
+			]
+		],
+		"doc": [
+			"Returns the number of stat points needed to change the specified stat <type> by <val>.\n",
+			"If <val> is negative, returns the number of stat points that would be needed to\n",
+			"raise the specified stat from (current value - <val>) to current value.\n",
+			"\n",
+			"List of <type>:\n",
+			"bStr -  Strength\n",
+			"bVit -  Vitality\n",
+			"bInt -  Intelligence\n",
+			"bAgi -  Agility\n",
+			"bDex -  Dexterity\n",
+			"bLuk -  Luck\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

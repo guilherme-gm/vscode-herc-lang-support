@@ -1,0 +1,23 @@
+{
+	"getargcount": {
+		"params": {},
+		"signatures": [
+			[]
+		],
+		"doc": [
+			"This function is used when you use the 'callsub' or 'callfunc' commands.\n",
+			"In the call you can specify arguments. This function will return the\n",
+			"number of arguments provided.\n",
+			"\n",
+			"Example:\n",
+			"\tcallfunc(\"funcNPC\", 5, 4, 3);\n",
+			"\t// ...\n",
+			"\tfunction%TAB%script%TAB%funcNPC%TAB%{\n",
+			"\t\t.@count = getargcount(); // 3\n",
+			"\t\t//...\n",
+			"\t}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"message": {
+		"params": {
+			"character name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"message": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"character name",
+				"message"
+			]
+		],
+		"doc": [
+			"That command will send a message to the chat window of the character\n",
+			"specified by account ID or name. The text will also appear above the head\n",
+			"of that character. It will not be seen by anyone else.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,39 @@
+{
+	"savepoint": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"x",
+				"y"
+			]
+		],
+		"doc": [
+			"This command saves where the invoking character will return to upon\n",
+			"'return to save point', if dead or in some other cases. The two versions\n",
+			"are equivalent. Map name, X coordinate and Y coordinate should be\n",
+			"perfectly obvious. This ignores any and all map flags, and can make a\n",
+			"character respawn where no teleportation is otherwise possible.\n",
+			"\n",
+			"\tsavepoint(\"place\", 350, 75);\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

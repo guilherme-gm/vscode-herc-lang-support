@@ -1,0 +1,59 @@
+{
+	"achievement_progress": {
+		"params": {
+			"ach_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"obj_idx": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"progress": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"incremental": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"account_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"ach_id",
+				"obj_idx",
+				"progress",
+				"incremental"
+			],
+			[
+				"ach_id",
+				"obj_idx",
+				"progress",
+				"incremental",
+				"account_id"
+			]
+		],
+		"doc": [
+			"Make the player progress in the specified achievement.\n",
+			"aid         - achievement ID\n",
+			"obj_idx     - achievement objective index.\n",
+			"progress    - objective progress towards goal.\n",
+			"incremental - (boolean) true to add the progress towards the goal,\n",
+			"              false to use the progress only as a comparand.\n",
+			"account_id  - (optional) AID to perform on (default to attached player).\n",
+			"\n",
+			"returns progress on success and false on failure\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

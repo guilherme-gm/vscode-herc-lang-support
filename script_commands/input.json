@@ -1,0 +1,90 @@
+{
+	"input": {
+		"params": {
+			"variable": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"min": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"max": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"variable"
+			],
+			[
+				"variable",
+				"min"
+			],
+			[
+				"variable",
+				"min",
+				"max"
+			]
+		],
+		"doc": [
+			"This command will make an input box pop up on the client connected to the\n",
+			"invoking character, to allow entering of a number or a string. This has\n",
+			"many uses, one example would be a guessing game, also making use of the\n",
+			"'rand' function:\n",
+			"\n",
+			"\tmes(\"[Woman]\");\n",
+			"\tmes(\"Try and guess the number I am thinking of.\");\n",
+			"\tmes(\"The number will be between 1 and 10.\");\n",
+			"\tnext();\n",
+			"\t.@number = rand(1, 10);\n",
+			"\tinput(.@guess);\n",
+			"\tif (.@guess == .@number) {\n",
+			"\t\tmes(\"[Woman]\");\n",
+			"\t\tmes(\"Well done that was the number I was thinking of\");\n",
+			"\t\tclose();\n",
+			"\t} else {\n",
+			"\t\tmes(\"[Woman]\");\n",
+			"\t\tmes(\"Sorry, that wasn't the number I was thinking of.\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\n",
+			"If you give the input() command a string variable to put the input in, it\n",
+			"will allow the player to enter text. Otherwise, only numbers will be\n",
+			"allowed.\n",
+			"\n",
+			"\tmes(\"[Woman]\");\n",
+			"\tmes(\"Please say HELLO\");\n",
+			"\tnext();\n",
+			"\tinput(.@var$);\n",
+			"\tif (.@var$ == \"HELLO\") {\n",
+			"\t\tmes(\"[Woman]\");\n",
+			"\t\tmes(\"Well done you typed it correctly\");\n",
+			"\t\tclose();\n",
+			"\t} else {\n",
+			"\t\tmes(\"[Woman]\");\n",
+			"\t\tmes(\"Sorry you got it wrong\");\n",
+			"\t\tclose();\n",
+			"\t}\n",
+			"\n",
+			"Normally you may not input a negative number with this command.\n",
+			"This is done to prevent exploits in badly written scripts, which would let\n",
+			"people, for example, put negative amounts of Zeny into a bank script and\n",
+			"receive free Zeny as a result.\n",
+			"\n",
+			"The command has two optional arguments and a return value.\n",
+			"The default value of 'min' and 'max' can be set with 'input_min_value' and\n",
+			"'input_max_value' in conf/map/script.conf.\n",
+			"For numeric inputs the value is capped to the range [min, max]. Returns 1\n",
+			"if the value was higher than 'max', -1 if lower than 'min' and 0 otherwise.\n",
+			"For string inputs it returns 1 if the string was longer than 'max', -1 is\n",
+			"shorter than 'min' and 0 otherwise.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

@@ -1,0 +1,42 @@
+{
+	"npcshopattach": {
+		"params": {
+			"name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"flag": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"name"
+			],
+			[
+				"name",
+				"flag"
+			]
+		],
+		"doc": [
+			"This command will attach the current script to the given NPC shop.\n",
+			"When a script is attached to a shop, the events \"OnBuyItem\" and\n",
+			"\"OnSellItem\" of your script will be executed whenever a player buys/sells\n",
+			"from the shop. Additionally, the arrays @bought_nameid[],\n",
+			"@bought_quantity[] or @sold_nameid[] and @sold_quantity[] will be filled\n",
+			"up with the items and quantities bought/sold.\n",
+			"\n",
+			"The optional parameter specifies whether to attach (true) or detach (false)\n",
+			"from the shop (the default is to attach). Note that detaching will detach\n",
+			"any NPC attached to the shop, even if it's from another script, while\n",
+			"attaching will override any other script that may be already attached.\n",
+			"\n",
+			"The function returns false if the shop was not found, true otherwise.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

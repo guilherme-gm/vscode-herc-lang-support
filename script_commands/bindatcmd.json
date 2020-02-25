@@ -1,0 +1,126 @@
+{
+	"bindatcmd": {
+		"params": {
+			"NPC object name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"event label": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"group level": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"group level char": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"log": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"NPC object name",
+				"event label"
+			],
+			[
+				"NPC object name",
+				"event label",
+				"group level",
+				"group level char",
+				"log"
+			]
+		],
+		"doc": [
+			"This command will bind a NPC event label to an atcommand. Upon execution\n",
+			"of the atcommand, the user will invoke the NPC event label. Each atcommand\n",
+			"is only allowed one binding. If you rebind, it will override the original\n",
+			"binding. If group level is provided, only users of that group level or\n",
+			"above will be able to access the command, if not provided, everyone will\n",
+			"be able to access the command.\n",
+			"\"group level char\" is the minimum group level required for the label to be\n",
+			"used on others like a char command would, e.g. \"#command \"target\" params\",\n",
+			"when not provided, \"group level char\" defaults to 99.\n",
+			"\"log\" whether to log the usages of this command with the atcommand log\n",
+			"(true = log, false = no log), default is to not log.\n",
+			"\n",
+			"The following variables are set upon execution:\n",
+			"\t.@atcmd_command$      =  The name of the @command used.\n",
+			"\t.@atcmd_parameters$[] =  Array containing the given parameters,\n",
+			"\t                         starting from an index of 0.\n",
+			"\t.@atcmd_numparameters =  The number of parameters defined.\n",
+			"\n",
+			"Parameters are split on spaces. Multiple spaces aren't grouped together, and\n",
+			"will create multiple (empty) arguments.\n",
+			"Any leading spaces before the first parameter will be omitted.\n",
+			"\n",
+			"Usage example:\n",
+			"\n",
+			"When a user types the command \"@test\", an angel effect will be shown.\n",
+			"\n",
+			"-\tscript\tatcmd_example\tFAKE_NPC,{\n",
+			"OnInit:\n",
+			"\tbindatcmd(\"test\", strnpcinfo(NPC_NAME_UNIQUE)+\"::OnAtcommand\");\n",
+			"\tend;\n",
+			"OnAtcommand:\n",
+			"\tspecialeffect(EF_ANGEL2, AREA, playerattached());\n",
+			"\tend;\n",
+			"}\n",
+			"\n",
+			"Parameter splitting example:\n",
+			"\t@mycommand\n",
+			"\t\t.@atcmd_numparameters -> 0\n",
+			"\t\t.@atcmd_parameters$   -> { }\n",
+			"\t@mycommand<space><space>\n",
+			"\t\t.@atcmd_numparameters -> 0\n",
+			"\t\t.@atcmd_parameters$   -> { }\n",
+			"\t@mycommand<space>foo\n",
+			"\t\t.@atcmd_numparameters -> 1\n",
+			"\t\t.@atcmd_parameters$   -> { \"foo\" }\n",
+			"\t@mycommand<space><space>foo\n",
+			"\t\t.@atcmd_numparameters -> 1\n",
+			"\t\t.@atcmd_parameters$   -> { \"foo\" }\n",
+			"\t@mycommand<space>foo<space>bar\n",
+			"\t\t.@atcmd_numparameters -> 2\n",
+			"\t\t.@atcmd_parameters$   -> { \"foo\", \"bar\" }\n",
+			"\t@mycommand<space>foo<space><space>bar\n",
+			"\t\t.@atcmd_numparameters -> 3\n",
+			"\t\t.@atcmd_parameters$   -> { \"foo\", \"\", \"bar\" }\n",
+			"\t@mycommand<space>foo<space>\n",
+			"\t\t.@atcmd_numparameters -> 2\n",
+			"\t\t.@atcmd_parameters$   -> { \"foo\", \"\" }\n",
+			"\t@mycommand<space>foo<space><space>\n",
+			"\t\t.@atcmd_numparameters -> 3\n",
+			"\t\t.@atcmd_parameters$   -> { \"foo\", \"\", \"\" }\n",
+			"\n",
+			"The called event label needs to take care of joining arguments together, in\n",
+			"case it expects spaces. For example:\n",
+			"\n",
+			"-\tscript\tatcmd_example\tFAKE_NPC,{\n",
+			"OnInit:\n",
+			"\tbindatcmd(\"test\", strnpcinfo(NPC_NAME_UNIQUE)+\"::OnAtcommand\");\n",
+			"\tend;\n",
+			"OnAtcommand:\n",
+			"\t// This command expects a character name (that may contain spaces) as\n",
+			"\t// the only parameter.\n",
+			"\t.@name$ = \"\";\n",
+			"\tfor (.@i = 0; .@i < .@atcmd_numparameters; ++.@i) {\n",
+			"\t\t.@name$ += (.@i > 0 ? \" \" : \"\") + .@atcmd_parameters$[.@i];\n",
+			"\t}\n",
+			"\tdispbottom(\"The specified name is: '\" + .@name$ + \"'\");\n",
+			"\tend;\n",
+			"}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

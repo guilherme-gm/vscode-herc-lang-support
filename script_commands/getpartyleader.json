@@ -1,0 +1,43 @@
+{
+	"getpartyleader": {
+		"params": {
+			"party id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"type": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"party id"
+			],
+			[
+				"party id",
+				"type"
+			]
+		],
+		"doc": [
+			"This function returns some information about the given party-id's leader.\n",
+			"When type is omitted, the default information retrieved is the leader's\n",
+			"name. Possible types are:\n",
+			"\n",
+			"\t1: Leader account id\n",
+			"\t2: Leader character id\n",
+			"\t3: Leader's class\n",
+			"\t4: Leader's current map name\n",
+			"\t5: Leader's current level as stored on the party structure (may not be\n",
+			"\t   current level if leader leveled up recently).\n",
+			"\n",
+			"If retrieval fails (leader not found or party does not exist), this\n",
+			"function returns \"null\" instead of the character name, and -1 for the\n",
+			"other types.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

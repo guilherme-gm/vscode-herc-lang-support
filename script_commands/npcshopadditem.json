@@ -1,0 +1,64 @@
+{
+	"npcshopadditem": {
+		"params": {
+			"name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"item id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"price": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"name",
+				"item id",
+				"price"
+			],
+			[
+				"name",
+				"item id",
+				"price",
+				"item id",
+				"price"
+			],
+			[
+				"name",
+				"item id",
+				"price",
+				"item id",
+				"price",
+				"item id",
+				"price"
+			],
+			[
+				"name",
+				"item id",
+				"price",
+				"item id",
+				"price",
+				"item id",
+				"price"
+			]
+		],
+		"doc": [
+			"This command will add more items at the end of the selling list for the\n",
+			"specified NPC shop or cashshop. If you specify an item already for sell,\n",
+			"that item will appear twice on the sell list.\n",
+			"\n",
+			"The function returns true if shop was updated successfully, or false if not found.\n",
+			"\n",
+			"Note that you cannot use -1 to specify default selling price!\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

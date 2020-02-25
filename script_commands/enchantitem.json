@@ -1,0 +1,39 @@
+{
+	"enchantitem": {
+		"params": {
+			"equip_pos": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card_slot": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"card_id": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"equip_pos",
+				"card_slot",
+				"card_id"
+			]
+		],
+		"doc": [
+			"Insert card into equipped item in EQI_* slot.\n",
+			"card_slot - can be 0 to 3.\n",
+			"card_id   - any card item id.\n",
+			"\n",
+			"returns true if all parameters correct\n",
+			"false in other case.\n",
+			"Works for 20160831 main, 20151118 RE, any zero version\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

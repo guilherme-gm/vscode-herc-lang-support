@@ -1,0 +1,58 @@
+{
+	"checkweight2": {
+		"params": {
+			"id_array": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"amount_array": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"id_array",
+				"amount_array"
+			]
+		],
+		"doc": [
+			"These functions will compute and return true if the total weight of the\n",
+			"specified number of specific items does not exceed the invoking\n",
+			"character's carrying capacity, and false otherwise. It is important to\n",
+			"see if a player can carry the items you expect to give them, failing to\n",
+			"do that may open your script up to abuse or create some very unfair\n",
+			"errors.\n",
+			"\n",
+			"The second function will check an array of items and amounts, and also\n",
+			"returns true on success and false on failure.\n",
+			"\n",
+			"The functions, in addition to checking to see if the player is capable of\n",
+			"holding a set amount of items, also ensure the player has room in their\n",
+			"inventory for the item(s) they will be receiving.\n",
+			"\n",
+			"Like getitem(), this function will also accept an 'english name' from\n",
+			"the database as an argument.\n",
+			"\n",
+			"Example 1:\n",
+			"\n",
+			"\tif (checkweight(Apple, 10)) {\n",
+			"\t\tgetitem(Apple, 10);\n",
+			"\t} else {\n",
+			"\t\tmes(\"Sorry, you cannot hold this amount of apples!\");\n",
+			"\t}\n",
+			"\n",
+			"Example 2:\n",
+			"\n",
+			"\tsetarray(.@item[0], 512, 513, 514);\n",
+			"\tsetarray(.@amount[0], 10, 5, 5);\n",
+			"\tif (!checkweight(.@item, .@amount)) {\n",
+			"\t\tmes(\"Sorry, you cannot hold this amount of fruit!\");\n",
+			"\t}\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

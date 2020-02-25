@@ -1,0 +1,45 @@
+{
+	"setmapflagnosave": {
+		"params": {
+			"map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"alternate map name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			},
+			"x": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			},
+			"y": {
+				"type": "number",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"map name",
+				"alternate map name",
+				"x",
+				"y"
+			]
+		],
+		"doc": [
+			"This command sets the 'nosave' flag for the specified map and also gives\n",
+			"an alternate respawn-upon-relogin point.\n",
+			"\n",
+			"It does not make a map impossible to make a save point on as you would\n",
+			"normally think, savepoint() will still work. It will, however, make the\n",
+			"specified map kick the reconnecting players off to the alternate map given\n",
+			"to the coordinates specified.\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}

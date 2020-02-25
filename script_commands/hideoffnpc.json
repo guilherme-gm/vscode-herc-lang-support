@@ -1,0 +1,29 @@
+{
+	"hideoffnpc": {
+		"params": {
+			"NPC object name": {
+				"type": "string",
+				"default": "*?*",
+				"doc": []
+			}
+		},
+		"signatures": [
+			[
+				"NPC object name"
+			]
+		],
+		"doc": [
+			"These commands will make the NPC object specified display as hidden or\n",
+			"visible, even though not actually disabled per se. Hidden as in thief Hide\n",
+			"skill, but unfortunately, not detectable by Ruwach or Sight.\n",
+			"\n",
+			"As they are now, these commands are pointless, it is suggested to use\n",
+			"'disablenpc'/'enablenpc', because these two commands actually unload the\n",
+			"NPC sprite location and other accompanying data from memory when it is not\n",
+			"used. However, you can use these for some quest ideas (such as cloaking\n",
+			"NPCs talking while hidden then revealing... you can wonder around =P).\n"
+		],
+		"return": "unknown",
+		"deprecated": false
+	}
+}
