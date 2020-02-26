@@ -354,5 +354,5 @@ function commaSep(rule) {
 }
 
 function commaSep1(rule) {
-	return seq(rule, repeat(seq(',', rule)))
+	return seq(rule, repeat(choice(',', seq(',', rule))))
 }

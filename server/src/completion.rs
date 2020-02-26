@@ -32,6 +32,8 @@ fn node_kind_to_context(kind: &str) -> CodeContext {
         | "assignment_expression"
         | "binary_expression"
         | "unary_expression"
+        | "function_expression"
+        | "labeled_statement"
         | "update_expression" => return CodeContext::Expression,
         _ => CodeContext::Invalid,
     }

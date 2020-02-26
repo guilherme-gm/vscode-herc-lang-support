@@ -8,27 +8,29 @@ macro_rules! debug_ {
 mod completion;
 mod diag;
 mod file;
+mod script_commands;
+mod signature;
 mod source_file;
 mod state;
-mod script_commands;
 
-use std::collections::HashMap;
-use std::sync::{Mutex};
-use std::fs::File;
-use jsonrpc_core::{Result};
+use jsonrpc_core::Result;
+use script_commands::ScriptCommand;
 use serde_json::Value;
+use state::State;
+use std::collections::HashMap;
+use std::fs::File;
+use std::sync::Mutex;
 use tower_lsp::lsp_types::*;
 use tower_lsp::{LanguageServer, LspService, Printer, Server};
-use tree_sitter::{Parser, Language};
-use state::State;
-use script_commands::ScriptCommand;
+use tree_sitter::{Language, Parser};
 
 // Debugger
 use std::io::prelude::*;
 use std::net::TcpStream;
 
-extern "C" { fn tree_sitter_hercscript() -> Language; }
-
+extern "C" {
+    fn tree_sitter_hercscript() -> Language;
+}
 
 pub struct HerculesScript {
     state: Mutex<State>,
@@ -62,11 +64,11 @@ impl LanguageServer for HerculesScript {
         let init = params.initialization_options.unwrap();
         if let Value::String(cmd_path) = init.get("script_cmd").unwrap() {
             let commands_json = File::open(cmd_path).unwrap();
-            let mut commands: HashMap<String, ScriptCommand> = serde_json::from_reader(commands_json).unwrap();
+            let mut commands: HashMap<String, ScriptCommand> =
+                serde_json::from_reader(commands_json).unwrap();
             script_commands::load_prototypes(&mut commands);
             self.state.lock().unwrap().commands = Some(commands);
         }
-        
         Ok(InitializeResult {
             server_info: None,
             capabilities: ServerCapabilities {
@@ -80,12 +82,12 @@ impl LanguageServer for HerculesScript {
                     work_done_progress_options: Default::default(),
                 }),
                 signature_help_provider: Some(SignatureHelpOptions {
-                    trigger_characters: None,
-                    retrigger_characters: None,
+                    trigger_characters: Some(vec!["(".to_string(), ",".to_string()]),
+                    retrigger_characters: Some(vec!["(".to_string(), ",".to_string()]),
                     work_done_progress_options: Default::default(),
                 }),
-                document_highlight_provider: Some(true),
-                workspace_symbol_provider: Some(true),
+                document_highlight_provider: Some(false),
+                workspace_symbol_provider: Some(false),
                 execute_command_provider: Some(ExecuteCommandOptions {
                     commands: vec!["dummy.do_something".to_string()],
                     work_done_progress_options: Default::default(),
@@ -134,21 +136,25 @@ impl LanguageServer for HerculesScript {
     }
 
     fn did_open(&self, printer: &Printer, params: DidOpenTextDocumentParams) {
-        printer.log_message(MessageType::Info, format!("file '{}' opened!", params.text_document.uri));
+        printer.log_message(
+            MessageType::Info,
+            format!("file '{}' opened!", params.text_document.uri),
+        );
         // We are only locking it here, so it is safe to unwrap_or_else (I think)
         let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
         let uri = params.text_document.uri.clone();
         let src = file::open(&mut state, params.text_document);
         let cp = src.clone(); //@removeme
         let diags = diag::get_diagnostics(src);
-        printer.log_message(MessageType::Info, format!("{:?}", cp.lock().unwrap().line_bytes)); //@removeme
-        
+        printer.log_message(
+            MessageType::Info,
+            format!("{:?}", cp.lock().unwrap().line_bytes),
+        ); //@removeme
         printer.publish_diagnostics(uri, diags, None);
     }
 
     fn did_change(&self, printer: &Printer, params: DidChangeTextDocumentParams) {
         printer.log_message(MessageType::Info, "file changed!");
-        
         // We are only locking it here, so it is safe to unwrap_or_else (I think)
         let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
         if let Some(src) = file::get(&mut state, &params.text_document.uri) {
@@ -157,7 +163,13 @@ impl LanguageServer for HerculesScript {
 
             printer.publish_diagnostics(params.text_document.uri, diags, None);
         } else {
-            printer.log_message(MessageType::Error, format!("File {} was not open. Failed to update and diagnose it.", params.text_document.uri));
+            printer.log_message(
+                MessageType::Error,
+                format!(
+                    "File {} was not open. Failed to update and diagnose it.",
+                    params.text_document.uri
+                ),
+            );
         }
     }
 
@@ -167,7 +179,6 @@ impl LanguageServer for HerculesScript {
 
     fn did_close(&self, _printer: &Printer, params: DidCloseTextDocumentParams) {
         let uri = params.text_document.uri;
-        
         // We are only locking it here, so it is safe to unwrap_or_else (I think)
         let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
         if let Some(_src) = file::get(&mut state, &uri) {
@@ -182,7 +193,27 @@ impl LanguageServer for HerculesScript {
 
         if let Some(src) = file::get(&mut state, uri) {
             let position = params.text_document_position.position;
-            Ok(Some(CompletionResponse::Array(completion::get_completion(&self.con, &state, src, position))))
+            Ok(Some(CompletionResponse::Array(completion::get_completion(
+                &self.con, &state, src, position,
+            ))))
+        } else {
+            Ok(None)
+        }
+    }
+
+    async fn signature_help(
+        &self,
+        params: TextDocumentPositionParams,
+    ) -> Result<Option<SignatureHelp>> {
+        // debug_!(&mut self.con.lock().unwrap(), format!("Sign: {:?}", params));
+        // params.text_document_position.
+        let uri = &params.text_document.uri;
+        let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
+
+        if let Some(src) = file::get(&mut state, uri) {
+            let position = params.position;
+
+            Ok(signature::get_signature(&self.con, &state, src, position))
         } else {
             Ok(None)
         }
@@ -203,6 +234,5 @@ async fn main() -> Result<()> {
         .serve(service);
 
     handle.run_until_exit(server).await;
-    
     Ok(())
 }
