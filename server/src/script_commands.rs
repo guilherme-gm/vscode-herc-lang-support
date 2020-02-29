@@ -7,64 +7,71 @@ where
     D: Deserializer<'de>,
 {
     let s: Vec<String> = Deserialize::deserialize(deserializer)?;
-    Ok(s.join("\n"))
+    Ok(s.join(" "))
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Parameter {
-    pub name: String,
+    #[serde(rename = "type")]
     pub param_type: String,
-    pub default: Option<String>
+    pub default: String,
+    #[serde(deserialize_with = "from_line_array")]
+    pub doc: String,
 }
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct ScriptCommand {
-    pub params: Vec<Vec<Parameter>>,
-    #[serde(rename = "paramDoc")]
-    pub param_doc: HashMap<String, String>,
+    /**
+     * signatures array is desserialized into signature_params to be later converted into signatures field
+     */
+    #[serde(rename(deserialize = "signatures"))]
+    pub signature_params: Vec<Vec<String>>,
+    pub params: HashMap<String, Parameter>,
     #[serde(deserialize_with = "from_line_array")]
     pub doc: String,
-    #[serde(default)]
-    pub prototype: Option<String>,
+    #[serde(rename = "return")]
+    pub return_type: String,
+    pub deprecated: bool,
+    #[serde(skip)]
+    pub signatures: Vec<String>,
 }
 
 impl ScriptCommand {
-    pub fn generate_prototype(&mut self, cmd: &String) {
-        if let Some(_) = self.prototype {
+    pub fn generate_signatures(&mut self, cmd: &String) {
+        if self.signature_params.len() == 0 {
+            self.signatures.push(format!("{}()", cmd));
             return;
         }
 
-        let mut larger_idx: Option<&Vec<Parameter>> = None;
-        let mut larger_cnt: usize = 0;
+        for param_set in &self.signature_params {
+            let mut signature = String::new();
+            signature.push_str(&cmd);
+            signature.push('(');
 
-        for param_list in &self.params {
-            if param_list.len() > larger_cnt {
-                larger_idx = Some(&param_list);
-                larger_cnt = param_list.len();
+            let mut param_count = 0;
+            
+            for param in param_set {
+                if let Some(param_info) = self.params.get(param) {
+                    signature.push_str(&format!("{}: {}, ", param, param_info.param_type));
+                } else {
+                    signature.push_str(&format!("{}: unknown, ", param));
+                }
+                param_count += 1;
             }
+    
+            if param_count > 0 {
+                signature.pop(); // space
+                signature.pop(); // ','
+            }
+            
+            signature.push(')');
+            self.signatures.push(signature);
         }
-
-        let mut prot = String::new();
-        prot.push_str(&cmd);
-        prot.push('(');
-        if let Some(params) = larger_idx {
-            for param in params {
-                prot.push_str(&format!("{}: {}, ", param.name, param.param_type));
-            }
-
-            if larger_cnt > 0 {
-                prot.pop(); // space
-                prot.pop(); // ','
-            }
-        }
-        prot.push(')');
-
-        self.prototype = Some(prot);
     }
 }
 
 pub fn load_prototypes(commands: &mut HashMap<String, ScriptCommand>) {
     for (cmd, cmd_data) in commands.iter_mut() {
-        cmd_data.generate_prototype(&cmd);
+        cmd_data.generate_signatures(&cmd);
     }
 }

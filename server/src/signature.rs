@@ -133,7 +133,7 @@ fn buildSignatureHelp(context: FunctionContext, commands: &HashMap<String, Scrip
             active_parameter = Some(min_param);
         }
         
-        let sign_count = command.params.len();
+        let sign_count = command.signatures.len();
         if sign_count < 1 {
             return None;
         }
@@ -143,18 +143,29 @@ fn buildSignatureHelp(context: FunctionContext, commands: &HashMap<String, Scrip
             let mut param_list: Vec<ParameterInformation> = Vec::new();
             
             let mut param_count = 0;
-            for param in &command.params[i] {
-                lbl.push_str(format!("{}, ", param.name).as_str());
-                param_list.push(ParameterInformation {
-                    label: ParameterLabel::Simple(param.name.clone()),
-                    documentation: None // TODO: Implement docs
-                });
-                param_count += 1;
-            }
+            let sign_lbl = command.signatures[i].clone();
+            for param in &command.signature_params[i] {
+                if let Some(param_info) = command.params.get(param) {
+                    let param_lbl = format!("{}: {}", param.clone(), param_info.param_type.clone());
+                    let param_lbl = ParameterLabel::Simple(param_lbl);
+                    let doc = param_info.doc.clone();
+                    if doc.eq("") {
+                        param_list.push(ParameterInformation {
+                            label: param_lbl,
+                            documentation: None
+                        });
+                    } else {
+                        param_list.push(ParameterInformation {
+                            label: param_lbl,
+                            documentation: Some(Documentation::MarkupContent(MarkupContent {
+                                kind: MarkupKind::Markdown,
+                                value: doc,
+                            }))
+                        });
+                    }
+                }
 
-            if param_count > 0 {
-                lbl.pop();
-                lbl.pop();
+                param_count += 1;
             }
 
             if param_count > min_param {
@@ -163,11 +174,22 @@ fn buildSignatureHelp(context: FunctionContext, commands: &HashMap<String, Scrip
 
             lbl.push(')');
 
-            signatures.push(SignatureInformation {
-                label: lbl,
-                documentation: None, // TODO: Implement docs
-                parameters: Some(param_list),
-            });
+            if command.doc.eq("") {
+                signatures.push(SignatureInformation {
+                    label: sign_lbl,
+                    documentation: None,
+                    parameters: Some(param_list),
+                });
+            } else {
+                signatures.push(SignatureInformation {
+                    label: sign_lbl,
+                    documentation: Some(Documentation::MarkupContent(MarkupContent {
+                        kind: MarkupKind::Markdown,
+                        value: command.doc.clone(),
+                    })),
+                    parameters: Some(param_list),
+                });
+            }
         }
 
         let mut active_signature = None;

@@ -78,7 +78,7 @@ fn make_script_cmd_completion(name: String, cmd: &ScriptCommand) -> CompletionIt
     CompletionItem {
         label: name,
         kind: Some(CompletionItemKind::Function),
-        detail: cmd.prototype.clone(),
+        detail: cmd.signatures.last().cloned(),
         documentation: Some(Documentation::MarkupContent(MarkupContent {
             kind: MarkupKind::Markdown,
             value: cmd.doc.clone(),
