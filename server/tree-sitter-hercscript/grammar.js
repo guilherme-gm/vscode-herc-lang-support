@@ -104,7 +104,11 @@ module.exports = grammar({
 			$.return_statement,
 			$.break_statement,
 			$.continue_statement,
-			$.goto_statement
+			$.goto_statement,
+			$.end_statement,
+			$.function_declaration,
+			$.function_statement,
+			// $.old_function,
 		),
 
 		labeled_statement: $ => seq(
@@ -177,9 +181,36 @@ module.exports = grammar({
 			'break', ';'
 		),
 
+		end_statement: $ => seq(
+			'end', ';'
+		),
+
+		function_declaration: $ => seq(
+			'function', $.identifier, '{',
+			$.block,
+			'}'
+		),
+
+		function_statement: $ => seq(
+			'function', $.identifier, ';'
+		),
+
 		continue_statement: $ => seq(
 			'continue', ';'
 		),
+
+		// old_function: $ => seq(
+		// 	$._func_name,
+		// 	optional(seq(
+		// 		$.identifier,
+		// 		optional(repeat(seq(
+		// 			',', $.identifier
+		// 		)))
+		// 	)),
+		// 	';'
+		// 	// field('function', $._expression),
+		// 	// field('arguments', seq)
+		// ),
 
 		goto_statement: $ => seq(
 			'goto',
@@ -202,7 +233,7 @@ module.exports = grammar({
 			$.string_literal,
 			$.true,
 			$.false,
-			$.parenthesized_expression
+			$.parenthesized_expression,
 		),
 
 		comma_expression: $ => seq(
@@ -304,7 +335,9 @@ module.exports = grammar({
 			field('arguments', $.argument_list)
 		)),
 
-		argument_list: $ => seq('(', commaSep($._expression), ')'),
+		argument_list: $ => seq(
+			'(', commaSep($._expression), ')'
+		),
 
 		parenthesized_expression: $ => seq(
 			'(',
@@ -324,6 +357,8 @@ module.exports = grammar({
 			repeat(token.immediate(prec(1, /[^\\"\n]+/))),
 			'"'
 		), // TODO : Escaped strings
+
+		// _func_name: $ => prec(100, /[a-zA-Z_0-9]+/),
 
 		identifier: $ => $._identifier,
 		_identifier: $ => seq(
