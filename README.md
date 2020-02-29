@@ -2,6 +2,21 @@
 
 Adds support to Hercules' (https://herc.ws) scripting language.
 
+## Main Issues
+- Indenting with tabs is not supported because VSCode sends a column based on the tab-size, while tree-sitter gives us a position when tab-size is 8 characters.
+> We may be able to work around that by sending a custom config with the tabsize (check client/extension.ts for extra info). And dealing with tabs manually in the server.
+> Example: User triggers auto complete --> reads line char by char and when a tab is found, replace it by +8 (and reduce the number of columns from the range)
+
+- Additional code in the same line as the header is not supported (because of the issue above).
+
+- Actually all the above may be quite wrong, because further tests has shown that it actually measures tabs as 1 character... needs further testing and implementation
+
+## Todos
+- Add diagnostic for functions that end in ',' as the grammar allows it because of the signatur ehelper. e.g.:
+```
+mes("Hello",); //< the comma is invalid
+```
+
 ## Features
 
 ### Syntax Highlighting
@@ -68,6 +83,31 @@ and if possible it may be implemented in the future.
 No. Not yet. I don't think the current state of it is stable enough for it to be published
 in VSCode Marketplace.
 
+## Contributting
+
+Want to help making the extension better? Your help is really appreciated!
+
+There are a couple ways to contribute to this extension, even if you don't know how to code!
+
+### Improve commands documentation
+Hercules' script engine has LOTS of commands, and we NEED TO document all of them, list their parameters
+returns, how to use, etc etc. Currently we have a automatically generated documentation for most commands,
+although those documentations kind of works, they are not 100% accurate and some times they miss important
+information.
+
+One way to help the extension is by taking your time to pick a command and rewrite its documentation
+correctly and with all the details required. Check @@TODO issue to see the list of commands that are
+still missing a documentation.
+
+To contribute to the docs, you must check the Command Documentation Standard (@@TODO: Link)
+
+### Implementing new features
+Language Server Protcol has lots of functionalities, and we could implment them all! But doing this takes
+a lot of time. So you may want to take the task of implementing one, or a part of it! I just ask that
+before actually doing it, please open an issue about it and lets discuss!
+
+Discussing it we may find a good way to make it work, and also you get an assigment to that task so there's
+no risk of someone else (or even me!) working in the same feature and someone doing a lot of work for nothing!
 
 ## Release Notes
 
