@@ -2,6 +2,7 @@ const PREC = {
 	PAREN_DECLARATOR: -10,
 	ASSIGNMENT: -1,
 	CONDITIONAL: -2,
+	OLD_FUNCTION: -1,
 	DEFAULT: 0,
 	LOGICAL_OR: 1,
 	LOGICAL_AND: 2,
@@ -16,7 +17,8 @@ const PREC = {
 	EXPONENTIAL: 12,
 	UNARY: 13,
 	FUNCTION: 14,
-	SUBSCRIPT: 16 // Arrays []
+	SUBSCRIPT: 16, // Arrays []
+	TOP_LEVEL: 30,
 };
 
 module.exports = grammar({
@@ -33,14 +35,43 @@ module.exports = grammar({
 		source_file: $ => repeat($._definition),
 
 		_definition: $ => choice(
-			$.script_def
-			// TODO: other kinds of definitions
+			// TODO: mapflag flags
+			// $.mapflag_def,
+			$.duplicate_def,
+			$.function_def,
+			$.script_def,
+			$.shop_def,
+			$.spawn_def,
+			$.warp_def,
 		),
 
-		script_def: $ => seq(
+		// mapflag_def: $ => seq(
+		// 	field('map', $.identifier),
+		// 	/\t/,
+		// 	'mapflag',
+		// 	/\t/,
+		// 	field('flag', ),
+		// ),
+
+		duplicate_def: $ => prec(PREC.TOP_LEVEL, seq(
+			$.position, /\t/,
+			seq('duplicate', '(', $.npc_name ,')'), /\t/,
+			$.npc_name, /\t/,
+			choice(
+				seq(field('span_x', $.number_literal), ',', field('span_y', $.number_literal), ','),
+				seq(field('sprite', $.identifier), optional($.trigger_area))
+			)
+		)),
+
+		function_def: $ => prec(PREC.TOP_LEVEL, seq(
+			'function', /\t/, 'script', /\t/, $.identifier, /\t/,
+			field('body', $.block),
+		)),
+
+		script_def: $ => prec(PREC.TOP_LEVEL, seq(
 			$.position,
 			/\t/,
-			'script',
+			choice('script', 'trader'),
 			/\t/,
 			$.npc_name,
 			/\t/,
@@ -48,7 +79,50 @@ module.exports = grammar({
 			optional($.trigger_area),
 			',',
 			field('body', $.block),
-		),
+		)),
+
+		shop_def: $ => prec(PREC.TOP_LEVEL, seq(
+			$.position,
+			/\t/,
+			choice('shop', 'cashshop'),
+			/\t/,
+			$.npc_name,
+			/\t/,
+			field('sprite', $.identifier),',',
+			field('item', seq($.shop_item, repeat(seq(',', $.shop_item)))),
+		)),
+
+		shop_item: $ => seq($.number_literal, ':', $.number_literal),
+
+		spawn_def: $ => prec(PREC.TOP_LEVEL, seq(
+			field('map', $.identifier), ',',
+			field('x1', $.number_literal), ',',
+			field('y1', $.number_literal), ',',
+			field('x2', $.number_literal), ',',
+			field('y2', $.number_literal), /\t/,
+			choice('monster', 'boss_monster', 'miniboss_monster'), /\t/,
+			field('name', $.npc_name), /\t/, ///[^\t]+/), /\t/, // TODO: Level Name
+			field('id', $.number_literal), ',',
+			field('amount', $.number_literal), ',',
+			field('delay1', $.number_literal), ',',
+			field('delay2', $.number_literal), ',',
+			field('event', choice($.string_literal, '0')),
+			optional(seq(
+				',', field('size', $.number_literal),
+				',', field('ai', $.number_literal),
+			)),
+		)),
+
+		warp_def: $ => prec(PREC.TOP_LEVEL, seq(
+			$.position,
+			/\t/, 'warp', /\t/,
+			field('name', $.npc_name), /\t/,
+			field('span_x', $.number_literal), ',',
+			field('span_y', $.number_literal), ',',
+			field('to_map', $.identifier), ',',
+			field('to_x', $.number_literal), ',',
+			field('to_y', $.number_literal),
+		)),
 
 		npc_name: $ => choice(
 			seq($.visible_name, optional($.hidden_name), optional($.unique_name)),
@@ -65,11 +139,12 @@ module.exports = grammar({
 			seq(
 				field('map', $.identifier), ',',
 				field('x', $.number_literal), ',',
-				field('y', $.number_literal), ',',
-				field('dir', $.number_literal)
+				field('y', $.number_literal), optional(seq(
+					',', field('dir', $.number_literal)
+				))
 			),
 			'-'
-		), // TODO : direction is optional for portals
+		),
 
 		trigger_area: $ => seq(',', field('spanX', $.number_literal), ',', field('spanY', $.number_literal)),
 
@@ -80,7 +155,7 @@ module.exports = grammar({
 		),
 
 		init_declarator: $ => seq(
-			field('declarator', $._identifier),
+			field('declarator', choice($._scoped_identifier, $._identifier)),
 			'=',
 			field('value', $._expression)
 		),
@@ -108,7 +183,7 @@ module.exports = grammar({
 			$.end_statement,
 			$.function_declaration,
 			$.function_statement,
-			// $.old_function,
+			$.old_function,
 		),
 
 		labeled_statement: $ => seq(
@@ -199,18 +274,18 @@ module.exports = grammar({
 			'continue', ';'
 		),
 
-		// old_function: $ => seq(
-		// 	$._func_name,
-		// 	optional(seq(
-		// 		$.identifier,
-		// 		optional(repeat(seq(
-		// 			',', $.identifier
-		// 		)))
-		// 	)),
-		// 	';'
-		// 	// field('function', $._expression),
-		// 	// field('arguments', seq)
-		// ),
+		old_function: $ => prec(PREC.OLD_FUNCTION, seq(
+			field('function', $.identifier),
+			optional(field('arguments', $.old_function_args)),
+			';'
+		)),
+
+		old_function_args: $ => seq(
+			$._expression,
+			optional(repeat(seq(
+				',', $._expression
+			)))
+		),
 
 		goto_statement: $ => seq(
 			'goto',
@@ -228,9 +303,10 @@ module.exports = grammar({
 			$.update_expression,
 			$.subscript_expression,
 			$.function_expression,
+			$.scoped_identifier,
 			$.identifier,
 			$.number_literal,
-			$.string_literal,
+			$.string,
 			$.true,
 			$.false,
 			$.parenthesized_expression,
@@ -251,6 +327,7 @@ module.exports = grammar({
 		)),
 
 		_assignment_left_expression: $ => choice(
+			$.scoped_identifier,
 			$.identifier,
 			$.subscript_expression,
 			$.parenthesized_expression
@@ -351,7 +428,10 @@ module.exports = grammar({
 		true: $ => 'true',
 		false: $ => 'false',
 
-		number_literal: $ => /\d+/,
+		number_literal: $ => choice(/0x\d+/, /\d+/),
+
+		string: $ => seq($.string_literal, repeat($.string_literal)),
+
 		string_literal: $ => seq(
 			'"',
 			repeat(token.immediate(prec(1, /[^\\"\n]+/))),
@@ -360,15 +440,20 @@ module.exports = grammar({
 
 		// _func_name: $ => prec(100, /[a-zA-Z_0-9]+/),
 
-		identifier: $ => $._identifier,
-		_identifier: $ => seq(
-			optional(choice(
+		scoped_identifier: $ => prec(10, $._scoped_identifier),
+		_scoped_identifier: $ => prec(10, choice(
+			seq(choice(
 				"$@", ".@", "##",
 				"$", "@", ".", "'", "#"
-			)),
-			/[a-zA-Z_0-9]+/,
+			),
+			$._identifier,
 			optional('$')
-		),
+			),
+			seq($._identifier, '$')
+		)),
+
+		identifier: $ => $._identifier,
+		_identifier: $ => /[a-zA-Z_0-9]+/,
 
 		_statement_identifier: $ => alias($.identifier, $.statement_identifier),
 		// http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
