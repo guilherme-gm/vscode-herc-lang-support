@@ -2,6 +2,7 @@ use tower_lsp::lsp_types::*;
 use tree_sitter::Node;
 use super::statements;
 use super::helpers::*;
+use super::expressions;
 use std::collections::HashMap;
 use crate::script_commands::ScriptCommand;
 
@@ -50,8 +51,9 @@ pub fn format(
 			"expression_statement" => {
 				let mut stmt_cursor = node.walk();
 				stmt_cursor.goto_first_child();
-				if stmt_cursor.node().kind().eq_ignore_ascii_case("identifier") {
-					let txt = get_node_text(&stmt_cursor.node(), code);
+				let exp_node = stmt_cursor.node();
+				if exp_node.kind().eq_ignore_ascii_case("identifier") {
+					let txt = get_node_text(&exp_node, code);
 					if commands.contains_key(&txt) {
 						edits.push(TextEdit {
 							range: Range {
@@ -72,9 +74,14 @@ pub fn format(
 					
 						formatter_info.0 += 1;
 						formatter_info.1 = 0;
+					} else {
+						expressions::resolve_stmt(_dbg, &exp_node, code, formatter_info, indent_level, edits);
 					}
+				} else {
+					expressions::resolve_stmt(_dbg, &exp_node, code, formatter_info, indent_level, edits);
 				}
 			},
+			
 			"old_function" => statements::old_function::format(_dbg, &node, code, formatter_info, indent_level, edits),
 			_ => continue, // TODO: This may make text disappear
 		}

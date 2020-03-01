@@ -12,6 +12,7 @@ use crate::source_file::SourceFile;
 
 mod block;
 mod duplicate_def;
+mod expressions;
 mod function_def;
 mod helpers;
 mod position;
