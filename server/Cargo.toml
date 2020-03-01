@@ -15,7 +15,7 @@ jsonrpc-core = "14.0"
 jsonrpc-derive = "14.0"
 log = "0.4"
 lsp-types = "0.70"
-nom = "5.1"
+nom = { version = "5.1", default-features = false, features = ["std"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tokio = { version = "0.2", features = ["macros", "rt-core", "io-std"] }
@@ -23,7 +23,7 @@ tokio-util = { version = "0.2", features = ["codec"] }
 tower-service = "0.3"
 # tokio-codec = "0.2 "
 # tokio-executor = "0.1.9"
-tower-lsp = "0.7"
+tower-lsp = "0.8"
 env_logger = "0.7"
 #tokio = { version = "0.2", features = ["io-std", "macros", "test-util"] }
 tree-sitter = "0.6.1"

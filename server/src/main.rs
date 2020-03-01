@@ -221,18 +221,15 @@ impl LanguageServer for HerculesScript {
 }
 
 #[tokio::main]
-async fn main() -> Result<()> {
+async fn main() {
     env_logger::init();
 
     let stdin = tokio::io::stdin();
     let stdout = tokio::io::stdout();
 
     let (service, messages) = LspService::new(HerculesScript::new());
-    let handle = service.close_handle();
-    let server = Server::new(stdin, stdout)
+    Server::new(stdin, stdout)
         .interleave(messages)
-        .serve(service);
-
-    handle.run_until_exit(server).await;
-    Ok(())
+        .serve(service)
+        .await;
 }
