@@ -78,19 +78,19 @@ fn get_context(node: &Node, position: &Position, code: &String, dbg: &mut TcpStr
         //         }
         //     }
         // } else {
-        debug_!(dbg, "else");
+        // debug_!(dbg, "else");
         // this means fargs_node was already argument_list, we have to find the position
         arg_num = 0;
         let mut cursor = fargs_node.walk();
         if cursor.goto_first_child() {
             while !is_pos(&cursor.node().end_position(), position) && cursor.goto_next_sibling() {
-                debug_!(dbg, format!("Kind: {:?}", cursor.node().kind()));
+                // debug_!(dbg, format!("Kind: {:?}", cursor.node().kind()));
                 if cursor.node().kind().eq_ignore_ascii_case(&",") {
                     arg_num += 1;
                 }
             }
 
-            debug_!(dbg, format!("Kind: {:?}", cursor.node().kind()));
+            // debug_!(dbg, format!("Kind: {:?}", cursor.node().kind()));
             // if is_pos(&cursor.node().end_position(), position) && cursor.node().kind().eq_ignore_ascii_case(&",") {
             //     arg_num += 1;
             // }
@@ -218,14 +218,14 @@ pub fn get_signature(
     let tree = &source.tree;
     
     if let Some(commands) = &state.commands {
-        debug_!(dbg, "Get Sign..");
-        debug_!(dbg, format!("Position: {:?}", position));
-        debug_!(dbg, format!("{:?}", tree.root_node().to_sexp()));
+        // debug_!(dbg, "Get Sign..");
+        // debug_!(dbg, format!("Position: {:?}", position));
+        // debug_!(dbg, format!("{:?}", tree.root_node().to_sexp()));
     
         let context = get_context(&tree.root_node(), &position, &source.code, &mut dbg);
 
 
-        debug_!(dbg, format!("context: {:?}", context));
+        // debug_!(dbg, format!("context: {:?}", context));
         if let Some(context) = context {
             return buildSignatureHelp(context, &commands);
         }

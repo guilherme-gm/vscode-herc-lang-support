@@ -8,6 +8,7 @@ macro_rules! debug_ {
 mod completion;
 mod diag;
 mod file;
+mod formatter;
 mod script_commands;
 mod signature;
 mod source_file;
@@ -100,6 +101,7 @@ impl LanguageServer for HerculesScript {
                         ),
                     }),
                 }),
+                document_formatting_provider: Some(true),
                 ..ServerCapabilities::default()
             },
         })
@@ -218,6 +220,19 @@ impl LanguageServer for HerculesScript {
             Ok(None)
         }
     }
+
+    async fn formatting(&self, params: DocumentFormattingParams) -> Result<Option<Vec<TextEdit>>> {
+        let uri = &params.text_document.uri;
+        let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
+        
+        debug_!(self.con.lock().unwrap(), format!("{:?}", params));
+        if let Some(src) = file::get(&mut state, uri) {
+            Ok(formatter::get_edits(&self.con, src, &state, params.options))
+        } else {
+            Ok(None)
+        }
+    }
+
 }
 
 #[tokio::main]

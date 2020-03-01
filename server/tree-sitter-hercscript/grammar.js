@@ -54,26 +54,26 @@ module.exports = grammar({
 		// ),
 
 		duplicate_def: $ => prec(PREC.TOP_LEVEL, seq(
-			$.position, /\t/,
-			seq('duplicate', '(', $.npc_name ,')'), /\t/,
-			$.npc_name, /\t/,
+			field('position', $.position), /\t/,
+			seq('duplicate', '(', field('src_npc', $.npc_name) ,')'), /\t/,
+			field('new_npc', $.npc_name), /\t/,
 			choice(
-				seq(field('span_x', $.number_literal), ',', field('span_y', $.number_literal), ','),
-				seq(field('sprite', $.identifier), optional($.trigger_area))
+				seq(field('span_x', $.number_literal), ',', field('span_y', $.number_literal)),
+				seq(field('sprite', $.identifier), field('trigger', optional($.trigger_area)))
 			)
 		)),
 
 		function_def: $ => prec(PREC.TOP_LEVEL, seq(
-			'function', /\t/, 'script', /\t/, $.identifier, /\t/,
+			'function', /\t/, 'script', /\t/, field('func_name', $.identifier), /\t/,
 			field('body', $.block),
 		)),
 
 		script_def: $ => prec(PREC.TOP_LEVEL, seq(
 			$.position,
 			/\t/,
-			choice('script', 'trader'),
+			field('type', choice('script', 'trader')),
 			/\t/,
-			$.npc_name,
+			field('name', $.npc_name),
 			/\t/,
 			field('sprite', $.identifier),
 			optional($.trigger_area),
@@ -84,9 +84,9 @@ module.exports = grammar({
 		shop_def: $ => prec(PREC.TOP_LEVEL, seq(
 			$.position,
 			/\t/,
-			choice('shop', 'cashshop'),
+			field('type', choice('shop', 'cashshop')),
 			/\t/,
-			$.npc_name,
+			field('name', $.npc_name),
 			/\t/,
 			field('sprite', $.identifier),',',
 			field('item', seq($.shop_item, repeat(seq(',', $.shop_item)))),
@@ -100,7 +100,7 @@ module.exports = grammar({
 			field('y1', $.number_literal), ',',
 			field('x2', $.number_literal), ',',
 			field('y2', $.number_literal), /\t/,
-			choice('monster', 'boss_monster', 'miniboss_monster'), /\t/,
+			field('type', choice('monster', 'boss_monster', 'miniboss_monster')), /\t/,
 			field('name', $.npc_name), /\t/, ///[^\t]+/), /\t/, // TODO: Level Name
 			field('id', $.number_literal), ',',
 			field('amount', $.number_literal), ',',
@@ -146,7 +146,7 @@ module.exports = grammar({
 			'-'
 		),
 
-		trigger_area: $ => seq(',', field('spanX', $.number_literal), ',', field('spanY', $.number_literal)),
+		trigger_area: $ => seq(',', field('span_x', $.number_literal), ',', field('span_y', $.number_literal)),
 
 		block: $ => seq(
 			'{',
