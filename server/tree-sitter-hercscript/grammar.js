@@ -28,7 +28,7 @@ module.exports = grammar({
 
 	extras: $ => [
 		/\s/,
-		$._comment,
+		$.comment,
 	],
 
 	rules: {
@@ -189,7 +189,7 @@ module.exports = grammar({
 		labeled_statement: $ => seq(
 			field('label', $._statement_identifier),
 			':',
-			$._statement
+			field('body', $._statement)
 		),
 
 		expression_statement: $ => seq(
@@ -219,7 +219,7 @@ module.exports = grammar({
 				'default',
 			),
 			':',
-			repeat($._non_case_statement)
+			field('body', repeat($._non_case_statement))
 		)),
 
 		while_statement: $ => seq(
@@ -261,13 +261,15 @@ module.exports = grammar({
 		),
 
 		function_declaration: $ => seq(
-			'function', $.identifier, '{',
-			$.block,
-			'}'
+			'function',
+			field('name', $.identifier),
+			field('body', $.block),
 		),
 
 		function_statement: $ => seq(
-			'function', $.identifier, ';'
+			'function',
+			field('name', $.identifier),
+			';'
 		),
 
 		continue_statement: $ => seq(
@@ -457,7 +459,7 @@ module.exports = grammar({
 
 		_statement_identifier: $ => alias($.identifier, $.statement_identifier),
 		// http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
-		_comment: $ => token(choice(
+		comment: $ => token(choice(
 			seq('//', /(\\[.\n]|[^\\\n])*/),
 			seq(
 				'/*',
