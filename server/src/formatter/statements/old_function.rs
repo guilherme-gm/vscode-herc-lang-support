@@ -14,6 +14,7 @@ pub fn format(
 	indent_level: u8,
 	edits: &mut Vec<TextEdit>,
 ) {
+    debug_!(_dbg, format!("> stmt_oldfn: {:?}", node));
 	let mut cursor = node.walk();
     cursor.goto_first_child(); // TODO: Maybe add handling for safety
 

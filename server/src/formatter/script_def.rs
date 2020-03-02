@@ -35,6 +35,11 @@ pub fn format(
         trigger = format!(" {}, {},", span_x, span_y);
     }
 
+    let new_text = format!(
+        "{}\t{}\t{}\t{},{}",
+        position_str, npc_type, name, sprite, trigger
+    );
+    let new_text_len = new_text.len() as u64;
     edits.push(TextEdit {
         range: Range {
             start: Position {
@@ -42,18 +47,14 @@ pub fn format(
                 character: formatter_info.1,
             },
             end: Position {
-                line: formatter_info.0 + 1,
-                character: 0,
+                line: formatter_info.0,
+                character: formatter_info.1 + new_text_len,
             },
         },
-        new_text: format!(
-            "{}\t{}\t{}\t{},{}{{\n",
-            position_str, npc_type, name, sprite, trigger
-        ),
+        new_text
     });
 
-    formatter_info.0 += 1;
-    formatter_info.1 = 0;
+    formatter_info.1 += new_text_len;
 
     if cursor.field_name().is_some() && cursor.field_name().unwrap().eq_ignore_ascii_case("body") || goto_name(&mut cursor, "body") {
         block::format(_dbg, &cursor.node(), code, formatter_info, 0, commands, edits);

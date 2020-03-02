@@ -2,6 +2,7 @@ use tower_lsp::lsp_types::*;
 use tree_sitter::Node;
 
 // Debugger
+use std::io::prelude::*;
 use std::net::TcpStream;
 
 pub fn format(
@@ -11,6 +12,7 @@ pub fn format(
 	formatter_info: &mut (u64, u64),
 	edits: &mut Vec<TextEdit>,
 ) {
+    debug_!(_dbg, format!("> false_exp: {:?}", _node));
 	edits.push(TextEdit {
         range: Range {
             start: Position {

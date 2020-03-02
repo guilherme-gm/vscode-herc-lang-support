@@ -28,6 +28,7 @@ pub fn resolve(
 	indent_level: u8,
 	edits: &mut Vec<TextEdit>,
 ) -> bool {
+	debug_!(_dbg, format!("> exp_resolve: {:?}", node));
 	match node.kind().to_lowercase().as_str() {
 		"conditional_expression" => {
 			conditional_expression::format(_dbg, node, code, formatter_info, edits)
@@ -67,6 +68,7 @@ pub fn resolve_stmt(
 	indent_level: u8,
 	edits: &mut Vec<TextEdit>,
 ) -> bool {
+	debug_!(_dbg, format!("> resolve_stmt: {:?}", node));
 	let parent_indent = str::repeat("\t", indent_level as usize);
 	edits.push(TextEdit {
 		range: Range {

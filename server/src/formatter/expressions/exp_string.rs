@@ -3,6 +3,7 @@ use tower_lsp::lsp_types::*;
 use tree_sitter::Node;
 
 // Debugger
+use std::io::prelude::*;
 use std::net::TcpStream;
 
 pub fn format(
@@ -13,6 +14,7 @@ pub fn format(
     _indent_level: u8,
 	edits: &mut Vec<TextEdit>,
 ) {
+    debug_!(_dbg, format!("> exp_string: {:?}", node));
     // TODO: Break string in multiple statements for HULD
     // TODO: This may be multline string.
     let string = get_node_text(node, code);

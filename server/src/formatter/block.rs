@@ -21,69 +21,34 @@ pub fn format(
 ) {
 	let mut cursor = node.walk();
 	cursor.goto_first_child(); // TODO: Maybe add handling for safety
-	// first child IS a '{', already written by the parent
 	let parent_indent = std::iter::repeat("\t").take((indent_level) as usize).collect::<String>();
+	edits.push(get_singleline_edit(String::from("{\n"), formatter_info, true));
 
 	while cursor.goto_next_sibling() {
 		let node = cursor.node();
-		match node.kind().to_lowercase().as_str() {
-			"}" => {
-				edits.push(TextEdit {
-					range: Range {
-						start: Position {
-							line: formatter_info.0,
-							character: formatter_info.1,
-						},
-						end: Position {
-							line: formatter_info.0 + 1,
-							character: 0,
-						},
+		debug_!(_dbg, format!("> block::node: {:?}", node));
+		if node.kind().to_lowercase().eq_ignore_ascii_case("}") {
+			edits.push(TextEdit {
+				range: Range {
+					start: Position {
+						line: formatter_info.0,
+						character: formatter_info.1,
 					},
-					new_text: format!(
-						"{}}}\n",
-						parent_indent
-					),
-				});
-			
-				formatter_info.0 += 1;
-				formatter_info.1 = 0;
-			},
-			"expression_statement" => {
-				let mut stmt_cursor = node.walk();
-				stmt_cursor.goto_first_child();
-				let exp_node = stmt_cursor.node();
-				if exp_node.kind().eq_ignore_ascii_case("identifier") {
-					let txt = get_node_text(&exp_node, code);
-					if commands.contains_key(&txt) {
-						edits.push(TextEdit {
-							range: Range {
-								start: Position {
-									line: formatter_info.0,
-									character: formatter_info.1,
-								},
-								end: Position {
-									line: formatter_info.0 + 1,
-									character: 0,
-								},
-							},
-							new_text: format!(
-								"{}\t{}();\n",
-								parent_indent, txt
-							),
-						});
-					
-						formatter_info.0 += 1;
-						formatter_info.1 = 0;
-					} else {
-						expressions::resolve_stmt(_dbg, &exp_node, code, formatter_info, indent_level, edits);
-					}
-				} else {
-					expressions::resolve_stmt(_dbg, &exp_node, code, formatter_info, indent_level, edits);
-				}
-			},
-			
-			"old_function" => statements::old_function::format(_dbg, &node, code, formatter_info, indent_level, edits),
-			_ => continue, // TODO: This may make text disappear
+					end: Position {
+						line: formatter_info.0 + 1,
+						character: 0,
+					},
+				},
+				new_text: format!(
+					"{}}}\n",
+					parent_indent
+				),
+			});
+		
+			formatter_info.0 += 1;
+			formatter_info.1 = 0;
 		}
+
+		statements::resolve(_dbg, &node, code, formatter_info, indent_level, commands, edits);
 	}
 }

@@ -4,6 +4,7 @@ use tower_lsp::lsp_types::*;
 use tree_sitter::Node;
 
 // Debugger
+use std::io::prelude::*;
 use std::net::TcpStream;
 
 fn get_symbol(symb: String, formatter_info: &mut (u64, u64)) -> TextEdit {
@@ -33,6 +34,7 @@ pub fn format(
     formatter_info: &mut (u64, u64),
     edits: &mut Vec<TextEdit>,
 ) {
+    debug_!(_dbg, format!("> cond_exp: {:?}", node));
     let mut cursor = node.walk();
     cursor.goto_first_child();
 
