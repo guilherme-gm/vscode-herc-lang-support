@@ -5,6 +5,18 @@ macro_rules! debug_ {
     };
 }
 
+/**
+ * Converts $val (an usize) to a u64.
+ * There is no compiler-safe way to do it, so we force it like that and there is
+ * a check in server start to ensure the running build is fine with it.
+ */
+#[macro_use]
+macro_rules! usize2u64 {
+    ($val: expr) => {
+        std::convert::TryInto::<u64>::try_into($val).unwrap()
+    };
+}
+
 mod completion;
 mod diag;
 mod file;
@@ -24,6 +36,7 @@ use std::sync::Mutex;
 use tower_lsp::lsp_types::*;
 use tower_lsp::{LanguageServer, LspService, Printer, Server};
 use tree_sitter::{Language, Parser};
+use std::convert::TryInto;
 
 // Debugger
 use std::io::prelude::*;
@@ -61,7 +74,13 @@ impl HerculesScript {
 
 #[tower_lsp::async_trait]
 impl LanguageServer for HerculesScript {
-    fn initialize(&self, _: &Printer, params: InitializeParams) -> Result<InitializeResult> {
+    fn initialize(&self, printer: &Printer, params: InitializeParams) -> Result<InitializeResult> {
+        // Performing this check we ensuere that usize2u64 is safe
+        if TryInto::<u64>::try_into(usize::max_value()).is_err() {
+            printer.log_message(MessageType::Error, "The Language Server does not support your processor address length (usize). Aborting...");
+            return Err(jsonrpc_core::Error::internal_error());
+        }
+
         let init = params.initialization_options.unwrap();
         if let Value::String(cmd_path) = init.get("script_cmd").unwrap() {
             let commands_json = File::open(cmd_path).unwrap();

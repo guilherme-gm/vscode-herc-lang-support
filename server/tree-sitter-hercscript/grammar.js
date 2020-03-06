@@ -69,7 +69,7 @@ module.exports = grammar({
 		)),
 
 		script_def: $ => prec(PREC.TOP_LEVEL, seq(
-			$.position,
+			field('position', $.position),
 			/\t/,
 			field('type', choice('script', 'trader')),
 			/\t/,
@@ -150,7 +150,7 @@ module.exports = grammar({
 
 		block: $ => seq(
 			'{',
-			repeat($._statement),
+			repeat(field('stmt', $._statement)),
 			'}'
 		),
 
@@ -193,7 +193,7 @@ module.exports = grammar({
 		),
 
 		expression_statement: $ => seq(
-			optional($._expression),
+			field('expr', optional($._expression)),
 			';'
 		),
 
@@ -243,12 +243,12 @@ module.exports = grammar({
 			field('condition', optional($._expression)), ';',
 			field('update', optional($._expression)),
 			')',
-			$._statement
+			field("body", $._statement)
 		),
 
 		return_statement: $ => seq(
 			'return',
-			optional(choice($._expression, $.comma_expression)),
+			field('value', optional(choice($._expression, $.comma_expression))), // TODO: Is comma a thing?
 			';'
 		),
 
@@ -283,9 +283,9 @@ module.exports = grammar({
 		)),
 
 		old_function_args: $ => seq(
-			$._expression,
+			field('param', $._expression),
 			optional(repeat(seq(
-				',', $._expression
+				',', field('param', $._expression)
 			)))
 		),
 
@@ -337,7 +337,7 @@ module.exports = grammar({
 
 		assignment_expression: $ => prec.right(PREC.ASSIGNMENT, seq(
 			field('left', $._assignment_left_expression),
-			choice(
+			field('operator', choice(
 				'=',
 				'+=',
 				'-=',
@@ -350,7 +350,7 @@ module.exports = grammar({
 				'&=',
 				'^=',
 				'|='
-			),
+			)),
 			field('right', $._expression)
 		)),
 
@@ -415,12 +415,12 @@ module.exports = grammar({
 		)),
 
 		argument_list: $ => seq(
-			'(', commaSep($._expression), ')'
+			'(', commaSep($._expression, 'param'), ')'
 		),
 
 		parenthesized_expression: $ => seq(
 			'(',
-			choice($._expression, $.comma_expression),
+			field("expr", choice($._expression, $.comma_expression)), // TODO: Is comma expression a thing?
 			')'
 		),
 
@@ -432,7 +432,7 @@ module.exports = grammar({
 
 		number_literal: $ => choice(/0x\d+/, /\d+/),
 
-		string: $ => seq($.string_literal, repeat($.string_literal)),
+		string: $ => seq(field('line', $.string_literal), repeat(field('line', $.string_literal))),
 
 		string_literal: $ => seq(
 			'"',
@@ -471,10 +471,18 @@ module.exports = grammar({
 	}
 });
 
-function commaSep(rule) {
-	return optional(commaSep1(rule))
+function commaSep(rule, name) {
+	return optional(commaSep1(rule, name))
 }
 
-function commaSep1(rule) {
-	return seq(rule, repeat(choice(',', seq(',', rule))))
+function commaSep1(rule, name) {
+	return seq(
+		field(name, rule),
+		repeat(
+			choice(
+				',',
+				seq(',', field(name, rule))
+			)
+		)
+	)
 }
