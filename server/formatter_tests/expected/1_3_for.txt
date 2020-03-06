@@ -1,0 +1,5 @@
+prontera, 150, 150, 4	script	Test	FAKE_NPC,{
+	for (.@i = 1; .@i < 10; .@i++) {
+		.@i = 0;
+	}
+}

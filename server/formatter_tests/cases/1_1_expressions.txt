@@ -1,0 +1,12 @@
+prontera, 150, 150, 4	script	Test	FAKE_NPC,{
+true; 10; false; "Hello"; "World" "GG"; 		asd;
+.@id; test(); test2(abc,def); .@i = 10; .@i += -10; i++; a  [ j++ ] = -10 ;
+z = a ? b : c;
+x += 10; x = x >= 10; x = (x > 10) && (11 > 10);
+mes("asd\r"
+"xzc");
+    x
+    =
+    10;
+
+}
