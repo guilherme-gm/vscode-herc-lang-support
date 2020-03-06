@@ -1,52 +1,20 @@
 use super::super::expressions;
-use tower_lsp::lsp_types::*;
+use super::super::script_formatter::*;
 use tree_sitter::Node;
 
 // Debugger
 use std::io::prelude::*;
-use std::net::TcpStream;
 
-pub fn format(
-	_dbg: &mut TcpStream,
-	node: &Node,
-	code: &String,
-	formatter_info: &mut (u64, u64),
-	edits: &mut Vec<TextEdit>,
-) {
-	debug_!(_dbg, format!("> parent_exp: {:?}", node));
-	edits.push(TextEdit {
-		range: Range {
-			start: Position {
-				line: formatter_info.0,
-				character: formatter_info.1,
-			},
-			end: Position {
-				line: formatter_info.0,
-				character: formatter_info.1 + 1,
-			},
-		},
-		new_text: String::from("("),
-	});
-	formatter_info.1 += 1;
-
+pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
+	fmter.info(format!("> parent_exp: {:?}", node));
 	let mut cursor = node.walk();
 	cursor.goto_first_child();
+
+	fmter.match_until_and_write_node(&mut cursor, FmtNode::Token("("), true);
+
+	fmter.match_until(&mut cursor, FmtNode::Named("expr"), true);
+	expressions::resolve(fmter, &cursor.node());
 	cursor.goto_next_sibling();
 
-	expressions::resolve(_dbg, &cursor.node(), code, formatter_info, 0, edits);
-
-	edits.push(TextEdit {
-		range: Range {
-			start: Position {
-				line: formatter_info.0,
-				character: formatter_info.1,
-			},
-			end: Position {
-				line: formatter_info.0,
-				character: formatter_info.1 + 1,
-			},
-		},
-		new_text: String::from(")"),
-	});
-	formatter_info.1 += 1;
+	fmter.match_until_and_write_node(&mut cursor, FmtNode::Token(")"), true);
 }

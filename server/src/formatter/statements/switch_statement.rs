@@ -1,37 +1,23 @@
-use super::super::helpers::*;
-use tower_lsp::lsp_types::*;
-use tree_sitter::Node;
-use super::super::block;
 use super::super::expressions::parenthesized_expression;
-use std::collections::HashMap;
-use crate::script_commands::ScriptCommand;
+use super::super::script_formatter::*;
+use super::block;
+use tree_sitter::Node;
 
 // Debugger
 use std::io::prelude::*;
-use std::net::TcpStream;
 
-pub fn format(
-	_dbg: &mut TcpStream,
-	node: &Node,
-	code: &String,
-	formatter_info: &mut (u64, u64),
-	indent_level: u8,
-	commands: &HashMap<String, ScriptCommand>,
-	edits: &mut Vec<TextEdit>,
-) {
-	debug_!(_dbg, format!("> switch_stmt: {:?}", node));
-	let mut cursor = node.walk();
-    cursor.goto_first_child(); // TODO: Maybe add handling for safety
+pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
+    fmter.info(format!("> switch_stmt: {:?}", node));
+    let mut cursor = node.walk();
+    cursor.goto_first_child();
 
-    goto_name(&mut cursor, "condition");
-    let condition = cursor.node();
+    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token("switch"), "switch ", true);
 
-    goto_name(&mut cursor, "body");
-    let body = cursor.node();
+    fmter.match_until(&mut cursor, FmtNode::Named("condition"), true);
+    parenthesized_expression::format(fmter, &cursor.node());
+    cursor.goto_next_sibling();
 
-    let parent_indent = str::repeat("\t", 1 + indent_level as usize);
-    edits.push(get_singleline_edit(format!("{}switch ", parent_indent), formatter_info, false));
-    parenthesized_expression::format(_dbg, &condition, code, formatter_info, edits);
-    edits.push(get_singleline_edit(String::from(" "), formatter_info, false));
-    block::format(_dbg, &body, code, formatter_info, indent_level + 1, commands, edits);
+    fmter.match_until(&mut cursor, FmtNode::Named("body"), true);
+    block::format(fmter, &cursor.node());
+    cursor.goto_next_sibling();
 }

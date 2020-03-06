@@ -1,58 +1,48 @@
-use super::super::helpers::*;
-use tower_lsp::lsp_types::*;
+use super::super::expressions;
+use super::super::script_formatter::*;
 use tree_sitter::Node;
 
 // Debugger
 use std::io::prelude::*;
-use std::net::TcpStream;
 
-pub fn format(
-	_dbg: &mut TcpStream,
-	node: &Node,
-	code: &String,
-	formatter_info: &mut (u64, u64),
-	edits: &mut Vec<TextEdit>,
-) {
-    debug_!(_dbg, format!("> func_exp: {:?}", node));
+fn format_args(fmter: &mut ScriptFormatter, node: &Node) {
     let mut cursor = node.walk();
-    cursor.goto_first_child(); // TODO: Maybe add handling for safety
+    cursor.goto_first_child();
 
-    let function = get_node_text(&cursor.node(), code);
-    let mut params: Vec<String> = Vec::new();
-    if goto_name(&mut cursor, "arguments") {
-        let mut param_cursor = cursor.node().walk();
-        param_cursor.goto_first_child();
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Token("("), true);
 
-        if param_cursor.node().is_named() {
-            params.push(get_node_text(&param_cursor.node(), code));
-        }
+    fmter.match_until_one(
+        &mut cursor,
+        &[FmtNode::Token(")"), FmtNode::Named("param")],
+        true,
+    );
 
-        while param_cursor.goto_next_sibling() {
-            if !param_cursor.node().is_named() {
-                continue;
+    if fmter.is_stop(&mut cursor, &FmtNode::Named("param")) {
+        // TODO: Reformat parameters
+        if fmter.write_node(&mut cursor) {
+            while fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(","), ", ", false) {
+                if !fmter.match_until_and_write_node(&mut cursor, FmtNode::Token("param"), false) {
+                    // TODO: FIXME: Ensure everything after that is valid..
+                    // This will be false if you are in an incomplete (but acceptable) function.
+                    // I.E: fun(a, b,)
+                    break;
+                }
             }
-
-            // TODO: Reformat parameters
-            params.push(get_node_text(&param_cursor.node(), code));
         }
     }
 
-    let params = params.join(", ");
-    let new_text = format!("{}({})", function, params);
-    let new_len = new_text.len() as u64;
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Token(")"), true);
+}
 
-    edits.push(TextEdit {
-        range: Range {
-            start: Position {
-                line: formatter_info.0,
-                character: formatter_info.1,
-            },
-            end: Position {
-                line: formatter_info.0,
-                character: formatter_info.1 + new_len,
-            },
-        },
-        new_text: new_text,
-    });
-    formatter_info.1 += new_len;
+pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
+    fmter.info(format!("> function_exp: {:?}", node));
+    let mut cursor = node.walk();
+    cursor.goto_first_child();
+
+    fmter.match_until(&mut cursor, FmtNode::Named("function"), true);
+    expressions::resolve(fmter, &cursor.node());
+    cursor.goto_next_sibling();
+
+    fmter.match_until(&mut cursor, FmtNode::Named("arguments"), true);
+    format_args(fmter, &cursor.node());
 }

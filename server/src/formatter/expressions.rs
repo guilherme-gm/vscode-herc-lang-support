@@ -1,9 +1,9 @@
-use tower_lsp::lsp_types::*;
 use tree_sitter::Node;
 
 // Debugger
 use std::io::prelude::*;
-use std::net::TcpStream;
+
+use crate::formatter::script_formatter::ScriptFormatter;
 
 pub mod assignment_expression;
 pub mod binary_expression;
@@ -20,88 +20,25 @@ pub mod subscript_expression;
 pub mod unary_expression;
 pub mod update_expression;
 
-pub fn resolve(
-	_dbg: &mut TcpStream,
-	node: &Node,
-	code: &String,
-	formatter_info: &mut (u64, u64),
-	indent_level: u8,
-	edits: &mut Vec<TextEdit>,
-) -> bool {
-	debug_!(_dbg, format!("> exp_resolve: {:?}", node));
+pub fn resolve(fmter: &mut ScriptFormatter, node: &Node) -> bool {
+	fmter.info(format!("> exp_resolve: {:?}", node));
 	match node.kind().to_lowercase().as_str() {
-		"conditional_expression" => {
-			conditional_expression::format(_dbg, node, code, formatter_info, edits)
-		}
-		"assignment_expression" => {
-			assignment_expression::format(_dbg, node, code, formatter_info, edits)
-		}
-		"unary_expression" => unary_expression::format(_dbg, node, code, formatter_info, edits),
-		"binary_expression" => binary_expression::format(_dbg, node, code, formatter_info, edits),
-		"false" => exp_false::format(_dbg, node, code, formatter_info, edits),
-		"true" => exp_true::format(_dbg, node, code, formatter_info, edits),
-		"number_literal" => exp_number_literal::format(_dbg, node, code, formatter_info, edits),
-		"string" => exp_string::format(_dbg, node, code, formatter_info, indent_level, edits),
-		"function_expression" => {
-			function_expression::format(_dbg, node, code, formatter_info, edits)
-		}
-		"subscript_expression" => {
-			subscript_expression::format(_dbg, node, code, formatter_info, edits)
-		}
-		"update_expression" => update_expression::format(_dbg, node, code, formatter_info, edits),
-		"identifier" => identifier::format(_dbg, node, code, formatter_info, edits),
-		"scoped_identifier" => scoped_identifier::format(_dbg, node, code, formatter_info, edits),
-		"parenthesized_expression" => {
-			parenthesized_expression::format(_dbg, node, code, formatter_info, edits)
-		}
+		"conditional_expression" => conditional_expression::format(fmter, node),
+		"assignment_expression" => assignment_expression::format(fmter, node),
+		"unary_expression" => unary_expression::format(fmter, node),
+		"binary_expression" => binary_expression::format(fmter, node),
+		"false" => exp_false::format(fmter, node),
+		"true" => exp_true::format(fmter, node),
+		"number_literal" => exp_number_literal::format(fmter, node),
+		"string" => exp_string::format(fmter, node),
+		"function_expression" => function_expression::format(fmter, node),
+		"subscript_expression" => subscript_expression::format(fmter, node),
+		"update_expression" => update_expression::format(fmter, node),
+		"identifier" => identifier::format(fmter, node),
+		"scoped_identifier" => scoped_identifier::format(fmter, node),
+		"parenthesized_expression" => parenthesized_expression::format(fmter, node),
 		_ => return false,
 	}
 
 	true
-}
-
-pub fn resolve_stmt(
-	_dbg: &mut TcpStream,
-	node: &Node,
-	code: &String,
-	formatter_info: &mut (u64, u64),
-	indent_level: u8,
-	edits: &mut Vec<TextEdit>,
-) -> bool {
-	debug_!(_dbg, format!("> resolve_stmt: {:?}", node));
-	let parent_indent = str::repeat("\t", indent_level as usize);
-	edits.push(TextEdit {
-		range: Range {
-			start: Position {
-				line: formatter_info.0,
-				character: formatter_info.1,
-			},
-			end: Position {
-				line: formatter_info.0,
-				character: formatter_info.1 + (indent_level as u64) + 1,
-			},
-		},
-		new_text: format!("\t{}", parent_indent),
-	});
-	formatter_info.1 += (indent_level as u64) + 1;
-
-	let result = resolve(_dbg, node, code, formatter_info, indent_level, edits);
-
-	edits.push(TextEdit {
-		range: Range {
-			start: Position {
-				line: formatter_info.0,
-				character: formatter_info.1,
-			},
-			end: Position {
-				line: formatter_info.0 + 1,
-				character: 0,
-			},
-		},
-		new_text: String::from(";\n"),
-	});
-	formatter_info.0 += 1;
-	formatter_info.1 = 0;
-
-	result
 }

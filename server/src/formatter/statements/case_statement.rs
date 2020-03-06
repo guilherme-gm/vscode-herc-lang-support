@@ -1,48 +1,43 @@
-use super::super::helpers::*;
-use tower_lsp::lsp_types::*;
-use tree_sitter::Node;
+use super::super::script_formatter::*;
 use super::super::statements;
-use std::collections::HashMap;
-use crate::script_commands::ScriptCommand;
+use tree_sitter::Node;
 
 // Debugger
 use std::io::prelude::*;
-use std::net::TcpStream;
 
-pub fn format(
-	_dbg: &mut TcpStream,
-	node: &Node,
-	code: &String,
-	formatter_info: &mut (u64, u64),
-	indent_level: u8,
-	commands: &HashMap<String, ScriptCommand>,
-	edits: &mut Vec<TextEdit>,
-) {
-	debug_!(_dbg, format!("> case_stmt: {:?}", node));
-	let mut cursor = node.walk();
-    cursor.goto_first_child(); // TODO: Maybe add handling for safety
+pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
+    fmter.info(format!("> case_stmt: {:?}", node));
+    let mut cursor = node.walk();
+    cursor.goto_first_child();
 
-    let parent_indent = str::repeat("\t", 1 + indent_level as usize);
-    
-    goto_next_named(&mut cursor);
-    
-    debug_!(_dbg, format!("{:?}", cursor.field_name()));
-    if let Some(name) = cursor.field_name() {
-        if name.eq_ignore_ascii_case("value") {
-            let val = get_node_text(&cursor.node(), code);
+    fmter.match_until_one(
+        &mut cursor,
+        &[FmtNode::Token("case"), FmtNode::Token("default")],
+        true,
+    );
+    if fmter.is_stop(&mut cursor, &FmtNode::Token("case")) {
+        fmter.write_edit(format!("{}case ", fmter.indent));
+        cursor.goto_next_sibling();
+        fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("value"), true);
+    } else {
+        fmter.write_edit(format!("{}default", fmter.indent));
+        cursor.goto_next_sibling();
+    }
 
-            edits.push(get_singleline_edit(format!("{}case {}:\n", parent_indent, val), formatter_info, true));
-            while goto_name(&mut cursor, "body") {
-                statements::resolve(_dbg, &cursor.node(), code, formatter_info, indent_level + 1, commands, edits);
+    if fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(":"), &":\n", true) {
+        if fmter.match_until(&mut cursor, FmtNode::Named("body"), false) {
+            fmter.set_indent(fmter.indent_level + 1);
+            statements::resolve(fmter, &cursor.node());
+            cursor.goto_next_sibling();
+
+            while fmter.match_until(&mut cursor, FmtNode::Named("body"), false) {
+                statements::resolve(fmter, &cursor.node());
+                if !cursor.goto_next_sibling() {
+                    break;
+                }
             }
-        } else if name.eq_ignore_ascii_case("body") {
-            edits.push(get_singleline_edit(format!("{}default:\n", parent_indent), formatter_info, true));
 
-            statements::resolve(_dbg, &cursor.node(), code, formatter_info, indent_level + 1, commands, edits);
-
-            while goto_name(&mut cursor, "body") {
-                statements::resolve(_dbg, &cursor.node(), code, formatter_info, indent_level + 1, commands, edits);
-            }
+            fmter.set_indent(fmter.indent_level - 1);
         }
     }
 }

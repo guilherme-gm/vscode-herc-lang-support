@@ -1,59 +1,28 @@
-use super::super::helpers::*;
 use super::super::expressions;
-use tower_lsp::lsp_types::*;
+use super::super::script_formatter::*;
 use tree_sitter::Node;
 
 // Debugger
 use std::io::prelude::*;
-use std::net::TcpStream;
 
-fn get_symbol(symb: String, formatter_info: &mut (u64, u64)) -> TextEdit {
-    let symb_len = symb.len() as u64;
-    let text_edit = TextEdit {
-        range: Range {
-            start: Position {
-                line: formatter_info.0,
-                character: formatter_info.1
-            },
-            end: Position {
-                line: formatter_info.0,
-                character: formatter_info.1 + symb_len
-            }
-        },
-        new_text: symb,
-    };
-    formatter_info.1 += symb_len;
-
-    text_edit
-}
-
-pub fn format(
-    _dbg: &mut TcpStream,
-    node: &Node,
-    code: &String,
-    formatter_info: &mut (u64, u64),
-    edits: &mut Vec<TextEdit>,
-) {
-    debug_!(_dbg, format!("> cond_exp: {:?}", node));
+pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
+    fmter.info(format!("> condition_expr: {:?}", node));
     let mut cursor = node.walk();
     cursor.goto_first_child();
 
-    let condition = cursor.node();
-    expressions::resolve(_dbg, &condition, code, formatter_info, 0, edits);
-    cursor.goto_next_sibling();
-    
-    let opr = get_node_text(&cursor.node(), code);
-    edits.push(get_symbol(format!(" {} ", opr), formatter_info));
+    fmter.match_until(&mut cursor, FmtNode::Named("condition"), true);
+    expressions::resolve(fmter, &cursor.node());
     cursor.goto_next_sibling();
 
-    let consequence = cursor.node();
-    expressions::resolve(_dbg, &consequence, code, formatter_info, 0, edits);
+    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token("?"), " ? ", true);
+
+    fmter.match_until(&mut cursor, FmtNode::Named("consequence"), true);
+    expressions::resolve(fmter, &cursor.node());
     cursor.goto_next_sibling();
 
-    let opr = get_node_text(&cursor.node(), code);
-    edits.push(get_symbol(format!(" {} ", opr), formatter_info));
-    cursor.goto_next_sibling();
+    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(":"), " : ", true);
 
-    let alternative = cursor.node();
-    expressions::resolve(_dbg, &alternative, code, formatter_info, 0, edits);
+    fmter.match_until(&mut cursor, FmtNode::Named("alternative"), true);
+    expressions::resolve(fmter, &cursor.node());
+    cursor.goto_next_sibling();
 }

@@ -1,33 +1,27 @@
-use super::super::helpers::*;
-use tower_lsp::lsp_types::*;
-use tree_sitter::Node;
+use super::super::expressions::identifier;
+use super::super::script_formatter::*;
 use super::super::statements;
-use std::collections::HashMap;
-use crate::script_commands::ScriptCommand;
+use tree_sitter::Node;
 
 // Debugger
 use std::io::prelude::*;
-use std::net::TcpStream;
 
-pub fn format(
-	_dbg: &mut TcpStream,
-	node: &Node,
-	code: &String,
-	formatter_info: &mut (u64, u64),
-	indent_level: u8,
-	commands: &HashMap<String, ScriptCommand>,
-	edits: &mut Vec<TextEdit>,
-) {
-	debug_!(_dbg, format!("> label_stmt: {:?}", node));
+pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
+	fmter.info(format!("> label_stmt: {:?}", node));
 	let mut cursor = node.walk();
-    cursor.goto_first_child(); // TODO: Maybe add handling for safety
+	cursor.goto_first_child();
 
-    // let lbl = get_next_named(&mut cursor, code, "label").unwrap();
-    let lbl = get_node_text(&cursor.node(), code);
-    edits.push(get_singleline_edit(format!("{}:\n", lbl), formatter_info, true));
-    
-    goto_name(&mut cursor, "body");
-    let body = cursor.node();
+	fmter.match_until(&mut cursor, FmtNode::Named("label"), true);
 
-    statements::resolve(_dbg, &body, code, formatter_info, indent_level, commands, edits);
+	let save_indent = fmter.indent_level;
+	fmter.set_indent(0);
+	identifier::format(fmter, &cursor.node());
+	cursor.goto_next_sibling();
+
+	fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(":"), ":\n", true);
+
+	fmter.match_until(&mut cursor, FmtNode::Named("body"), true);
+
+	statements::resolve(fmter, &cursor.node());
+	fmter.set_indent(save_indent);
 }

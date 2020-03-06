@@ -1,37 +1,20 @@
-use super::super::helpers::*;
-use tower_lsp::lsp_types::*;
+use super::super::script_formatter::*;
 use tree_sitter::Node;
 
 // Debugger
 use std::io::prelude::*;
-use std::net::TcpStream;
 
-pub fn format(
-	_dbg: &mut TcpStream,
-	node: &Node,
-    code: &String,
-	formatter_info: &mut (u64, u64),
-    _indent_level: u8,
-	edits: &mut Vec<TextEdit>,
-) {
-    debug_!(_dbg, format!("> exp_string: {:?}", node));
+pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
     // TODO: Break string in multiple statements for HULD
     // TODO: This may be multline string.
-    let string = get_node_text(node, code);
-    let len: u64 = string.len() as u64;
-	edits.push(TextEdit {
-        range: Range {
-            start: Position {
-                line: formatter_info.0,
-                character: formatter_info.1,
-            },
-            end: Position {
-                line: formatter_info.0,
-                character: formatter_info.1 + len,
-            },
-        },
-        new_text: string,
-    });
 
-    formatter_info.1 += len;
+    fmter.info(format!("> exp_string: {:?}", node));
+    let mut cursor = node.walk();
+    cursor.goto_first_child();
+
+    if fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("line"), true) {
+        while fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("line"), false) {
+            /* do nothing */
+        }
+    }
 }
