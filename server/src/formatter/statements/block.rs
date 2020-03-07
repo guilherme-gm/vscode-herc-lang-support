@@ -32,6 +32,12 @@ pub fn format_sub(fmter: &mut ScriptFormatter, node: &Node, line_break: bool, in
 			break;
 		}
 
+		let stmt_node = &cursor.node();
+
+		if stmt_node.kind().eq_ignore_ascii_case("labeled_statement") {
+			fmter.write_newline();
+		}
+
 		statements::resolve(fmter, &cursor.node());
 		cursor.goto_next_sibling();
 	}

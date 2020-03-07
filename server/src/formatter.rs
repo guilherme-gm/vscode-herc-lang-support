@@ -15,7 +15,7 @@ use std::net::TcpStream;
 
 use crate::source_file::SourceFile;
 
-use script_formatter::ScriptFormatter;
+use script_formatter::{FmtNode, ScriptFormatter};
 
 pub fn get_edits(
     dbg: &Mutex<TcpStream>,
@@ -31,9 +31,24 @@ pub fn get_edits(
     let mut fmter = ScriptFormatter::new(&mut dbg, &source.code, cmds, &mut edits);
     let end_pos = tree.root_node().end_position();
     let mut cursor = tree.root_node().walk();
-    for top_level_node in tree.root_node().children(&mut cursor) {
-        debug_!(fmter.dbg, format!(":> Top: {:?}", top_level_node));
-        top_levels::resolve(&mut fmter, &top_level_node);
+    let mut last_kind: &str = &"";
+    if cursor.goto_first_child() {
+        while fmter.match_until(&mut cursor, FmtNode::Named("definition"), false) {
+            fmter.info(format!(":> Top: {:?}", cursor.node()));
+
+            if !last_kind.eq_ignore_ascii_case("")
+                && (last_kind.eq_ignore_ascii_case("script_def")
+                    || cursor.node().kind().eq_ignore_ascii_case("script_def"))
+            {
+                fmter.write_newline();
+            }
+            top_levels::resolve(&mut fmter, &cursor.node());
+            last_kind = cursor.node().kind();
+
+            if !cursor.goto_next_sibling() {
+                break;
+            }
+        }
     }
 
     if fmter.file_cursor.0 < end_pos.row.try_into().unwrap() {

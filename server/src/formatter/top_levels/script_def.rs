@@ -28,7 +28,7 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
         true,
     );
 
-    if cursor.node().is_named() {
+    if fmter.is_stop(&mut cursor, &FmtNode::Named("trigger_area")) {
         // This is a trigger area
         trigger_area::format(fmter, &cursor.node());
         cursor.goto_next_sibling();

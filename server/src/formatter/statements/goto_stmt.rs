@@ -10,5 +10,6 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
     fmter.match_until_and_write_str(&mut cursor, FmtNode::Token("goto"), &"goto ", Spacing::Indent, true);
     fmter.match_until(&mut cursor, FmtNode::Named("label"), true);
     expressions::identifier::format(fmter, &cursor.node());
-    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(";"), &";\n", Spacing::None, true);
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Token(";"), Spacing::None, true);
+    fmter.write_newline();
 }

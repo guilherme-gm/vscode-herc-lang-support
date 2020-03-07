@@ -8,4 +8,5 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
     
     fmter.match_until_and_write_str(&mut cursor, FmtNode::Token("continue"), "continue", Spacing::Indent, true);
     fmter.match_until_and_write_node(&mut cursor, FmtNode::Token(";"), Spacing::None, true);
+    fmter.write_newline();
 }

@@ -145,6 +145,9 @@ impl<'a> ScriptFormatter<'a> {
     fn write_as_is(self: &mut ScriptFormatter<'a>, node: &Node) {
         self.info(format!("skip:: Skipping {:?}", node));
         self.write_edit(self.get_node_text(node), Spacing::None);
+        if node.kind().eq_ignore_ascii_case("comment") {
+            self.write_newline();
+        }
     }
 
     pub fn is_stop(
@@ -206,11 +209,11 @@ impl<'a> ScriptFormatter<'a> {
                     panic!(format!("Failed to find {:?}", stop));
                 }
 
-                debug_!(
-                    self.dbg,
-                    format!("match_until:: Reached end while searching {:?}", stop)
-                );
-                return false; //TODO: Should we panic?
+                self.info(format!(
+                    "match_until:: Reached end while searching {:?}",
+                    stop
+                ));
+                return false;
             }
         }
 
@@ -241,14 +244,11 @@ impl<'a> ScriptFormatter<'a> {
                     panic!(format!("Failed to find one of: {:?}", stops));
                 }
 
-                debug_!(
-                    self.dbg,
-                    format!(
-                        "match_until:: Reached end while searching for one of {:?}",
-                        stops
-                    )
-                );
-                return false; //TODO: Should we panic?
+                self.info(format!(
+                    "match_until:: Reached end while searching for one of {:?}",
+                    stops
+                ));
+                return false;
             }
         }
 

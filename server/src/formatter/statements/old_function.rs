@@ -52,5 +52,6 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
     
     fmter.write_edit(String::from(")"), Spacing::None);
 
-    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(";"), ";\n", Spacing::None, true);
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Token(";"), Spacing::None, true);
+    fmter.write_newline();
 }

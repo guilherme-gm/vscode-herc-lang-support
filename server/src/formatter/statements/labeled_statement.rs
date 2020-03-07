@@ -16,7 +16,8 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
 	identifier::format(fmter, &cursor.node());
 	cursor.goto_next_sibling();
 
-	fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(":"), ":\n", Spacing::None, true);
+	fmter.match_until_and_write_node(&mut cursor, FmtNode::Token(":"), Spacing::None, true);
+	fmter.write_newline();
 
 	fmter.match_until(&mut cursor, FmtNode::Named("body"), true);
 
