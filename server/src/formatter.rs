@@ -10,7 +10,6 @@ use std::vec::Vec;
 use tower_lsp::lsp_types::*;
 
 // Debugger
-use std::io::prelude::*;
 use std::net::TcpStream;
 
 use crate::source_file::SourceFile;

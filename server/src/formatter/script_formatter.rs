@@ -4,7 +4,7 @@ use tower_lsp::lsp_types::*;
 use tree_sitter::{Node, TreeCursor};
 
 // Debugger
-use std::io::prelude::*;
+//use std::io::prelude::*;
 use std::net::TcpStream;
 
 #[derive(Debug)]
@@ -60,7 +60,7 @@ impl<'a> ScriptFormatter<'a> {
     }
 
     pub fn info(self: &mut ScriptFormatter<'a>, _text: String) {
-        debug_!(self.dbg, _text);
+        //debug_!(self.dbg, _text);
     }
 
     pub fn get_node_text(self: &ScriptFormatter<'a>, node: &Node<'a>) -> String {

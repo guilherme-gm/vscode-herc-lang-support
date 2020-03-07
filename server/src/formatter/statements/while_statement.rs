@@ -1,6 +1,6 @@
 use super::super::expressions::parenthesized_expression;
 use super::super::script_formatter::*;
-use super::block;
+use super::super::statements;
 use tree_sitter::Node;
 
 pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
@@ -15,6 +15,18 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
     cursor.goto_next_sibling();
 
     fmter.match_until(&mut cursor, FmtNode::Named("body"), true);
-    block::format(fmter, &cursor.node());
+
+    let is_block = cursor.node().kind().eq_ignore_ascii_case("block");
+    if is_block {
+        fmter.write_space();
+    } else {
+        fmter.set_indent(fmter.indent_level + 1);
+        fmter.write_newline();
+    }
+    statements::resolve(fmter, &cursor.node());
     cursor.goto_next_sibling();
+
+    if !is_block {
+        fmter.set_indent(fmter.indent_level - 1);
+    }
 }
