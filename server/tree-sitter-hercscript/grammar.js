@@ -32,7 +32,7 @@ module.exports = grammar({
 	],
 
 	rules: {
-		source_file: $ => repeat($._definition),
+		source_file: $ => repeat(field('definition', $._definition)),
 
 		_definition: $ => choice(
 			// TODO: mapflag flags
@@ -76,7 +76,7 @@ module.exports = grammar({
 			field('name', $.npc_name),
 			/\t/,
 			field('sprite', $.identifier),
-			optional($.trigger_area),
+			optional(field('trigger_area', $.trigger_area)),
 			',',
 			field('body', $.block),
 		)),
