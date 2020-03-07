@@ -82,7 +82,7 @@ module.exports = grammar({
 		)),
 
 		shop_def: $ => prec(PREC.TOP_LEVEL, seq(
-			$.position,
+			field('position', $.position),
 			/\t/,
 			field('type', choice('shop', 'cashshop')),
 			/\t/,
@@ -114,7 +114,7 @@ module.exports = grammar({
 		)),
 
 		warp_def: $ => prec(PREC.TOP_LEVEL, seq(
-			$.position,
+			field('position', $.position),
 			/\t/, 'warp', /\t/,
 			field('name', $.npc_name), /\t/,
 			field('span_x', $.number_literal), ',',

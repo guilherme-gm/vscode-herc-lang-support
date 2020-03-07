@@ -1,13 +1,10 @@
 use super::super::script_formatter::*;
 use tree_sitter::Node;
 
-// Debugger
-use std::io::prelude::*;
-
 pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
     fmter.info(format!("> false_exp: {:?}", node));
     let mut cursor = node.walk();
     cursor.goto_first_child();
 
-    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token("false"), "false", true);
+    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token("false"), "false", Spacing::None, true);
 }

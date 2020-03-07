@@ -7,16 +7,15 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
     
     fmter.match_until_one(&mut cursor, &[FmtNode::Token("-"), FmtNode::Named("map")], true);
     if cursor.field_name().is_some() { // it is "map"
-        fmter.write_node(&mut cursor);
-        fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(","), &", ", true);
-        fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("x"), true);
-        fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(","), &", ", true);
-        fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("y"), true);
-        
-        if fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(","), &", ", false) {
-            fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("dir"), true);
+        fmter.write_node(&mut cursor, Spacing::None);
+        fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(","), &", ", Spacing::None, true);
+        fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("x"), Spacing::None, true);
+        fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(","), &", ", Spacing::None, true);
+        if fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("y"), Spacing::None, true) {
+            fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(","), &", ", Spacing::None, false);
+            fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("dir"), Spacing::None, true);
         }
     } else { // it is "-"
-        fmter.write_edit(String::from("-"));
+        fmter.write_edit(String::from("-"), Spacing::None);
     }
 }

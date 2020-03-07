@@ -2,16 +2,13 @@ use super::super::expressions;
 use super::super::script_formatter::*;
 use tree_sitter::{Node, TreeCursor};
 
-// Debugger
-use std::io::prelude::*;
-
 fn resolve_operator_argument(fmter: &mut ScriptFormatter, cursor: &mut TreeCursor) {
     if fmter.is_stop(cursor, &FmtNode::Named("argument")) {
         expressions::resolve(fmter, &cursor.node());
         cursor.goto_next_sibling();
     } else {
         // operator
-        fmter.write_node(cursor);
+        fmter.write_node(cursor, Spacing::None);
     }
 }
 

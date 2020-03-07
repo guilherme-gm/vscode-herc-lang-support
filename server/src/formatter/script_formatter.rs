@@ -13,6 +13,12 @@ pub enum FmtNode<'a> {
     Token(&'a str),
 }
 
+pub enum Spacing {
+    None,
+    Space,
+    Indent,
+}
+
 pub struct ScriptFormatter<'a> {
     pub dbg: &'a mut TcpStream,
     pub code: &'a String,
@@ -27,18 +33,48 @@ pub struct ScriptFormatter<'a> {
      * Do not edit this directly
      */
     pub indent: String,
+    /**
+     * A stack structure of functions being formatted and
+     * its nesting (last = the innermost function)
+     */
+    pub function_stack: Vec<String>,
 }
 
 impl<'a> ScriptFormatter<'a> {
-    pub fn info(self: &mut ScriptFormatter<'a>, text: String) {
-        debug_!(self.dbg, text);
+    pub fn new(
+        dbg: &'a mut TcpStream,
+        code: &'a String,
+        commands: &'a HashMap<String, ScriptCommand>,
+        edits: &'a mut Vec<TextEdit>,
+    ) -> Self {
+        ScriptFormatter {
+            dbg,
+            code,
+            commands,
+            file_cursor: (0, 0),
+            edits,
+            indent_level: 0,
+            indent: String::from(""),
+            function_stack: Vec::new(),
+        }
+    }
+
+    pub fn info(self: &mut ScriptFormatter<'a>, _text: String) {
+        debug_!(self.dbg, _text);
     }
 
     pub fn get_node_text(self: &ScriptFormatter<'a>, node: &Node<'a>) -> String {
         self.code[node.start_byte()..node.end_byte()].to_string()
     }
 
-    pub fn write_edit(self: &mut ScriptFormatter<'a>, text: String) {
+    pub fn write_edit(self: &mut ScriptFormatter<'a>, base_text: String, spacing: Spacing) {
+        let text;
+        match spacing {
+            Spacing::None => text = base_text,
+            Spacing::Space => text = format!(" {}", base_text),
+            Spacing::Indent => text = format!("{}{}", self.indent, base_text),
+        }
+
         if text.len() == 0 {
             return;
         }
@@ -85,18 +121,37 @@ impl<'a> ScriptFormatter<'a> {
             new_text: text,
         });
     }
+    pub fn write_space(self: &mut ScriptFormatter<'a>) {
+        self.write_edit(String::from(" "), Spacing::None);
+    }
 
-    pub fn write_node(self: &mut ScriptFormatter<'a>, cursor: &mut TreeCursor) -> bool {
-        self.write_edit(self.get_node_text(&cursor.node()));
+    pub fn write_indent(self: &mut ScriptFormatter<'a>) {
+        self.write_edit(String::from(""), Spacing::Indent);
+    }
+
+    pub fn write_newline(self: &mut ScriptFormatter<'a>) {
+        self.write_edit(String::from("\n"), Spacing::None);
+    }
+
+    pub fn write_node(
+        self: &mut ScriptFormatter<'a>,
+        cursor: &mut TreeCursor,
+        spacing: Spacing,
+    ) -> bool {
+        self.write_edit(self.get_node_text(&cursor.node()), spacing);
         cursor.goto_next_sibling()
     }
 
     fn write_as_is(self: &mut ScriptFormatter<'a>, node: &Node) {
         self.info(format!("skip:: Skipping {:?}", node));
-        self.write_edit(self.get_node_text(node));
+        self.write_edit(self.get_node_text(node), Spacing::None);
     }
 
-    pub fn is_stop(self: &mut ScriptFormatter<'a>, cursor: &mut TreeCursor, stop: &FmtNode) -> bool {
+    pub fn is_stop(
+        self: &mut ScriptFormatter<'a>,
+        cursor: &mut TreeCursor,
+        stop: &FmtNode,
+    ) -> bool {
         match stop {
             FmtNode::Named(name) => {
                 if let Some(node_name) = cursor.field_name() {
@@ -128,9 +183,9 @@ impl<'a> ScriptFormatter<'a> {
     /**
      * Tries to match "stop", and return.
      * If "required" is true and "stop" is not found, Panics.
-     * 
-     * Returns false if it couldn't find the "stop" 
-     * 
+     *
+     * Returns false if it couldn't find the "stop"
+     *
      * Once the end of the cursor is reached, additional calls
      * to this function (or any other "match") will make it rerun
      * over the last node.
@@ -165,9 +220,9 @@ impl<'a> ScriptFormatter<'a> {
     /**
      * Tries to match one of the "stop", and return.
      * If "required" is true and "stop" is not found, Panics.
-     * 
-     * Returns false if it couldn't find the "stop" 
-     * 
+     *
+     * Returns false if it couldn't find the "stop"
+     *
      * Once the end of the cursor is reached, additional calls
      * to this function (or any other "match") will make it rerun
      * over the last node.
@@ -204,10 +259,10 @@ impl<'a> ScriptFormatter<'a> {
      * Tries to mach "stop", if it matches, writes the node
      * itself and advances the cursor.
      * If "required" is true and "stop" is not found, Panics.
-     * 
+     *
      * Returns false if it couldn't find the "stop" OR IT DID,
      * WROTE STR AND THE END OF CURSOR WAS REACHED.
-     * 
+     *
      * Additional calls to this function (or any other "match")
      * will make it rerun over the last node.
      */
@@ -215,22 +270,23 @@ impl<'a> ScriptFormatter<'a> {
         self: &mut ScriptFormatter<'a>,
         cursor: &mut TreeCursor,
         stop: FmtNode,
+        spacing: Spacing,
         required: bool,
     ) -> bool {
         if !self.match_until(cursor, stop, required) {
             return false;
         }
-        self.write_node(cursor)
+        self.write_node(cursor, spacing)
     }
 
     /**
      * Tries to mach "stop", if it matches, writes "replace",
      * and advances the cursor.
      * If "required" is true and "stop" is not found, Panics.
-     * 
+     *
      * Returns false if it couldn't find the "stop" OR IT DID,
      * WROTE STR AND THE END OF CURSOR WAS REACHED.
-     * 
+     *
      * Additional calls to this function (or any other "match")
      * will make it rerun over the last node.
      */
@@ -239,12 +295,13 @@ impl<'a> ScriptFormatter<'a> {
         cursor: &mut TreeCursor,
         stop: FmtNode,
         replace: &str,
+        spacing: Spacing,
         required: bool,
     ) -> bool {
         if !self.match_until(cursor, stop, required) {
             return false;
         }
-        self.write_edit(String::from(replace));
+        self.write_edit(String::from(replace), spacing);
         cursor.goto_next_sibling()
     }
 

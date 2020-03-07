@@ -1,13 +1,10 @@
 use super::position;
 use tree_sitter::Node;
 
-// Debugger
-use std::io::prelude::*;
-
 use super::super::script_formatter::*;
 
 fn format_item(fmter: &mut ScriptFormatter, node: &Node) {
-    fmter.write_edit(fmter.get_node_text(node));
+    fmter.write_edit(fmter.get_node_text(node), Spacing::None);
 }
 
 pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
@@ -20,22 +17,28 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
     position::format(fmter, &cursor.node());
     cursor.goto_next_sibling();
 
-    fmter.write_edit(String::from("\t"));
-    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("type"), true);
-    fmter.write_edit(String::from("\t"));
-    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("name"), true);
-    fmter.write_edit(String::from("\t"));
-    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("sprite"), true);
+    fmter.write_edit(String::from("\t"), Spacing::None);
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("type"), Spacing::None, true);
+    fmter.write_edit(String::from("\t"), Spacing::None);
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("name"), Spacing::None, true);
+    fmter.write_edit(String::from("\t"), Spacing::None);
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("sprite"), Spacing::None, true);
 
-    fmter.match_until_and_write_node(&mut cursor, FmtNode::Token(","), true);
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Token(","), Spacing::None, true);
     while fmter.match_until(&mut cursor, FmtNode::Named("item"), false) {
         format_item(fmter, &cursor.node());
-        cursor.goto_next_sibling();
 
-        if !fmter.match_until_and_write_node(&mut cursor, FmtNode::Token(","), true) {
+        if !cursor.goto_next_sibling()
+            || !fmter.match_until_and_write_node(
+                &mut cursor,
+                FmtNode::Token(","),
+                Spacing::None,
+                false,
+            )
+        {
             break;
         }
     }
 
-    fmter.write_edit(String::from("\n"));
+    fmter.write_edit(String::from("\n"), Spacing::None);
 }

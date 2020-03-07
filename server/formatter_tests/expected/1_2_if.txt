@@ -4,4 +4,8 @@ prontera, 150, 150, 4	script	Test	FAKE_NPC,{
 	} else {
 		x = 2;
 	}
+	if (a)
+		x = 1;
+	else
+		x = 2;
 }

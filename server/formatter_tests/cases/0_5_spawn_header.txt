@@ -1,0 +1,2 @@
+ve_fild01,0,0,0,0	monster	Galion	1783,35,5000,0,0
+ve_fild01,0,0,0,0	boss_monster	Atroce	1785,1,10800000,600000,0

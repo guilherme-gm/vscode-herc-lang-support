@@ -1,0 +1,2 @@
+que_god01, 62, 116, 0	warp	god_sl_w1-1	1, 1, que_god01, 46, 94
+que_god01, 62, 116	warp	god_sl_w1-1	1, 1, que_god01, 46, 94

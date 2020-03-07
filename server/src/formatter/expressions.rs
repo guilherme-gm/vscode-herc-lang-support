@@ -1,8 +1,5 @@
 use tree_sitter::Node;
 
-// Debugger
-use std::io::prelude::*;
-
 use crate::formatter::script_formatter::ScriptFormatter;
 
 pub mod assignment_expression;

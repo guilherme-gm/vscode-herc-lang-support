@@ -2,9 +2,6 @@ use super::super::expressions;
 use super::super::script_formatter::*;
 use tree_sitter::Node;
 
-// Debugger
-use std::io::prelude::*;
-
 pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
     fmter.info(format!("> binary_expr: {:?}", node));
     let mut cursor = node.walk();
@@ -14,9 +11,8 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
     expressions::resolve(fmter, &cursor.node());
     cursor.goto_next_sibling();
     
-    fmter.write_edit(String::from(" "));
-    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("operator"), true);
-    fmter.write_edit(String::from(" "));
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("operator"), Spacing::Space, true);
+    fmter.write_space();
 
     fmter.match_until(&mut cursor, FmtNode::Named("right"), true);
     expressions::resolve(fmter, &cursor.node());

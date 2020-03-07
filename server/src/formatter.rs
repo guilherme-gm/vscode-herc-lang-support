@@ -28,15 +28,7 @@ pub fn get_edits(
     let tree = &source.tree;
     let mut edits: Vec<TextEdit> = Vec::new();
     let cmds = &state.commands.as_ref().unwrap();
-    let mut fmter = ScriptFormatter {
-        dbg: &mut dbg,
-        code: &source.code,
-        commands: cmds,
-        file_cursor: (0, 0),
-        edits: &mut edits,
-        indent_level: 0,
-        indent: String::from(""),
-    };
+    let mut fmter = ScriptFormatter::new(&mut dbg, &source.code, cmds, &mut edits);
     let end_pos = tree.root_node().end_position();
     let mut cursor = tree.root_node().walk();
     for top_level_node in tree.root_node().children(&mut cursor) {

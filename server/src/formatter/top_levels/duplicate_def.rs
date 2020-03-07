@@ -2,9 +2,6 @@ use super::position;
 use super::trigger_area;
 use tree_sitter::Node;
 
-// Debugger
-use std::io::prelude::*;
-
 use super::super::script_formatter::*;
 
 pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
@@ -17,14 +14,14 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
     position::format(fmter, &cursor.node());
     cursor.goto_next_sibling();
 
-    fmter.write_edit(String::from("\t"));
-    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token("duplicate"), &"duplicate", true);
-    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token("("), &"(", true);
-    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("src_npc"), true);
-    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(")"), &")", true);
-    fmter.write_edit(String::from("\t"));
-    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("new_npc"), true);
-    fmter.write_edit(String::from("\t"));
+    fmter.write_edit(String::from("\t"), Spacing::None);
+    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token("duplicate"), &"duplicate", Spacing::None, true);
+    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token("("), &"(", Spacing::None, true);
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("src_npc"), Spacing::None, true);
+    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(")"), &")", Spacing::None, true);
+    fmter.write_edit(String::from("\t"), Spacing::None);
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("new_npc"), Spacing::None, true);
+    fmter.write_edit(String::from("\t"), Spacing::None);
 
     fmter.match_until_one(
         &mut cursor,
@@ -32,12 +29,12 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
         true,
     );
     if fmter.is_stop(&mut cursor, &FmtNode::Named("span_x")) {
-        fmter.write_node(&mut cursor);
-        fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(","), &", ", true);
-        fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("span_y"), true);
+        fmter.write_node(&mut cursor, Spacing::None);
+        fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(","), &", ", Spacing::None, true);
+        fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("span_y"), Spacing::None, true);
     } else {
         // Write sprite and checks if there is more (that is, trigger)
-        if fmter.write_node(&mut cursor) {
+        if fmter.write_node(&mut cursor, Spacing::None) {
             if fmter.is_stop(&mut cursor, &FmtNode::Named("trigger")) {
                 trigger_area::format(fmter, &cursor.node());
                 cursor.goto_next_sibling();
@@ -45,5 +42,5 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
         }
     }
 
-    fmter.write_edit(String::from("\n"));
+    fmter.write_edit(String::from("\n"), Spacing::None);
 }

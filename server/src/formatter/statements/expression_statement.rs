@@ -2,9 +2,6 @@ use super::super::expressions;
 use super::super::script_formatter::*;
 use tree_sitter::Node;
 
-// Debugger
-use std::io::prelude::*;
-
 pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
     fmter.info(format!("> expression_stmt: {:?}", node));
     let mut cursor = node.walk();
@@ -21,13 +18,14 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
 
         // It may be a script command in the old style that doesn't have parameters (e.g.: "close;")
         if fmter.is_command(&node) {
-            fmter.write_edit(format!("{}{}()", fmter.indent, fmter.get_node_text(&node)));
+            fmter.write_edit(format!("{}()", fmter.get_node_text(&node)), Spacing::Indent);
         } else {
+            fmter.write_indent();
             expressions::resolve(fmter, &cursor.node());
         }
 
         cursor.goto_next_sibling();
     }
 
-    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(";"), ";\n", true);
+    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(";"), ";\n", Spacing::None, true);
 }

@@ -4,5 +4,8 @@ prontera, 150, 150, 4	script	Test	FAKE_NPC,{
 	default:
 		.@i = 10;
 		break;
+	case 2:
+		mes("test");
+		break;
 	}
 }

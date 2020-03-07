@@ -1,9 +1,6 @@
 use super::script_formatter::ScriptFormatter;
 use tree_sitter::Node;
 
-// Debugger
-use std::io::prelude::*;
-
 pub mod block;
 pub mod break_stmt;
 pub mod case_statement;

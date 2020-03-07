@@ -1,0 +1,2 @@
+prontera,150,150,4	shop	Test	FAKE_NPC,501:10
+prontera,150,150,4	shop	Test	FAKE_NPC,501:10,502:20

@@ -3,9 +3,6 @@ use super::position;
 use super::trigger_area;
 use tree_sitter::Node;
 
-// Debugger
-use std::io::prelude::*;
-
 use super::super::script_formatter::*;
 
 pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
@@ -18,12 +15,12 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
     position::format(fmter, &cursor.node());
     cursor.goto_next_sibling();
 
-    fmter.write_edit(String::from("\t"));
-    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("type"), true);
-    fmter.write_edit(String::from("\t"));
-    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("name"), true);
-    fmter.write_edit(String::from("\t"));
-    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("sprite"), true);
+    fmter.write_edit(String::from("\t"), Spacing::None);
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("type"), Spacing::None, true);
+    fmter.write_edit(String::from("\t"), Spacing::None);
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("name"), Spacing::None, true);
+    fmter.write_edit(String::from("\t"), Spacing::None);
+    fmter.match_until_and_write_node(&mut cursor, FmtNode::Named("sprite"), Spacing::None, true);
 
     fmter.match_until_one(
         &mut cursor,
@@ -37,7 +34,7 @@ pub fn format(fmter: &mut ScriptFormatter, node: &Node) {
         cursor.goto_next_sibling();
     }
 
-    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(","), &",", true);
+    fmter.match_until_and_write_str(&mut cursor, FmtNode::Token(","), &",", Spacing::None, true);
     if fmter.match_until(&mut cursor, FmtNode::Named("body"), true) {
         statements::block::format(fmter, &cursor.node());
     } else {
