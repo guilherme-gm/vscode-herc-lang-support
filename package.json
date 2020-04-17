@@ -34,6 +34,12 @@
                     ],
                     "default": "off",
                     "description": "Traces the communication between VS Code and the language server."
+                },
+                "herculesScriptSupport.useServerDebugger": {
+                    "scope": "application",
+                    "type": "boolean",
+                    "description": "Tells the language server it should connect to the Server Debugger (a TCP Application that listens to debug messages). Requires Restart. For Developers.",
+                    "default": false
                 }
             }
         },

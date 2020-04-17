@@ -59,17 +59,6 @@ impl HerculesScript {
         let mut parser = Parser::new();
         let language = unsafe { tree_sitter_hercscript() };
         parser.set_language(language).unwrap();
-        let result = TcpStream::connect("127.0.0.1:10000");
-        let con: Option<TcpStream>;
-
-        if let Ok(mut stream) = result {
-            let _ = stream.set_nodelay(true);
-            let _ = stream.write("Client Connected\n".as_bytes());
-            
-            con = Some(stream);
-        } else {
-            con = None;
-        }
 
         let script_instance = HerculesScript {
             state: Mutex::new(State {
@@ -77,7 +66,7 @@ impl HerculesScript {
                 parser,
                 commands: None,
             }),
-            con: Mutex::new(con),
+            con: Mutex::new(None),
         };
 
         script_instance
@@ -101,6 +90,27 @@ impl LanguageServer for HerculesScript {
             script_commands::load_prototypes(&mut commands);
             self.state.lock().unwrap().commands = Some(commands);
         }
+        
+        printer.log_message(MessageType::Info, format!("Conf: {:?}", init.get("use_server_debugger")));
+        if let Some(Value::Bool(use_debug)) = init.get("use_server_debugger") {
+            printer.log_message(MessageType::Info, "Checkinf server debugger");
+            if *use_debug {
+                printer.log_message(MessageType::Info, "Enabling server debug");
+                let result = TcpStream::connect("127.0.0.1:10000");
+                
+                if let Ok(mut stream) = result {
+                    let _ = stream.set_nodelay(true);
+                    let _ = stream.write("Client Connected\n".as_bytes());
+                    
+                    let mut con_mutex = self.con.lock().unwrap();
+                    *con_mutex = Some(stream);
+                    printer.log_message(MessageType::Info, "Connected");
+                } else {
+                    printer.log_message(MessageType::Info, "No debug");
+                }
+            }
+        }
+
         Ok(InitializeResult {
             server_info: None,
             capabilities: ServerCapabilities {

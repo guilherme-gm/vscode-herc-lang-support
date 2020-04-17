@@ -4,7 +4,7 @@
  * ------------------------------------------------------------------------------------------ */
 
 import * as path from 'path';
-import { workspace, ExtensionContext, window } from 'vscode';
+import { extensions, workspace, ExtensionContext, window } from 'vscode';
 
 import {
 	LanguageClient,
@@ -32,12 +32,15 @@ export function activate(context: ExtensionContext) {
 		run,
 		debug: run
 	};
-
+	
 	// Options to control the language client
 	let clientOptions: LanguageClientOptions = {
 		// Register the server for plain text documents
 		documentSelector: [{ scheme: 'file', language: 'hercscript' }],
-		initializationOptions: { script_cmd: path.resolve("client", "out", "commands.json") }, // FIXME: Is this path correct for production?
+		initializationOptions: {
+			script_cmd: path.join(extensions.getExtension('ggmenaldo.hercules-script-support').extensionPath, "client", "out", "commands.json"),
+			use_server_debugger: workspace.getConfiguration('herculesScriptSupport').get('useServerDebugger'),
+		},
 	};
 
 	/*  ---- Find out Tab-Size -----
