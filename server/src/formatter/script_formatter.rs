@@ -20,7 +20,7 @@ pub enum Spacing {
 }
 
 pub struct ScriptFormatter<'a> {
-    pub dbg: &'a mut TcpStream,
+    pub dbg: &'a mut Option<TcpStream>,
     pub code: &'a String,
     pub commands: &'a HashMap<String, ScriptCommand>,
     pub file_cursor: (u64, u64),
@@ -42,7 +42,7 @@ pub struct ScriptFormatter<'a> {
 
 impl<'a> ScriptFormatter<'a> {
     pub fn new(
-        dbg: &'a mut TcpStream,
+        dbg: &'a mut Option<TcpStream>,
         code: &'a String,
         commands: &'a HashMap<String, ScriptCommand>,
         edits: &'a mut Vec<TextEdit>,

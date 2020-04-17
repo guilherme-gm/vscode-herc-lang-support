@@ -17,7 +17,7 @@ use crate::source_file::SourceFile;
 use script_formatter::{FmtNode, ScriptFormatter};
 
 pub fn get_edits(
-    dbg: &Mutex<TcpStream>,
+    dbg: &Mutex<Option<TcpStream>>,
     source: Arc<Mutex<SourceFile>>,
     state: &State,
     _options: FormattingOptions,

@@ -50,15 +50,15 @@ fn get_named_parent_kind(node: &Node) -> Option<String> {
     None
 }
 
-fn get_context(node: &Node, position: &Position, dbg: &mut TcpStream) -> CodeContext {
+fn get_context(node: &Node, position: &Position, dbg: &Option<TcpStream>) -> CodeContext {
     let point = Point::new(
         position.line.try_into().unwrap(),
         position.character.try_into().unwrap(),
     );
     let cursor_node = node.descendant_for_point_range(point, point);
-    debug_!(dbg, format!(">> Node: {:?}", cursor_node));
+    debug_!(dbg.as_ref(), format!(">> Node: {:?}", cursor_node));
     debug_!(
-        dbg,
+        dbg.as_ref(),
         format!(">> Parent: {:?}", cursor_node.unwrap().parent())
     );
     if let Some(cursor_node) = cursor_node {
@@ -98,7 +98,7 @@ fn make_script_cmd_completion(name: String, cmd: &ScriptCommand) -> CompletionIt
 }
 
 pub fn get_completion(
-    dbg: &Mutex<TcpStream>,
+    dbg: &Mutex<Option<TcpStream>>,
     state: &State,
     source: Arc<Mutex<SourceFile>>,
     position: Position,
@@ -108,9 +108,9 @@ pub fn get_completion(
     let tree = &source.tree;
 
     let mut items: Vec<CompletionItem> = Vec::new();
-    debug_!(dbg, "Completing..");
-    debug_!(dbg, format!("Position: {:?}", position));
-    debug_!(dbg, format!("{:?}", tree.root_node().to_sexp()));
+    debug_!(dbg.as_ref(), "Completing..");
+    debug_!(dbg.as_ref(), format!("Position: {:?}", position));
+    debug_!(dbg.as_ref(), format!("{:?}", tree.root_node().to_sexp()));
 
     let context = get_context(&tree.root_node(), &position, &mut dbg);
 
@@ -122,7 +122,7 @@ pub fn get_completion(
         }
     }
 
-    debug_!(dbg, "--------");
+    debug_!(dbg.as_ref(), "--------");
 
     items
 }

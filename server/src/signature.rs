@@ -37,7 +37,7 @@ fn is_pos(token_end: &Point, cursor: &Position) -> bool {
     (cursor.line <= (token_end.row as u64)) && (cursor.character <= token_end.column as u64) //FIXME: This is unsaef
 }
 
-fn get_context(node: &Node, position: &Position, code: &String, dbg: &mut TcpStream) -> Option<FunctionContext> {
+fn get_context(node: &Node, position: &Position, code: &String, dbg: &mut Option<TcpStream>) -> Option<FunctionContext> {
     let point = Point::new(
         position.line.try_into().unwrap(),
         position.character.try_into().unwrap(),
@@ -208,7 +208,7 @@ fn buildSignatureHelp(context: FunctionContext, commands: &HashMap<String, Scrip
 }
 
 pub fn get_signature(
-    dbg: &Mutex<TcpStream>,
+    dbg: &Mutex<Option<TcpStream>>,
     state: &State,
     source: Arc<Mutex<SourceFile>>,
     position: Position,

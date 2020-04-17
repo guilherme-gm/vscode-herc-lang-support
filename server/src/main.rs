@@ -1,7 +1,9 @@
 #[macro_use]
 macro_rules! debug_ {
     ($con: expr, $msg: expr) => {
-        $con.write(format!("{}\n", $msg).as_bytes()).unwrap();
+        if $con.is_some() {
+            $con.unwrap().write(format!("{}\n", $msg).as_bytes()).unwrap();
+        }
     };
 }
 
@@ -37,6 +39,7 @@ use tower_lsp::lsp_types::*;
 use tower_lsp::{LanguageServer, LspService, Printer, Server};
 use tree_sitter::{Language, Parser};
 use std::convert::TryInto;
+use std::ops::Deref;
 
 // Debugger
 use std::io::prelude::*;
@@ -48,7 +51,7 @@ extern "C" {
 
 pub struct HerculesScript {
     state: Mutex<State>,
-    con: Mutex<TcpStream>, // Debugger
+    con: Mutex<Option<TcpStream>>, // Debugger
 }
 
 impl HerculesScript {
@@ -56,19 +59,28 @@ impl HerculesScript {
         let mut parser = Parser::new();
         let language = unsafe { tree_sitter_hercscript() };
         parser.set_language(language).unwrap();
-        let mut stream = TcpStream::connect("127.0.0.1:10000").unwrap();
-        let _ = stream.set_nodelay(true);
-        // let _ = stream.write("Client Connected\n".as_bytes());
-        debug_!(stream, "Client Connected");
+        let result = TcpStream::connect("127.0.0.1:10000");
+        let con: Option<TcpStream>;
 
-        HerculesScript {
+        if let Ok(mut stream) = result {
+            let _ = stream.set_nodelay(true);
+            let _ = stream.write("Client Connected\n".as_bytes());
+            
+            con = Some(stream);
+        } else {
+            con = None;
+        }
+
+        let script_instance = HerculesScript {
             state: Mutex::new(State {
                 sources: HashMap::new(),
                 parser,
                 commands: None,
             }),
-            con: Mutex::new(stream),
-        }
+            con: Mutex::new(con),
+        };
+
+        script_instance
     }
 }
 
@@ -243,8 +255,9 @@ impl LanguageServer for HerculesScript {
     async fn formatting(&self, params: DocumentFormattingParams) -> Result<Option<Vec<TextEdit>>> {
         let uri = &params.text_document.uri;
         let mut state = self.state.lock().unwrap_or_else(|e| e.into_inner());
+        let dbg = self.con.lock().unwrap_or_else(|e| e.into_inner());
         
-        debug_!(self.con.lock().unwrap(), format!("{:?}", params));
+        debug_!((dbg.deref().as_ref()), format!("{:?}", params));
         if let Some(src) = file::get(&mut state, uri) {
             Ok(formatter::get_edits(&self.con, src, &state, params.options))
         } else {
